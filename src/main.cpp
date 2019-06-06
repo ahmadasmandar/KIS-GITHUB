@@ -7,7 +7,7 @@
 
 //********* the Constants that we may used alot
 #define PI 3.1415926535897932384626433832795
-#define time_target 393 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
+#define time_target 393+time_window_photo-20 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
 const uint16_t test_time = 400; // the new value for photo sensor
 const uint16_t test_time_hall=400;
 //************** Objects from the main Classes  ******************//

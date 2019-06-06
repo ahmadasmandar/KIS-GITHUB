@@ -7,7 +7,7 @@ Servo shhot_motor;
 float delay_time_shoot;
 void Shoot::shootManuel()
 {
-    shhot_motor.write(25);
+    shhot_motor.write(20);
     delay(105);
     shhot_motor.write(0);
     debshoot.sPrint("the ball is shotted", 0 , "   ");
@@ -24,7 +24,7 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
 
         if (time_resto < target_time && time_resto > target_time - window)
         {
-          shhot_motor.write(25);
+          shhot_motor.write(20);
           delay(105);
           //shhot_motor.write(0);
 
@@ -51,7 +51,7 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
          {
             delay_time_shoot=total_time-(target_time -(window/2)-time_resto);
             delay(delay_time_shoot);
-            shhot_motor.write(25);
+            shhot_motor.write(20);
             delay(105);
             shhot_motor.write(0);
              // debshoot.sPrint("THIRD_IF 3 - if speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
@@ -63,7 +63,7 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
          {
            delay_time_shoot=2*total_time- target_time-(window/2);
             delay(delay_time_shoot);
-            shhot_motor.write(25);
+            shhot_motor.write(20);
             delay(105);
             shhot_motor.write(0);
               // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");

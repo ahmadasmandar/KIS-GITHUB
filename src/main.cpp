@@ -130,7 +130,7 @@ void loop()
   cli();
    shot_flag_holder=shoot_flag;
   sei();
-  if (digitalRead(demo.trigger) == HIGH /*&& millis() - last_pressed > 2000  && shot_flag_holder==true*/)
+  if (digitalRead(demo.trigger) == HIGH && hall_section==0/*&& millis() - last_pressed > 2000  && shot_flag_holder==true*/)
   {
     Serial.println(" trigger pressed ");
     switch (program_mode)

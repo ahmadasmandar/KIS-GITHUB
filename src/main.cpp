@@ -133,6 +133,7 @@ void loop()
   if (digitalRead(demo.trigger) == HIGH && hall_section==0/*&& millis() - last_pressed > 2000  && shot_flag_holder==true*/)
   {
     Serial.println(" trigger pressed ");
+    debo.sPrint("the target time ",time_target,"ms");
     switch (program_mode)
     {
       /** nur Hall sensor benutzen **/

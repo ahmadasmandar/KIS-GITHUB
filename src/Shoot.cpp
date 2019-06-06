@@ -63,7 +63,12 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
          }
           else if (total_time < target_time)
          {
-           delay_time_shoot=2*total_time- target_time;
+            debshoot.sPrint("FOURTH_IF 4 -  if time totsl  is ", total_time, "ms");
+            //debshoot.sPrint("FOURTH_IF 4 -  if work time   is ", time, "ms");
+            debshoot.sPrint("FOURTH_IF 4 -  if work time is ", time_resto- 2, "ms");
+            //debshoot.sPrint("FOURTH_IF 4 -  if delay time is ", delay_time_shoot, "ms");
+            //debshoot.sPrint("FOURTH_IF 4 -  if new work time is ", time_resto + delay_time_shoot, "ms");
+           delay_time_shoot=total_time-target_time;
             delay(delay_time_shoot);
             shhot_motor.write(angel);
             delay(motor_delay);

@@ -6,9 +6,11 @@ debug debshoot;
 Servo shhot_motor;
 float delay_time_shoot;
 void Shoot::shootManuel()
+int angel=20;
+int motor_delay=100;
 {
-    shhot_motor.write(20);
-    delay(105);
+    shhot_motor.write(angel);
+    delay(motor_delay);
     shhot_motor.write(0);
     debshoot.sPrint("the ball is shotted", 0 , "   ");
 
@@ -16,7 +18,7 @@ void Shoot::shootManuel()
 void Shoot::motorIntil()
 {
     shhot_motor.attach(9);
-    shhot_motor.write(0);
+    shhot_motor.write(-5);
 }
 
 void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, float total_time , uint16_t window,uint16_t target_time)
@@ -24,9 +26,9 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
 
         if (time_resto < target_time && time_resto > target_time - window)
         {
-          shhot_motor.write(20);
-          delay(105);
-          //shhot_motor.write(0);
+          shhot_motor.write(angel);
+          delay(motor_delay);
+          shhot_motor.write(0);
 
           debshoot.sPrint("NORMAL_IF  if work time is ", time_resto, "ms");
           debshoot.sPrint("NORMAL_IF  ", section, "ms");
@@ -36,8 +38,8 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
         {
           delay_time_shoot = time_resto - target_time;
           delay(delay_time_shoot);
-          shhot_motor.write(20);
-          delay(105);
+          shhot_motor.write(angel);
+          delay(motor_delay);
           shhot_motor.write(0);
           // debshoot.sPrint("SECOND_IF 2- if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
           debshoot.sPrint("SECOND_IF 2- if work time is ", time_resto - 2, "ms");
@@ -51,8 +53,8 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
          {
             delay_time_shoot=total_time-(target_time -(window/2)-time_resto);
             delay(delay_time_shoot);
-            shhot_motor.write(20);
-            delay(105);
+            shhot_motor.write(angel);
+            delay(motor_delay);
             shhot_motor.write(0);
              // debshoot.sPrint("THIRD_IF 3 - if speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
             debshoot.sPrint("THIRD_IF 3 - if work time is ", time_resto, "ms");
@@ -63,8 +65,8 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
          {
            delay_time_shoot=2*total_time- target_time-(window/2);
             delay(delay_time_shoot);
-            shhot_motor.write(20);
-            delay(105);
+            shhot_motor.write(angel);
+            delay(motor_delay);
             shhot_motor.write(0);
               // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
             debshoot.sPrint("FOURTH_IF 4 -  if time totsl  is ", total_time, "ms");

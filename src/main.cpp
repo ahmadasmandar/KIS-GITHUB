@@ -15,7 +15,7 @@ const uint16_t test_time_hall=400;
 speed spedo; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
 kisg6 demo;  // from Class KISG6 that contain the experement Conditions (pins Setup )
 debug debo;  // from Debug class the main use is to Serial print complexe Phrases
-//Servo motor;
+Servo motor;
 Shoot shooter;
 
 // Here is the value for the Interrupts Counter for
@@ -76,6 +76,8 @@ uint8_t chooseMode();
 void setup()
 {
   demo.pinSetup();
+  //motor.attach(9);
+  //motor.write(0);
   shooter.motorIntil();
   Serial.begin(9600);
   attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);

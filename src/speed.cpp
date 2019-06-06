@@ -23,7 +23,7 @@ return(PI*1000/delta_hal);
 float speed::photoRst(int photo_seco,int delta_pho_rst)
 {
     float photo_speed_intern=photoSpeed(delta_pho_rst);
-    return((float)(((12-(photo_seco+1))*(PI/6))/photo_speed_intern )*1000);
+    return((float)(((12-(photo_seco))*(PI/6))/photo_speed_intern )*1000);
 }
 float speed::hallRst(int hall_seco,int delta_hall_rst)
 {
@@ -34,7 +34,7 @@ float speed::hallRst(int hall_seco,int delta_hall_rst)
     }
     else
     {
-        return((float)(((2-(hall_seco+1))*PI)/hall_speed_intern )*1000);
+        return((float)(((2-(hall_seco))*PI)/hall_speed_intern )*1000);
     }
     
   

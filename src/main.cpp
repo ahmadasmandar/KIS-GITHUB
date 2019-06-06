@@ -7,7 +7,7 @@
 
 //********* the Constants that we may used alot
 #define PI 3.1415926535897932384626433832795
-#define time_target 393+time_window_photo*2 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
+#define time_target 393+time_window_photo+100 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
 const uint16_t test_time = 400; // the new value for photo sensor
 const uint16_t test_time_hall=400;
 //************** Objects from the main Classes  ******************//
@@ -130,7 +130,7 @@ void loop()
   cli();
    shot_flag_holder=shoot_flag;
   sei();
-  if (digitalRead(demo.trigger) == HIGH /*&& millis() - last_pressed > 2000 */ && shot_flag_holder==true)
+  if (digitalRead(demo.trigger) == HIGH /*&& millis() - last_pressed > 2000  && shot_flag_holder==true*/)
   {
     Serial.println(" trigger pressed ");
     switch (program_mode)
@@ -172,6 +172,7 @@ void loop()
     }
     stopSerial(digitalRead(demo.butt2));
     last_pressed = millis();
+    debo.sPrint("time target",time_target,"ms");
   }
 }
 

@@ -15,7 +15,7 @@ const uint16_t test_time_hall=400;
 speed spedo; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
 kisg6 demo;  // from Class KISG6 that contain the experement Conditions (pins Setup )
 debug debo;  // from Debug class the main use is to Serial print complexe Phrases
-Servo motor;
+// Servo motor;
 Shoot shooter;
 
 // Here is the value for the Interrupts Counter for
@@ -110,7 +110,6 @@ void loop()
   time_array[i_time] = hold_delta;
    photo_pos=photo_section;
    hall_pos=hall_section;
-   shot_flag_holder=shoot_flag;
   sei();
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
@@ -128,6 +127,9 @@ void loop()
   i_time = checkCounter(i_time, 2);                                          // further the ounter with 1 and check if he reached his max reset it
   stopSerial(digitalRead(demo.butt2));
   checkStartCondtions(hall_section, pos);
+  cli();
+   shot_flag_holder=shoot_flag;
+  sei();
   if (digitalRead(demo.trigger) == HIGH /*&& millis() - last_pressed > 2000 */ && shot_flag_holder==true)
   {
     Serial.println(" trigger pressed ");

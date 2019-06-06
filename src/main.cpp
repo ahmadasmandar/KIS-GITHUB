@@ -7,7 +7,7 @@
 
 //********* the Constants that we may used alot
 #define PI 3.1415926535897932384626433832795
-#define time_target 393+time_window_photo-20 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
+#define time_target 393 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
 const uint16_t test_time = 400; // the new value for photo sensor
 const uint16_t test_time_hall=400;
 //************** Objects from the main Classes  ******************//
@@ -28,6 +28,7 @@ uint32_t photo_start, hall_start;            // these wil be used to calculate t
 
 volatile uint16_t time_delta_photo;
 volatile uint16_t time_delta_hall;
+volatile boolean shoot_flag=false;
 /////
 volatile float time_interrupt_photo, time_interrupt_hall; // these will hold the time rest values from the change point..
 
@@ -56,7 +57,7 @@ boolean start_flag = true;
 float delay_time;
 
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
-boolean choose_mode_flag=true;
+boolean choose_mode_flag=true,shot_flag_holder=false;
 
 //function prototypes
 
@@ -109,6 +110,7 @@ void loop()
   time_array[i_time] = hold_delta;
    photo_pos=photo_section;
    hall_pos=hall_section;
+   shot_flag_holder=shoot_flag;
   sei();
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
@@ -126,7 +128,7 @@ void loop()
   i_time = checkCounter(i_time, 2);                                          // further the ounter with 1 and check if he reached his max reset it
   stopSerial(digitalRead(demo.butt2));
   checkStartCondtions(hall_section, pos);
-  if (digitalRead(demo.trigger) == HIGH /*&& millis() - last_pressed > 1000*/ )
+  if (digitalRead(demo.trigger) == HIGH /*&& millis() - last_pressed > 2000 */ && shot_flag_holder==true)
   {
     Serial.println(" trigger pressed ");
     switch (program_mode)
@@ -250,6 +252,15 @@ void photo_sens_interrupt()
   photo_start = millis();
   time_interrupt_photo = spedo.photoRst(photo_section, time_delta_photo);
   photo_section = checkCounter(photo_section, 12);
+  if (photo_section==0)
+  {
+    shoot_flag=true;
+  }
+  else
+  {
+    shoot_flag=false;
+  }
+  
 }
 
 //************** HALL SENS INTERRUPT *********

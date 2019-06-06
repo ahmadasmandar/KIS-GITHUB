@@ -7,7 +7,7 @@
 
 //********* the Constants that we may used alot
 #define PI 3.1415926535897932384626433832795
-#define time_target 393-30 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
+#define time_target 393 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
 const uint16_t test_time = 400; // the new value for photo sensor
 const uint16_t test_time_hall=400;
 //************** Objects from the main Classes  ******************//
@@ -124,7 +124,7 @@ void loop()
   i_time = checkCounter(i_time, 2);                                          // further the ounter with 1 and check if he reached his max reset it
   stopSerial(digitalRead(demo.butt2));
   checkStartCondtions(hall_section, pos);
-  if (digitalRead(demo.trigger) == HIGH /*&& millis() - last_pressed > 1000*/ &&  photo_pos == 0 )
+  if (digitalRead(demo.trigger) == HIGH /*&& millis() - last_pressed > 1000*/ )
   {
     Serial.println(" trigger pressed ");
     switch (program_mode)

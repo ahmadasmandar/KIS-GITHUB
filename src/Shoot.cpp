@@ -51,7 +51,7 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
         {
           if (total_time > target_time)
          {
-            delay_time_shoot=total_time-(target_time -(window/2)-time_resto);
+            delay_time_shoot=total_time-(target_time -time_resto);
             delay(delay_time_shoot);
             shhot_motor.write(angel);
             delay(motor_delay);
@@ -63,7 +63,7 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
          }
           else if (total_time < target_time)
          {
-           delay_time_shoot=2*total_time- target_time-(window/2);
+           delay_time_shoot=2*total_time- target_time;
             delay(delay_time_shoot);
             shhot_motor.write(angel);
             delay(motor_delay);

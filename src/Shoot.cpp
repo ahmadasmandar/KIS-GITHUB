@@ -5,9 +5,9 @@
 debug debshoot;
 Servo shhot_motor;
 float delay_time_shoot;
-void Shoot::shootManuel()
 int angel=20;
 int motor_delay=100;
+void Shoot::shootManuel()
 {
     shhot_motor.write(angel);
     delay(motor_delay);
@@ -18,7 +18,7 @@ int motor_delay=100;
 void Shoot::motorIntil()
 {
     shhot_motor.attach(9);
-    shhot_motor.write(-5);
+    shhot_motor.write(0);
 }
 
 void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, float total_time , uint16_t window,uint16_t target_time)

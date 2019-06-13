@@ -59,7 +59,8 @@ float delay_time;
 //************ New Calculations using Theata 
 float theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration;
 float speed_array[]={0,0};
-uint8_t j_speed=0;
+uint8_t j_speed=0,target_section;
+float max_theta,theta_target;
 
 
 //************
@@ -77,8 +78,10 @@ uint16_t checkCounter(uint16_t counter1, uint8_t maxV);
 void stopSerial(uint8_t checkSerial);
 void checkStartCondtions(uint8_t hall_seco, uint8_t hoto_cso);
 uint8_t chooseMode();
+uint8_t getTargetSection(float theta_target_1);
 //**********
-void fillSpeed(float speed_from_inter);
+void fillSpeed();
+void getAcceleration();
 // end function prototypes
 
 //****************** the setup *****************************
@@ -120,8 +123,11 @@ void loop()
   photo_pos=photo_section;
   hall_pos=hall_section;
   theta_zero =photo_section*PI/6;
-  angular_speed_zero=spedo.photoSpeed(time_delta_photo);
+  angular_speed_zero=spedo.photoSpeed(time_delta_photo)/1000;
   sei();
+  fillSpeed();
+  getAcceleration();
+  max_theta=2*PI+(angular_speed_zero*(time_target/1000))-(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -148,6 +154,12 @@ void loop()
     debo.sPrint("spped array 1",speed_array[0],"rad/s");
     debo.sPrint("spped array 2",speed_array[1],"rad/s");
     debo.sPrint("speed Acceleration ",angular_acceleration,"rad/s2");
+    theta_target=max_theta-(angular_speed_zero*(time_target/1000))+(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
+    target_section=getTargetSection(theta_target);
+    debo.sPrint("max_theta",max_theta,"rad");
+    debo.sPrint("theta_target",theta_target,"rad");
+    debo.sPrint("target_section",target_section,"");
+
     switch (program_mode)
     {
       /** nur Hall sensor benutzen **/
@@ -336,8 +348,24 @@ void getAcceleration()
   angular_acceleration=-(abs(speed_array[0]-speed_array[1])/time_delta_photo);
   sei();
 }
-void fillSpeed(float speed_from_inter)
+void fillSpeed()
 {
-  speed_array[j_speed]=speed_from_inter;
-  checkCounter(j_speed,2);
+  cli();
+  speed_array[j_speed]=spedo.photoSpeed(time_delta_photo);
+  sei();
+  j_speed=checkCounter(j_speed,2);
+}
+
+uint8_t getTargetSection(float theta_target_1)
+{
+  uint8_t section_help=6*theta_target_1/PI;
+  if (section_help > 12)
+  {
+    return section_help-12;
+  }
+  else
+  {
+    return section_help;
+  }
+  
 }

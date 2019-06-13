@@ -57,8 +57,8 @@ boolean start_flag = true;
 float delay_time;
 
 //************ New Calculations using Theata 
-float theata,theta_zero,angular_speed,angular_speed_zero;
-float speed_array[2];
+float theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration;
+float speed_array[]={0,0};
 uint8_t j_speed=0;
 
 
@@ -145,6 +145,9 @@ void loop()
   {
     Serial.println(" trigger pressed ");
     debo.sPrint("the target time ",time_target,"ms");
+    debo.sPrint("spped array 1",speed_array[0],"rad/s");
+    debo.sPrint("spped array 2",speed_array[1],"rad/s");
+    debo.sPrint("speed Acceleration ",angular_acceleration,"rad/s2");
     switch (program_mode)
     {
       /** nur Hall sensor benutzen **/
@@ -327,14 +330,12 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
     digitalWrite(demo.led2, LOW);
   }
 }
-float getAcceleration(int time_interval)
+void getAcceleration()
 {
   cli();
-  angular_speed=spedo.hallSpeed(time_interval);
-
+  angular_acceleration=-(abs(speed_array[0]-speed_array[1])/time_delta_photo);
   sei();
 }
-
 void fillSpeed(float speed_from_inter)
 {
   speed_array[j_speed]=speed_from_inter;

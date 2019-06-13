@@ -15,7 +15,6 @@ public:
     float totalHallTime(int delta_hal_time);
     boolean secureMotion(int val11 , int val21, boolean STrto);
     void checkStop(int val31, int val41);
-    float CalcAcceleration()
 };
 
 

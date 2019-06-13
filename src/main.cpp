@@ -363,7 +363,7 @@ uint8_t getTargetSection(float theta_target_1)
 {
   uint8_t section_help=6*theta_target_1/PI;
   debo.sPrint("section_help",section_help,"");
-  if (section_help > 12)
+  if (section_help > 11)
   {
     return section_help-12;
   }

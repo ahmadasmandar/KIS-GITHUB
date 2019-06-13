@@ -174,8 +174,6 @@ void loop()
       time_window_hall = (hold_delta/ 6) - 20;
       shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_hall, time_target);
       break;
-
-
       /** nur PHOTO sensor benutzen **/
     case 2:
       // the data that will be used in the shoot function
@@ -209,8 +207,7 @@ void loop()
             debo.sPrint("FOURTH_IF new_4_theta -  target_section ", target_section, "");
          }
       /** Manuel just let the ball go... **/
-
-    case 40:
+    case 4:
       shooter.shootManuel();
       /* code */
       break;

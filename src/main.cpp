@@ -60,6 +60,7 @@ double theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0
 float speed_array[2];
 uint8_t j_speed=0,target_section;
 double max_theta,theta_target;
+uint16_t fill_timer=0;
 
 
 
@@ -82,6 +83,9 @@ uint8_t getTargetSection(float theta_target_1);
 //**********
 void fillSpeed();
 void getAcceleration();
+//*******
+void applyMode();
+void readMode();
 // end function prototypes
 
 //****************** the setup *****************************
@@ -90,7 +94,7 @@ void setup()
 {
   demo.pinSetup();
   shooter.motorIntil();
-  Serial.begin(9600);
+  Serial.begin(57600);
   attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);
   attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
   hall_start = millis();
@@ -101,31 +105,22 @@ void setup()
 //********************************* the main loop ****************
 void loop()
 {
+
+   applyMode();
+ readMode();
+  //******* fill the speed values every 1 second
+  if (millis()-fill_timer > 1000)
+  {
   fillSpeed();
   getAcceleration();
-  if (choose_mode_flag== true)
-  {
-    program_mode=chooseMode();
-    debo.sPrint(" we are in the mode ", program_mode, " ");
-    choose_mode_flag= false;
+  fill_timer=millis();
   }
-  if (digitalRead(demo.butt1) == HIGH && millis() - triggerlastpressed > 1000)
-  {
-    program_mode = chooseMode();
-    debo.sPrint(" we are in the mode ", program_mode, " ");
-    triggerlastpressed = millis();
-  }
-
-  // take the values from he inerrupt and used to fill the time array
+    // take the values from he inerrupt and used to fill the time array
   cli();
   hold_delta = time_delta_photo;
   time_array[i_time] = hold_delta;
-  photo_pos=photo_section;
-  hall_pos=hall_section;
   max_theta=(2*PI)+(spedo.photoSpeed(hold_delta)*time_target/1000)-(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
   sei();
-
- 
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -134,45 +129,31 @@ void loop()
      for that brief period.
       using the cli() sei() functions;
    * ***/
-  /*************** TEST *************/
-  //debo.sPrint("photosection is ",pos,"");
-  /***********END TEST ***************/
+
   //****** in the line we check if some thing Wrong happend or not :
   start_flag = spedo.secureMotion(time_array[1], time_array[0], start_flag); // after 5 second will this function works
-  i_time = checkCounter(i_time, 2);                                          // further the ounter with 1 and check if he reached his max reset it
+  i_time = checkCounter(i_time, 2);                                        // further the ounter with 1 and check if he reached his max reset it
   stopSerial(digitalRead(demo.butt2));
   checkStartCondtions(hall_section, pos);
-  cli();
-   shot_flag_holder=shoot_flag;
-  sei();
-  if (digitalRead(demo.trigger) == HIGH && hall_section==0/*&& millis() - last_pressed > 2000  && shot_flag_holder==true*/)
+  if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 2000)
   {
     Serial.println(" trigger pressed ");
-    debo.sPrint("the target time ",time_target,"ms");
-    debo.sPrint("spped array 1",speed_array[0],"rad/s");
-    debo.sPrint("spped array 2",speed_array[1],"rad/s");
-    debo.sPrint("speed Acceleration ",angular_acceleration,"rad/s2");
     //********************
     theta_target=max_theta-(spedo.photoSpeed(time_delta_photo)*(time_target/1000))+(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
     target_section=getTargetSection(theta_target);
     theta_zero=photo_section*PI/6;
     angular_speed=spedo.photoSpeed(time_delta_photo);
     //***********************
-    debo.sPrint("max_theta",max_theta,"rad");
-    debo.sPrint("theta_target",theta_target,"rad");
-    debo.sPrint("target_section",target_section,"");
-
     switch (program_mode)
     {
       /** nur Hall sensor benutzen **/
     case 1:
-    
       cli();
       hold_delta = time_delta_hall;
-      time_rest_to_null = time_interrupt_hall;
+      time_rest_to_null = spedo.hallRst(hall_section,time_delta_hall);
       pos = photo_section;
       time_total_hall = spedo.totalHallTime(hold_delta);
-      time_window_hall = (time_window_hall/ 6) - 20;
+      time_window_hall = (time_delta_hall/ 6) - 20;
       sei();
       shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_photo, time_target);
       /* code */
@@ -203,13 +184,12 @@ void loop()
          {
            if (pos== target_section){
              shooter.shootManuel();
+             Serial.print("Shooted manulay");
            }
-            
               // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
             debo.sPrint("FOURTH_IF new_4_theta -  if time totsl  is ", time_total_photo, "ms");
             debo.sPrint("FOURTH_IF new_4_theta -  if work time is ", time_rest_to_null- 2, "ms");
          }
-
       /** Manuel just let the ball go... **/
 
     case 4:
@@ -300,16 +280,7 @@ void photo_sens_interrupt()
 {
   time_delta_photo = millis() - photo_start;
   photo_start = millis();
-  time_interrupt_photo = spedo.photoRst(photo_section, time_delta_photo);
   photo_section = checkCounter(photo_section, 12);
-  if (photo_section==0)
-  {
-    shoot_flag=true;
-  }
-  else
-  {
-    shoot_flag=false;
-  }
 }
 
 //************** HALL SENS INTERRUPT *********
@@ -317,7 +288,7 @@ void hall_sens_interrupt()
 {
   time_delta_hall = millis() - hall_start;
   hall_start = millis();
-  time_interrupt_hall = spedo.hallRst(hall_section, time_delta_hall);
+  //time_interrupt_hall = spedo.hallRst(hall_section, time_delta_hall);
   //time_window_hall = (time_delta_hall / 6) - 20;
   hall_section = checkCounter(hall_section, 2);
 }
@@ -386,4 +357,22 @@ uint8_t getTargetSection(float theta_target_1)
     return section_help;
   }
   
+}
+void applyMode()
+{
+  if (choose_mode_flag== true)
+  {
+    program_mode=chooseMode();
+    debo.sPrint(" we are in the mode ", program_mode, " ");
+    choose_mode_flag= false;
+  }
+}
+void readMode()
+{
+      if (digitalRead(demo.butt1) == HIGH && millis() - triggerlastpressed > 1000)
+  {
+    program_mode = chooseMode();
+    debo.sPrint(" we are in the mode ", program_mode, " ");
+    triggerlastpressed = millis();
+  }
 }

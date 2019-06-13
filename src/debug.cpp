@@ -3,7 +3,7 @@
 
 debug::debug()
 {
-    Serial.begin(9600);
+    Serial.begin(57600);
 }
 
 void debug::sPrint(String to_pr_c, float valo, String einheit)

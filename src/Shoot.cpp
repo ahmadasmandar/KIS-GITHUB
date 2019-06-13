@@ -18,6 +18,7 @@ void Shoot::shootManuel()
 void Shoot::motorIntil()
 {
     shhot_motor.attach(9);
+    //the initial angel is very important
     shhot_motor.write(0);
 }
 
@@ -29,7 +30,6 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
           shhot_motor.write(angel);
           delay(motor_delay);
           shhot_motor.write(0);
-
           debshoot.sPrint("NORMAL_IF  if work time is ", time_resto, "ms");
           debshoot.sPrint("NORMAL_IF  ", section, "ms");
         //   debshoot.sPrint("NORMAL_IF photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
@@ -63,11 +63,8 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
          }
           else if (total_time < target_time)
          {
-            debshoot.sPrint("FOURTH_IF 4 -  if time totsl  is ", total_time, "ms");
-            //debshoot.sPrint("FOURTH_IF 4 -  if work time   is ", time, "ms");
+            debshoot.sPrint("FOURTH_IF 4 -  if time total  is ", total_time, "ms");
             debshoot.sPrint("FOURTH_IF 4 -  if work time is ", time_resto- 2, "ms");
-            //debshoot.sPrint("FOURTH_IF 4 -  if delay time is ", delay_time_shoot, "ms");
-            //debshoot.sPrint("FOURTH_IF 4 -  if new work time is ", time_resto + delay_time_shoot, "ms");
            delay_time_shoot=total_time-target_time;
            if (delay_time_shoot< 0)
            {
@@ -78,8 +75,6 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
             delay(motor_delay);
             shhot_motor.write(0);
               // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
-            debshoot.sPrint("FOURTH_IF 4 -  if time totsl  is ", total_time, "ms");
-            debshoot.sPrint("FOURTH_IF 4 -  if work time is ", time_resto- 2, "ms");
             debshoot.sPrint("FOURTH_IF 4 -  if delay time is ", delay_time_shoot, "ms");
             debshoot.sPrint("FOURTH_IF 4 -  if new work time is ", time_resto + delay_time_shoot, "ms");
          }

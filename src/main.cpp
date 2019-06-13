@@ -142,14 +142,11 @@ void loop()
     sei();
     time_window_photo = hold_delta;
     time_target =(393+hold_delta-(0.2*hold_delta)+100);
-    
     max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
     theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
     target_section=getTargetSection(theta_target);
     angular_speed=spedo.photoSpeed(hold_delta);
-    
-  
-    
+
     //*********************** print the values to test 
     debo.sPrint("hall section",hall_section,"");
     debo.sPrint("photo section",photo_section,"");
@@ -186,9 +183,9 @@ void loop()
       hold_delta = time_delta_photo;
       pos = photo_section;
       sei();
-      time_rest_to_null = time_interrupt_photo;
+      time_rest_to_null = spedo.photoRst(pos,hold_delta);
       time_total_photo = spedo.totalPhotoTime(hold_delta);
-      time_window_photo = (time_delta_photo) - 20;
+      time_window_photo = hold_delta;
       shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_photo, time_window_photo, time_target);
       /* code */
       break;

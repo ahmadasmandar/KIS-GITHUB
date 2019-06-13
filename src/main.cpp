@@ -56,6 +56,13 @@ int time_array[2];
 boolean start_flag = true;
 float delay_time;
 
+//************ New Calculations using Theata 
+float theata,theta_zero,angular_speed,angular_speed_zero;
+float speed_array[2];
+uint8_t j_speed=0;
+
+
+//************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
 boolean choose_mode_flag=true,shot_flag_holder=false;
 
@@ -70,6 +77,8 @@ uint16_t checkCounter(uint16_t counter1, uint8_t maxV);
 void stopSerial(uint8_t checkSerial);
 void checkStartCondtions(uint8_t hall_seco, uint8_t hoto_cso);
 uint8_t chooseMode();
+//**********
+void fillSpeed(float speed_from_inter);
 // end function prototypes
 
 //****************** the setup *****************************
@@ -108,8 +117,10 @@ void loop()
   cli();
   hold_delta = time_delta_photo;
   time_array[i_time] = hold_delta;
-   photo_pos=photo_section;
-   hall_pos=hall_section;
+  photo_pos=photo_section;
+  hall_pos=hall_section;
+  theta_zero =photo_section*PI/6;
+  angular_speed_zero=spedo.photoSpeed(time_delta_photo);
   sei();
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
@@ -145,6 +156,8 @@ void loop()
       pos = photo_section;
       time_total_hall = spedo.totalHallTime(hold_delta);
       time_window_hall = (time_window_hall/ 6) - 20;
+      theta_zero=photo_section*PI/6;
+      angular_speed=spedo.photoSpeed(time_delta_photo);
       sei();
       shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_photo, time_target);
       /* code */
@@ -264,7 +277,6 @@ void photo_sens_interrupt()
   {
     shoot_flag=false;
   }
-  
 }
 
 //************** HALL SENS INTERRUPT *********
@@ -314,4 +326,17 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
     delay(150);
     digitalWrite(demo.led2, LOW);
   }
+}
+float getAcceleration(int time_interval)
+{
+  cli();
+  angular_speed=spedo.hallSpeed(time_interval);
+
+  sei();
+}
+
+void fillSpeed(float speed_from_inter)
+{
+  speed_array[j_speed]=speed_from_inter;
+  checkCounter(j_speed,2);
 }

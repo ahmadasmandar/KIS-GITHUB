@@ -50,68 +50,6 @@ float speed::totalPhotoTime(int delto_photo)
     float photoSpeedo=photoSpeed(delto_photo);
     return(1000*2*PI/photoSpeedo);
 }
-void speed::shootBall(float TIME_INTERRUPT_HALL_SHOOT,uint16_t TARGET_TIME_SHOOT,uint16_t TIME_WINDOW_HALL_IN_SHOOT,uint16_t TIME_DELTA_HALL_SHHOT,uint8_t HALL_SECTION_SHOOT)
-{
-    while (1)
-    
-        {
-          debtest.sPrint("TIME_INTERRUPT_HALL_SHOOT",TIME_INTERRUPT_HALL_SHOOT,"");
-    debtest.sPrint("TIME_DELTA_HALL_SHHOT",TIME_DELTA_HALL_SHHOT,"");
-          if(TIME_INTERRUPT_HALL_SHOOT!=0){
-            float work_time=TIME_INTERRUPT_HALL_SHOOT;
-          if(  work_time < TARGET_TIME_SHOOT &&  work_time>TARGET_TIME_SHOOT-TIME_WINDOW_HALL_IN_SHOOT)
-          {  
-            
-            delay(100);
-            motor_shoot.write(0);
-            break;
-          }
-          else if (work_time > TARGET_TIME_SHOOT )//&& hall_section==1)
-          {
-            int delay_time=work_time-TARGET_TIME_SHOOT;
-            delay(delay_time);
-            //if (delay_time < TARGET_TIME_SHOOT && delay_time > TARGET_TIME_SHOOT-TIME_WINDOW_HALL_IN_SHOOT)
-            //{
-            motor_shoot.write(20);
-            delay(100);
-            motor_shoot.write(0);
-            break;
-          //}
-          }
-          else if (work_time < TARGET_TIME_SHOOT-TIME_WINDOW_HALL_IN_SHOOT)
-          {
-            float TIME_TOTAL_HALL_SHOOT=totalHallTime(TIME_DELTA_HALL_SHHOT);
-            float TIME_REST_HALL_SHOOT=hallRst(HALL_SECTION_SHOOT,TIME_DELTA_HALL_SHHOT);  
-            if (TARGET_TIME_SHOOT< TIME_TOTAL_HALL_SHOOT){
-            NEW_DELAY_SPEED=TIME_TOTAL_HALL_SHOOT-(TARGET_TIME_SHOOT-TIME_REST_HALL_SHOOT);
-            delay(NEW_DELAY_SPEED);
-            motor_shoot.write(20);
-            delay(100);
-            motor_shoot.write(0);
-            break;
-            }
-            else if (TARGET_TIME_SHOOT > TIME_TOTAL_HALL_SHOOT)
-            {
-              NEW_DELAY_SPEED=TIME_TOTAL_HALL_SHOOT+(TARGET_TIME_SHOOT-TIME_REST_HALL_SHOOT);
-            } 
-            delay(NEW_DELAY_SPEED);
-            motor_shoot.write(20);
-            delay(100);
-            motor_shoot.write(0);
-            break;
-            
-          }
-          else
-          {
-              motor_shoot.write(180);
-              delay(100);
-              break;
-          }
-          
-          }
-        
-        }
-}
 boolean speed::secureMotion(int val1, int val2,boolean start_FLAG)
 {
   if (millis()>5000)

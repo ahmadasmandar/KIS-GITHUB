@@ -7,7 +7,7 @@
 
 //********* the Constants that we may used alot
 #define PI 3.1415926535897932384626433832795
-#define time_target 393+time_window_photo-(0.2*time_window_photo)+100 // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
+#define time_target (393+time_window_photo-(0.2*time_window_photo)+100) // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
 const uint16_t test_time = 400; // the new value for photo sensor
 const uint16_t test_time_hall=400;
 //************** Objects from the main Classes  ******************//
@@ -61,6 +61,7 @@ float theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration;
 float speed_array[]={0,0};
 uint8_t j_speed=0,target_section;
 float max_theta,theta_target;
+
 
 
 //************
@@ -122,12 +123,10 @@ void loop()
   time_array[i_time] = hold_delta;
   photo_pos=photo_section;
   hall_pos=hall_section;
-  theta_zero =photo_section*PI/6;
-  angular_speed_zero=spedo.photoSpeed(time_delta_photo)/1000;
   sei();
   fillSpeed();
   getAcceleration();
-  max_theta=2*PI+(angular_speed_zero*(time_target/1000))-(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
+  max_theta=(2*PI)+(angular_speed_zero*time_target/1000)-(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -352,6 +351,7 @@ void fillSpeed()
 {
   cli();
   speed_array[j_speed]=spedo.photoSpeed(time_delta_photo);
+  angular_speed_zero=spedo.photoSpeed(time_delta_photo);
   sei();
   j_speed=checkCounter(j_speed,2);
 }

@@ -83,5 +83,18 @@ void speed::checkStop(int time1, int time2)
         Serial.println(time2);
         
     }
-  
+}
+float speed::getThetavalues(int time_interval, int time_target_val, float angular_acceleartion_val, char xval)
+{
+    switch (xval)
+    {
+    case 'x':
+        return (2*PI)+(photoSpeed(time_interval)*time_target_val/1000)-(0.5*angular_acceleartion_val*((time_target_val/1000)*(time_target_val/1000)));
+        break;
+    case 't':
+        float x_help=(2*PI)+(photoSpeed(time_interval)*time_target_val/1000)-(0.5*angular_acceleartion_val*((time_target_val/1000)*(time_target_val/1000)));
+        return x_help-(photoSpeed(time_interval)*time_target_val/1000)-(0.5*angular_acceleartion_val*((time_target_val/1000)*(time_target_val/1000)));
+    default:
+        break;
+    }
 }

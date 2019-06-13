@@ -6,7 +6,7 @@
 #include "Shoot.h"
 //********* the Constants that we may used alot
 #define PI 3.1415926535897932384626433832795
-#define time_target (393+time_window_photo-(0.2*time_window_photo)+100) // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
+ // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
 const uint16_t test_time = 400; // the new value for photo sensor
 const uint16_t test_time_hall=400;
 //************** Objects from the main Classes  ******************//
@@ -50,7 +50,7 @@ float best_speed, best_total_time, best_rest, time_rest_to_null;
 uint32_t last_pressed = 0;
 int triggerlastpressed = 0;
 uint8_t hall_pos,pos,photo_pos;
-uint16_t i_time = 0, hold_delta;
+uint16_t i_time = 0, hold_delta,time_target;
 int time_array[2];
 boolean start_flag = true;
 float delay_time;
@@ -116,11 +116,7 @@ void loop()
   fill_timer=millis();
   }
     // take the values from he inerrupt and used to fill the time array
-  cli();
-  hold_delta = time_delta_photo;
-  time_array[i_time] = hold_delta;
-  max_theta=(2*PI)+(spedo.photoSpeed(hold_delta)*time_target/1000)-(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
-  sei();
+  
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -129,8 +125,10 @@ void loop()
      for that brief period.
       using the cli() sei() functions;
    * ***/
-
-  //****** in the line we check if some thing Wrong happend or not :
+  cli();
+  hold_delta = time_delta_photo;
+  time_array[i_time] = hold_delta;
+  sei();
   start_flag = spedo.secureMotion(time_array[1], time_array[0], start_flag); // after 5 second will this function works
   i_time = checkCounter(i_time, 2);                                        // further the ounter with 1 and check if he reached his max reset it
   stopSerial(digitalRead(demo.butt2));
@@ -139,47 +137,70 @@ void loop()
   {
     Serial.println(" trigger pressed ");
     //********************
-    theta_target=max_theta-(spedo.photoSpeed(time_delta_photo)*(time_target/1000))+(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
+    cli();
+    hold_delta = time_delta_photo;
+    sei();
+    time_window_photo = hold_delta;
+    time_target =(393+hold_delta-(0.2*hold_delta)+100);
+    
+    max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
+    theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
     target_section=getTargetSection(theta_target);
-    theta_zero=photo_section*PI/6;
-    angular_speed=spedo.photoSpeed(time_delta_photo);
-    //***********************
+    angular_speed=spedo.photoSpeed(hold_delta);
+    
+  
+    
+    //*********************** print the values to test 
+    debo.sPrint("hall section",hall_section,"");
+    debo.sPrint("photo section",photo_section,"");
+    debo.sPrint("hold_delta ",hold_delta,"ms");
+    debo.sPrint("time_target ",time_target,"ms");
+    debo.sPrint("time_window_photo ",time_window_photo,"ms");
+    debo.sPrint("the angular speed ",angular_speed,"rad/s");
+    debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+    debo.sPrint("max_theta ",max_theta,"rad");
+    debo.sPrint("theta_target ",theta_target,"rad");
+    debo.sPrint("target_section ",target_section,"");
+    debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+    debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+    //
     switch (program_mode)
     {
       /** nur Hall sensor benutzen **/
     case 1:
       cli();
       hold_delta = time_delta_hall;
-      time_rest_to_null = spedo.hallRst(hall_section,time_delta_hall);
-      pos = photo_section;
-      time_total_hall = spedo.totalHallTime(hold_delta);
-      time_window_hall = (time_delta_hall/ 6) - 20;
+      pos = hall_section;
       sei();
-      shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_photo, time_target);
-      /* code */
+      time_rest_to_null = spedo.hallRst(pos,hold_delta);
+      time_total_hall = spedo.totalHallTime(hold_delta);
+      time_window_hall = (hold_delta/ 6) - 20;
+      shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_hall, time_target);
       break;
+
+
       /** nur PHOTO sensor benutzen **/
     case 2:
       // the data that will be used in the shoot function
       cli();
       hold_delta = time_delta_photo;
-      time_rest_to_null = time_interrupt_photo;
       pos = photo_section;
+      sei();
+      time_rest_to_null = time_interrupt_photo;
       time_total_photo = spedo.totalPhotoTime(hold_delta);
       time_window_photo = (time_delta_photo) - 20;
-      sei();
       shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_photo, time_window_photo, time_target);
       /* code */
       break;
-      ////////////////////////////////////////////////////////////
+
       case 3:
-       cli();
+      cli();
       hold_delta = time_delta_photo;
-      time_rest_to_null = time_interrupt_photo;
       pos = photo_section;
-      time_total_photo = spedo.totalPhotoTime(hold_delta);
-      time_window_photo = (time_delta_photo) - 20;
       sei();
+      time_total_photo = spedo.totalPhotoTime(hold_delta);
+      theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
+      target_section=getTargetSection(theta_target);
         if (time_total_photo < time_target)
          {
            if (pos== target_section){
@@ -187,12 +208,12 @@ void loop()
              Serial.print("Shooted manulay");
            }
               // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
-            debo.sPrint("FOURTH_IF new_4_theta -  if time totsl  is ", time_total_photo, "ms");
-            debo.sPrint("FOURTH_IF new_4_theta -  if work time is ", time_rest_to_null- 2, "ms");
+            debo.sPrint("FOURTH_IF new_4_theta -  theta_target  is ", theta_target, "rad");
+            debo.sPrint("FOURTH_IF new_4_theta -  target_section ", target_section, "");
          }
       /** Manuel just let the ball go... **/
 
-    case 4:
+    case 40:
       shooter.shootManuel();
       /* code */
       break;
@@ -333,7 +354,7 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 }
 void getAcceleration()
 {
-    angular_acceleration=1000*(speed_array[1]-speed_array[0])/time_delta_photo;
+    angular_acceleration=(speed_array[1]-speed_array[0])/time_delta_photo;
 }
 void fillSpeed()
 {

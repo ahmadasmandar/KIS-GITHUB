@@ -18,5 +18,4 @@ public:
     float getThetavalues(int val51, int val_time, float angul_accel, char val_char);
 };
 
-
 #endif

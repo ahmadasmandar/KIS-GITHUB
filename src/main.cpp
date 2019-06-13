@@ -4,7 +4,6 @@
 #include "speed.h"
 #include "debug.h"
 #include "Shoot.h"
-
 //********* the Constants that we may used alot
 #define PI 3.1415926535897932384626433832795
 #define time_target (393+time_window_photo-(0.2*time_window_photo)+100) // the time aus FreienFall Gesetz mit s=0.73m und g= 9.81
@@ -15,7 +14,7 @@ const uint16_t test_time_hall=400;
 speed spedo; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
 kisg6 demo;  // from Class KISG6 that contain the experement Conditions (pins Setup )
 debug debo;  // from Debug class the main use is to Serial print complexe Phrases
-// Servo motor;
+Servo motor;
 Shoot shooter;
 
 // Here is the value for the Interrupts Counter for
@@ -57,10 +56,10 @@ boolean start_flag = true;
 float delay_time;
 
 //************ New Calculations using Theata 
-float theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration;
-float speed_array[]={0,0};
+double theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0.000000000000;
+float speed_array[2];
 uint8_t j_speed=0,target_section;
-float max_theta,theta_target;
+double max_theta,theta_target;
 
 
 
@@ -90,8 +89,6 @@ void getAcceleration();
 void setup()
 {
   demo.pinSetup();
-  //motor.attach(9);
-  //motor.write(0);
   shooter.motorIntil();
   Serial.begin(9600);
   attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);
@@ -104,6 +101,8 @@ void setup()
 //********************************* the main loop ****************
 void loop()
 {
+  fillSpeed();
+  getAcceleration();
   if (choose_mode_flag== true)
   {
     program_mode=chooseMode();
@@ -123,10 +122,10 @@ void loop()
   time_array[i_time] = hold_delta;
   photo_pos=photo_section;
   hall_pos=hall_section;
+  max_theta=(2*PI)+(spedo.photoSpeed(hold_delta)*time_target/1000)-(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
   sei();
-  fillSpeed();
-  getAcceleration();
-  max_theta=(2*PI)+(angular_speed_zero*time_target/1000)-(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
+
+ 
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -153,8 +152,12 @@ void loop()
     debo.sPrint("spped array 1",speed_array[0],"rad/s");
     debo.sPrint("spped array 2",speed_array[1],"rad/s");
     debo.sPrint("speed Acceleration ",angular_acceleration,"rad/s2");
-    theta_target=max_theta-(angular_speed_zero*(time_target/1000))+(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
+    //********************
+    theta_target=max_theta-(spedo.photoSpeed(time_delta_photo)*(time_target/1000))+(0.5*angular_acceleration*((time_target/1000)*(time_target/1000)));
     target_section=getTargetSection(theta_target);
+    theta_zero=photo_section*PI/6;
+    angular_speed=spedo.photoSpeed(time_delta_photo);
+    //***********************
     debo.sPrint("max_theta",max_theta,"rad");
     debo.sPrint("theta_target",theta_target,"rad");
     debo.sPrint("target_section",target_section,"");
@@ -170,8 +173,6 @@ void loop()
       pos = photo_section;
       time_total_hall = spedo.totalHallTime(hold_delta);
       time_window_hall = (time_window_hall/ 6) - 20;
-      theta_zero=photo_section*PI/6;
-      angular_speed=spedo.photoSpeed(time_delta_photo);
       sei();
       shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_photo, time_target);
       /* code */
@@ -190,6 +191,24 @@ void loop()
       /* code */
       break;
       ////////////////////////////////////////////////////////////
+      case 3:
+       cli();
+      hold_delta = time_delta_photo;
+      time_rest_to_null = time_interrupt_photo;
+      pos = photo_section;
+      time_total_photo = spedo.totalPhotoTime(hold_delta);
+      time_window_photo = (time_delta_photo) - 20;
+      sei();
+        if (time_total_photo < time_target)
+         {
+           if (pos== target_section){
+             shooter.shootManuel();
+           }
+            
+              // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
+            debo.sPrint("FOURTH_IF new_4_theta -  if time totsl  is ", time_total_photo, "ms");
+            debo.sPrint("FOURTH_IF new_4_theta -  if work time is ", time_rest_to_null- 2, "ms");
+         }
 
       /** Manuel just let the ball go... **/
 
@@ -343,9 +362,7 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 }
 void getAcceleration()
 {
-  cli();
-  angular_acceleration=-(abs(speed_array[0]-speed_array[1])/time_delta_photo);
-  sei();
+    angular_acceleration=1000*(speed_array[1]-speed_array[0])/time_delta_photo;
 }
 void fillSpeed()
 {
@@ -359,6 +376,7 @@ void fillSpeed()
 uint8_t getTargetSection(float theta_target_1)
 {
   uint8_t section_help=6*theta_target_1/PI;
+  debo.sPrint("section_help",section_help,"");
   if (section_help > 12)
   {
     return section_help-12;

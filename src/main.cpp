@@ -141,7 +141,7 @@ void loop()
     hold_delta = time_delta_photo;
     sei();
     time_window_photo = hold_delta;
-    time_target =(393+hold_delta-(0.2*hold_delta)+100);
+    time_target =(393+(hold_delta/2));
     max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
     theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
     target_section=getTargetSection(theta_target);

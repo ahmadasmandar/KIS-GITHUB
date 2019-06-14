@@ -1,0 +1,91 @@
+--- Miniterm on COM5  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+the check is started
+ trigger pressed 
+
+section_help  12.00
+ trigger pressed
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   360.00  DEG
+
+time_rest_to_null   134.90  ms
+
+hall section  1.00
+
+photo section  9.00
+
+hold_delta   237.00  ms
+
+time_target   393.00  ms
+
+time_window_photo   237.00  ms
+
+the angular speed   46.58  rad/s
+
+angular_acceleration   0.19  rad/s2
+
+max_theta   7.15  rad
+
+theta_target   6.28  rad
+
+target_section   0.00  
+
+speed_array 1   2.33  rad/s
+
+speed_array 2   2.37  rad/s
+
+the ball is shotted  0.00
+
+time target  393.00  ms
+ trigger pressed 
+
+section_help  12.00
+ trigger pressed 
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   60.00  DEG
+
+time_rest_to_null   16.86  ms
+
+hall section  1.00
+
+photo section  7.00
+
+hold_delta   333.00  ms
+
+time_target   393.00  ms
+
+time_window_photo   333.00  ms
+
+the angular speed   62.10  rad/s
+
+angular_acceleration   0.18  rad/s2
+
+max_theta   6.90  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   1.75  rad/s
+
+speed_array 2   1.81  rad/s
+
+the ball is shotted  0.00
+
+time target  393.00  ms

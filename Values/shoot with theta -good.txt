@@ -1,0 +1,136 @@
+> Executing task in folder KIS-GITHUB: C:\Users\Ahmad Asmandar\.platformio\penv\Scripts\platformio.exe device monitor <
+
+
+--- Miniterm on COM5  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+ trigger pressed     
+
+section_help  12.00  
+ trigger pressed     
+
+the ball is shotted  0.00
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   360.00  DEG
+
+time_rest_to_null   1344.00  ms
+
+hall section  1.00  
+
+photo section  9.00
+
+hold_delta   112.00  ms
+
+time_target   449.00  ms
+
+time_window_photo   112.00  ms
+
+the angular speed   4.67  rad/s
+
+angular_acceleration   -0.00  rad/s2
+
+max_theta   8.38  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   5.18  rad/s
+
+speed_array 2   5.03  rad/s
+
+the ball is shotted  0.00
+
+time target  449.00  ms
+the check is started
+ trigger pressed 
+
+section_help  12.00
+ trigger pressed 
+
+the ball is shotted  0.00
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   360.00  DEG
+
+time_rest_to_null   1620.00  ms
+
+hall section  1.00
+
+photo section  10.00
+
+hold_delta   135.00  ms
+
+time_target   460.00  ms
+
+time_window_photo   135.00  ms
+
+the angular speed   3.88  rad/s
+
+angular_acceleration   -0.00  rad/s2
+
+max_theta   8.07  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   4.22  rad/s
+
+speed_array 2   4.06  rad/s
+
+the ball is shotted  0.00
+
+time target  460.00  ms
+ trigger pressed 
+
+section_help  12.00
+ trigger pressed 
+
+the ball is shotted  0.00
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   330.00  DEG
+
+time_rest_to_null   1573.00  ms
+
+hall section  1.00
+
+photo section  9.00
+
+hold_delta   143.00  ms
+
+time_target   464.00  ms
+
+time_window_photo   143.00  ms
+
+the angular speed   3.66  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+max_theta   7.98  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   3.59  rad/s
+
+speed_array 2   3.94  rad/s
+
+the ball is shotted  0.00
+
+time target  464.00  ms

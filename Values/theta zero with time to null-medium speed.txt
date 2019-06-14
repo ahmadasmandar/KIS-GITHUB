@@ -1,0 +1,556 @@
+Terminal will be reused by tasks, press any key to close it.
+
+> Executing task in folder KIS-GITHUB: C:\Users\Ahmad Asmandar\.platformio\penv\Scripts\platformio.exe device monitor <
+
+--- Miniterm on COM5  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   1.00
+the check is started
+
+ we are in the mode   1.00
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   330.00  DEG
+
+time_rest_to_null   451.00  ms
+
+hall section  0.00  
+
+photo section  2.00  
+
+hold_delta   41.00  ms
+
+time_target   413.00  ms
+
+time_window_photo   41.00  ms
+
+the angular speed   12.77  rad/s
+
+angular_acceleration   -0.01  rad/s2
+
+max_theta   11.56  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   12.18  rad/s
+
+speed_array 2   11.90  rad/s
+
+SECOND_IF 2- if work time is   504.00  ms
+
+SECOND_IF 2- if delay time is   93.00  ms
+
+SECOND_IF 2- if new work time is   413.00  ms
+
+time target  413.00  ms
+the check is started
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   60.00  DEG
+
+time_rest_to_null   92.00  ms
+
+hall section  1.00
+
+photo section  10.00
+
+hold_delta   46.00  ms
+
+time_target   416.00  ms
+
+time_window_photo   46.00  ms
+
+the angular speed   11.38  rad/s
+
+angular_acceleration   -0.01  rad/s2
+
+max_theta   11.02  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   12.18  rad/s
+
+speed_array 2   11.64  rad/s
+
+THIRD_IF 3 - if work time is   269.00  ms
+
+THIRD_IF 3 - if delay time is   391.00  ms
+
+THIRD_IF 3 - if new work time is   -122.00  ms
+
+time target  416.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   210.00  DEG
+
+time_rest_to_null   322.00  ms
+
+hall section  0.00  
+
+photo section  6.00  
+
+hold_delta   46.00  ms
+
+time_target   416.00  ms
+
+time_window_photo   46.00  ms
+
+the angular speed   11.38  rad/s
+
+angular_acceleration   -0.01  rad/s2
+
+max_theta   11.02  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   11.64  rad/s
+
+speed_array 2   11.38  rad/s
+
+THIRD_IF 3 - if work time is   286.00  ms
+
+THIRD_IF 3 - if delay time is   442.00  ms
+
+THIRD_IF 3 - if new work time is   -156.00  ms
+
+time target  416.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   330.00  DEG
+
+time_rest_to_null   528.00  ms
+
+hall section  0.00
+
+photo section  2.00  
+
+hold_delta   48.00  ms
+
+time_target   417.00  ms
+
+time_window_photo   48.00  ms
+
+the angular speed   10.91  rad/s
+
+angular_acceleration   0.01  rad/s2
+
+max_theta   10.83  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   10.47  rad/s
+
+speed_array 2   11.14  rad/s
+
+SECOND_IF 2- if work time is   594.00  ms
+
+SECOND_IF 2- if delay time is   179.00  ms
+
+SECOND_IF 2- if new work time is   417.00  ms
+
+time target  417.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   270.00  DEG
+
+time_rest_to_null   450.00  ms
+
+hall section  0.00  
+
+photo section  3.00
+
+hold_delta   50.00  ms
+
+time_target   418.00  ms
+
+time_window_photo   50.00  ms
+
+the angular speed   10.47  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+max_theta   10.66  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   9.70  rad/s
+
+speed_array 2   9.88  rad/s
+
+SECOND_IF 2- if work time is   622.00  ms
+
+SECOND_IF 2- if delay time is   206.00  ms
+
+SECOND_IF 2- if new work time is   418.00  ms
+
+time target  418.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   300.00  DEG
+
+time_rest_to_null   570.00  ms
+
+hall section  0.00  
+
+photo section  3.00
+
+hold_delta   57.00  ms
+
+time_target   421.00  ms
+
+time_window_photo   57.00  ms
+
+the angular speed   9.19  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+max_theta   10.15  rad
+
+theta_target   6.28  rad
+
+target_section   0.00  
+
+speed_array 1   9.19  rad/s
+
+speed_array 2   9.35  rad/s
+
+SECOND_IF 2- if work time is   664.00  ms
+
+SECOND_IF 2- if delay time is   245.00  ms
+
+SECOND_IF 2- if new work time is   421.00  ms
+
+time target  421.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   30.00  DEG
+
+time_rest_to_null   58.00  ms
+
+hall section  1.00  
+
+photo section  11.00
+
+hold_delta   58.00  ms
+
+time_target   422.00  ms
+
+time_window_photo   58.00  ms
+
+the angular speed   9.03  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+max_theta   10.09  rad
+
+theta_target   6.28  rad
+
+target_section   0.00  
+
+speed_array 1   9.52  rad/s
+
+speed_array 2   9.52  rad/s
+
+SECOND_IF 2- if work time is   700.00  ms
+
+SECOND_IF 2- if delay time is   280.00  ms
+
+SECOND_IF 2- if new work time is   422.00  ms
+
+time target  422.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   90.00  DEG
+
+time_rest_to_null   186.00  ms
+
+hall section  1.00  
+
+photo section  9.00
+
+hold_delta   62.00  ms
+
+time_target   424.00  ms
+
+time_window_photo   62.00  ms
+
+the angular speed   8.45  rad/s
+
+angular_acceleration   0.01  rad/s2
+
+max_theta   9.86  rad
+
+theta_target   6.28  rad
+
+target_section   0.00  
+
+speed_array 1   8.06  rad/s
+
+speed_array 2   8.45  rad/s
+
+THIRD_IF 3 - if work time is   380.00  ms
+
+THIRD_IF 3 - if delay time is   716.00  ms
+
+THIRD_IF 3 - if new work time is   -336.00  ms
+
+time target  424.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   90.00  DEG
+
+time_rest_to_null   195.00  ms
+
+hall section  1.00
+
+photo section  9.00
+
+hold_delta   65.00  ms
+
+time_target   425.00  ms
+
+time_window_photo   65.00  ms
+
+the angular speed   8.06  rad/s
+
+angular_acceleration   -0.01  rad/s2
+
+max_theta   9.71  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   8.31  rad/s
+
+speed_array 2   7.48  rad/s
+
+NORMAL_IF  if work time is   406.00  ms
+
+NORMAL_IF    1.00  ms
+
+time target  425.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   300.00  DEG
+
+time_rest_to_null   750.00  ms
+
+hall section  0.00
+
+photo section  2.00  
+
+hold_delta   75.00  ms
+
+time_target   430.00  ms
+
+time_window_photo   75.00  ms
+
+the angular speed   6.98  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+max_theta   9.29  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   7.37  rad/s
+
+speed_array 2   7.59  rad/s
+
+SECOND_IF 2- if work time is   856.00  ms
+
+SECOND_IF 2- if delay time is   428.00  ms
+
+SECOND_IF 2- if new work time is   430.00  ms
+
+time target  430.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   60.00  DEG
+
+time_rest_to_null   164.00  ms
+
+hall section  1.00  
+
+photo section  10.00  
+
+hold_delta   82.00  ms
+
+time_target   434.00  ms
+
+time_window_photo   82.00  ms
+
+the angular speed   6.39  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+max_theta   9.05  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   6.54  rad/s
+
+speed_array 2   6.89  rad/s
+
+SECOND_IF 2- if work time is   472.00  ms
+
+SECOND_IF 2- if delay time is   40.00  ms
+
+SECOND_IF 2- if new work time is   434.00  ms
+
+time target  434.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   180.00  DEG
+
+time_rest_to_null   528.00  ms
+
+hall section  0.00
+
+photo section  6.00
+
+hold_delta   88.00  ms
+
+time_target   437.00  ms
+
+time_window_photo   88.00  ms
+
+the angular speed   5.95  rad/s
+
+angular_acceleration   -0.00  rad/s2
+
+max_theta   8.88  rad
+
+theta_target   6.28  rad
+
+target_section   0.00  
+
+speed_array 1   6.71  rad/s
+
+speed_array 2   6.54  rad/s
+
+SECOND_IF 2- if work time is   505.00  ms
+
+SECOND_IF 2- if delay time is   70.00  ms
+
+SECOND_IF 2- if new work time is   437.00  ms
+
+time target  437.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   90.00  DEG
+
+time_rest_to_null   258.00  ms
+
+hall section  1.00  
+
+photo section  9.00
+
+hold_delta   86.00  ms
+
+time_target   436.00  ms
+
+time_window_photo   86.00  ms
+
+the angular speed   6.09  rad/s
+
+angular_acceleration   -0.00  rad/s2
+
+max_theta   8.94  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   6.39  rad/s
+
+speed_array 2   6.23  rad/s
+
+SECOND_IF 2- if work time is   532.00  ms
+
+SECOND_IF 2- if delay time is   98.00  ms
+
+SECOND_IF 2- if new work time is   436.00  ms
+
+time target  436.00  ms
+
+section_help  12.00
+ trigger pressed
+
+theta to zero   300.00  DEG
+
+time_rest_to_null   1020.00  ms
+
+hall section  0.00  
+
+photo section  2.00
+
+hold_delta   102.00  ms
+
+time_target   444.00  ms
+
+time_window_photo   102.00  ms
+
+the angular speed   5.13  rad/s
+
+angular_acceleration   -0.01  rad/s2
+
+max_theta   8.56  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   5.69  rad/s
+
+speed_array 2   5.18  rad/s
+
+SECOND_IF 2- if work time is   1168.00  ms
+
+SECOND_IF 2- if delay time is   726.00  ms
+
+SECOND_IF 2- if new work time is   444.00  ms
+
+time target  444.00  ms

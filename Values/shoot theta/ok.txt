@@ -1,0 +1,158 @@
+section_help  12.00
+ trigger pressed 
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   300.00  DEG
+
+time_rest_to_null   2030.00  ms
+
+hall section  1.00
+
+photo section  11.00
+
+hold_delta   203.00  ms
+
+time_target   494.00  ms
+
+time_window_photo   203.00  ms
+
+the angular speed   2.58  rad/s
+
+angular_acceleration   -0.00  rad/s2
+
+max_theta   7.56  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   2.80  rad/s
+
+speed_array 2   2.67  rad/s
+
+the ball is shotted  0.00
+
+time target  494.00  ms
+ trigger pressed 
+
+section_help  12.00
+ trigger pressed 
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   300.00  DEG
+
+time_rest_to_null   2670.00  ms
+
+hall section  1.00
+
+photo section  11.00
+
+hold_delta   267.00  ms
+
+time_target   526.00  ms
+
+time_window_photo   267.00  ms
+
+the angular speed   1.96  rad/s
+
+angular_acceleration   -0.00  rad/s2
+
+max_theta   7.31  rad
+
+theta_target   6.28  rad
+
+target_section   0.00  
+
+speed_array 1   2.35  rad/s
+
+speed_array 2   2.16  rad/s
+
+the ball is shotted  0.00
+
+time target  526.00  ms
+ trigger pressed 
+
+section_help  12.00
+ trigger pressed
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   120.00  DEG
+
+time_rest_to_null   1360.00  ms
+
+hall section  1.00
+
+photo section  11.00
+
+hold_delta   340.00  ms
+
+time_target   563.00  ms
+
+time_window_photo   340.00  ms
+
+the angular speed   1.54  rad/s
+
+angular_acceleration   -0.00  rad/s2
+
+max_theta   7.15  rad
+
+theta_target   6.28  rad
+
+target_section   0.00  
+
+speed_array 1   1.67  rad/s
+
+speed_array 2   1.61  rad/s
+
+the ball is shotted  0.00
+
+time target  563.00  ms
+ trigger pressed 
+
+section_help  12.00
+ trigger pressed
+
+FOURTH_IF new_4_theta -  theta_target  is   6.28  rad
+
+FOURTH_IF new_4_theta -  target_section   0.00  
+
+theta to zero   90.00  DEG
+
+time_rest_to_null   1278.00  ms
+
+hall section  1.00
+
+photo section  10.00  
+
+hold_delta   426.00  ms
+
+time_target   606.00  ms
+
+time_window_photo   426.00  ms
+
+the angular speed   1.23  rad/s
+
+angular_acceleration   -0.00  rad/s2
+
+max_theta   7.03  rad
+
+theta_target   6.28  rad
+
+target_section   0.00
+
+speed_array 1   1.29  rad/s
+
+speed_array 2   1.17  rad/s
+
+the ball is shotted  0.00
+
+time target  606.00  ms

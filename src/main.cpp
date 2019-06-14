@@ -54,6 +54,7 @@ uint16_t i_time = 0, hold_delta,time_target;
 int time_array[2];
 boolean start_flag = true;
 float delay_time;
+uint16_t pressed_test=0;
 
 //************ New Calculations using Theata 
 double theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0.000000000000;
@@ -93,7 +94,9 @@ void readMode();
 void setup()
 {
   demo.pinSetup();
-  shooter.motorIntil();
+  //shooter.motorIntil();
+  motor.attach(9);
+  motor.write(0);
   Serial.begin(57600);
   attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);
   attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
@@ -131,7 +134,7 @@ void loop()
   sei();
   start_flag = spedo.secureMotion(time_array[1], time_array[0], start_flag); // after 5 second will this function works
   i_time = checkCounter(i_time, 2);                                        // further the ounter with 1 and check if he reached his max reset it
-  stopSerial(digitalRead(demo.butt2));
+  //stopSerial(digitalRead(demo.butt2));
   checkStartCondtions(hall_section, pos);
   if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 2000)
   {
@@ -204,7 +207,7 @@ void loop()
     theta_zero=2*PI-(photo_section*(PI/6));
     sei();
     time_window_photo = hold_delta;
-    time_target =(393+(hold_delta/2));
+    time_target =(393);
     max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
     theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
     target_section=getTargetSection(theta_target);
@@ -215,7 +218,9 @@ void loop()
              {
                 delay_time=time_rest_to_null-time_target;
               delay(delay_time);
-              shooter.shootManuel();
+              motor.write(20);
+              delay(100);
+              motor.write(0);
               // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
             debo.sPrint("FOURTH_IF new_4_theta -  theta_target  is ", theta_target, "rad");
             debo.sPrint("FOURTH_IF new_4_theta -  target_section ", target_section, "");
@@ -243,9 +248,14 @@ void loop()
       /* code */
       break;
     }
-    stopSerial(digitalRead(demo.butt2));
+    //stopSerial(digitalRead(demo.butt2));
     last_pressed = millis();
     debo.sPrint("time target",time_target,"ms");
+  }
+  if (digitalRead(demo.butt2)==HIGH && millis()- pressed_test> 500)
+  {
+    shooter.shootManuel();
+    pressed_test=millis();
   }
 }
 

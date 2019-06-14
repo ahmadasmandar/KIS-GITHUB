@@ -136,7 +136,7 @@ void loop()
   i_time = checkCounter(i_time, 2);                                        // further the ounter with 1 and check if he reached his max reset it
   //stopSerial(digitalRead(demo.butt2));
   checkStartCondtions(hall_section, pos);
-  if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 2000)
+  if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 700)
   {
     //********************
     cli();
@@ -207,24 +207,31 @@ void loop()
     theta_zero=2*PI-(photo_section*(PI/6));
     sei();
     time_window_photo = hold_delta;
-    time_target =(393);
-    max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
-    theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
+    time_target =(450);
+    // max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
+    // theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
     target_section=getTargetSection(theta_target);
-    angular_speed=spedo.photoSpeed(hold_delta);
+    angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
     time_rest_to_null=1000*(theta_zero/angular_speed);
-    Serial.println(" trigger pressed ");
-        if (time_rest_to_null > time_target)
-             {
-                delay_time=time_rest_to_null-time_target;
+    time_total_photo=spedo.totalPhotoTime(hold_delta);
+        Serial.println(" trigger pressed ");
+
+        if (time_rest_to_null > time_target /* && time_rest_to_null<time_target+hold_delta */)
+             {          
+              delay_time=time_rest_to_null-time_target;
+             }
+        else
+        {
+          delay_time= abs(time_total_photo-time_rest_to_null-time_target);
+        }
               delay(delay_time);
               motor.write(20);
               delay(100);
               motor.write(0);
+          
               // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
             debo.sPrint("FOURTH_IF new_4_theta -  theta_target  is ", theta_target, "rad");
             debo.sPrint("FOURTH_IF new_4_theta -  target_section ", target_section, "");
-             }
 
          //***************print to test the values for case 3
     debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
@@ -389,7 +396,7 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 }
 void getAcceleration()
 {
-    angular_acceleration=(speed_array[1]-speed_array[0])/time_delta_photo;
+    angular_acceleration=-abs(1000*(speed_array[1]-speed_array[0])/time_delta_photo);
 }
 void fillSpeed()
 {

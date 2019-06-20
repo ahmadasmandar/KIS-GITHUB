@@ -1,0 +1,152 @@
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+the check is started
+ trigger pressed 2  
+-6424
+
+section_help  0.00  
+
+a  -2.27
+
+b  8.18
+
+c  -5.24
+
+discriminant  19.32
+
+Roots are real and different.  0.00  
+
+t1 =   0.83      
+
+t2 =   2.77      
+
+time_holder[0]  0.83  
+
+time_holder[1]  2.77  
+
+1 if   437.63  s
+
+the ball is shotted  0.00        
+end_excu_time-start_excu_time  3   
+669
+
+time target  395.00  ms
+ trigger pressed 2  
+-2299
+
+section_help  0.00  
+
+a  -3.19
+
+b  8.58
+
+c  -5.76
+
+discriminant  0.07  
+
+Roots are real and different.  0.00  
+
+t1 =   1.30
+
+t2 =   1.39
+
+time_holder[0]  1.30  
+
+time_holder[1]  1.39
+
+1 if   905.99  s
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3
+1136
+
+time target  395.00  ms
+ trigger pressed 2 
+-11038
+
+section_help  0.00
+
+a  -1.58
+
+b  6.16
+
+c  -5.24
+
+discriminant  4.86  
+
+Roots are real and different.  0.00  
+
+t1 =   1.25
+
+t2 =   2.65
+
+time_holder[0]  1.25
+
+time_holder[1]  2.65
+
+1 if   856.79  s
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3
+1088
+
+time target  395.00  ms
+ trigger pressed 2 
+-1791
+
+section_help  0.00
+
+a  -3.42
+
+b  6.16  
+
+c  -0.52
+
+discriminant  30.79
+
+Roots are real and different.  0.00  
+
+t1 =   0.09
+
+t2 =   1.71
+
+time_holder[0]  0.09
+
+time_holder[1]  1.71
+
+2 if   1317.81  s
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+1550
+
+time target  395.00  ms
+ trigger pressed 2 
+-1723
+
+section_help  0.00
+
+a  -1.07
+
+b  5.69  
+
+c  -0.52
+
+discriminant  30.16
+
+Roots are real and different.  0.00  
+
+t1 =   0.09
+
+t2 =   5.25
+
+time_holder[0]  0.09
+
+time_holder[1]  5.25  
+
+2 if   4850.03  s
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   

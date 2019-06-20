@@ -11,7 +11,7 @@ int end_angel=0;
 void Shoot::shootManuel()
 {
 
-    debshoot.sPrint("the ball is shotted", 0 , "   ");  
+    //debshoot.sPrint("the ball is shotted", 0 , "   ");  
 
 }
 void Shoot::motorIntil()

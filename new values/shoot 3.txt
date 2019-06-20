@@ -1,0 +1,763 @@
+
+speed_array 1   14.15  rad/s
+
+speed_array 26  14.96  rad/s
+
+time_rest_to_null   175.00  ms
+7
+8
+9
+
+the ball is shotted  0.00
+
+time target  430.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   39.00  ms
+
+photo section before calc  8.00
+
+a  -15.14
+
+b  13.43
+
+c  -2.09
+
+discriminant  53.40
+
+Roots are real and different.  0.00  
+
+t1 =   0.20
+
+t2 =   0.68
+
+photo section after *  calc  8.00
+9
+
+photo section 4  9.00
+10
+11
+0
+1
+2
+3
+4
+5
+6
+
+2 if   250.63  s
+
+hold_delta   39.00  ms
+
+time_holder[0]  202.04
+
+ti7e_holder[1]  684.63
+
+window_holder[0]  0.00  
+
+window_holder[1]  0.00
+
+angular_acceleration   -30.28  rad/s2
+
+speed_array 1   14.96  rad/s
+
+speed_array 2   13.78  rad/s
+
+time_rest_to_null   156.00  ms
+8
+9
+10
+
+the ball is shotted  0.00
+
+time target  434.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   37.00  ms
+
+photo section before calc  7.00  
+
+a  -4.54
+
+b  14.15
+
+c  -2.62
+
+discriminant  152.76  
+
+Roots are real and different.  0.00  
+
+t1 =   0.20
+
+t2 =   2.92
+
+photo section after *  calc  7.00  
+8
+
+photo section 4  8.00  
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+
+2 if   2490.50  s
+
+hold_delta   37.00  ms
+
+time_holder[0]  197.50  
+
+time_holder[1]  2922.50
+
+window_holder[0]  0.00  
+
+window_h2lder[1]  0.00
+
+angular_acceleration   -9.07  rad/s2
+
+speed_array 1   13.43  rad/s
+
+speed_array 2   13.09  rad/s
+
+time_rest_to_null   185.00  ms
+3
+4
+5
+
+the ball is shotted  0.00
+
+time target  432.00  ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   44.00  ms
+
+photo section before calc  2.00  
+
+a  -3.81  
+
+b  11.90
+
+c  -5.24
+
+discriminant  61.73
+
+Roots are real and different.  0.00  
+
+t1 =   0.53
+
+t2 =   2.59
+
+photo section after *  calc  2.00  
+3
+
+photo section 3  3.00  
+4
+5
+6
+7
+
+1 if   91.05  s
+
+hold_delta   44.00  ms
+
+time_holder[0]  530.05  
+
+time_holder[1]  2589.95
+
+window_holder[0]  0.008 
+
+window_holder[1]  0.00
+
+angular_acceleration   -7.63  rad/s2
+
+speed_array 1   13.43  rad/s
+
+speed_array 2   13.09  rad/s
+
+time_rest_to_null   440.00  ms
+9
+10
+11
+
+the ball is shotted  0.00
+
+time target  439.00  ms
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   46.00  ms
+
+photo section before calc  2.00  
+
+a  -3.01
+
+b  11.38
+
+c  -5.24
+
+discriminant  66.56  
+
+Roots are real and different.  0.00  
+
+t1 =   0.54
+
+t2 =   3.25
+
+photo section after *  calc  2.00  
+
+photo se3tion 3  2.00
+4
+5
+6
+7
+
+1 if   94.89  s
+
+hold_delta   46.00  ms
+
+time_holder[0]  535.89
+
+time_holder[1]  3248.10
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00  
+
+angular_acceleration   -6.02  rad/s2
+
+speed_array 1   12.18  rad8s
+
+speed_array 2   11.90  rad/s
+
+time_rest_to_null   460.00  ms
+9
+10
+
+the ball is shotted  0.00
+
+time target  441.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   45.00  ms
+
+photo section before calc  9.00
+
+a  -5.27
+
+b  11.64
+
+c  -1.57  
+
+discriminant  102.27  
+
+Roots are real and different.  0.00
+
+t1 =   0.14
+
+t2 =   2.06  
+
+photo section after *  calc  9.00  
+10
+
+photo section 4  10.00
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+
+2 if   1623.55  s
+
+hold_delta   45.00  ms
+
+time_holder[0]  144.45  
+
+time_holder[1]  2063.55
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00  
+
+angular_acceleration   -10.54  rad/s2
+
+speed_array 1   10.91  rad/s
+
+speed_array 2   11.38  rad/s
+
+time_rest_to_null   135.00  ms
+0
+1
+
+the ball is shotted  0.00
+
+time target  440.00  ms
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   52.00  ms
+
+photo section before calc  10.00
+
+a  -3.87
+
+b  10.07
+
+c  -1.05
+
+discriminant  85.17
+
+Roots are real and different.  0.00  
+
+t1 =   0.11  
+
+t2 =   2.49
+
+photo section after *  calc  10.00  
+11
+
+photo section 4  11.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+
+2 if   2044.47  s
+
+hold_delta   52.00  ms
+
+time_holder[0]  108.53  
+
+time_holder[1]  2491.47
+
+window_holder[0]  0.00  
+
+window_holder[1]  0.00
+
+angular_acceleration   -7.75  rad/s2
+
+speed_a6ray 1   10.47  rad/s
+
+speed_array 2   10.07  rad/s
+
+time_rest_to_null   104.00  ms
+7
+8
+
+the ball is shotted  0.00
+
+time target  447.00  ms
+9

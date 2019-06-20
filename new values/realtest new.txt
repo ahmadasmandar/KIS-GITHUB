@@ -1,0 +1,652 @@
+> Executing task: C:\Users\Ahmad Asmandar\.platformio\penv\Scripts\platformio.exe device monitor <
+
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+the check is started
+ trigger pressed 1
+0
+
+theta to zero   180.00  DEG
+
+time_rest_to_null   0.00  ms
+
+photo section  6.00
+
+hold_delta   27.00  ms
+
+time_target   0.00  ms
+
+time_window_photo   0.00  ms
+
+the angular speed   0.00  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   19.39  rad/s       
+
+speed_array 2   19.39  rad/s       
+ trigger pressed 2  
+0
+
+theta to zero   3.14  DEG
+
+hold_delta   27.00  ms   
+
+the angular speed   0.00  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   19.39  rad/s       
+
+speed_array 2   19.39  rad/s       
+
+photo section 1  9.00  
+
+theta to zero in   4.71  DEG
+
+photo section 2  9.00
+
+theta to zero    out   4.71  DEG
+
+photo section    out  10.00  
+
+a  0.00
+
+b  0.00
+
+c  -1.05
+
+discriminant  0.00  
+
+Roots are complex and different.  0.00
+
+section_help  0.00
+
+a  0.00
+
+b  20.94
+
+c  -1.57
+
+discriminant  438.65  
+
+Roots are complex and different.  0.00
+end_excu_time-start_excu_time  2   
+137
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+720
+
+time target  450.00  ms
+ trigger pressed 1 
+0
+
+theta to zero   210.00  DEG
+
+time_rest_to_null   225.00  ms
+
+photo section  5.00  
+
+hold_delta   27.00  ms
+
+time_target   450.00  ms
+
+time_window_photo   25.00  ms
+
+the angular speed   20.94  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   19.39  rad/s
+
+speed_array 2   19.39  rad/s
+ trigger pressed 2
+0
+
+theta to zero   3.67  DEG
+
+hold_delta   27.00  ms
+
+the angular speed   20.94  rad/s
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   19.39  rad/s
+
+speed_array 2   19.39  rad/s
+
+photo section 1  8.00  
+
+theta to zero in   4.19  DEG
+
+photo section 2  8.00
+
+theta to zero    out   4.19  DEG
+
+photo section    out  8.00
+
+a  0.00
+
+b  20.94  
+
+c  -1.57
+
+discriminant  438.65
+
+Roots are complex and different.  0.00
+
+section_help  0.00
+
+a  0.00
+
+b  17.45
+
+c  -2.09
+
+discriminant  304.62
+
+Roots are complex and different.  0.00  
+end_excu_time-start_excu_time  2   
+139
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+677
+
+time target  450.00  ms
+ trigger pressed 1 
+0
+
+theta to zero   240.00  DEG
+
+time_rest_to_null   240.00  ms
+
+photo section  5.00
+
+hold_delta   31.00  ms
+
+time_target   450.00  ms
+
+time_window_photo   30.00  ms
+
+the angular speed   17.45  rad/s
+
+angular_acceleration   -62.56  rad/s2
+
+speed_array 1   17.45  rad/s
+
+speed_array 2   19.39  rad/s
+ trigger pressed 2
+0
+
+theta to zero   4.19  DEG
+
+hold_delta   31.00  ms
+
+the angular speed   17.45  rad/s
+
+angular_acceleration   -60.60  rad/s2
+
+speed_array 1   17.45  rad/s
+
+speed_array 2   19.39  rad/s
+
+photo section 1  7.00
+
+theta to zero in   3.67  DEG
+
+photo section 2  7.00
+
+theta to zero    out   3.67  DEG
+
+photo section    out  8.00
+
+a  -30.30
+
+b  17.45
+
+c  -2.09
+
+discriminant  50.77
+
+Roots are real and different.  0.00  
+
+t1 =   0.17
+
+t2 =   0.41
+
+section_help  0.00  
+
+a  -30.30
+
+b  18.70
+
+c  -2.62  
+
+discriminant  32.38
+
+Roots are real and different.  0.00
+
+t1 =   0.21
+
+t2 =   0.40  
+end_excu_time-start_excu_time  2
+151
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+668
+
+time target  450.00  ms
+ trigger pressed 1 
+0
+
+theta to zero   30.00  DEG
+
+time_rest_to_null   196.00  ms
+
+photo section  11.00  
+
+hold_delta   29.00  ms
+
+time_target   450.00  ms
+
+time_window_photo   28.00  ms
+
+the angular speed   18.70  rad/s
+
+angular_acceleration   -18.20  rad/s2
+
+speed_array 1   16.36  rad/s
+
+speed_array 2   16.89  rad/s
+ trigger pressed 2
+0
+
+theta to zero   0.52  DEG
+
+hold_delta   29.00  ms
+
+the angular speed   18.70  rad/s
+
+angular_acceleration   -17.59  rad/s2
+
+speed_array 1   16.36  rad/s
+
+speed_array 2   16.89  rad/s
+
+photo section 1  2.00  
+
+theta to zero in   1.05  DEG
+
+photo section 2  2.00  
+
+theta to zero    out   1.05  DEG
+
+photo section    out  3.00
+
+a  -8.80
+
+b  18.70
+
+c  -4.71
+
+discriminant  183.87  
+
+Roots are real and different.  0.00  
+
+t1 =   0.29
+
+t2 =   1.83
+
+section_help  0.00  
+
+a  -8.80
+
+b  16.36
+
+c  -5.24
+
+discriminant  83.49
+
+Roots are real and different.  0.00  
+
+t1 =   0.41
+
+t2 =   1.45  
+end_excu_time-start_excu_time  2
+148
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+486
+
+time target  450.00  ms
+ trigger pressed 1 
+0
+
+theta to zero   240.00  DEG
+
+time_rest_to_null   64.00  ms
+
+photo section  4.00
+
+hold_delta   34.00  ms
+
+time_target   450.00  ms
+
+time_window_photo   32.00  ms
+
+the angular speed   16.36  rad/s
+
+angular_acceleration   -14.58  rad/s2
+
+speed_array 1   16.36  rad/s
+
+speed_array 2   15.87  rad/s
+ trigger pressed 2
+0
+
+theta to zero   4.19  DEG
+
+hold_delta   34.00  ms
+
+the angular speed   16.36  rad/s
+
+angular_acceleration   -16.53  rad/s2
+
+speed_array 1   16.36  rad/s
+
+speed_array 2   15.87  rad/s
+
+photo section 1  6.00  
+
+theta to zero in   3.14  DEG
+
+photo section 2  6.00
+
+theta to zero    out   3.14  DEG
+
+photo section    out  7.00
+
+a  -8.26
+
+b  16.36
+
+c  -2.62
+
+discriminant  181.19  
+
+Roots are real and different.  0.00
+
+t1 =   0.18
+
+t2 =   1.80
+
+section_help  0.00  
+
+a  -8.26
+
+b  15.87
+
+c  -3.14
+
+discriminant  147.90
+
+Roots are real and different.  0.00  
+
+t1 =   0.22
+
+t2 =   1.70
+end_excu_time-start_excu_time  2   
+150
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+610
+
+time target  450.00  ms
+ trigger pressed 1 
+0
+
+theta to zero   30.00  DEG
+
+time_rest_to_null   198.00  ms
+
+photo section  11.00
+
+hold_delta   33.00  ms
+
+time_target   450.00  ms
+
+time_window_photo   33.00  ms
+
+the angular speed   15.87  rad/s
+
+angular_acceleration   -29.17  rad/s2
+
+speed_array 1   15.40  rad/s
+
+speed_array 2   16.36  rad/s
+ trigger pressed 2
+0
+
+theta to zero   0.52  DEG
+
+hold_delta   33.00  ms
+
+the angular speed   15.87  rad/s
+
+angular_acceleration   -29.17  rad/s2
+
+speed_array 1   15.40  rad/s
+
+speed_array 2   16.36  rad/s
+
+photo section 1  1.00
+
+theta to zero in   0.52  DEG
+
+photo section 2  1.00  
+
+theta to zero    out   0.52  DEG
+
+photo section    out  2.00
+
+a  -14.58
+
+b  15.87
+
+c  -5.24
+
+discriminant  -53.68  
+
+Roots are complex and different.  0.00
+
+section_help  0.00  
+
+a  -14.58
+
+b  16.36
+
+c  -5.76
+
+discriminant  -68.24  
+
+Roots are complex and different.  0.00
+end_excu_time-start_excu_time  2   
+140
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+445
+
+time target  450.00  ms
+ trigger pressed 1 
+0
+
+theta to zero   30.00  DEG
+
+time_rest_to_null   32.00  ms
+
+photo section  11.00
+
+hold_delta   34.00  ms
+
+time_target   450.00  ms
+
+time_window_photo   32.00  ms
+
+the angular speed   16.36  rad/s
+
+angular_acceleration   -38.89  rad/s2
+
+speed_array 1   14.54  rad/s
+
+speed_array 2   15.87  rad/s
+ trigger pressed 2 
+0
+
+theta to zero   0.52  DEG
+
+hold_delta   34.00  ms
+
+the angular speed   16.36  rad/s
+
+angular_acceleration   -36.73  rad/s2
+
+speed_array 1   14.54  rad/s
+
+speed_array 2   15.87  rad/s
+
+photo section 1  1.00
+
+theta to zero in   0.52  DEG
+
+photo section 2  1.00  
+
+theta to zero    out   0.52  DEG
+
+photo section    out  2.00
+
+a  -18.36
+
+b  16.36
+
+c  -5.24
+
+discriminant  -116.89  
+
+Roots are complex and different.  0.00
+
+section_help  0.00
+
+a  -18.36
+
+b  16.36
+
+c  -5.76
+
+discriminant  -155.35  
+
+Roots are complex and different.  0.00  
+end_excu_time-start_excu_time  2
+140
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+446
+
+time target  450.00  ms
+ trigger pressed 1 
+0
+
+theta to zero   60.00  DEG
+
+time_rest_to_null   32.00  ms
+
+photo section  11.00
+
+hold_delta   38.00  ms
+
+time_target   450.00  ms
+
+time_window_photo   32.00  ms
+
+the angular speed   16.36  rad/s
+
+angular_acceleration   -10.34  rad/s2
+
+speed_array 1   14.15  rad/s
+
+speed_array 2   14.54  rad/s
+ trigger pressed 2
+0
+
+theta to zero   1.05  DEG
+
+hold_delta   38.00  ms
+
+the angular speed   16.36  rad/s
+
+angular_acceleration   -10.62  rad/s2
+
+speed_array 1   14.15  rad/s
+
+speed_array 2   14.54  rad/s
+
+photo section 1  1.00
+
+theta to zero in   0.52  DEG
+
+photo section 2  1.00
+
+theta to zero    out   0.52  DEG
+
+photo section    out  1.00  
+
+a  -5.31
+
+b  16.36
+
+c  -5.76  
+
+discriminant  145.35
+
+Roots are real and different.  0.00  
+
+t1 =   0.41
+
+t2 =   2.67
+
+section_help  0.00
+
+a  -5.31
+
+b  14.96
+
+c  -5.76
+
+discriminant  101.42  
+
+Roots are real and different.  0.00
+
+t1 =   0.46
+
+t2 =   2.36
+end_excu_time-start_excu_time  2
+151
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+423
+
+time target  450.00  ms

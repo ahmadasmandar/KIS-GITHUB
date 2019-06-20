@@ -1,0 +1,515 @@
+
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00   
+ trigger pressed 2 
+-3808
+
+section_help  0.00  
+
+a  -0.88
+
+b  5.45
+
+c  -0.52
+
+discriminant  27.91
+
+Roots are real and different.  0.00  
+
+t1 =   0.10  
+
+t2 =   6.11  
+
+a  -0.88     
+
+b  5.45
+
+c  0.52
+
+discriminant  31.59
+
+ Window Roots are real and different.  0.00  
+
+w1 =   -0.09  
+
+w2 =   6.30
+
+time_holder[0]  97.53
+
+time_holder[1]  6109.12  
+
+window_holder[0]  -94.56
+
+window_holder[1]  6301.22
+
+photo section  11.00
+
+theta  5.76
+
+2 if   5707.12  s
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+5983
+
+time target  450.00  ms
+the check is started
+ trigger pressed 2 
+-5104
+
+section_help  0.00
+
+a  -1.64
+
+b  3.82
+
+c  -6.28
+
+discriminant  -26.56  
+
+Roots are complex and different.  0.00
+
+a  -1.64
+
+b  3.82
+
+c  0.52
+
+discriminant  18.04
+
+ Window Roots are real and different.  0.00  
+
+w1 =   -0.13
+
+w2 =   2.46
+
+time_holder[0]  5000.00  
+
+time_holder[1]  5000.00  
+
+window_holder[0]  -129.78
+
+window_holder[1]  2463.35  
+
+photo section  0.00
+
+theta  0.00
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+170
+
+time target  450.00  ms
+ trigger pressed 2 
+-6517
+
+section_help  0.00
+
+a  -0.23
+
+b  3.31
+
+c  -1.57
+
+discriminant  9.51  
+
+Roots are real and different.  0.00
+
+t1 =   0.49  
+
+t2 =   13.62
+
+a  -0.23
+
+b  3.31
+
+c  0.52
+
+discriminant  11.47
+
+ Window Roots are real and different.  0.00
+
+w1 =   -0.16
+
+w2 =   14.27
+
+time_holder[0]  491.09  
+
+time_holder[1]  13618.88
+
+window_holder[0]  -156.27
+
+window_holder[1]  14266.24  
+
+photo section  9.00
+
+theta  4.71
+
+1 if   120.09  s
+
+the ball is shotted  0.00     
+end_excu_time-start_excu_time  3
+398
+
+time target  450.00  ms
+ trigger pressed 2 
+-1485
+
+section_help  0.00  
+
+a  -0.38
+
+b  2.88
+
+c  -2.09  
+
+discriminant  5.09
+
+Roots are real and different.  0.00
+
+t1 =   0.82  
+
+t2 =   6.75
+
+a  -0.38
+
+b  2.88
+
+c  0.52
+
+discriminant  9.07
+
+ Window Roots are real and different.  0.00  
+
+w1 =   -0.18
+
+w2 =   7.74
+
+time_holder[0]  816.02  
+
+time_holder[1]  6748.98
+
+window_holder[0]  -177.82
+
+window_holder[1]  7742.83
+
+photo section  8.00  
+
+theta  4.19
+
+1 if   457.02  s
+
+the ball is shotted  0.00     
+end_excu_time-start_excu_time  3
+733
+
+time target  450.00  ms
+ trigger pressed 2 
+-1465
+
+section_help  0.00
+
+a  -0.27
+
+b  2.63
+
+c  -2.09
+
+discriminant  4.66
+
+Roots are real and different.  0.00
+
+t1 =   0.87
+
+t2 =   8.85  
+
+a  -0.27
+
+b  2.63
+
+c  0.52
+
+discriminant  7.49
+
+ Window Roots are real and different.  0.00  
+
+w1 =   -0.20
+
+w2 =   9.92
+
+time_holder[0]  874.69
+
+time_holder[1]  8847.59
+
+window_holder[0]  -195.09  
+
+window_holder[1]  9917.37
+
+photo section  8.00
+
+theta  4.19
+
+1 if   523.69  s
+
+the ball is shotted  0.00     
+end_excu_time-start_excu_time  3
+799
+
+time target  450.00  ms
+ trigger pressed 2 
+-1456
+
+section_help  0.00
+
+a  -0.10
+
+b  2.62  
+
+c  -2.62
+
+discriminant  5.85
+
+Roots are real and different.  0.00
+
+t1 =   1.04
+
+t2 =   26.30  
+
+a  -0.10
+
+b  2.62
+
+c  0.52
+
+discriminant  7.05
+
+ Window Roots are real and different.  0.00  
+
+w1 =   -0.20
+
+w2 =   27.53
+
+time_holder[0]  1039.53
+
+time_holder[1]  26296.46  
+
+window_holder[0]  -198.56  
+
+window_holder[1]  27534.55
+
+photo section  7.00  
+
+theta  3.67
+
+1 if   689.53  s
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+965
+
+time target  450.00  ms
+ trigger pressed 2 
+-1247
+
+section_help  0.00
+
+a  -0.72  
+
+b  2.32
+
+c  -3.67
+
+discriminant  -5.13  
+
+Roots are complex and different.  0.00  
+
+a  -0.72
+
+b  2.32
+
+c  0.52
+
+discriminant  6.87  
+
+ Window Roots are real and different.  0.00
+
+w1 =   -0.21
+
+w2 =   3.45  
+
+time_holder[0]  5000.00
+
+time_holder[1]  5000.00  
+
+window_holder[0]  -212.10
+
+window_holder[1]  3448.23  
+
+photo section  5.00
+
+theta  2.62
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+170
+
+time target  450.00  ms
+ trigger pressed 2 
+-3636
+
+section_help  0.00
+
+a  -0.26
+
+b  1.86
+
+c  -2.09
+
+discriminant  1.28  
+
+Roots are real and different.  0.00  
+
+t1 =   1.40
+
+t2 =   5.72
+
+a  -0.26  
+
+b  1.86
+
+c  0.52
+
+discriminant  4.02
+
+ Window Roots are real and different.  0.00  
+
+w1 =   -0.27
+
+w2 =   7.39
+
+time_holder[0]  1398.88  
+
+time_holder[1]  5720.02
+
+window_holder[0]  -270.71  
+
+window_holder[1]  7389.61
+
+photo section  8.00
+
+theta  4.19
+
+1 if   1088.88  s
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3   
+1364
+
+time target  450.00  ms
+ trigger pressed 2 
+-3007
+
+section_help  0.00
+
+a  -0.21
+
+b  1.50
+
+c  -1.05
+
+discriminant  1.39  
+
+Roots are real and different.  0.00  
+
+t1 =   0.78
+
+t2 =   6.52
+
+a  -0.21
+
+b  1.50
+
+c  0.52  
+
+discriminant  2.68
+
+ Window Roots are real and different.  0.00  
+
+w1 =   -0.33
+
+w2 =   7.63
+
+time_holder[0]  781.70
+
+time_holder[1]  6518.58
+
+window_holder[0]  -333.74  
+
+window_holder[1]  7634.03
+
+photo section  10.00
+
+theta  5.24
+
+1 if   505.70  s
+
+the ball is shotted  0.00
+end_excu_time-start_excu_time  3
+782
+
+time target  450.00  ms
+ trigger pressed 2 
+-2481
+
+section_help  0.00
+
+a  -0.02  
+
+b  1.20
+
+c  -3.14
+
+discriminant  1.17
+
+Roots are real and different.  0.00  
+
+t1 =   2.75  
+
+t2 =   51.65
+
+a  -0.02
+
+b  1.20
+
+c  0.52
+
+discriminant  1.50
+
+ Window Roots are real and different.  0.00
+
+w1 =   -0.43
+
+w2 =   54.83
+
+time_holder[0]  2748.90  
+
+time_holder[1]  51653.24  
+
+window_holder[0]  -431.58
+
+window_holder[1]  54833.71  
+
+photo section  6.00
+
+theta  3.14
+
+1 if   2515.90  s
+
+the ball is shotted  0.00     
+end_excu_time-start_excu_time  3
+2791
+
+time target  450.00  ms

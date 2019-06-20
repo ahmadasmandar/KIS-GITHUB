@@ -289,7 +289,7 @@ void loop()
   }
   if (digitalRead(demo.butt2)==HIGH && millis()- pressed_test> 500)
   {
-    shooter.shootManuel();
+    //shooter.shootManuel();
     pressed_test=millis();
   }
 }
@@ -475,7 +475,7 @@ void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float i
   {
    c=-(2*PI-(inittheta_1));
    float a= accelaration_1/2, b=winkelgeschwindigkeit_1;
-    float  x1, x2, discriminant, realPart, imaginaryPart;
+    float  x1, x2, discriminant;
      discriminant = (b*b)- (4*a*c);
      debo.sPrint("a",a,"");
      debo.sPrint("b",b,"");

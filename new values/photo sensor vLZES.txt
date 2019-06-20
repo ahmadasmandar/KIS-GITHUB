@@ -1,0 +1,261 @@
+> Executing task: C:\Users\Ahmad Asmandar\.platformio\penv\Scripts\platformio.exe device monitor <
+
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00   
+the check is started
+
+ we are in the mode   3.00   
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+the check is started
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   258.00  ms
+
+photo section before calc  7.00  
+
+a  -0.28
+
+b  2.03
+
+c  -2.62
+
+discriminant  1.20
+
+Roots are real and different.  0.00
+
+t1 =   1.68
+
+t2 =   5.60  
+
+photo section after *  calc  7.00
+
+photo section 3  7.00
+8
+9
+10
+11
+0
+
+1 if   1280.72  s
+
+hold_delta   258.00  ms
+
+time_holder[0]  1675.72  
+
+time_holder[1]  5604.28  
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00  
+
+angular_acceleration   -0.56  rad/s2
+
+speed_array 1   2.01  rad/s
+
+speed_array 2   1.87  rad/s
+
+time_rest_to_null   1290.00  ms
+
+the ball is shotted  0.00     
+
+time target  395.00  ms
+1
+2
+3
+4
+5
+6
+7
+8
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   344.00  ms
+
+photo section before calc  8.00
+
+a  -0.01  
+
+b  1.52
+
+c  -2.09
+
+discriminant  2.25  
+
+Roots are real and different.  0.00
+
+t1 =   1.39
+
+t2 =   195.18  
+
+photo section after *  calc  8.00
+
+photo section 3  8.00
+9
+10
+11
+
+1 if   990.77  s
+
+hold_delta   344.00  ms
+
+time_holder[0]  1385.77  
+
+time_holder[1]  195180.12
+
+window_holder[0]  0.00  
+
+window_holder[1]  0.00
+
+angular_acceleration   -0.02  rad/s2
+
+speed_array 1   1.67  rad/s
+
+speed_array 2   1.67  rad/s
+
+time_rest_to_null   1376.00  ms
+0
+
+the ball is shotted  0.00     
+
+time target  395.00  ms
+1
+2
+3
+4
+5
+6
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   450.00  ms
+
+photo section before calc  6.00
+
+a  -0.06  
+
+b  1.16
+
+c  -3.14  
+
+discriminant  0.57
+
+Roots are real and different.  0.00
+
+t1 =   3.27
+
+t2 =   15.45  
+
+photo section after *  calc  6.00
+
+photo section 3  6.00
+7
+8
+9
+10
+11
+0
+
+1 if   2876.75  s
+
+hold_delta   450.00  ms
+
+time_holder[0]  3271.75  
+
+time_holder[1]  15450.33
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00  
+
+angular_acceleration   -0.12  rad/s2
+
+speed_array 1   1.21  rad/s
+
+speed_array 2   1.15  rad/s
+
+time_rest_to_null   2700.00  ms
+
+the ball is shotted  0.00
+
+time target  395.00  ms
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10

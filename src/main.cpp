@@ -64,6 +64,8 @@ float max_theta,theta_target;
 uint16_t fill_timer=0;
 int start_excu_time=0,end_excu_time=0;
 
+/********* time holder for the calculate time  */
+//float * time_holder[2];
 
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
@@ -145,21 +147,21 @@ void loop()
     theta_zero=2*PI-(photo_section*(PI/6));
     getAcceleration();
     sei();
-    end_excu_time=millis();
+    // end_excu_time=millis();
 
-    Serial.println(" trigger pressed 1 ");
-    Serial.println(end_excu_time-start_excu_time);
-    //*********************** print the values to test 
-    debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
-    debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-    debo.sPrint("photo section",photo_section,"");
-    debo.sPrint("hold_delta ",hold_delta,"ms");
-    debo.sPrint("time_target ",time_target,"ms");
-    debo.sPrint("time_window_photo ",time_window_photo,"ms");
-    debo.sPrint("the angular speed ",angular_speed,"rad/s");
-    debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-    debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-    debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+    // Serial.println(" trigger pressed 1 ");
+    // Serial.println(end_excu_time-start_excu_time);
+    // //*********************** print the values to test 
+    // debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
+    // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+    // debo.sPrint("photo section",photo_section,"");
+    // debo.sPrint("hold_delta ",hold_delta,"ms");
+    // debo.sPrint("time_target ",time_target,"ms");
+    // debo.sPrint("time_window_photo ",time_window_photo,"ms");
+    // debo.sPrint("the angular speed ",angular_speed,"rad/s");
+    // debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+    // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+    // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
     
 
 
@@ -184,6 +186,7 @@ void loop()
       /** nur PHOTO sensor benutzen **/
     case 2:
       // the data that will be used in the shoot function
+      start_excu_time=millis();
       cli();
       hold_delta = time_delta_photo;
       pos = photo_section;
@@ -196,32 +199,25 @@ void loop()
       break;
 
       case 3:
-      // cli();
-      // hold_delta = time_delta_photo;
-      // pos = photo_section;
-      // sei();
-      // time_total_photo = spedo.totalPhotoTime(hold_delta);
-      // theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
-      // target_section=getTargetSection(theta_target);
       getAcceleration();
-       Serial.println(" trigger pressed 2 ");
-    Serial.println(end_excu_time-start_excu_time);
+      Serial.println(" trigger pressed 2 ");
+      Serial.println(end_excu_time-start_excu_time);
     //*********************** print the values to test 
-    debo.sPrint("theta to zero ",(theta_zero),"DEG");
-    debo.sPrint("hold_delta ",hold_delta,"ms");
-    debo.sPrint("the angular speed ",angular_speed,"rad/s");
-    debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-    debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-    debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+    // debo.sPrint("theta to zero ",(theta_zero),"DEG");
+    // debo.sPrint("hold_delta ",hold_delta,"ms");
+    // debo.sPrint("the angular speed ",angular_speed,"rad/s");
+    // debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+    // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+    // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
     cli();
     hold_delta = time_delta_photo;
-    debo.sPrint("photo section 1",photo_section,"");
+    // debo.sPrint("photo section 1",photo_section,"");
     theta_zero=(photo_section*(PI/6));
-    debo.sPrint("theta to zero in ",(theta_zero),"DEG");
-    debo.sPrint("photo section 2",photo_section,"");
+    // debo.sPrint("theta to zero in ",(theta_zero),"DEG");
+    // debo.sPrint("photo section 2",photo_section,"");
     sei();
-    debo.sPrint("theta to zero    out ",(theta_zero),"DEG");
-    debo.sPrint("photo section    out",photo_section,"");
+    // debo.sPrint("theta to zero    out ",(theta_zero),"DEG");
+    // debo.sPrint("photo section    out",photo_section,"");
     spedo.calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)));
     time_window_photo = hold_delta;
     time_target =(450);
@@ -231,7 +227,15 @@ void loop()
     angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
     time_rest_to_null=1000*(theta_zero/angular_speed);
     time_total_photo=spedo.totalPhotoTime(hold_delta);
-    spedo.calculateTime(angular_acceleration,angular_speed,theta_zero);
+
+
+
+    float *time_holder= calculateTime(angular_acceleration,angular_speed,theta_zero);
+      debo.sPrint("time_holder[0]",time_holder[0],"");
+      debo.sPrint("time_holder[1]",time_holder[1],"");
+
+
+
   end_excu_time=millis();
    Serial.println("end_excu_time-start_excu_time  2   ");
    Serial.println(end_excu_time-start_excu_time);
@@ -248,26 +252,8 @@ void loop()
               delay(100);
               motor.write(0);
           
-              // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
-            // debo.sPrint("FOURTH_IF new_4_theta -  theta_target  is ", theta_target, "rad");
-            // debo.sPrint("FOURTH_IF new_4_theta -  target_section ", target_section, "");
-
-         //***************/print to test the values for case 3
-    // debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
-    // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-    // debo.sPrint("hall section",hall_section,"");
-    // debo.sPrint("photo section",photo_section,"");
-    // debo.sPrint("hold_delta ",hold_delta,"ms");
-    // debo.sPrint("time_target ",time_target,"ms");
-    // debo.sPrint("time_window_photo ",time_window_photo,"ms");
-    // debo.sPrint("the angular speed ",angular_speed,"rad/s");
-    // debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-    // debo.sPrint("max_theta ",max_theta,"rad");
-    // debo.sPrint("theta_target ",theta_target,"rad");
-    // debo.sPrint("target_section ",target_section,"");
-    // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-    // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-    //*********************
+             
+ 
       /** Manuel just let the ball go... **/
     case 4:
       shooter.shootManuel();
@@ -466,4 +452,38 @@ void readMode()
     debo.sPrint(" we are in the mode ", program_mode, " ");
     triggerlastpressed = millis();
   }
+}
+float* calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1)
+{
+    float time_holder[2];
+    float a= accelaration_1/2, b=winkelgeschwindigkeit_1, c=-(2*PI-(inittheta_1));
+    float  x1, x2, discriminant, realPart, imaginaryPart;
+     discriminant = (b*b)- (4*a*c);
+     debo.sPrint("a",a,"");
+     debo.sPrint("b",b,"");
+     debo.sPrint("c",c,"");
+     debo.sPrint("discriminant",discriminant,"");
+    if (discriminant > 0 && a !=0) {
+        x1 = (-b + sqrt(discriminant)) / (2*a);
+        x2 = (-b - sqrt(discriminant)) / (2*a);
+        debo.sPrint( "Roots are real and different." ,0,"");
+        debo.sPrint("t1 = ", x1 ,"") ;
+        debo.sPrint("t2 = ", x2 ,"") ;
+        time_holder[0]=x1;
+        time_holder[1]=x2;
+        return time_holder;
+    }
+    
+    else if (discriminant == 0&& a !=0) {
+        debo.sPrint( "Roots are real and same." ,0,"");
+        x1 = (-b + sqrt(discriminant)) / (2*a);
+        debo.sPrint("t1 = t2 =", x1 ,"");
+        return x1;
+    }
+
+    else {
+        debo.sPrint("Roots are complex and different."  ,0,"");
+       return 5000;
+    }
+return 0.0;
 }

@@ -16,7 +16,7 @@ public:
     boolean secureMotion(int val11 , int val21, boolean STrto);
     void checkStop(int val31, int val41);
     float getThetavalues(int val51, int val_time, float angul_accel, char val_char);
-    float calculateTime(float accelaration, float winkelgeschwindigkeit, float inittheta);
+    // float calculateTime(float accelaration, float winkelgeschwindigkeit, float inittheta);
 };
 
 #endif

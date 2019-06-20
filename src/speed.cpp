@@ -7,6 +7,7 @@ debug debtest;
 Servo motor_shoot;
 #define PI 3.1415926535897932384626433832795
 uint16_t NEW_DELAY_SPEED;
+float back_array[2];
 speed::speed()
 {
     //motor_shoot.write(20);
@@ -102,33 +103,36 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
 /*Calculate the time rest for the init theta using the theta equation 
     theta=theta0+w0*t+1/2* acceleration*t^2
  */
-float speed::calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1)
-{
-    float a= accelaration_1/2, b=winkelgeschwindigkeit_1, c=-(2*PI-(inittheta_1));
-    float  x1, x2, discriminant, realPart, imaginaryPart;
-     discriminant = (b*b)- (4*a*c);
-     debtest.sPrint("a",a,"");
-     debtest.sPrint("b",b,"");
-     debtest.sPrint("c",c,"");
-     debtest.sPrint("discriminant",discriminant,"");
-    if (discriminant > 0 && a !=0) {
-        x1 = (-b + sqrt(discriminant)) / (2*a);
-        x2 = (-b - sqrt(discriminant)) / (2*a);
-        debtest.sPrint( "Roots are real and different." ,0,"");
-        debtest.sPrint("t1 = ", x1 ,"") ;
-        debtest.sPrint("t2 = ", x2 ,"") ;
-    }
+// float* speed::calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1)
+// {
+//     float a= accelaration_1/2, b=winkelgeschwindigkeit_1, c=-(2*PI-(inittheta_1));
+//     float  x1, x2, discriminant, realPart, imaginaryPart;
+//      discriminant = (b*b)- (4*a*c);
+//      debtest.sPrint("a",a,"");
+//      debtest.sPrint("b",b,"");
+//      debtest.sPrint("c",c,"");
+//      debtest.sPrint("discriminant",discriminant,"");
+//     if (discriminant > 0 && a !=0) {
+//         x1 = (-b + sqrt(discriminant)) / (2*a);
+//         x2 = (-b - sqrt(discriminant)) / (2*a);
+//         debtest.sPrint( "Roots are real and different." ,0,"");
+//         debtest.sPrint("t1 = ", x1 ,"") ;
+//         debtest.sPrint("t2 = ", x2 ,"") ;
+//         back_array[0]=x1;
+//         back_array[1]=x2;
+//         return back_array;
+//     }
     
-    else if (discriminant == 0&& a !=0) {
-        debtest.sPrint( "Roots are real and same." ,0,"");
-        x1 = (-b + sqrt(discriminant)) / (2*a);
-        debtest.sPrint("t1 = t2 =", x1 ,"");
-    }
+//     else if (discriminant == 0&& a !=0) {
+//         debtest.sPrint( "Roots are real and same." ,0,"");
+//         x1 = (-b + sqrt(discriminant)) / (2*a);
+//         debtest.sPrint("t1 = t2 =", x1 ,"");
+//         return x1;
+//     }
 
-    else {
-        debtest.sPrint("Roots are complex and different."  ,0,"");
-        // debtest.sPrint( "x1 = ",realPart,"");
-        // debtest.sPrint( "x2 = ",realPart,"");
-    }
-return 0.0;
-}
+//     else {
+//         debtest.sPrint("Roots are complex and different."  ,0,"");
+//        return 5000;
+//     }
+// return 0.0;
+// }

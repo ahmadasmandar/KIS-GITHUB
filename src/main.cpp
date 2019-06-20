@@ -57,6 +57,7 @@ int time_array[2];
 boolean start_flag = true;
 float delay_time;
 uint16_t pressed_test=0;
+int hold_position; // for the delta time 
 
 //************ New Calculations using Theata 
 float theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0.000000000000;
@@ -205,6 +206,7 @@ void loop()
       break;
 
       case 3:
+      fillSpeed();
       getAcceleration();
       Serial.println(" trigger pressed 2 ");
     //*********************** print the values to test 
@@ -219,19 +221,24 @@ void loop()
     hold_delta = time_delta_photo;
     theta_zero=2*PI-(photo_section*(PI/6));
     // time_window_photo = hold_delta;
-    time_target =(395+(hold_delta/2));
-    getAcceleration();
+    time_target =(393+(hold_delta/2));
     angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
     time_rest_to_null=1000*(theta_zero/angular_speed);
     time_total_photo=spedo.totalPhotoTime(hold_delta);
     debo.sPrint("photo section before calc",photo_section,"");
+    hold_position=photo_section;
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
     debo.sPrint("photo section after *  calc",photo_section,"");
-    calculateTime(angular_acceleration,angular_speed,(PI/6),'x');
+    hold_position=photo_section;
     sei();
         if (time_holder[0]>time_target && time_holder[0] !=500000  /*  && 1000 *time_holder[0]<time_target+time_window_photo */)
-        {     debo.sPrint("photo section 3",photo_section,"");
-              delay_time=abs((time_holder[0])-time_target);
+        {     cli();
+              debo.sPrint("photo section 3",photo_section,"");
+              debo.sPrint("hold_position",hold_position,"");
+              sei();
+              // correct the time till here
+              float delt_time=1000*((photo_section-hold_position)*((PI/6)/angular_speed));
+              delay_time=abs((time_holder[0])-time_target-delt_time);
               delay(delay_time);
               motor.write(20);
               delay(100);
@@ -246,10 +253,12 @@ void loop()
               debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
               debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
               debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debo.sPrint("delt_time ",delt_time,"ms");
         }
          else if (time_holder[1]> time_target && time_holder[1] !=500000  /* && 1000 *time_holder[1]<time_target+time_window_photo*/ )
         {     debo.sPrint("photo section 4",photo_section,"");
-              delay_time=abs((time_holder[1])-time_target);
+              float delt_time=1000*((photo_section-pos)*((PI/6)/angular_speed));
+              delay_time=abs((time_holder[1])-time_target-delt_time);
               delay(delay_time);
               motor.write(20);
               delay(100);
@@ -264,6 +273,7 @@ void loop()
               debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
               debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
               debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debo.sPrint("delt_time ",delt_time,"ms");
 
         }
       
@@ -368,6 +378,7 @@ void photo_sens_interrupt()
   time_delta_photo = millis() - photo_start;
   photo_start = millis();
   photo_section = checkCounter(photo_section, 12);
+  Serial.println(photo_section);
 }
 
 //************** HALL SENS INTERRUPT *********

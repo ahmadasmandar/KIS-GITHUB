@@ -9,6 +9,6 @@ public:
     void fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, float total_time , uint16_t window,uint16_t target_time);
     void motorIntil();
     void shootManuel();
-    float calculateTime(float accelaration, float winkelgeschwindigkeit, float inittheta);
+  
 };
 #endif

@@ -138,7 +138,7 @@ void loop()
   hold_delta = time_delta_photo;
   time_array[i_time] = hold_delta;
   sei();
-  start_flag = spedo.secureMotion(time_array[1], time_array[0], start_flag); // after 5 second will this function works
+  //start_flag = spedo.secureMotion(time_array[1], time_array[0], start_flag); // after 5 second will this function works
   i_time = checkCounter(i_time, 2);                                        // further the ounter with 1 and check if he reached his max reset it
   //stopSerial(digitalRead(demo.butt2));
   checkStartCondtions(hall_section, pos);
@@ -167,11 +167,6 @@ void loop()
     // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
     // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
     
-
-
-
-
-
     switch (program_mode)
     {
       /** nur Hall sensor benutzen **/
@@ -218,14 +213,13 @@ void loop()
     // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
     start_excu_time=millis();
     cli();
-    hold_delta = time_delta_photo;
-    theta_zero=2*PI-(photo_section*(PI/6));
+    // hold_delta = time_delta_photo;
+    // theta_zero=2*PI-(photo_section*(PI/6));
     // time_window_photo = hold_delta;
-    time_target =(393+(hold_delta/2));
-    angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
-    time_rest_to_null=1000*(theta_zero/angular_speed);
-    time_total_photo=spedo.totalPhotoTime(hold_delta);
-    debo.sPrint("photo section before calc",photo_section,"");
+    time_target =(393+(time_delta_photo/2));
+    angular_speed=spedo.photoSpeed(time_delta_photo)+(angular_acceleration*(time_delta_photo/1000));
+    // time_rest_to_null=1000*(theta_zero/angular_speed);
+    // time_total_photo=spedo.totalPhotoTime(hold_delta);
     hold_position=photo_section;
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
     debo.sPrint("photo section after *  calc",photo_section,"");

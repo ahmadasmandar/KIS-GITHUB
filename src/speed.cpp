@@ -102,13 +102,17 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
 /*Calculate the time rest for the init theta using the theta equation 
     theta=theta0+w0*t+1/2* acceleration*t^2
  */
-float calculateTime(float accelaration, float winkelgeschwindigkeit, float inittheta)
+float speed::calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1)
 {
-    float a= accelaration, b=winkelgeschwindigkeit, c=(2*PI-(inittheta));
+    float a= accelaration_1/2, b=winkelgeschwindigkeit_1, c=-(2*PI-(inittheta_1));
     float  x1, x2, discriminant, realPart, imaginaryPart;
-     discriminant = b*b - 4*a*c;
+     discriminant = (b*b)- (4*a*c);
+     debtest.sPrint("a",a,"");
+     debtest.sPrint("b",b,"");
+     debtest.sPrint("c",c,"");
+     debtest.sPrint("discriminant",discriminant,"");
     
-    if (discriminant > 0) {
+    if (discriminant > 0 && a !=0) {
         x1 = (-b + sqrt(discriminant)) / (2*a);
         x2 = (-b - sqrt(discriminant)) / (2*a);
         debtest.sPrint( "Roots are real and different." ,0,"");
@@ -116,19 +120,16 @@ float calculateTime(float accelaration, float winkelgeschwindigkeit, float initt
         debtest.sPrint("t2 = ", x2 ,"") ;
     }
     
-    else if (discriminant == 0) {
+    else if (discriminant == 0&& a !=0) {
         debtest.sPrint( "Roots are real and same." ,0,"");
         x1 = (-b + sqrt(discriminant)) / (2*a);
         debtest.sPrint("t1 = t2 =", x1 ,"");
     }
 
     else {
-         realPart = -b/(2*a);
-          imaginaryPart =sqrt(-discriminant)/(2*a);
         debtest.sPrint("Roots are complex and different."  ,0,"");
         // debtest.sPrint( "x1 = ",realPart,"");
         // debtest.sPrint( "x2 = ",realPart,"");
     }
-
 return 0.0;
 }

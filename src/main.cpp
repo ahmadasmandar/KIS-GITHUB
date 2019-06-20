@@ -152,7 +152,7 @@ void loop()
     sei();
     // end_excu_time=millis();
 
-    // Serial.println(" trigger pressed 1 ");
+    Serial.println(" trigger pressed 1 ");
     // Serial.println(end_excu_time-start_excu_time);
     // //*********************** print the values to test 
     // debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
@@ -207,7 +207,6 @@ void loop()
       case 3:
       getAcceleration();
       Serial.println(" trigger pressed 2 ");
-      Serial.println(end_excu_time-start_excu_time);
     //*********************** print the values to test 
     // debo.sPrint("theta to zero ",(theta_zero),"DEG");
     debo.sPrint("hold_delta ",hold_delta,"ms");
@@ -219,55 +218,55 @@ void loop()
     cli();
     hold_delta = time_delta_photo;
     theta_zero=2*PI-(photo_section*(PI/6));
-    time_window_photo = hold_delta;
-    time_target =(395);
+    // time_window_photo = hold_delta;
+    time_target =(395+(hold_delta/2));
     getAcceleration();
     angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
     time_rest_to_null=1000*(theta_zero/angular_speed);
     time_total_photo=spedo.totalPhotoTime(hold_delta);
+    debo.sPrint("photo section before calc",photo_section,"");
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
+    debo.sPrint("photo section after *  calc",photo_section,"");
     calculateTime(angular_acceleration,angular_speed,(PI/6),'x');
     sei();
-      if (time_holder[0] !=5000 && time_holder[1] !=5000)
-      {
-        if (time_holder[0]>time_target /*  && 1000 *time_holder[0]<time_target+time_window_photo */)
+        if (time_holder[0]>time_target && time_holder[0] !=500000  /*  && 1000 *time_holder[0]<time_target+time_window_photo */)
         {     debo.sPrint("photo section 3",photo_section,"");
               delay_time=abs((time_holder[0])-time_target);
               delay(delay_time);
               motor.write(20);
               delay(100);
               motor.write(0);
-              // debo.sPrint("1 if ",delay_time,"s");
-              //  debo.sPrint("hold_delta ",hold_delta,"ms");
-              // debo.sPrint("time_holder[0]",time_holder[0],"");
-              // debo.sPrint("time_holder[1]",time_holder[1],"");
-              // debo.sPrint("window_holder[0]",window_holder[0],"");
-              // debo.sPrint("window_holder[1]",window_holder[1],"");
-              // debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-              // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-              // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debo.sPrint("1 if ",delay_time,"s");
+               debo.sPrint("hold_delta ",hold_delta,"ms");
+              debo.sPrint("time_holder[0]",time_holder[0],"");
+              debo.sPrint("time_holder[1]",time_holder[1],"");
+              debo.sPrint("window_holder[0]",window_holder[0],"");
+              debo.sPrint("window_holder[1]",window_holder[1],"");
+              debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+              debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+              debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
         }
-         else if (time_holder[1]> time_target  /* && 1000 *time_holder[1]<time_target+time_window_photo*/ )
+         else if (time_holder[1]> time_target && time_holder[1] !=500000  /* && 1000 *time_holder[1]<time_target+time_window_photo*/ )
         {     debo.sPrint("photo section 4",photo_section,"");
               delay_time=abs((time_holder[1])-time_target);
               delay(delay_time);
               motor.write(20);
               delay(100);
               motor.write(0);
-              // debo.sPrint("2 if ",delay_time,"s");
-              //  debo.sPrint("hold_delta ",hold_delta,"ms");
-              // debo.sPrint("time_holder[0]",time_holder[0],"");
-              // debo.sPrint("time_holder[1]",time_holder[1],"");
-              // debo.sPrint("window_holder[0]",window_holder[0],"");
-              // debo.sPrint("window_holder[1]",window_holder[1],"");
-              // debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-              // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-              // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debo.sPrint("2 if ",delay_time,"s");
+               debo.sPrint("hold_delta ",hold_delta,"ms");
+              debo.sPrint("time_holder[0]",time_holder[0],"");
+              debo.sPrint("time_holder[1]",time_holder[1],"");
+              debo.sPrint("window_holder[0]",window_holder[0],"");
+              debo.sPrint("window_holder[1]",window_holder[1],"");
+              debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+              debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+              debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
 
         }
-      }
+      
       
       /** Manuel just let the ball go... **/
     case 4:
@@ -493,14 +492,14 @@ void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float i
         x1 = (-b + sqrt(discriminant)) / (2*a);
         debo.sPrint("t1 = t2 =", x1 ,"");
         time_holder[0]=1000*x1;
-        time_holder[1]=5000;
+        time_holder[1]=500000;
         
     }
 
     else {
         debo.sPrint("Roots are complex and different."  ,0,"");
-        time_holder[0]=5000;
-        time_holder[1]=5000;
+        time_holder[0]=500000;
+        time_holder[1]=500000;
         
     }
   }

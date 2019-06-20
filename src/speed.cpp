@@ -111,7 +111,6 @@ float speed::calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, 
      debtest.sPrint("b",b,"");
      debtest.sPrint("c",c,"");
      debtest.sPrint("discriminant",discriminant,"");
-    
     if (discriminant > 0 && a !=0) {
         x1 = (-b + sqrt(discriminant)) / (2*a);
         x2 = (-b - sqrt(discriminant)) / (2*a);

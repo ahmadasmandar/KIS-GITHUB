@@ -207,9 +207,8 @@ void loop()
        Serial.println(" trigger pressed 2 ");
     Serial.println(end_excu_time-start_excu_time);
     //*********************** print the values to test 
-    debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
+    debo.sPrint("theta to zero ",(theta_zero),"DEG");
     debo.sPrint("hold_delta ",hold_delta,"ms");
-    debo.sPrint("time_target ",time_target,"ms");
     debo.sPrint("the angular speed ",angular_speed,"rad/s");
     debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
     debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
@@ -218,12 +217,12 @@ void loop()
     hold_delta = time_delta_photo;
     debo.sPrint("photo section 1",photo_section,"");
     theta_zero=(photo_section*(PI/6));
-    debo.sPrint("theta to zero in ",(theta_zero*(180/PI)),"DEG");
+    debo.sPrint("theta to zero in ",(theta_zero),"DEG");
     debo.sPrint("photo section 2",photo_section,"");
     sei();
-    debo.sPrint("theta to zero    out ",(theta_zero*(180/PI)),"DEG");
+    debo.sPrint("theta to zero    out ",(theta_zero),"DEG");
     debo.sPrint("photo section    out",photo_section,"");
-    spedo.calculateTime(angular_acceleration,angular_speed,theta_zero);
+    spedo.calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)));
     time_window_photo = hold_delta;
     time_target =(450);
     // max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');

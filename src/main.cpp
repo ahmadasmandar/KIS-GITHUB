@@ -62,7 +62,7 @@ float speed_array[2];
 uint8_t j_speed=0,target_section;
 double max_theta,theta_target;
 uint16_t fill_timer=0;
-
+int start_excu_time=0,end_excu_time=0;
 
 
 //************
@@ -139,17 +139,13 @@ void loop()
   if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 700)
   {
     //********************
+    start_excu_time=millis();
     cli();
     hold_delta = time_delta_photo;
     theta_zero=2*PI-(photo_section*(PI/6));
     sei();
-    // time_window_photo = hold_delta;
-    // time_target =(393+(hold_delta/2));
-    // max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
-    // theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
-    // target_section=getTargetSection(theta_target);
-    // angular_speed=spedo.photoSpeed(hold_delta);
-    // time_rest_to_null=1000*(theta_zero/angular_speed);
+    end_excu_time=millis();
+    
     Serial.println(" trigger pressed ");
     //*********************** print the values to test 
     // debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
@@ -171,6 +167,7 @@ void loop()
     {
       /** nur Hall sensor benutzen **/
     case 1:
+
       cli();
       hold_delta = time_delta_hall;
       pos = hall_section;

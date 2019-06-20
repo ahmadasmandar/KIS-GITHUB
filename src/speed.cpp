@@ -2,6 +2,7 @@
 #include "Arduino.h"
 #include "Servo.h"
 #include "debug.h"
+ #include "math.h"
 debug debtest;
 Servo motor_shoot;
 #define PI 3.1415926535897932384626433832795
@@ -97,4 +98,38 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
     default:
         break;
     }
+}
+/*Calculate the time rest for the init theta using the theta equation 
+    theta=theta0+w0*t+1/2* acceleration*t^2
+ */
+float calculateTime(float accelaration, float winkelgeschwindigkeit, float inittheta)
+{
+    float a= accelaration, b=winkelgeschwindigkeit, c=(2*PI-(inittheta));
+    float  x1, x2, discriminant, realPart, imaginaryPart;
+    float discriminant = b*b - 4*a*c;
+    
+    if (discriminant > 0) {
+        x1 = (-b + sqrt(discriminant)) / (2*a);
+        x2 = (-b - sqrt(discriminant)) / (2*a);
+        debtest.sPrint( "Roots are real and different." ,0,"");
+        debtest.sPrint("t1 = ", x1 ,"") ;
+        debtest.sPrint("t2 = ", x2 ,"") ;
+    }
+    
+    else if (discriminant == 0) {
+        debtest.sPrint( "Roots are real and same." ,0,"");
+        x1 = (-b + sqrt(discriminant)) / (2*a);
+        debtest.sPrint("t1 = t2 =", x1 ,0,"");
+    }
+
+    else {
+        float realPart = -b/(2*a);
+        float  imaginaryPart =sqrt(-discriminant)/(2*a);
+        debtest.sPrint("Roots are complex and different."  ,0,"");
+        // debtest.sPrint( "x1 = ",realPart,"");
+        // debtest.sPrint( "x2 = ",realPart,"");
+    }
+
+return 0.0;
+
 }

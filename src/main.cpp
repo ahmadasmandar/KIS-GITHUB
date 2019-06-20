@@ -145,8 +145,9 @@ void loop()
     theta_zero=2*PI-(photo_section*(PI/6));
     sei();
     end_excu_time=millis();
-    
+
     Serial.println(" trigger pressed ");
+    Serial.println(end_excu_time-start_excu_time);
     //*********************** print the values to test 
     // debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
     // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
@@ -163,95 +164,109 @@ void loop()
     // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
     // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
     //
-    switch (program_mode)
-    {
-      /** nur Hall sensor benutzen **/
-    case 1:
 
-      cli();
-      hold_delta = time_delta_hall;
-      pos = hall_section;
-      sei();
-      time_rest_to_null = spedo.hallRst(pos,hold_delta);
-      time_total_hall = spedo.totalHallTime(hold_delta);
-      time_window_hall = (hold_delta/ 6) - 20;
-      shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_hall, time_target);
-      break;
-      /** nur PHOTO sensor benutzen **/
-    case 2:
-      // the data that will be used in the shoot function
-      cli();
-      hold_delta = time_delta_photo;
-      pos = photo_section;
-      sei();
-      time_rest_to_null = spedo.photoRst(pos,hold_delta);
-      time_total_photo = spedo.totalPhotoTime(hold_delta);
-      time_window_photo = hold_delta;
-      shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_photo, time_window_photo, time_target);
-      /* code */
-      break;
 
-      case 3:
-      // cli();
-      // hold_delta = time_delta_photo;
-      // pos = photo_section;
-      // sei();
-      // time_total_photo = spedo.totalPhotoTime(hold_delta);
-      // theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
-      // target_section=getTargetSection(theta_target);
-       cli();
-    hold_delta = time_delta_photo;
-    theta_zero=2*PI-(photo_section*(PI/6));
-    sei();
-    time_window_photo = hold_delta;
-    time_target =(450);
-    // max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
-    // theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
-    target_section=getTargetSection(theta_target);
-    angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
-    time_rest_to_null=1000*(theta_zero/angular_speed);
-    time_total_photo=spedo.totalPhotoTime(hold_delta);
-        Serial.println(" trigger pressed ");
 
-        if (time_rest_to_null > time_target /* && time_rest_to_null<time_target+hold_delta */)
-             {          
-              delay_time=time_rest_to_null-time_target;
-             }
-        else
-        {
-          delay_time= abs(time_total_photo-time_rest_to_null-time_target);
-        }
-              delay(delay_time);
-              motor.write(20);
-              delay(100);
-              motor.write(0);
+
+
+
+
+    // switch (program_mode)
+    // {
+    //   /** nur Hall sensor benutzen **/
+    // case 1:
+
+    //   cli();
+    //   hold_delta = time_delta_hall;
+    //   pos = hall_section;
+    //   sei();
+    //   time_rest_to_null = spedo.hallRst(pos,hold_delta);
+    //   time_total_hall = spedo.totalHallTime(hold_delta);
+    //   time_window_hall = (hold_delta/ 6) - 20;
+    //   shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_hall, time_target);
+    //   break;
+    //   /** nur PHOTO sensor benutzen **/
+    // case 2:
+    //   // the data that will be used in the shoot function
+    //   cli();
+    //   hold_delta = time_delta_photo;
+    //   pos = photo_section;
+    //   sei();
+    //   time_rest_to_null = spedo.photoRst(pos,hold_delta);
+    //   time_total_photo = spedo.totalPhotoTime(hold_delta);
+    //   time_window_photo = hold_delta;
+    //   shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_photo, time_window_photo, time_target);
+    //   /* code */
+    //   break;
+
+    //   case 3:
+    //   // cli();
+    //   // hold_delta = time_delta_photo;
+    //   // pos = photo_section;
+    //   // sei();
+    //   // time_total_photo = spedo.totalPhotoTime(hold_delta);
+    //   // theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
+    //   // target_section=getTargetSection(theta_target);
+    //    cli();
+    // hold_delta = time_delta_photo;
+    // theta_zero=2*PI-(photo_section*(PI/6));
+    // sei();
+    // time_window_photo = hold_delta;
+    // time_target =(450);
+    // // max_theta=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'x');
+    // // theta_target=spedo.getThetavalues(hold_delta,time_target,angular_acceleration,'t');
+    // target_section=getTargetSection(theta_target);
+    // angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
+    // time_rest_to_null=1000*(theta_zero/angular_speed);
+    // time_total_photo=spedo.totalPhotoTime(hold_delta);
+    //     Serial.println(" trigger pressed ");
+
+    //     if (time_rest_to_null > time_target /* && time_rest_to_null<time_target+hold_delta */)
+    //          {          
+    //           delay_time=time_rest_to_null-time_target;
+    //          }
+    //     else
+    //     {
+    //       delay_time= abs(time_total_photo-time_rest_to_null-time_target);
+    //     }
+    //           delay(delay_time);
+    //           motor.write(20);
+    //           delay(100);
+    //           motor.write(0);
           
-              // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
-            debo.sPrint("FOURTH_IF new_4_theta -  theta_target  is ", theta_target, "rad");
-            debo.sPrint("FOURTH_IF new_4_theta -  target_section ", target_section, "");
+    //           // debshoot.sPrint("FOURTH_IF 4 -  if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
+    //         debo.sPrint("FOURTH_IF new_4_theta -  theta_target  is ", theta_target, "rad");
+    //         debo.sPrint("FOURTH_IF new_4_theta -  target_section ", target_section, "");
 
-         //***************print to test the values for case 3
-    debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
-    debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-    debo.sPrint("hall section",hall_section,"");
-    debo.sPrint("photo section",photo_section,"");
-    debo.sPrint("hold_delta ",hold_delta,"ms");
-    debo.sPrint("time_target ",time_target,"ms");
-    debo.sPrint("time_window_photo ",time_window_photo,"ms");
-    debo.sPrint("the angular speed ",angular_speed,"rad/s");
-    debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-    debo.sPrint("max_theta ",max_theta,"rad");
-    debo.sPrint("theta_target ",theta_target,"rad");
-    debo.sPrint("target_section ",target_section,"");
-    debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-    debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-    //*********************
-      /** Manuel just let the ball go... **/
-    case 4:
-      shooter.shootManuel();
-      /* code */
-      break;
-    }
+    //      //***************/print to test the values for case 3
+    // debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
+    // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+    // debo.sPrint("hall section",hall_section,"");
+    // debo.sPrint("photo section",photo_section,"");
+    // debo.sPrint("hold_delta ",hold_delta,"ms");
+    // debo.sPrint("time_target ",time_target,"ms");
+    // debo.sPrint("time_window_photo ",time_window_photo,"ms");
+    // debo.sPrint("the angular speed ",angular_speed,"rad/s");
+    // debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+    // debo.sPrint("max_theta ",max_theta,"rad");
+    // debo.sPrint("theta_target ",theta_target,"rad");
+    // debo.sPrint("target_section ",target_section,"");
+    // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+    // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+    // //*********************
+    //   /** Manuel just let the ball go... **/
+    // case 4:
+    //   shooter.shootManuel();
+    //   /* code */
+    //   break;
+    //}
+    //end of the switch cases
+
+
+
+
+
+
     //stopSerial(digitalRead(demo.butt2));
     last_pressed = millis();
     debo.sPrint("time target",time_target,"ms");

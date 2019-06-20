@@ -106,7 +106,7 @@ float calculateTime(float accelaration, float winkelgeschwindigkeit, float initt
 {
     float a= accelaration, b=winkelgeschwindigkeit, c=(2*PI-(inittheta));
     float  x1, x2, discriminant, realPart, imaginaryPart;
-    float discriminant = b*b - 4*a*c;
+     discriminant = b*b - 4*a*c;
     
     if (discriminant > 0) {
         x1 = (-b + sqrt(discriminant)) / (2*a);
@@ -119,17 +119,16 @@ float calculateTime(float accelaration, float winkelgeschwindigkeit, float initt
     else if (discriminant == 0) {
         debtest.sPrint( "Roots are real and same." ,0,"");
         x1 = (-b + sqrt(discriminant)) / (2*a);
-        debtest.sPrint("t1 = t2 =", x1 ,0,"");
+        debtest.sPrint("t1 = t2 =", x1 ,"");
     }
 
     else {
-        float realPart = -b/(2*a);
-        float  imaginaryPart =sqrt(-discriminant)/(2*a);
+         realPart = -b/(2*a);
+          imaginaryPart =sqrt(-discriminant)/(2*a);
         debtest.sPrint("Roots are complex and different."  ,0,"");
         // debtest.sPrint( "x1 = ",realPart,"");
         // debtest.sPrint( "x2 = ",realPart,"");
     }
 
 return 0.0;
-
 }

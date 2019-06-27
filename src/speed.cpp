@@ -4,7 +4,6 @@
 #include "debug.h"
  #include "math.h"
 debug debtest;
-Servo motor_shoot;
 #define PI 3.1415926535897932384626433832795
 uint16_t NEW_DELAY_SPEED;
 float back_array[2];

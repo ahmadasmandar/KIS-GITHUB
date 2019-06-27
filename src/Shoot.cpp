@@ -8,17 +8,18 @@ float delay_time_shoot;
 int angel=20;
 int motor_delay=100;
 int end_angel=0;
-void Shoot::shootManuel()
-{
 
-    //debshoot.sPrint("the ball is shotted", 0 , "   ");  
-
-}
 void Shoot::motorIntil()
 {
-    shhot_motor.attach(9);
-    //the initial angel is very important
-    shhot_motor.write(end_angel);
+  shhot_motor.attach(9);
+  shhot_motor.write(0);
+}
+void Shoot::shootManuel(int ango)
+{
+          shhot_motor.write(ango);
+          delay(motor_delay);
+          shhot_motor.write(end_angel); 
+
 }
 
 void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, float total_time , uint16_t window,uint16_t target_time)

@@ -100,8 +100,7 @@ void calculateTime(float accelaration_2, float winkelgeschwindigkeit_3, float in
 void setup()
 {
   demo.pinSetup();
-  motor.attach(9);
-  motor.write(0);
+  shooter.motorIntil();
   Serial.begin(57600);
   attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);
   attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
@@ -183,15 +182,23 @@ void loop()
     debo.sPrint("hold_delta ",hold_delta,"ms");
     start_excu_time=millis();
     cli();
-
-    time_target =(393+(time_delta_photo/2));
+    hold_delta=time_delta_photo;
+    time_target =(393+(time_delta_photo/4));
     angular_speed=spedo.photoSpeed(time_delta_photo)+(angular_acceleration*(time_delta_photo/1000));
     hold_position=photo_section;
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
+    time_total_photo=spedo.totalPhotoTime(time_delta_photo);
+    time_rest_to_null=spedo.photoRst(photo_section,time_delta_photo);
     debo.sPrint("photo section after *  calc",photo_section,"");
     hold_position=photo_section;
     sei();
-        if (time_holder[0]>time_target && time_holder[0] !=500000  /*  && 1000 *time_holder[0]<time_target+time_window_photo */)
+    if (time_total_photo > time_target)
+    {
+        shooter.fireBall(hold_delta, time_rest_to_null, photo_section, time_total_photo, hold_delta, time_target);
+    }
+    else
+    {
+      if (time_holder[0]>time_target && time_holder[0] !=500000  /*  && 1000 *time_holder[0]<time_target+time_window_photo */)
         {     cli();
               debo.sPrint("photo section 3",photo_section,"");
               debo.sPrint("hold_position",hold_position,"");
@@ -199,9 +206,10 @@ void loop()
               float delt_time=1000*((photo_section-hold_position)*((PI/6)/angular_speed));
               delay_time=abs((time_holder[0])-time_target-delt_time);
               delay(delay_time);
-              motor.write(20);
-              delay(100);
-              motor.write(0);
+              shooter.shootManuel(20);
+              // //motor.write(20);
+              // delay(100);
+              // //motor.write(0);
               debo.sPrint("1 if ",delay_time,"s");
                debo.sPrint("hold_delta ",hold_delta,"ms");
               debo.sPrint("time_holder[0]",time_holder[0],"");
@@ -219,9 +227,10 @@ void loop()
               float delt_time=1000*((photo_section-pos)*((PI/6)/angular_speed));
               delay_time=abs((time_holder[1])-time_target-delt_time);
               delay(delay_time);
-              motor.write(20);
-              delay(100);
-              motor.write(0);
+              shooter.shootManuel(20);
+              //motor.write(20);
+              // delay(100);
+              //motor.write(0);
               debo.sPrint("2 if ",delay_time,"s");
                debo.sPrint("hold_delta ",hold_delta,"ms");
               debo.sPrint("time_holder[0]",time_holder[0],"");
@@ -236,9 +245,12 @@ void loop()
 
         }
       
+    }
+    
+        
       /** Manuel just let the ball go... **/
     case 4:
-      shooter.shootManuel();
+      //shooter.shootManuel();
       /* code */
       break;
     }
@@ -424,11 +436,12 @@ void readMode()
 void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1, char control)
 {
   float c;
+  float a= accelaration_1/2, b=winkelgeschwindigkeit_1;
+    float  x1, x2, discriminant,real_part,imaginary_part;
   if (control== 't')
   {
-   c=-(2*PI-(inittheta_1));
-   float a= accelaration_1/2, b=winkelgeschwindigkeit_1;
-    float  x1, x2, discriminant,real_part,imaginary_part;
+   if (a!=0){
+     c=-(2*PI-(inittheta_1));
      discriminant = (b*b)- (4*a*c);
      debo.sPrint("a",a,"");
      debo.sPrint("b",b,"");
@@ -459,47 +472,26 @@ void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float i
         real_part=-b/(2*a);
         imaginary_part=sqrt(-discriminant)/(2*a);
         x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
-        time_holder[0]=x1;
+        debo.sPrint("real_part ", real_part ,"");
+        debo.sPrint("imaginary_part", imaginary_part ,"");
+        debo.sPrint("x1", x1 ,"");
+        time_holder[0]=1000*x1;
         time_holder[1]=500000;
         
     }
-  }
-  else
-  {
-    
-    //  c=inittheta_1;
-  
-    // float a= accelaration_1/2, b=winkelgeschwindigkeit_1;
-    // float  x1, x2, discriminant, realPart, imaginaryPart;
-    //  discriminant = (b*b)- (4*a*c);
-    //  debo.sPrint("a",a,"");
-    //  debo.sPrint("b",b,"");
-    //  debo.sPrint("c",c,"");
-    //  debo.sPrint("discriminant",discriminant,"");
-    // if (discriminant > 0 && a !=0) {
-    //     x1 = (-b + sqrt(discriminant)) / (2*a);
-    //     x2 = (-b - sqrt(discriminant)) / (2*a);
-    //     debo.sPrint( " Window Roots are real and different." ,0,"");
-    //     debo.sPrint("w1 = ", x1 ,"") ;
-    //     debo.sPrint("w2 = ", x2 ,"") ;
-    //     window_holder[0]=1000*x1;
-    //     window_holder[1]=1000*x2;
-        
-    // }
-    
-    // else if (discriminant == 0&& a !=0) {
-    //     debo.sPrint( " Window Roots are real and same." ,0,"");
-    //     x1 = (-b + sqrt(discriminant)) / (2*a);
-    //     debo.sPrint("w1 = w2 =", x1 ,"");
-    //     window_holder[0]=1000*x1;
-    //     window_holder[1]=5000;
-    // }
 
-    // else {
-    //     debo.sPrint(" Window Roots are complex and different."  ,0,"");
-    //     window_holder[0]=5000;
-    //     window_holder[1]=5000;
-        
-    // }
+   }
+   else
+   {
+    debo.sPrint( "a == 0 " ,0,"");
+      debo.sPrint("a",a,"");
+     debo.sPrint("b",b,"");
+     debo.sPrint("c",c,"");
+        x1 = -c/b;
+        debo.sPrint("t1 = t2 =", x1 ,"");
+        time_holder[0]=1000*x1;
+        time_holder[1]=500000;
+   }
+   
   }
 }

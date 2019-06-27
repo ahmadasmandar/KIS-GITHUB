@@ -428,7 +428,7 @@ void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float i
   {
    c=-(2*PI-(inittheta_1));
    float a= accelaration_1/2, b=winkelgeschwindigkeit_1;
-    float  x1, x2, discriminant;
+    float  x1, x2, discriminant,real_part,imaginary_part;
      discriminant = (b*b)- (4*a*c);
      debo.sPrint("a",a,"");
      debo.sPrint("b",b,"");
@@ -456,7 +456,10 @@ void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float i
 
     else {
         debo.sPrint("Roots are complex and different."  ,0,"");
-        time_holder[0]=500000;
+        real_part=-b/(2*a);
+        imaginary_part=sqrt(-discriminant)/(2*a);
+        x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
+        time_holder[0]=x1;
         time_holder[1]=500000;
         
     }

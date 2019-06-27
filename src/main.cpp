@@ -100,7 +100,6 @@ void calculateTime(float accelaration_2, float winkelgeschwindigkeit_3, float in
 void setup()
 {
   demo.pinSetup();
-  //shooter.motorIntil();
   motor.attach(9);
   motor.write(0);
   Serial.begin(57600);
@@ -109,23 +108,16 @@ void setup()
   hall_start = millis();
   photo_start = millis();
 }
-// here is new test for using git hub
+
 
 //********************************* the main loop ****************
 void loop()
 {
 
-   applyMode();
+ applyMode();
  readMode();
-  //******* fill the speed values every 1 second
-  if (millis()-fill_timer > 1000)
-  {
-  fillSpeed();
-  getAcceleration();
-  fill_timer=millis();
-  }
-    // take the values from he inerrupt and used to fill the time array
-  
+ fillSpeed();
+ getAcceleration();
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -138,9 +130,7 @@ void loop()
   hold_delta = time_delta_photo;
   time_array[i_time] = hold_delta;
   sei();
-  //start_flag = spedo.secureMotion(time_array[1], time_array[0], start_flag); // after 5 second will this function works
   i_time = checkCounter(i_time, 2);                                        // further the ounter with 1 and check if he reached his max reset it
-  //stopSerial(digitalRead(demo.butt2));
   checkStartCondtions(hall_section, pos);
   if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 700)
   {
@@ -151,28 +141,12 @@ void loop()
     theta_zero=2*PI-(photo_section*(PI/6));
     getAcceleration();
     sei();
-    // end_excu_time=millis();
-
     Serial.println(" trigger pressed 1 ");
-    // Serial.println(end_excu_time-start_excu_time);
-    // //*********************** print the values to test 
-    // debo.sPrint("theta to zero ",(theta_zero*(180/PI)),"DEG");
-    // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-    // debo.sPrint("photo section",photo_section,"");
-    // debo.sPrint("hold_delta ",hold_delta,"ms");
-    // debo.sPrint("time_target ",time_target,"ms");
-    // debo.sPrint("time_window_photo ",time_window_photo,"ms");
-    // debo.sPrint("the angular speed ",angular_speed,"rad/s");
-    // debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-    // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-    // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-    
     switch (program_mode)
     {
       /** nur Hall sensor benutzen **/
       start_excu_time=millis();
     case 1:
-
       cli();
       hold_delta = time_delta_hall;
       pos = hall_section;
@@ -200,26 +174,18 @@ void loop()
       /* code */
       break;
 
+      // here we are using the angel to calculate the values 
       case 3:
       fillSpeed();
       getAcceleration();
       Serial.println(" trigger pressed 2 ");
     //*********************** print the values to test 
-    // debo.sPrint("theta to zero ",(theta_zero),"DEG");
     debo.sPrint("hold_delta ",hold_delta,"ms");
-    // debo.sPrint("the angular speed ",angular_speed,"rad/s");
-    // debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-    // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-    // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
     start_excu_time=millis();
     cli();
-    // hold_delta = time_delta_photo;
-    // theta_zero=2*PI-(photo_section*(PI/6));
-    // time_window_photo = hold_delta;
+
     time_target =(393+(time_delta_photo/2));
     angular_speed=spedo.photoSpeed(time_delta_photo)+(angular_acceleration*(time_delta_photo/1000));
-    // time_rest_to_null=1000*(theta_zero/angular_speed);
-    // time_total_photo=spedo.totalPhotoTime(hold_delta);
     hold_position=photo_section;
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
     debo.sPrint("photo section after *  calc",photo_section,"");
@@ -230,7 +196,6 @@ void loop()
               debo.sPrint("photo section 3",photo_section,"");
               debo.sPrint("hold_position",hold_position,"");
               sei();
-              // correct the time till here
               float delt_time=1000*((photo_section-hold_position)*((PI/6)/angular_speed));
               delay_time=abs((time_holder[0])-time_target-delt_time);
               delay(delay_time);
@@ -271,26 +236,14 @@ void loop()
 
         }
       
-      
       /** Manuel just let the ball go... **/
     case 4:
       shooter.shootManuel();
       /* code */
       break;
     }
-    //end of the switch cases
 
-
-
-
-    //stopSerial(digitalRead(demo.butt2));
     last_pressed = millis();
-    debo.sPrint("time target",time_target,"ms");
-  }
-  if (digitalRead(demo.butt2)==HIGH && millis()- pressed_test> 500)
-  {
-    //shooter.shootManuel();
-    pressed_test=millis();
   }
 }
 

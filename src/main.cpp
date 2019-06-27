@@ -38,7 +38,7 @@ uint16_t time_window_hall, time_window_photo;
 uint16_t new_delay;
 float time_holder[2];
 float window_holder[2];
-
+// test git from linux
 //******************************* speed parameter  S=73cm  **********************///
 
 float photo_speed = 0, hall_speed = 0, new_speed = 0; // Speed from the tow sensor with new_speed to use it later

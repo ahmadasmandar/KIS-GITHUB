@@ -68,6 +68,7 @@ uint16_t fill_timer=0;
 int start_excu_time=0,end_excu_time=0;
 int fill_speed_timer=0, acceleration_timer=0;
 
+
 /********* time holder for the calculate time  */
 //float * time_holder[2];
 
@@ -176,8 +177,8 @@ void loop()
 
       // here we are using the angel to calculate the values 
       case 3:
-      fillSpeed();
-      getAcceleration();
+      // fillSpeed();
+      // getAcceleration();
       Serial.println(" trigger pressed 2 ");
     //*********************** print the values to test 
     debo.sPrint("hold_delta ",hold_delta,"ms");
@@ -207,6 +208,8 @@ void loop()
               debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
               debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
               debo.sPrint("time_total_photo ",time_total_photo,"ms");
+              debo.sPrint("fill_speed_timer ",fill_speed_timer,"ms");
+              debo.sPrint("acceleration_timer ",acceleration_timer,"ms");
     }
     else
     {
@@ -404,17 +407,21 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 }
 void getAcceleration()
 {
-    angular_acceleration=-abs(1000*(speed_array[1]-speed_array[0])/acceleration_timer);
+    angular_acceleration=-abs(1000*(speed_array[1]-speed_array[0])/50);
 }
 void fillSpeed()
 {
-  cli();
+  if (millis()-fill_speed_timer >50)
+  {
+     cli();
   speed_array[j_speed]=spedo.photoSpeed(time_delta_photo);
   angular_speed_zero=spedo.photoSpeed(time_delta_photo);
-  acceleration_timer=millis()-fill_speed_timer;
-  fill_speed_timer=millis();
   sei();
+  
+  fill_speed_timer=millis();
   j_speed=checkCounter(j_speed,2);
+  }
+ 
 }
 
 uint8_t getTargetSection(float theta_target_1)

@@ -66,6 +66,7 @@ uint8_t j_speed=0,target_section;
 float max_theta,theta_target;
 uint16_t fill_timer=0;
 int start_excu_time=0,end_excu_time=0;
+int fill_speed_timer=0, acceleration_timer=0;
 
 /********* time holder for the calculate time  */
 //float * time_holder[2];
@@ -403,13 +404,15 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 }
 void getAcceleration()
 {
-    angular_acceleration=-abs(1000*(speed_array[1]-speed_array[0])/time_delta_photo);
+    angular_acceleration=-abs(1000*(speed_array[1]-speed_array[0])/acceleration_timer);
 }
 void fillSpeed()
 {
   cli();
   speed_array[j_speed]=spedo.photoSpeed(time_delta_photo);
   angular_speed_zero=spedo.photoSpeed(time_delta_photo);
+  acceleration_timer=millis()-fill_speed_timer;
+  fill_speed_timer=millis();
   sei();
   j_speed=checkCounter(j_speed,2);
 }

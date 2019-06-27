@@ -4,7 +4,7 @@
         "PLATFORMIO_CALLER": "vscode"
     },
     "terminal.integrated.env.linux": {
-        "PATH": "/home/ahmad/.platformio/penv/bin:/home/ahmad/.platformio/penv:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+        "PATH": "/home/ahmad/.platformio/penv/bin:/home/ahmad/.platformio/penv:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ahmad/.dotnet/tools",
         "PLATFORMIO_CALLER": "vscode"
     }
 }

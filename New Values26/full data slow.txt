@@ -1,0 +1,918 @@
+ we are in the mode   3.00   
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   86.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  6.09  
+
+c  0.00
+
+t1 = t2 =  0.00  
+
+photo section after *  calc  10.00
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+THIRD_IF 3 - if work time is   172.00  ms
+
+THIRD_IF 3 - if delay time is   735.00  ms
+
+THIRD_IF 3 - if new work time is   -563.00  ms
+
+hold_delta   86.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00  
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   6.09  rad/s
+
+speed_array 2   6.09  rad/s
+
+time_rest_to_null   172.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   83.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  6.31  
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  9.00  
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+THIRD_IF 3 - if work time is   249.00  ms
+
+THIRD_IF 3 - if delay time is   779.00  ms
+
+THIRD_IF 3 - if new work time is   -530.00  ms
+
+hold_delta   83.00  ms
+
+time_holder[0]  0.00  
+
+time_holder[1]  500000.00
+
+window_holder[0]  0.00  
+
+window_holder[1]  0.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   6.31  rad/s
+
+speed_array 2   6.31  rad/s
+
+time_rest_to_null   249.00  ms
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   95.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  5.51  
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  10.00  
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+THIRD_IF 3 - if work time is   190.00  ms
+
+THIRD_IF 3 - if delay time is   852.00  ms
+
+THIRD_IF 3 - if new work time is   -662.00  ms
+
+hold_delta   95.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00
+
+window_holder[0]  0.00  
+
+window_holder[1]  0.00  
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   5.51  rad/s
+
+speed_array 2   5.51  rad/s
+
+time_rest_to_null   190.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   100.00  ms
+
+a == 0   0.00
+
+a  0.00  
+
+b  5.24
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  10.00
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+THIRD_IF 3 - if work time is   200.00  ms
+
+THIRD_IF 3 - if delay time is   917.00  ms
+
+THIRD_IF 3 - if new work time is   -717.00  ms
+
+hold_delta   100.00  ms
+
+time_holder[0]  0.00  
+
+time_holder[1]  500000.00
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   5.24  rad/s
+
+speed_array 2   5.24  rad/s
+
+time_rest_to_null   200.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   99.00  ms
+
+a == 0   0.00  
+
+a  0.00
+
+b  5.29
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  11.00  
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+THIRD_IF 3 - if work time is   99.00  ms
+
+THIRD_IF 3 - if delay time is   805.00  ms
+
+THIRD_IF 3 - if new work time is   -706.00  ms
+
+hold_delta   99.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00  
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   5.29  rad/s
+
+speed_array 2   5.29  rad/s
+
+time_rest_to_null   99.00  ms
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   106.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  4.94
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  9.00  
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+THIRD_IF 3 - if work time is   318.00  ms
+
+THIRD_IF 3 - if delay time is   1101.00  ms
+
+THIRD_IF 3 - if new work time is   -783.00  ms
+
+hold_delta   106.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00
+
+window_holder[0]  0.00  
+
+window_holder[1]  0.00  
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   4.94  rad/s
+
+speed_array 2 9 4.94  rad/s
+
+time_rest_to_null   318.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   117.00  ms
+
+a == 0   0.00  
+
+a  0.00
+
+b  4.48
+
+c  0.00  
+
+t1 = t2 =  0.00
+
+photo section after *  calc  11.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+THIRD_IF 3 - if work time is   117.00  ms
+
+THIRD_IF 3 - if delay time is   1021.00  ms
+
+THIRD_IF 3 - if new work time is   -904.00  ms
+
+hold_delta   117.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00
+
+window_holder[0]  0.00
+
+window_holder[1]  0.9
+00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   4.48  rad/s
+
+speed_array 2   4.48  rad/s
+
+time_rest_to_null   117.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   136.00  ms
+
+a == 0   0.00
+
+a  0.00  
+
+b  3.85
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  10.00  
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+THIRD_IF 3 - if work time is   272.00  ms
+
+THIRD_IF 3 - if delay time is   1385.00  ms
+
+THIRD_IF 3 - if new work time is   -1113.00  ms
+
+hold_delta   136.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00
+
+window_holder[0]  0.00  
+
+window_hold1r[1]  0.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   3.85  rad/s
+
+speed_array 2   3.85  rad/s
+
+time_rest_to_null   272.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   153.00  ms
+
+a == 0   0.00
+
+a  0.00  
+
+b  3.42
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  0.00  
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+SECOND_IF 2- if work time is   1834.00  ms
+
+SECOND_IF 2- if delay time is   1300.00  ms
+
+SECOND_IF 2- if new work time is   536.00  ms
+
+hold_delta   153.00  ms
+
+time_holder[0]  0.00  
+
+time_holder[1]  500000.00
+
+window_holder[0]  0.00
+1window_holder[1]  0.00  
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   3.42  rad/s
+
+speed_array 2   3.42  rad/s
+
+time_rest_to_null   1836.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+ trigger pressed 1
+ trigger pressed 2
+
+hold_delta   187.00  ms
+
+a  -0.61
+
+b  2.80
+
+c  -4.19  
+
+discriminant  -2.31
+
+Roots are complex and different.  0.00  
+
+real_part   2.31
+
+imaginary_part  -1.25
+
+x1  2.63
+
+photo section after *  calc  4.00  
+5
+6
+7
+8
+9
+
+SECOND_IF 2- if work time is   1494.00  ms
+
+SECOND_IF 2- if delay time is   926.00  ms
+
+SECOND_IF 2- if new work time is   570.00  ms
+
+hold_delta   187.00  ms
+
+time_holder[0]  2629.42
+
+time_holder[1]  500001.00  
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00
+
+angular_acceleration   -1.21  rad/s2
+
+speed_array 1   2.80  rad/s
+
+speed_array 2   3.03  rad/s
+
+time_rest_to_null   1496.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   206.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  2.54
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  6.00  
+7
+8
+9
+10
+
+SECOND_IF 2- if work time is   1234.00  ms
+
+SECOND_IF 2- if delay time is   647.00  ms
+
+SECOND_IF 2- if new work time is   589.00  ms
+
+hold_delta   206.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00
+
+window_holder[0]  0.00  
+
+window_holder[1]  0.00  
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   2.54  rad/s
+
+speed_array 2   2.54  rad/s
+
+time_rest_to_null   1236.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   231.00  ms
+
+a  -0.41
+
+b  2.27
+
+c  -3.14
+
+discriminant  -0.07
+
+Roots are complex and different.  0.00  
+
+real_part   2.73
+
+imaginary_part  -0.32
+
+x1  2.75  
+
+photo section after *  calc  6.00
+7
+8
+9
+10
+
+SECOND_IF 2- if work time is   1384.00  ms
+
+SECOND_IF 2- if delay time is   772.00  ms
+
+SECOND_IF 2- if new work time is   614.00  ms
+
+hold_delta   231.00  ms
+
+time_holder[0]  2752.68
+
+time_holder[1]  500000.00  
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00
+
+angular_acceleration   -0.83  rad/s2
+
+speed_array 1   2.27  rad/s
+
+speed_array 2   2.46  rad/s
+
+time_rest_to_null   1386.00  ms
+11
+0
+1
+2
+3
+4
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   262.00  ms
+
+a  -0.30
+
+b  2.00
+
+c  -4.19
+
+discriminant  -1.00
+
+Roots are complex and different.  0.00  
+
+real_part   3.35
+
+imaginary_part  -1.68
+
+x1  3.75
+
+photo section after *  calc  4.00
+5
+6
+7
+8
+9
+10
+
+SECOND_IF 2- if work time is   2094.00  ms
+
+SECOND_IF 2- if delay time is   1451.00  ms
+
+SECOND_IF 2- if new work time is   645.00  ms
+
+hold_delta   262.00  ms
+
+time_holder[0]  3747.90
+
+time_holder[1]  500000.00  
+
+window_holder[0]  0.00
+
+window_holder[1]  0.00  
+
+angular_acceleration   -0.60  rad/s2
+
+speed_array 1   2.15  rad/s
+
+speed_array 2   2.00  rad/s
+
+time_rest_to_null   2096.00  ms
+11
+0
+1
+2
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   308.00  ms
+
+a  -0.33
+
+b  1.70
+
+c  -5.24
+
+discriminant  -4.05  
+
+Roots are complex and different.  0.00
+
+real_part   2.57
+
+imaginary_part  -3.04
+
+x1  3.98
+
+photo section after *  calc  2.00  
+3
+4
+5
+6
+7
+8
+9
+10
+
+SECOND_IF 2- if work time is   3078.00  ms
+
+SECOND_IF 2- if delay time is   2389.00  ms
+
+SECOND_IF 2- if new work time is   691.00  ms
+
+hold_delta   308.00  ms
+
+time_holder[0]  3976.26
+
+time_holder[1]  500000.00  
+
+window_holder[0]  0.00  
+
+window_holder[1]  0.00
+
+angular_acceleration   -0.66  rad/s2
+
+speed_array 1   1.90  rad/s
+
+speed_array 2   1.70  rad/s
+
+time_rest_to_null   3080.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2

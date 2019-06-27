@@ -1,0 +1,515 @@
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   108.00  ms
+
+a  -2.29
+
+b  4.85
+
+c  -3.14  
+
+discriminant  -5.28
+
+Roots are complex and different.  0.00  
+
+real_part   1.06
+
+imaginary_part  -0.50  
+
+x1  1.17
+
+photo section after *  calc  6.00  
+7
+8
+9
+
+SECOND_IF 2- if work time is   646.00  ms
+
+SECOND_IF 2- if delay time is   155.00  ms
+
+SECOND_IF 2- if new work time is   493.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   117.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  4.48
+
+c  0.00  
+
+t1 = t2 =  0.00
+
+photo section after *  calc  10.00
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+THIRD_IF 3 - if work time is   234.00  ms
+
+THIRD_IF 3 - if delay time is   1136.00  ms
+
+THIRD_IF 3 - if new work time is   -902.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   127.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  4.12
+
+c  0.00  
+
+t1 = t2 =  0.00
+
+photo section after *  calc  10.00  
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+THIRD_IF 3 - if work time is   254.00  ms
+
+THIRD_IF 3 - if delay time is   1266.00  ms
+
+THIRD_IF 3 - if new work time is   -1012.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   139.00  ms
+
+a  -1.05
+
+b  3.77
+
+c  -3.14  
+
+discriminant  0.99
+
+Roots are real and different.  0.00  
+
+t1 =   1.32
+
+t2 =   2.27
+
+photo section after *  calc  6.00  
+7
+8
+9
+
+SECOND_IF 2- if work time is   832.00  ms
+
+SECOND_IF 2- if delay time is   310.00  ms
+
+SECOND_IF 2- if new work time is   524.00  ms
+10
+11
+0
+1
+2
+3
+4
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   145.00  ms
+
+a  -0.82
+
+b  3.61  
+
+c  -4.19
+
+discriminant  -0.77
+
+Roots are complex and different.  0.00  
+
+real_part   2.19
+
+imaginary_part  -0.53  
+
+x1  2.25
+
+photo section after *  calc  4.00
+5
+6
+7
+8
+9
+10
+
+SECOND_IF 2- if work time is   1158.00  ms
+
+SECOND_IF 2- if delay time is   630.00  ms
+
+SECOND_IF 2- if new work time is   530.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   156.00  ms
+
+a  -0.82
+
+b  3.36
+
+c  -3.14
+
+discriminant  1.01  
+
+Roots are real and different.  0.00  
+
+t1 =   1.44
+
+t2 =   2.67
+
+photo section after *  calc  6.00  
+7
+8
+9
+10
+
+SECOND_IF 2- if work time is   934.00  ms
+
+SECOND_IF 2- if delay time is   395.00  ms
+
+SECOND_IF 2- if new work time is   541.00  ms
+11
+0
+1
+2
+3
+4
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   167.00  ms
+
+a  -0.73
+
+b  3.14
+
+c  -4.19  
+
+discriminant  -2.35
+
+Roots are complex and different.  0.00
+
+real_part   2.16
+
+imaginary_part  -1.05
+
+x1  2.40
+
+photo section after *  calc  4.00  
+5
+6
+7
+8
+9
+10
+
+SECOND_IF 2- if work time is   1334.00  ms
+
+SECOND_IF 2- if delay time is   784.00  ms
+
+SECOND_IF 2- if new work time is   552.00  ms
+11
+0
+1
+2
+3
+4
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   180.00  ms
+
+a  -0.68
+
+b  2.91
+
+c  -4.19  
+
+discriminant  -2.96
+
+Roots are complex and different.  0.00  
+
+real_part   2.13
+
+imaginary_part  -1.26
+
+x1  2.48
+
+photo section after *  calc  4.00  
+5
+6
+7
+8
+9
+
+SECOND_IF 2- if work time is   1438.00  ms
+
+SECOND_IF 2- if delay time is   875.00  ms
+
+SECOND_IF 2- if new work time is1  565.00  ms
+11
+0
+1
+2
+3
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   182.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  2.88  
+
+c  0.00
+
+t1 = t2 =  0.00
+
+photo section after *  calc  3.00  
+4
+5
+6
+7
+8
+9
+10
+
+SECOND_IF 2- if work time is   1636.00  ms
+
+SECOND_IF 2- if delay time is   1071.00  ms
+
+SECOND_IF 2- if new work time is   567.00  ms
+11
+0
+1
+2
+3
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   201.00  ms
+
+a  -0.39
+
+b  2.60
+
+c  -4.71  
+
+discriminant  -0.63
+
+Roots are complex and different.  0.00  
+
+real_part   3.31
+
+imaginary_part  -1.01  
+
+x1  3.46
+
+photo section after *  calc  3.00  
+4
+5
+6
+7
+8
+9
+
+SECOND_IF 2- if work time is   1807.00  ms
+
+SECOND_IF 2- if delay time is   1223.00  ms
+
+SECOND_IF 2-1if new work time is   586.00  ms
+11
+0
+1
+2
+3
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   230.00  ms
+
+a  -0.23  
+
+b  2.28
+
+c  -4.71
+
+discriminant  0.92
+
+Roots are real and different.  0.00  
+
+t1 =   2.91
+
+t2 =   7.17
+
+photo section after *  calc  3.00  
+4
+5
+6
+7
+8
+9
+
+SECOND_IF 2- if work time is   2068.00  ms
+
+SECOND_IF 2- if delay time is   1455.00  ms
+
+SECOND_IF 2- if new work time is   615.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0

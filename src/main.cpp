@@ -14,7 +14,7 @@ const uint16_t test_time_hall=400;
 speed spedo; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
 kisg6 demo;  // from Class KISG6 that contain the experement Conditions (pins Setup )
 debug debo;  // from Debug class the main use is to Serial print complexe Phrases
-Servo motor;
+//Servo motor;
 Shoot shooter;
 
 // Here is the value for the Interrupts Counter for
@@ -183,7 +183,7 @@ void loop()
     start_excu_time=millis();
     cli();
     hold_delta=time_delta_photo;
-    time_target =(393+(time_delta_photo/4));
+    time_target =(388+time_delta_photo-5);
     angular_speed=spedo.photoSpeed(time_delta_photo)+(angular_acceleration*(time_delta_photo/1000));
     hold_position=photo_section;
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
@@ -195,6 +195,15 @@ void loop()
     if (time_total_photo > time_target)
     {
         shooter.fireBall(hold_delta, time_rest_to_null, photo_section, time_total_photo, hold_delta, time_target);
+               debo.sPrint("hold_delta ",hold_delta,"ms");
+              debo.sPrint("time_holder[0]",time_holder[0],"");
+              debo.sPrint("time_holder[1]",time_holder[1],"");
+              debo.sPrint("window_holder[0]",window_holder[0],"");
+              debo.sPrint("window_holder[1]",window_holder[1],"");
+              debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+              debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+              debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
     }
     else
     {

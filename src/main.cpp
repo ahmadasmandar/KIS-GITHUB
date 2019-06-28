@@ -62,9 +62,11 @@ int hold_position; // for the delta time
 //************ New Calculations using Theata 
 float theata,theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0.000000000000;
 float speed_array[2];
+// new speed var
+float speed_holder_new=0;
 uint8_t j_speed=0,target_section;
 float max_theta,theta_target;
-uint16_t fill_timer=0;
+int fill_timer=0;
 int start_excu_time=0,end_excu_time=0;
 int fill_speed_timer=0, acceleration_timer=0;
 
@@ -90,7 +92,7 @@ uint8_t chooseMode();
 uint8_t getTargetSection(float theta_target_1);
 //**********
 void fillSpeed();
-void getAcceleration();
+void getAcceleration(float new_speed);
 //*******
 void applyMode();
 void readMode();
@@ -114,11 +116,10 @@ void setup()
 //********************************* the main loop ****************
 void loop()
 {
-
+//.TODO update the speed and acceleration function delete the array and work without it  
  applyMode();
  readMode();
  fillSpeed();
- getAcceleration();
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -133,14 +134,13 @@ void loop()
   sei();
   i_time = checkCounter(i_time, 2);                                        // further the ounter with 1 and check if he reached his max reset it
   checkStartCondtions(hall_section, pos);
-  if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 700)
+  if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 2000)
   {
     //********************
-    start_excu_time=millis();
+    fill_timer=millis();
     cli();
     hold_delta = time_delta_photo;
     theta_zero=2*PI-(photo_section*(PI/6));
-    getAcceleration();
     sei();
     Serial.println(" trigger pressed 1 ");
     switch (program_mode)
@@ -182,21 +182,24 @@ void loop()
       Serial.println(" trigger pressed 2 ");
     //*********************** print the values to test 
     debo.sPrint("hold_delta ",hold_delta,"ms");
-    start_excu_time=millis();
     cli();
     hold_delta=time_delta_photo;
     hold_position=photo_section;
-    time_target =(388+hold_delta-5);
+    sei();
+    getAcceleration(spedo.photoSpeed(hold_delta));
+    time_target =391;
     angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
-    calculateTime(angular_acceleration,angular_speed,(hold_position*(PI/6)),'t');
+    debo.sPrint("angular_speed",angular_speed,"rad/s");
+    calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
     time_total_photo=spedo.totalPhotoTime(hold_delta,angular_acceleration);
     debo.sPrint("time_total_photo after calc",time_total_photo,"ms");
     time_rest_to_null=spedo.photoRst(hold_position,hold_delta,angular_acceleration);
-    debo.sPrint("photo section after *  calc",hold_position,"");
-    sei();
+    debo.sPrint("time_rest_to_null after calc",time_rest_to_null,"ms");
+    debo.sPrint("photo section after *  calc",photo_section,"");
+    
     if (time_total_photo > time_target)
     {
-              shooter.fireBall(hold_delta, time_rest_to_null, photo_section, time_total_photo, hold_delta, time_target);
+              shooter.fireBall(hold_delta, time_rest_to_null, photo_section, time_total_photo, (hold_delta), time_target);
               debo.sPrint("Shooted from slow if  ",0,"");
               debo.sPrint("hold_delta ",hold_delta,"ms");
               debo.sPrint("time_holder[0]",time_holder[0],"");
@@ -262,7 +265,6 @@ void loop()
         }
       
     }
-    
         
       /** Manuel just let the ball go... **/
     case 4:
@@ -404,22 +406,16 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
     digitalWrite(demo.led2, LOW);
   }
 }
-void getAcceleration()
+void getAcceleration(float new_speed)
 {
-    angular_acceleration=-abs(1000*(speed_array[1]-speed_array[0])/50);
+    angular_acceleration=-abs(1000*(new_speed-speed_holder_new))/(fill_timer-fill_speed_timer);
+    debo.sPrint("the angular new calculation is ",angular_acceleration,"rad/s2");
 }
 void fillSpeed()
 {
-  if (millis()-fill_speed_timer >50)
-  {
-     cli();
-  speed_array[j_speed]=spedo.photoSpeed(time_delta_photo);
+  speed_holder_new=spedo.photoSpeed(time_delta_photo);
   angular_speed_zero=spedo.photoSpeed(time_delta_photo);
-  sei();
-  
   fill_speed_timer=millis();
-  j_speed=checkCounter(j_speed,2);
-  }
  
 }
 
@@ -457,14 +453,13 @@ void readMode()
 }
 void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1, char control)
 {
-  float c;
+  float c=-(2*PI-(inittheta_1));
   float a= accelaration_1/2, b=winkelgeschwindigkeit_1;
     float  x1, x2, discriminant,real_part,imaginary_part;
+    discriminant = (b*b)- (4*a*c);
   if (control== 't')
   {
    if (a!=0){
-     c=-(2*PI-(inittheta_1));
-     discriminant = (b*b)- (4*a*c);
      debo.sPrint("a",a,"");
      debo.sPrint("b",b,"");
      debo.sPrint("c",c,"");
@@ -479,16 +474,13 @@ void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float i
         time_holder[1]=1000*x2;
         
     }
-    
     else if (discriminant == 0&& a !=0) {
         debo.sPrint( "Roots are real and same." ,0,"");
         x1 = (-b + sqrt(discriminant)) / (2*a);
         debo.sPrint("t1 = t2 =", x1 ,"");
         time_holder[0]=1000*x1;
-        time_holder[1]=500000;
-        
+        time_holder[1]=500000;    
     }
-
     else {
         debo.sPrint("Roots are complex and different."  ,0,"");
         real_part=-b/(2*a);

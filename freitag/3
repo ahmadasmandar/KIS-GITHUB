@@ -1,0 +1,520 @@
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   101.00  ms
+
+the angular new calculation is   nan  rad/s2
+
+angular_speed  nan  rad/s
+
+a  nan
+
+b  nan
+
+c  -0.52
+
+discriminant  nan
+
+Roots are complex and different.  0.00  
+
+real_part   nan
+
+imaginary_par0  nan
+
+x1  nan
+the time soluation is complex  4  nan
+
+time_total_photo after calc  nan  ms
+the time soluation is complex  4  nan
+
+time_rest_to_null after calc  nan  ms
+
+photo section after *  calc  0.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   120.00  ms
+
+the angular new calculation is   nan  rad/s2
+
+angular_speed  nan  rad/s
+
+a  nan  
+
+b  nan
+
+c  -1.05
+
+discriminant  nan
+
+Roots are complex and different.  0.00
+
+real_part   nan
+
+imaginary_part  nan
+
+x1  nan
+the time soluation is complex  4  nan
+
+time_total_photo after calc  nan  ms
+the time soluation is complex  4  nan
+
+time_rest_to_null after calc  nan  ms
+
+photo section after *  calc  10.00
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   121.00  ms
+
+the angular new calculation is   -2.19  rad/s2
+
+angular_speed  4.33  rad/s
+
+a  -1.09
+
+b  4.33
+
+c  -2.62
+
+discriminant  7.27
+
+Roots are 8eal and different.  0.00  
+
+t1 =   0.75
+
+t2 =   3.21
+the time soluation is complex  4  2.40
+
+time_total_photo after calc  2396.75  ms
+
+a from time function   -1.09
+
+b from time function   4.33
+
+c from time function   -3.67
+
+time_rest_to_null after calc  -0.00  ms
+
+photo section after *  calc  8.00
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+
+THIRD_IF 3 - if work time is   -0.00  ms
+
+THIRD_IF 3 - if delay time is   2005.75  ms
+
+THIRD_IF 3 - if new work time is   -2005.75  ms
+
+Shooted from slow if    0.00  
+
+hold_delta   121.00  ms
+
+time_holder[0]  745.47
+
+time_holder[1]  3210.73
+
+angular_acceleration   -2.19  rad/s2
+
+speed_array 1   0.00  rad/s
+
+speed_array 2   0.00  rad/s
+
+time_rest_to_null   -0.00  ms
+
+time_total_photo   2396.75  ms
+
+fill_speed_timer   11983.00  ms
+
+acceleration_timer   0.00  ms
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   149.00  ms
+
+the angular new calculation is   nan  rad/s2
+
+angular_speed  nan  rad/s
+
+a  nan
+
+b  nan
+
+c  -0.52
+
+discriminant  nan
+
+Roots are complex and different.  0.00  
+
+real_part   nan
+
+imaginary_part  nan  
+
+x1  nan
+the time soluation is complex  4  nan
+
+time_total_photo after calc  nan  ms
+the time soluation is complex  4  nan
+
+time_rest_to_null after calc  nan  ms
+
+photo section after *  calc  11.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   176.00  ms
+
+the angular new calculation is   nan  rad/s2
+
+angular_speed  nan  rad/s
+
+a  nan
+
+b  nan
+
+c  -0.52
+
+discriminant  nan  
+
+Roots are complex and different.  0.00
+
+real_part   nan
+
+imaginary_part  nan
+
+x1  nan
+the time soluation is complex  4  nan
+
+time_total_photo after calc  nan  ms
+the time soluation is complex  4  nan
+
+time_rest_to_null after calc  nan0 ms
+
+photo section after *  calc  0.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   314.00  ms
+
+the angular new calculation is   0.00  rad/s2
+
+angular_speed  1.67  rad/s
+
+a == 0   0.00  
+
+a  0.00
+
+b  1.67
+
+c  -5.24
+
+t1 = t2 =  3.14
+the time soluation is a==0  5 3.77
+
+time_total_photo after calc  3768.00  ms
+the time soluation is a==0  5 0.63
+
+time_rest_to_null after calc  628.00  ms
+
+photo section after *  calc  2.00
+3
+
+NORMAL_IF  if work time is   628.00  ms
+
+NORMAL_IF    2.00  ms
+
+Shooted from slow if    0.00
+
+hold_delta   314.00  ms
+
+time_holder[0]  3140.00
+
+time_holder[1]  500000.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   0.00  rad/s
+
+speed_array 2   0.00  rad/s
+
+time_rest_to_null   628.00  ms
+
+time_total_photo   3768.00  ms
+
+fill_speed_timer   30702.00  ms
+
+acceleration_timer   0.00  ms
+4
+5
+6
+7
+8
+9
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   310.00  ms
+
+the angular new calculation is   nan  rad/s2
+
+angular_speed  nan  rad/s
+
+a  nan
+
+b  nan
+
+c  -1.57
+
+discriminant  nan
+
+Roots are complex and different.  0.00
+
+real_part   nan
+
+imaginary_part  nan
+
+x1  nan
+the time soluation is complex  4  nan
+
+time_total_photo after calc  nan  ms
+the time soluation is complex  4  nan
+
+time_rest_to_null after calc  nan  ms
+
+photo section after *  calc  9.00  
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   1089.00  ms
+
+the angular new calculation is   0.00  rad/s2
+
+angular_speed  0.48  rad/s
+
+a == 0   0.00
+
+a  0.00
+
+b  0.48
+
+c  -3.67
+
+t1 = t2 =  7.62
+the time soluation is a==0  5 13.07
+
+time_total_photo after calc  13068.00  ms
+the time soluation is a==0  5 5.44
+
+time_rest_to_null after calc  5445.00  ms
+
+photo section after *  calc  5.00
+6
+7
+8
+9
+
+SECOND_IF 2- if work time is   5443.00  ms
+
+SECOND_IF 2- if delay time is   5054.00  ms
+
+SECOND_IF 2- if new work time is   391.00  ms
+
+Shooted from slow if    0.00  
+
+hold_delta   1089.00  ms
+
+time_holder[0]  7623.00
+
+time_holder[1]  500000.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   0.00  rad/s
+
+speed_array 2   0.00  rad/s
+
+time_rest_to_null   5445.00  ms
+
+1ime_total_photo   13068.00  ms
+
+fill_speed_timer   -21175.00  ms
+
+acceleration_timer   0.00  ms

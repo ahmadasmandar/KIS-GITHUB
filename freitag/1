@@ -1,0 +1,785 @@
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+1
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   68.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  7.70
+
+c  0.00  
+
+t1 = t2 =  0.00
+the time soluation is a==0  5 0.82
+
+time_total_photo after calc  816.00  ms
+the time soluation is a==0  5 0.75
+
+time_rest_to_null 0fter calc  748.00  ms
+
+photo section after *  calc  0.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+
+SECOND_IF 2- if work time is   1494.00  ms
+
+SECOND_IF 2- if delay time is   1105.00  ms
+
+SECOND_IF 2- if new work time is   391.00  ms
+
+Shooted from slow if    0.00
+
+hold_delta   68.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   7.27  rad/s
+
+speed_array 2   7.27  rad/s
+
+time_rest_to_null   748.00  ms
+
+time_total_photo   816.00  ms
+
+fill_speed_timer   8619.00  ms
+
+acceleration_timer   0.00  ms6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   73.00  ms
+
+a  -5.45  
+
+b  7.17
+
+c  -0.52
+
+discriminant  40.04
+
+Roots are real and different.  0.00
+
+t1 =   0.08
+
+t2 =   1.24
+the time soluation is complex  4  1.07
+
+ti0e_total_photo after calc  1073.96  ms
+the time soluation is complex  4  1.03
+
+time_rest_to_null after calc  1028.24  ms
+
+photo section after *  calc  0.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+SECOND_IF 2- if work time is   1829.24  ms
+
+SECOND_IF 2- if delay time is   1440.24  ms
+
+SECOND_IF 2- if new work time is   391.00  ms
+
+Shooted from slow if    0.00  
+
+hold_delta   73.00  ms
+
+time_holder[0]  77.57
+
+time_holder[1]  1239.10
+
+angular_acceleration   -10.90  rad/s2
+
+speed_array 1   7.17  rad/s
+
+speed_array 2   6.63  rad/s
+
+time_rest_to_null   1028.24  ms
+
+time_total_photo   1073.96  ms
+
+fill_speed_timer   12173.00  ms
+
+acceleration_time9   0.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   84.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  6.23  
+
+c  0.00
+
+t1 = t2 =  0.00
+the time soluation is a==0  5 1.01
+
+time_total_photo after calc  1008.00  ms
+the time soluation is a==0  5 0.92
+
+time_rest_to_null after calc  924.00  ms
+
+photo section after *  calc  11.00
+0
+1
+2
+3
+4
+5
+6
+
+SECOND_IF 2- if work time is   922.00  ms
+
+SECOND_IF 2- if delay time is   533.00  ms
+
+SECOND_IF 2- if new work time is  7391.00  ms
+
+Shooted from slow if    0.00  
+
+hold_delta   84.00  ms
+
+time_holder[0]  0.00  
+
+time_holder[1]  500000.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   5.82  rad/s
+
+speed_array 2   5.82  rad/s
+
+time_rest_to_null   924.00  ms
+
+time_total_photo   1008.00  ms
+
+fill_speed_timer   16998.00  ms
+
+acceleration_timer   0.00  ms
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   116.00  ms
+
+a  -3.34
+
+b  4.51
+
+c  -1.05
+
+discriminant  6.37
+
+Roots are real and different.  0.00
+
+t1 =   0.30
+
+t2 =   1.05  
+the time soluation is complex  4  1.37
+
+time_total_photo after calc  1370.84  ms
+the time soluation is complex  4  1.25
+
+time_rest_to_null after calc  1251.40  ms
+
+photo section after *  calc  10.00
+11
+0
+1
+2
+3
+4
+5
+6
+7
+
+SECOND_IF 2- if work time is   1249.40  ms
+
+SECOND_IF 2- if delay time is   860.40  ms
+
+SECOND_IF 2- if new work time is   391.00  ms
+
+Shooted from slow if    0.00
+
+hold_delta   116.00  ms
+
+time_holder[0]  297.61
+
+time_holder[1]  1052.39  
+
+angular_acceleration   -6.69  rad/s2
+
+speed_array 1   4.51  rad/s
+
+speed_array 2   4.85  rad/s
+
+time_rest_to_null   1251.40  ms
+
+time_total_photo   1370.84  ms
+
+fill_speed_timer   26378.00  ms
+
+acceleration_timer   0.00  ms
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   128.00  ms
+
+a  -2.73
+
+b  4.09
+
+c  -6.28
+
+discriminant  -51.81
+
+Roots are complex and different.  0.00  
+
+real_part   0.75
+
+imaginary_part  -1.32
+
+x1  1.52
+the time soluation is complex  4  1.52
+
+time_total_photo after calc  1517.89  ms
+
+a from time function   -2.73
+
+b from time function   4.09
+
+c from time function   0.00
+
+time_rest_to_null after calc  0.00  ms
+
+photo section after *  calc  0.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+THIRD_IF 3 - if work time is   0.00  ms
+
+THIRD_IF 3 - if delay time is   1126.89  ms
+
+THIRD_IF 3 - if new work time is   -1126.89  ms
+
+Shooted from slow if    0.00  
+
+hold_delta   128.00  ms
+
+time_holder[0]  1517.89  
+
+time_holder[1]  500000.00
+
+angular_acceleration   -5.45  rad/s2
+
+speed_array 1   4.09  rad/s
+
+speed_array 2   4.36  rad/s
+
+time_rest_to_null   0.00  ms
+
+time_total_photo   1517.89  ms
+
+fill_speed_timer   29477.00  ms
+
+a1celeration_timer   0.00  ms
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+ trigger pressed 1 
+ trigger pressed 2 
+
+hold_delta   136.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  3.85
+
+c  0.00
+
+t1 = t2 =  0.00
+the time soluation is a==0  5 1.63
+
+time_total_photo after calc  1632.00  ms
+the time soluation is a==0  5 0.14
+
+time_rest_to_null after calc  136.00  ms2
+
+photo section after *  calc  2.00  
+3
+4
+5
+6
+7
+8
+9
+10
+11
+
+THIRD_IF 3 - if work time is   0.00  ms
+
+THIRD_IF 3 - if delay time is   1241.00  ms
+
+THIRD_IF 3 - if new work time is   -1241.00  ms
+
+Shooted from slow if    0.00  
+
+hold_delta   136.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00  
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   3.64  rad/s
+
+speed_array 2   3.64  rad/s
+
+time_rest_to_null   136.00  ms
+
+time_total_photo   1632.00  ms
+
+fill_speed_timer   32691.00  ms
+
+acceleration_timer   0.00  ms
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   166.00  ms
+
+a == 0   0.00  
+
+a  0.00
+
+b  3.15
+
+c  0.00  
+
+t1 = t2 =  0.00
+the time soluation is a==0  5 1.99
+
+time_total_photo after calc  1992.00  ms
+the time soluation is a==0  5 0.00
+
+time_rest_to_null after calc  0.00  ms
+
+photo section after *  calc  0.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+THIRD_IF 3 - if work time is   0.00  ms
+
+THIRD_IF 3 - if delay time is   1601.00  ms
+
+THIRD_IF 3 - if new work time is   -1601.00  ms
+
+Shooted from sl1w if    0.00  
+
+hold_delta   166.00  ms
+
+time_holder[0]  0.00  
+
+time_holder[1]  500000.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   3.15  rad/s
+
+speed_array 2   3.15  rad/s
+
+time_rest_to_null   0.00  ms
+
+time_total_photo   1992.00  ms
+
+fill_speed_timer   -29201.00  ms
+
+acceleration_timer   0.00  ms
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+ trigger pressed 2
+
+hold_delta   184.00  ms
+
+a == 0   0.00
+
+a  0.00
+
+b  2.85  
+
+c  0.00
+
+t1 = t2 =  0.00
+the time soluation is a==0  5 2.21
+
+time_total_photo after calc  2208.00  ms
+the time soluation is a==0  5 2.02
+
+time_rest_to_null after calc  2024.00  ms
+
+photo section after *  calc  11.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+SECOND_IF 2- if work time is   2022.00  ms
+
+SECOND_IF 2- if delay time is   1633.00  ms
+
+SECOND_IF 2- if new work time is   391.00  ms
+
+Shooted from slow if    0.00
+
+hold_delta   184.00  ms
+
+time_holder[0]  0.00
+
+time_holder[1]  500000.00
+
+angular_acceleration   0.00  rad/s2
+
+speed_array 1   2.85  rad/s
+
+speed_array 2   2.85  rad/s
+
+time_rest_to_null   2024.00  ms
+
+time_total_photo   2208.00  ms
+
+fill_speed_timer   -25086.00  ms
+
+acceleration_timer   0.00  ms
+9
+10
+11
+0
+1
+2
+3
+4

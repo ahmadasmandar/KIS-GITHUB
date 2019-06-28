@@ -110,11 +110,34 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
         x1 = (-b + sqrt(discriminant)) / (2*a);
         x2 = (-b - sqrt(discriminant)) / (2*a);
             // return just the small positive values
-        Serial.print("the time soluation x2 small is 1  ");
-        Serial.println(x2);
-        Serial.print("the time soluation x1 small is 2  ");
-        Serial.println(x1);
-        return 1000*x1;
+            if (x1 >0 )
+            {
+                if (x1 >x2 && x2 <15 && x2 >0)
+                {
+                    Serial.print("the time soluation x2 is the smaller  ");
+                    Serial.println(x2);
+                    return 1000*x2;
+                }
+                else if (x2 > x1 && x1<15)
+                {
+                    Serial.print("the time soluation x1 is the smaller  ");
+                    Serial.println(x1);
+                    return 1000*x1;
+                }
+                else
+                {
+                    Serial.print("the values are not right or so big");
+                    Serial.print("the time soluation x1  ");
+                    Serial.println(x1);
+                    Serial.print("the time soluation x2  ");
+                    Serial.println(x2);
+                }
+                
+                
+            }
+            
+        
+        
     }
     
     else if (discriminant == 0 && a !=0) {

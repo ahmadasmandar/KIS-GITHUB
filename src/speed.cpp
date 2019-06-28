@@ -21,35 +21,25 @@ float speed::hallSpeed(int delta_hal)
 {
 return(PI*1000/delta_hal);
 }
-float speed::photoRst(int photo_seco,int delta_pho_rst)
+float speed::photoRst(int photo_seco,int delta_pho_rst,float accelo_1)
 {
     float photo_speed_intern=photoSpeed(delta_pho_rst);
-    return((float)(((12-(photo_seco))*(PI/6))/photo_speed_intern )*1000);
+    return(solveTimeEquation(accelo_1,photo_speed_intern,(((12-(photo_seco))*(PI/6)))));
 }
-float speed::hallRst(int hall_seco,int delta_hall_rst)
+float speed::hallRst(int hall_seco,int delta_hall_rst,float accelo_2)
 {
     float hall_speed_intern=hallSpeed(delta_hall_rst);
-    if (hall_seco == 0)
-    {
-        return((float)(2*PI/hall_speed_intern )*1000);
-    }
-    else
-    {
-        return((float)(((2-(hall_seco))*PI)/hall_speed_intern )*1000);
-    }
-    
-  
-    
+    return(solveTimeEquation(accelo_2,hall_speed_intern,(((2-(hall_seco))*(PI)))));
 }
-float speed::totalHallTime(int delto_hall)
+float speed::totalHallTime(int delto_hall,float accelo_3)
 {
     float hallSpeedo=hallSpeed(delto_hall);
-    return(1000*2*PI/hallSpeedo);
+    return(solveTimeEquation(accelo_3,hallSpeedo,0));
 }
-float speed::totalPhotoTime(int delto_photo)
+float speed::totalPhotoTime(int delto_photo,float accelo_4)
 {
     float photoSpeedo=photoSpeed(delto_photo);
-    return(1000*2*PI/photoSpeedo);
+    return((solveTimeEquation(accelo_4,photoSpeedo,0)));
 }
 boolean speed::secureMotion(int val1, int val2,boolean start_FLAG)
 {
@@ -99,39 +89,72 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
         break;
     }
 }
-/*Calculate the time rest for the init theta using the theta equation 
-    theta=theta0+w0*t+1/2* acceleration*t^2
- */
-// float* speed::calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1)
-// {
-//     float a= accelaration_1/2, b=winkelgeschwindigkeit_1, c=-(2*PI-(inittheta_1));
-//     float  x1, x2, discriminant, realPart, imaginaryPart;
-//      discriminant = (b*b)- (4*a*c);
-//      debtest.sPrint("a",a,"");
-//      debtest.sPrint("b",b,"");
-//      debtest.sPrint("c",c,"");
-//      debtest.sPrint("discriminant",discriminant,"");
-//     if (discriminant > 0 && a !=0) {
-//         x1 = (-b + sqrt(discriminant)) / (2*a);
-//         x2 = (-b - sqrt(discriminant)) / (2*a);
-//         debtest.sPrint( "Roots are real and different." ,0,"");
-//         debtest.sPrint("t1 = ", x1 ,"") ;
-//         debtest.sPrint("t2 = ", x2 ,"") ;
-//         back_array[0]=x1;
-//         back_array[1]=x2;
-//         return back_array;
-//     }
-    
-//     else if (discriminant == 0&& a !=0) {
-//         debtest.sPrint( "Roots are real and same." ,0,"");
-//         x1 = (-b + sqrt(discriminant)) / (2*a);
-//         debtest.sPrint("t1 = t2 =", x1 ,"");
-//         return x1;
-//     }
 
-//     else {
-//         debtest.sPrint("Roots are complex and different."  ,0,"");
-//        return 5000;
-//     }
-// return 0.0;
-// }
+// Calculate the time values
+ float speed::solveTimeEquation(float a1, float b1,float c1)
+ {
+     float c_1;
+  float a_1= a1/2, b_1=b1;
+    float  x1, x2, discriminant,real_part,imaginary_part;
+   if (a_1!=0){
+     c_1=-(2*PI-(c1));
+     discriminant = (b_1*b_1)- (4*a_1*c_1);
+    if (discriminant > 0 && a_1 !=0) {
+        x1 = (-b_1 + sqrt(discriminant)) / (2*a_1);
+        x2 = (-b_1 - sqrt(discriminant)) / (2*a_1);
+            // return just the small positive values
+        if (x1>0)
+        {
+            if (x1 > x2 )
+            {
+                if (x2 >0 )
+                {
+                    cli();
+                    Serial.print("the time soluation is 1  ");
+                    Serial.println(x2);
+                    return 1000*x2;
+                    sei();
+                   
+                }
+                else
+                {
+                    Serial.print("the time soluation is 2  ");
+                    Serial.println(x1);
+                    return 1000*x1;
+                    
+                }
+                
+            }
+        }
+    }
+    
+    else if (discriminant == 0&& a_1 !=0) {
+        x1 = (-b_1 + sqrt(discriminant)) / (2*a_1);
+        Serial.print("the time soluation is  3 ");
+                    Serial.println(x1);
+        return 1000*x1;
+        
+    }
+
+    else {
+        real_part=-b_1/(2*a_1);
+        imaginary_part=sqrt(-discriminant)/(2*a_1);
+        x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
+        Serial.print("the time soluation is 4  ");
+                    Serial.println(x1);
+        return 1000*x1;
+        
+        
+    }
+
+   }
+   else
+   {
+        x1 = -c_1/b_1;
+        Serial.print("the time soluation is  5 ");
+                    Serial.println(x1);
+        return 1000*x1;
+        
+   }
+   
+}

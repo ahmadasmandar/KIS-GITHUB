@@ -152,8 +152,8 @@ void loop()
       hold_delta = time_delta_hall;
       pos = hall_section;
       sei();
-      time_rest_to_null = spedo.hallRst(pos,hold_delta);
-      time_total_hall = spedo.totalHallTime(hold_delta);
+      time_rest_to_null = spedo.hallRst(pos,hold_delta,angular_acceleration);
+      time_total_hall = spedo.totalHallTime(hold_delta,angular_acceleration);
       time_window_hall = (hold_delta/ 6) - 20;
       shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_hall, time_window_hall, time_target);
       break;
@@ -168,8 +168,8 @@ void loop()
       end_excu_time=millis();
       Serial.println(" after the cli sei 0   ");
       Serial.println(end_excu_time-start_excu_time);
-      time_rest_to_null = spedo.photoRst(pos,hold_delta);
-      time_total_photo = spedo.totalPhotoTime(hold_delta);
+      time_rest_to_null = spedo.photoRst(pos,hold_delta,angular_acceleration);
+      time_total_photo = spedo.totalPhotoTime(hold_delta,angular_acceleration);
       time_window_photo = hold_delta;
       shooter.fireBall(hold_delta, time_rest_to_null, pos, time_total_photo, time_window_photo, time_target);
       /* code */
@@ -189,8 +189,8 @@ void loop()
     angular_speed=spedo.photoSpeed(time_delta_photo)+(angular_acceleration*(time_delta_photo/1000));
     hold_position=photo_section;
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
-    time_total_photo=spedo.totalPhotoTime(time_delta_photo);
-    time_rest_to_null=spedo.photoRst(photo_section,time_delta_photo);
+    time_total_photo=spedo.totalPhotoTime(time_delta_photo,angular_acceleration);
+    time_rest_to_null=spedo.photoRst(photo_section,time_delta_photo,angular_acceleration);
     debo.sPrint("photo section after *  calc",photo_section,"");
     hold_position=photo_section;
     sei();
@@ -201,8 +201,6 @@ void loop()
                debo.sPrint("hold_delta ",hold_delta,"ms");
               debo.sPrint("time_holder[0]",time_holder[0],"");
               debo.sPrint("time_holder[1]",time_holder[1],"");
-              debo.sPrint("window_holder[0]",window_holder[0],"");
-              debo.sPrint("window_holder[1]",window_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
               debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
               debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");

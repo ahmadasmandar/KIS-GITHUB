@@ -24,14 +24,14 @@ return(PI*1000/delta_hal);
 float speed::photoRst(int photo_seco,int delta_pho_rst,float accelo_1)
 {
     float photo_speed_intern=photoSpeed(delta_pho_rst);
-    float help_val_theta=(((12-(photo_seco))*(PI/6)));
+    float help_val_theta=(photo_seco*(PI/6));
     float result=solveTimeEquation(accelo_1,photo_speed_intern,help_val_theta);
     return result;
 }
 float speed::hallRst(int hall_seco,int delta_hall_rst,float accelo_2)
 {
     float hall_speed_intern=hallSpeed(delta_hall_rst);
-    float help_val_theta=(((2-(hall_seco))*(PI)));
+    float help_val_theta=hall_seco*PI;
     float result=solveTimeEquation(accelo_2,hall_speed_intern,help_val_theta);
     return result;
 }
@@ -98,53 +98,35 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
 // Calculate the time values
  float speed::solveTimeEquation(float a1, float b1,float c1)
  {
-   float c_1=-(2*PI-(c1));;
-   float a_1= a1/2, b_1=b1;
+   float c=-(2*PI-(c1));
+   float a= a1/2, b=b1;
    float  x1, x2, discriminant,real_part,imaginary_part;
-   discriminant = (b_1*b_1)- (4*a_1*c_1);
-   if (a_1!=0){
-    if (discriminant > 0 && a_1 !=0) {
-        x1 = (-b_1 + sqrt(discriminant)) / (2*a_1);
-        x2 = (-b_1 - sqrt(discriminant)) / (2*a_1);
-        debtest.sPrint("a from time function ",a_1,"");
-        debtest.sPrint("b from time function ",b_1,"");
-        debtest.sPrint("c from time function ",c_1,"");
+   discriminant = (b*b)- (4*a*c);
+   debtest.sPrint("a from time function ",a,"");
+   debtest.sPrint("b from time function ",b,"");
+   debtest.sPrint("c from time function ",c,"");
+   if (a!=0){
+    if (discriminant > 0 && a !=0) {
+        x1 = (-b + sqrt(discriminant)) / (2*a);
+        x2 = (-b - sqrt(discriminant)) / (2*a);
             // return just the small positive values
-        if (x1>0)
-        {
-            if (x1 > x2 )
-            {
-                if (x2 >0 )
-                {
-                    cli();
-                    Serial.print("the time soluation x2 small is 1  ");
-                    Serial.println(x2);
-                    return 1000*x2;
-                    sei();
-                   
-                }
-                else
-                {
-                    Serial.print("the time soluation x1 small is 2  ");
-                    Serial.println(x1);
-                    return 1000*x1;
-                    
-                }
-                
-            }
-        }
+        Serial.print("the time soluation x2 small is 1  ");
+        Serial.println(x2);
+        Serial.print("the time soluation x1 small is 2  ");
+        Serial.println(x1);
+        return 1000*x1;
     }
     
-    else if (discriminant == 0&& a_1 !=0) {
-        x1 = (-b_1 + sqrt(discriminant)) / (2*a_1);
+    else if (discriminant == 0 && a !=0) {
+        x1 = (-b + sqrt(discriminant)) / (2*a);
         Serial.print("the time soluation is doupple 3 ");
         Serial.println(x1);
         return 1000*x1;
     }
 
     else {
-        real_part=-b_1/(2*a_1);
-        imaginary_part=sqrt(-discriminant)/(2*a_1);
+        real_part=-b/(2*a);
+        imaginary_part=sqrt(-discriminant)/(2*a);
         x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
         Serial.print("the time soluation is complex  4  ");
         Serial.println(x1);
@@ -154,9 +136,9 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
    }
    else
    {
-        x1 = -c_1/b_1;
+        x1 = -c/b;
         Serial.print("the time soluation is a==0  5 ");
-                    Serial.println(x1);
+        Serial.println(x1);
         return 1000*x1;
         
    }

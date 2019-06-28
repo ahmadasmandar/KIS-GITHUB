@@ -185,18 +185,18 @@ if (millis()-fill_start_timer >500)
 
       // here we are using the angel to calculate the values 
       case 3:
+      time_target =391;
     cli();
     hold_delta=time_delta_photo;
     hold_position=photo_section;
-    sei();
-    time_target =391;
     angular_speed=angular_speed_zero+(angular_acceleration*(hold_delta/1000));
-    debo.sPrint("angular_speed_zero ",angular_speed_zero,"rad/s");
-    debo.sPrint("angular_speed ",angular_speed,"rad/s");
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
     time_total_photo=spedo.totalPhotoTime(hold_delta,angular_acceleration);
     time_rest_to_null=spedo.photoRst(hold_position,hold_delta,angular_acceleration);
-
+    sei(); 
+    
+    debo.sPrint("angular_speed_zero ",angular_speed_zero,"rad/s");
+    debo.sPrint("angular_speed ",angular_speed,"rad/s");
     if (time_total_photo > time_target)
     {
               shooter.fireBall(hold_delta, time_rest_to_null, photo_section, time_total_photo, (hold_delta), time_target);
@@ -205,10 +205,8 @@ if (millis()-fill_start_timer >500)
               // debo.sPrint("time_holder[0]",time_holder[0],"");
               // debo.sPrint("time_holder[1]",time_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-              // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-              // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              // debo.sPrint("time_total_photo ",time_total_photo,"ms");
+              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debo.sPrint("time_total_photo ",time_total_photo,"ms");
               // debo.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
     }
     else
@@ -233,11 +231,9 @@ if (millis()-fill_start_timer >500)
               // debo.sPrint("time_holder[0]",time_holder[0],"");
               // debo.sPrint("time_holder[1]",time_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-              // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-              // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              // debo.sPrint("delt_time ",delt_time,"ms");
-              // debo.sPrint("time_total_photo ",time_total_photo,"ms");
+              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debo.sPrint("delt_time ",delt_time,"ms");
+              debo.sPrint("time_total_photo ",time_total_photo,"ms");
         }
          else if (time_holder[1]> time_target && time_holder[1] !=500000  /* && 1000 *time_holder[1]<time_target+time_window_photo*/ )
         {     
@@ -253,13 +249,10 @@ if (millis()-fill_start_timer >500)
               //  debo.sPrint("hold_delta ",hold_delta,"ms");
               // debo.sPrint("time_holder[0]",time_holder[0],"");
               // debo.sPrint("time_holder[1]",time_holder[1],"");
-              // debo.sPrint("window_holder[0]",window_holder[0],"");
-              // debo.sPrint("window_holder[1]",window_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-              // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-              // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              // debo.sPrint("delt_time ",delt_time,"ms");
+              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debo.sPrint("delt_time ",delt_time,"ms");
+              debo.sPrint("time_total_photo ",time_total_photo,"ms");
 
         }
       

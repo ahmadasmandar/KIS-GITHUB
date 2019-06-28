@@ -128,13 +128,9 @@ void loop()
 if (millis()-fill_start_timer >500)
 {
     acceleration_timer_1=millis();
-    debo.sPrint("acceleration_timer_1 ",acceleration_timer_1,"ms");
     angular_speed_zero=spedo.photoSpeed(hold_delta);
     getAcceleration(angular_speed_zero);
     fill_start_timer=millis();
-    debo.sPrint("angular_speed_zero ",angular_speed_zero,"rad/s");
-    debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-    debo.sPrint("hold_delta ",hold_delta,"rad/s2");
 
 }
  
@@ -145,9 +141,7 @@ if (millis()-fill_start_timer >500)
    * What I did is copy the volatile variables to local variables with interrupts disabled
      for that brief period.
       using the cli() sei() functions;
-   * ***/
- 
-  i_time = checkCounter(i_time, 2);                                        // further the ounter with 1 and check if he reached his max reset it
+   * ***/                                      // further the ounter with 1 and check if he reached his max reset it
   checkStartCondtions(hall_section, pos);
   if (digitalRead(demo.trigger) == HIGH &&  millis() - last_pressed > 2000)
   {
@@ -195,9 +189,10 @@ if (millis()-fill_start_timer >500)
     hold_delta=time_delta_photo;
     hold_position=photo_section;
     sei();
-    acceleration_timer_1=millis();
     time_target =391;
     angular_speed=angular_speed_zero+(angular_acceleration*(hold_delta/1000));
+    debo.sPrint("angular_speed_zero ",angular_speed_zero,"rad/s");
+    debo.sPrint("angular_speed ",angular_speed,"rad/s");
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
     time_total_photo=spedo.totalPhotoTime(hold_delta,angular_acceleration);
     time_rest_to_null=spedo.photoRst(hold_position,hold_delta,angular_acceleration);
@@ -206,15 +201,15 @@ if (millis()-fill_start_timer >500)
     {
               shooter.fireBall(hold_delta, time_rest_to_null, photo_section, time_total_photo, (hold_delta), time_target);
               debo.sPrint("Shooted from slow if  ",0,"");
-              debo.sPrint("hold_delta ",hold_delta,"ms");
-              debo.sPrint("time_holder[0]",time_holder[0],"");
-              debo.sPrint("time_holder[1]",time_holder[1],"");
+              // debo.sPrint("hold_delta ",hold_delta,"ms");
+              // debo.sPrint("time_holder[0]",time_holder[0],"");
+              // debo.sPrint("time_holder[1]",time_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-              debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              debo.sPrint("time_total_photo ",time_total_photo,"ms");
-              debo.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
+              // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+              // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+              // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              // debo.sPrint("time_total_photo ",time_total_photo,"ms");
+              // debo.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
     }
     else
     {
@@ -233,16 +228,16 @@ if (millis()-fill_start_timer >500)
               // delay(100);
               // //motor.write(0);
               debo.sPrint("Shooted from Deta if   ",0,"");
-              debo.sPrint("1 if ",delay_time,"s");
-              debo.sPrint("hold_delta ",hold_delta,"ms");
-              debo.sPrint("time_holder[0]",time_holder[0],"");
-              debo.sPrint("time_holder[1]",time_holder[1],"");
+              // debo.sPrint("1 if ",delay_time,"s");
+              // debo.sPrint("hold_delta ",hold_delta,"ms");
+              // debo.sPrint("time_holder[0]",time_holder[0],"");
+              // debo.sPrint("time_holder[1]",time_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-              debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              debo.sPrint("delt_time ",delt_time,"ms");
-              debo.sPrint("time_total_photo ",time_total_photo,"ms");
+              // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+              // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+              // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              // debo.sPrint("delt_time ",delt_time,"ms");
+              // debo.sPrint("time_total_photo ",time_total_photo,"ms");
         }
          else if (time_holder[1]> time_target && time_holder[1] !=500000  /* && 1000 *time_holder[1]<time_target+time_window_photo*/ )
         {     
@@ -255,16 +250,16 @@ if (millis()-fill_start_timer >500)
               // delay(100);
               //motor.write(0);
               debo.sPrint("2 if ",delay_time,"s");
-               debo.sPrint("hold_delta ",hold_delta,"ms");
-              debo.sPrint("time_holder[0]",time_holder[0],"");
-              debo.sPrint("time_holder[1]",time_holder[1],"");
-              debo.sPrint("window_holder[0]",window_holder[0],"");
-              debo.sPrint("window_holder[1]",window_holder[1],"");
+              //  debo.sPrint("hold_delta ",hold_delta,"ms");
+              // debo.sPrint("time_holder[0]",time_holder[0],"");
+              // debo.sPrint("time_holder[1]",time_holder[1],"");
+              // debo.sPrint("window_holder[0]",window_holder[0],"");
+              // debo.sPrint("window_holder[1]",window_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
-              debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
-              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              debo.sPrint("delt_time ",delt_time,"ms");
+              // debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
+              // debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
+              // debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              // debo.sPrint("delt_time ",delt_time,"ms");
 
         }
       
@@ -415,7 +410,7 @@ void getAcceleration(float new_speed)
   if ((acceleration_timer_1-acceleration_timer_0)!=0 )
   {
     angular_acceleration=-abs(1000*(new_speed-filled_speed))/(acceleration_timer_1-acceleration_timer_0);
-    debo.sPrint("the angular new calculation is ",angular_acceleration,"rad/s2");
+    //debo.sPrint("the angular new calculation is ",angular_acceleration,"rad/s2");
   }
   else
   {
@@ -429,12 +424,12 @@ void getAcceleration(float new_speed)
 //check speed every delta ms
 void fillSpeed()
 {
-  if (millis()-acceleration_timer_0 >hold_delta)
+  if (acceleration_timer_1-acceleration_timer_0 >hold_delta)
   {
   filled_speed=spedo.photoSpeed(time_delta_photo);
-  debo.sPrint("filled_speed ",filled_speed,"rad/s");
+  //debo.sPrint("filled_speed ",filled_speed,"rad/s");
   acceleration_timer_0=millis();
-  debo.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
+  //debo.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
   } 
 }
 

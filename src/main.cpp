@@ -185,20 +185,20 @@ void loop()
     start_excu_time=millis();
     cli();
     hold_delta=time_delta_photo;
-    time_target =(388+time_delta_photo-5);
-    angular_speed=spedo.photoSpeed(time_delta_photo)+(angular_acceleration*(time_delta_photo/1000));
     hold_position=photo_section;
-    calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
-    time_total_photo=spedo.totalPhotoTime(time_delta_photo,angular_acceleration);
-    time_rest_to_null=spedo.photoRst(photo_section,time_delta_photo,angular_acceleration);
-    debo.sPrint("photo section after *  calc",photo_section,"");
-    hold_position=photo_section;
+    time_target =(388+hold_delta-5);
+    angular_speed=spedo.photoSpeed(hold_delta)+(angular_acceleration*(hold_delta/1000));
+    calculateTime(angular_acceleration,angular_speed,(hold_position*(PI/6)),'t');
+    time_total_photo=spedo.totalPhotoTime(hold_delta,angular_acceleration);
+    debo.sPrint("time_total_photo after calc",time_total_photo,"ms");
+    time_rest_to_null=spedo.photoRst(hold_position,hold_delta,angular_acceleration);
+    debo.sPrint("photo section after *  calc",hold_position,"");
     sei();
     if (time_total_photo > time_target)
     {
-        shooter.fireBall(hold_delta, time_rest_to_null, photo_section, time_total_photo, hold_delta, time_target);
-               debo.sPrint("Shooted from slow if  ",0,"");
-               debo.sPrint("hold_delta ",hold_delta,"ms");
+              shooter.fireBall(hold_delta, time_rest_to_null, photo_section, time_total_photo, hold_delta, time_target);
+              debo.sPrint("Shooted from slow if  ",0,"");
+              debo.sPrint("hold_delta ",hold_delta,"ms");
               debo.sPrint("time_holder[0]",time_holder[0],"");
               debo.sPrint("time_holder[1]",time_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
@@ -212,7 +212,9 @@ void loop()
     else
     {
       if (time_holder[0]>time_target && time_holder[0] !=500000  /*  && 1000 *time_holder[0]<time_target+time_window_photo */)
-        {     cli();
+        {     
+          
+              cli();
               debo.sPrint("photo section 3",photo_section,"");
               debo.sPrint("hold_position",hold_position,"");
               sei();
@@ -225,11 +227,9 @@ void loop()
               // //motor.write(0);
               debo.sPrint("Shooted from Deta if   ",0,"");
               debo.sPrint("1 if ",delay_time,"s");
-               debo.sPrint("hold_delta ",hold_delta,"ms");
+              debo.sPrint("hold_delta ",hold_delta,"ms");
               debo.sPrint("time_holder[0]",time_holder[0],"");
               debo.sPrint("time_holder[1]",time_holder[1],"");
-              debo.sPrint("window_holder[0]",window_holder[0],"");
-              debo.sPrint("window_holder[1]",window_holder[1],"");
               debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
               debo.sPrint("speed_array 1 ",speed_array[0],"rad/s");
               debo.sPrint("speed_array 2 ",speed_array[1],"rad/s");
@@ -238,7 +238,8 @@ void loop()
               debo.sPrint("time_total_photo ",time_total_photo,"ms");
         }
          else if (time_holder[1]> time_target && time_holder[1] !=500000  /* && 1000 *time_holder[1]<time_target+time_window_photo*/ )
-        {     debo.sPrint("photo section 4",photo_section,"");
+        {     
+              debo.sPrint("photo section 4",photo_section,"");
               float delt_time=1000*((photo_section-pos)*((PI/6)/angular_speed));
               delay_time=abs((time_holder[1])-time_target-delt_time);
               delay(delay_time);

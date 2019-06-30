@@ -17,7 +17,6 @@ public:
     void checkStop(int val31, int val41);
     float getThetavalues(int val51, int val_time, float angul_accel, char val_char);
     float solveTimeEquation(float a, float b,float c);
-    // float calculateTime(float accelaration, float winkelgeschwindigkeit, float inittheta);
 };
 
 #endif

@@ -120,27 +120,26 @@ void loop()
    * What I did is copy the volatile variables to local variables with interrupts disabled
      for that brief period.
       using the cli() sei() functions;
-   * ***/  
-
-  Serial.println(photo_section);
-  delay(50);
+   * ***/
 //.TODO update the speed and acceleration function delete the array and work without it  
   cli();
   hold_delta_photo_sensor = time_delta_photo;
   sei();
-
- applyMode();
  readMode();
+ //debugger_main.sPrint("first millis ",millis(),"ms");
  fillSpeed();
 
  //every 500ms get new value to speed and acceleration 
 if (millis()-acceleration_timer_1>100)
-{
+{   
+    delay(50);
+    //debugger_main.sPrint("fourth millis ",millis(),"ms");
+    acceleration_timer_1=millis();
     angular_speed_zero=speed_main.photoSpeed(hold_delta_photo_sensor);
     getAcceleration(angular_speed_zero);
     fill_start_timer=millis();
-    acceleration_timer_1=millis();
 }
+delay(500);
 
   //************************************************ the main part ******************************************************************
 
@@ -152,15 +151,15 @@ if (millis()-acceleration_timer_1>100)
     {
       /** nur Hall sensor benutzen **/
     case 1:
-      cli();
-      hold_delta_hall_sensor = time_delta_hall;
-      pos = hall_section;
+     cli();
+      hold_delta_hall_sensor=time_delta_hall;
+      hold_position=hall_section;
+      angular_speed=angular_speed_zero+(angular_acceleration*(hold_delta_hall_sensor/1000));
+      calculateTime(angular_acceleration,angular_speed,(hall_section*(PI)),'t');
+      time_total_hall=speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
+      time_rest_to_null=speed_main.hallRst(hold_position,hold_delta_hall_sensor,angular_acceleration);
       sei();
-      time_rest_to_null = speed_main.hallRst(pos,hold_delta_hall_sensor,angular_acceleration);
-      time_total_hall = speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
-      time_window_hall = (hold_delta_hall_sensor/ 6) - 20;
-      //time_target=time_fall+time_window_hall;
-      shoot_main.fireBall(hold_delta_hall_sensor, time_rest_to_null, pos, time_total_hall, time_window_hall, time_fall);
+      shootMain(angular_speed,hold_position,hall_section,time_total_hall,time_rest_to_null,hold_delta_hall_sensor);
       break;
       /** nur PHOTO sensor benutzen **/
 
@@ -351,14 +350,10 @@ void getAcceleration(float new_speed)
 //check speed every delta ms
 void fillSpeed()
 {
-  if (millis()-acceleration_timer_0 >hold_delta_photo_sensor)
-  {
+  //debugger_main.sPrint("second millis ",millis(),"ms");
   filled_speed=speed_main.photoSpeed(hold_delta_photo_sensor);
-  // debugger_main.sPrint("filled_speed ",filled_speed,"rad/s");
+  //debugger_main.sPrint("third millis ",millis(),"ms");
   acceleration_timer_0=millis();
-  // debugger_main.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
-  // debugger_main.sPrint("acceleration_timer_1 ",acceleration_timer_1,"ms");
-  } 
 }
 
 uint8_t getTargetSection(float theta_target_1)

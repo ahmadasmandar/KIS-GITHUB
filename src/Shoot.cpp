@@ -19,7 +19,6 @@ void Shoot::shootManuel(int ango)
           shhot_motor.write(ango);
           delay(motor_delay);
           shhot_motor.write(end_angel); 
-
 }
 
 void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, float total_time , uint16_t window,uint16_t target_time)

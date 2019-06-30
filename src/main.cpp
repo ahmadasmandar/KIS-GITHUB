@@ -108,7 +108,6 @@ void setup()
   photo_start = millis();
 }
 
-
 //********************************* the main loop ****************
 void loop()
 {
@@ -289,6 +288,10 @@ void hall_sens_interrupt()
   time_delta_hall = millis() - hall_start;
   hall_start = millis();
   hall_section = checkCounter(hall_section, 2);
+  if (hall_pos==1)
+  {
+    photo_section=6;
+  }
 }
 
 /********************/

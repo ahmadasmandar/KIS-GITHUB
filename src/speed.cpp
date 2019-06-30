@@ -98,7 +98,7 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
 // Calculate the time values
  float speed::solveTimeEquation(float a1, float b1,float c1)
  {
-   float c=-(2*PI-(c1));
+   float c=-(6*PI-(c1));
    float a= a1/2, b=b1;
    float  x1, x2, discriminant,real_part,imaginary_part;
    discriminant = (b*b)- (4*a*c);

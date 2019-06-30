@@ -15,9 +15,9 @@ const uint16_t test_time_hall=400;
 
 //************** Objects from the main Classes  ******************//
 
-speed spedo; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
+speed speed_main; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
 kisg6 demo;  // from Class KISG6 that contain the experement Conditions (pins Setup )
-debug debo;  // from Debug class the main use is to Serial print complexe Phrases
+debug debugger_main;  // from Debug class the main use is to Serial print complexe Phrases
 Shoot shooter; // from Shoot Class used to shhot the ball 
 
 // Here is the value for the Interrupts Counter for
@@ -60,12 +60,13 @@ float theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0.0000000
 // new speed var
 float filled_speed=0;
 //** the main timers to calculate the acceleration 
-int acceleration_timer_1=0;
-int acceleration_timer_0=0;
+uint32_t acceleration_timer_1=0;
+uint32_t acceleration_timer_0=0;
 //**** these timer wil be used the time to excute a part from the code 
-int start_excu_time=0,end_excu_time=0;
+uint32_t start_excu_time=0,end_excu_time=0;
 //****************
-int fill_start_timer=0;
+uint32_t fill_start_timer=0;
+uint16_t time_correction_value;
 
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
@@ -131,15 +132,15 @@ void loop()
  //every 500ms get new value to speed and acceleration 
 if (millis()-acceleration_timer_1>100)
 {
-    angular_speed_zero=spedo.photoSpeed(hold_delta_photo_sensor);
+    angular_speed_zero=speed_main.photoSpeed(hold_delta_photo_sensor);
     getAcceleration(angular_speed_zero);
     fill_start_timer=millis();
     acceleration_timer_1=millis();
 }
-// debo.sPrint("filled_speed ",filled_speed,"rad/s");
-// debo.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
-// debo.sPrint("acceleration_timer_1 ",acceleration_timer_1,"ms");
-// debo.sPrint("the angular acceleration",angular_acceleration,"rad/s2");
+// debugger_main.sPrint("filled_speed ",filled_speed,"rad/s");
+// debugger_main.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
+// debugger_main.sPrint("acceleration_timer_1 ",acceleration_timer_1,"ms");
+// debugger_main.sPrint("the angular acceleration",angular_acceleration,"rad/s2");
 delay(500);
 
   //************************************************ the main part ******************************************************************
@@ -156,8 +157,8 @@ delay(500);
       hold_delta_hall_sensor = time_delta_hall;
       pos = hall_section;
       sei();
-      time_rest_to_null = spedo.hallRst(pos,hold_delta_hall_sensor,angular_acceleration);
-      time_total_hall = spedo.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
+      time_rest_to_null = speed_main.hallRst(pos,hold_delta_hall_sensor,angular_acceleration);
+      time_total_hall = speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
       time_window_hall = (hold_delta_hall_sensor/ 6) - 20;
       //time_target=time_fall+time_window_hall;
       shooter.fireBall(hold_delta_hall_sensor, time_rest_to_null, pos, time_total_hall, time_window_hall, time_fall);
@@ -174,8 +175,8 @@ delay(500);
       end_excu_time=millis();
       Serial.println(" after the cli sei 0   ");
       Serial.println(end_excu_time-start_excu_time);
-      time_rest_to_null = spedo.photoRst(pos,hold_delta_photo_sensor,angular_acceleration);
-      time_total_photo = spedo.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+      time_rest_to_null = speed_main.photoRst(pos,hold_delta_photo_sensor,angular_acceleration);
+      time_total_photo = speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
       time_window_photo = hold_delta_photo_sensor;
       shooter.fireBall(hold_delta_photo_sensor, time_rest_to_null, pos, time_total_photo, time_window_photo, time_target);
       /* code */
@@ -183,56 +184,112 @@ delay(500);
 
       // here we are using the angel to calculate the values 
       case 3:
+      start_excu_time=millis();
     cli();
     hold_delta_photo_sensor=time_delta_photo;
     hold_position=photo_section;
     angular_speed=angular_speed_zero+(angular_acceleration*(hold_delta_photo_sensor/1000));
     calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
-    time_total_photo=spedo.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
-    time_rest_to_null=spedo.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
-    sei(); 
-    
-    debo.sPrint("angular_speed_zero ",angular_speed_zero,"rad/s");
-    debo.sPrint("angular_speed ",angular_speed,"rad/s");
-    if (time_total_photo > time_fall)
-    {
-              shooter.fireBall(hold_delta_photo_sensor, time_rest_to_null, photo_section, time_total_photo, (hold_delta_photo_sensor), time_target);
-              debo.sPrint("Shooted from slow if  ",0,"");
-              debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              debo.sPrint("time_total_photo ",time_total_photo,"ms");
+    time_total_photo=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+    time_rest_to_null=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
+    sei();
+    end_excu_time=millis();
+    debugger_main.sPrint("Calculation time ",(end_excu_time-start_excu_time),"ms");
+
+
+    debugger_main.sPrint("angular_speed_zero ",angular_speed_zero,"rad/s");
+    debugger_main.sPrint("angular_speed ",angular_speed,"rad/s");
+    if (time_total_photo > time_fall && angular_speed!=0)
+    {         
+      
+              // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
+              if (photo_section!=hold_position && hold_position !=11 )
+              {
+                time_correction_value=1000*(abs(photo_section-hold_position)*((PI/6)/angular_speed));
+                cli();
+                debugger_main.sPrint("photo section ",photo_section,"");
+                debugger_main.sPrint("hold_position",hold_position,"");
+                sei();
+              }
+              else if (photo_section!=hold_position && hold_position ==11)
+              {
+                time_correction_value=1000*(((photo_section+1)*(PI/6)/angular_speed));
+                cli();
+                debugger_main.sPrint("photo section ",photo_section,"");
+                debugger_main.sPrint("hold_position",hold_position,"");
+                sei();
+              }
+              
+              
+              
+              debugger_main.sPrint("Shooted from slow if  ",0,"");
+              
+              
+              shooter.fireBall(hold_delta_photo_sensor, time_rest_to_null-time_correction_value, photo_section, time_total_photo-time_correction_value, (hold_delta_photo_sensor), time_fall);
+              debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+              debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
+              debugger_main.sPrint("time_rest_to_null ",time_rest_to_null-time_correction_value,"ms");
+              debugger_main.sPrint("time_total_photo ",time_total_photo-time_correction_value,"ms");
     }
     else if(time_total_photo < time_fall)
     {
       if (time_soluation[0]>time_target && time_soluation[0] !=500000  /*  && 1000 *time_soluation[0]<time_target+time_window_photo */)
         {     
-          
-              cli();
-              debo.sPrint("photo section 3",photo_section,"");
-              debo.sPrint("hold_position",hold_position,"");
-              sei();
-              float delt_time=1000*((photo_section-hold_position)*((PI/6)/angular_speed));
-              delay_time=abs((time_soluation[0])-time_target-delt_time);
+              // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
+              if (photo_section!=hold_position && hold_position !=11 )
+              {
+                time_correction_value=1000*(abs(photo_section-hold_position)*((PI/6)/angular_speed));
+                cli();
+                debugger_main.sPrint("photo section ",photo_section,"");
+                debugger_main.sPrint("hold_position",hold_position,"");
+                sei();
+              }
+              else if (photo_section!=hold_position && hold_position ==11)
+              {
+                time_correction_value=1000*(((photo_section+1)*(PI/6)/angular_speed));
+                cli();
+                debugger_main.sPrint("photo section ",photo_section,"");
+                debugger_main.sPrint("hold_position",hold_position,"");
+                sei();
+              }
+              time_correction_value=1000*((photo_section-hold_position)*((PI/6)/angular_speed));
+              delay_time=abs((time_soluation[0])-time_target-time_correction_value);
               delay(delay_time);
               shooter.shootManuel(20);
-              debo.sPrint("Shooted from Deta if   ",0,"");
-              debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              debo.sPrint("delt_time ",delt_time,"ms");
-              debo.sPrint("time_total_photo ",time_total_photo,"ms");
+              debugger_main.sPrint("Shooted from Deta if   ",0,"");
+              debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+              debugger_main.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
+              debugger_main.sPrint("time_total_photo ",time_total_photo,"ms");
         }
          else if (time_soluation[1]> time_target && time_soluation[1] !=500000  /* && 1000 *time_soluation[1]<time_target+time_window_photo*/ )
         {     
-              debo.sPrint("photo section 4",photo_section,"");
-              float delt_time=1000*((photo_section-pos)*((PI/6)/angular_speed));
-              delay_time=abs((time_soluation[1])-time_target-delt_time);
+
+              // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
+              if (photo_section!=hold_position && hold_position !=11 )
+              {
+                time_correction_value=1000*(abs(photo_section-hold_position)*((PI/6)/angular_speed));
+                cli();
+                debugger_main.sPrint("photo section ",photo_section,"");
+                debugger_main.sPrint("hold_position",hold_position,"");
+                sei();
+              }
+              else if (photo_section!=hold_position && hold_position ==11)
+              {
+                time_correction_value=1000*(((photo_section+1)*(PI/6)/angular_speed));
+                cli();
+                debugger_main.sPrint("photo section ",photo_section,"");
+                debugger_main.sPrint("hold_position",hold_position,"");
+                sei();
+              }
+              delay_time=abs((time_soluation[1])-time_target-time_correction_value);
               delay(delay_time);
               shooter.shootManuel(20);
-              debo.sPrint("2 if ",delay_time,"s");
-              debo.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debo.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              debo.sPrint("delt_time ",delt_time,"ms");
-              debo.sPrint("time_total_photo ",time_total_photo,"ms");
+              debugger_main.sPrint("2 if ",delay_time,"s");
+              debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+              debugger_main.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+              debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
+              debugger_main.sPrint("time_total_photo ",time_total_photo,"ms");
 
         }
       
@@ -383,13 +440,13 @@ void getAcceleration(float new_speed)
     cli();
     angular_acceleration=-abs(1000*(new_speed-filled_speed)/(acceleration_timer_1-acceleration_timer_0));
   	sei();
-    // debo.sPrint("the angular new calculation is ",angular_acceleration,"rad/s2");
+    // debugger_main.sPrint("the angular new calculation is ",angular_acceleration,"rad/s2");
   }
   else
   {
-    debo.sPrint("the angular acceleration is wrong the timers are equal  ",0,"error");
-    debo.sPrint("acceleration_timer_0  ",acceleration_timer_0,"error");
-    debo.sPrint("acceleration_timer_1 ",acceleration_timer_1,"error");
+    debugger_main.sPrint("the angular acceleration is wrong the timers are equal  ",0,"error");
+    debugger_main.sPrint("acceleration_timer_0  ",acceleration_timer_0,"error");
+    debugger_main.sPrint("acceleration_timer_1 ",acceleration_timer_1,"error");
     
   }
   
@@ -399,18 +456,18 @@ void fillSpeed()
 {
   if (millis()-acceleration_timer_0 >hold_delta_photo_sensor)
   {
-  filled_speed=spedo.photoSpeed(hold_delta_photo_sensor);
-  // debo.sPrint("filled_speed ",filled_speed,"rad/s");
+  filled_speed=speed_main.photoSpeed(hold_delta_photo_sensor);
+  // debugger_main.sPrint("filled_speed ",filled_speed,"rad/s");
   acceleration_timer_0=millis();
-  // debo.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
-  // debo.sPrint("acceleration_timer_1 ",acceleration_timer_1,"ms");
+  // debugger_main.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
+  // debugger_main.sPrint("acceleration_timer_1 ",acceleration_timer_1,"ms");
   } 
 }
 
 uint8_t getTargetSection(float theta_target_1)
 {
   uint8_t section_help=6*theta_target_1/PI;
-  debo.sPrint("section_help",section_help,"");
+  debugger_main.sPrint("section_help",section_help,"");
   if (section_help > 11)
   {
     return section_help-12;
@@ -426,7 +483,7 @@ void applyMode()
   if (choose_mode_flag== true)
   {
     program_mode=chooseMode();
-    debo.sPrint(" we are in the mode ", program_mode, " ");
+    debugger_main.sPrint(" we are in the mode ", program_mode, " ");
     choose_mode_flag= false;
   }
 }
@@ -435,48 +492,48 @@ void readMode()
       if (digitalRead(demo.butt1) == HIGH && millis() - butt1_press_delay_read_mod > 1000)
   {
     program_mode = chooseMode();
-    debo.sPrint(" we are in the mode ", program_mode, " ");
+    debugger_main.sPrint(" we are in the mode ", program_mode, " ");
     butt1_press_delay_read_mod = millis();
   }
 }
 void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1, char control)
 {
-  float c=-(2*PI-(inittheta_1));
+  float c=-(6*PI-(inittheta_1));
   float a= accelaration_1/2, b=winkelgeschwindigkeit_1;
     float  x1, x2, discriminant,real_part,imaginary_part;
     discriminant = (b*b)- (4*a*c);
   if (control== 't')
   {
    if (a!=0){
-     debo.sPrint("a",a,"");
-     debo.sPrint("b",b,"");
-     debo.sPrint("c",c,"");
-     debo.sPrint("discriminant",discriminant,"");
+     debugger_main.sPrint("a",a,"");
+     debugger_main.sPrint("b",b,"");
+     debugger_main.sPrint("c",c,"");
+     debugger_main.sPrint("discriminant",discriminant,"");
     if (discriminant > 0 && a !=0) {
         x1 = (-b + sqrt(discriminant)) / (2*a);
         x2 = (-b - sqrt(discriminant)) / (2*a);
-        debo.sPrint( "Roots are real and different." ,0,"");
-        debo.sPrint("t1 = ", x1 ,"") ;
-        debo.sPrint("t2 = ", x2 ,"") ;
+        debugger_main.sPrint( "Roots are real and different." ,0,"");
+        debugger_main.sPrint("t1 = ", x1 ,"") ;
+        debugger_main.sPrint("t2 = ", x2 ,"") ;
         time_soluation[0]=1000*x1;
         time_soluation[1]=1000*x2;
         
     }
     else if (discriminant == 0&& a !=0) {
-        debo.sPrint( "Roots are real and same." ,0,"");
+        debugger_main.sPrint( "Roots are real and same." ,0,"");
         x1 = (-b + sqrt(discriminant)) / (2*a);
-        debo.sPrint("t1 = t2 =", x1 ,"");
+        debugger_main.sPrint("t1 = t2 =", x1 ,"");
         time_soluation[0]=1000*x1;
         time_soluation[1]=500000;    
     }
     else {
-        debo.sPrint("Roots are complex and different."  ,0,"");
+        debugger_main.sPrint("Roots are complex and different."  ,0,"");
         real_part=-b/(2*a);
         imaginary_part=sqrt(-discriminant)/(2*a);
         x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
-        debo.sPrint("real_part ", real_part ,"");
-        debo.sPrint("imaginary_part", imaginary_part ,"");
-        debo.sPrint("x1", x1 ,"");
+        debugger_main.sPrint("real_part ", real_part ,"");
+        debugger_main.sPrint("imaginary_part", imaginary_part ,"");
+        debugger_main.sPrint("x1", x1 ,"");
         time_soluation[0]=1000*x1;
         time_soluation[1]=500000;
         
@@ -485,12 +542,12 @@ void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float i
    }
    else
    {
-    debo.sPrint( "a == 0 " ,0,"");
-      debo.sPrint("a",a,"");
-     debo.sPrint("b",b,"");
-     debo.sPrint("c",c,"");
+    debugger_main.sPrint( "a == 0 " ,0,"");
+      debugger_main.sPrint("a",a,"");
+     debugger_main.sPrint("b",b,"");
+     debugger_main.sPrint("c",c,"");
         x1 = -c/b;
-        debo.sPrint("t1 = t2 =", x1 ,"");
+        debugger_main.sPrint("t1 = t2 =", x1 ,"");
         time_soluation[0]=1000*x1;
         time_soluation[1]=500000;
    }

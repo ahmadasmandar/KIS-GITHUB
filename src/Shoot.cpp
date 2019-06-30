@@ -42,7 +42,9 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
           delay(motor_delay);
           shhot_motor.write(end_angel);
           // debshoot.sPrint("SECOND_IF 2- if photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
-          debshoot.sPrint("SECOND_IF 2- if work time is ", time_resto - 2, "ms");
+          debshoot.sPrint("SECOND_IF 2- if work time is ", time_resto, "ms");
+          debshoot.sPrint("SECOND_IF 2- total time ", total_time, "ms");
+          debshoot.sPrint("target_time", target_time, "ms");
           debshoot.sPrint("SECOND_IF 2- if delay time is ", delay_time_shoot, "ms");
           debshoot.sPrint("SECOND_IF 2- if new work time is ", time_resto - delay_time_shoot, "ms");
           

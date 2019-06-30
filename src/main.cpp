@@ -201,7 +201,6 @@ delay(500);
     debugger_main.sPrint("angular_speed ",angular_speed,"rad/s");
     if (time_total_photo > time_fall && angular_speed!=0)
     {         
-      
               // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
               if (photo_section!=hold_position && hold_position !=11 )
               {

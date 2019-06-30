@@ -18,7 +18,7 @@ const uint16_t test_time_hall=400;
 speed speed_main; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
 kisg6 demo;  // from Class KISG6 that contain the experement Conditions (pins Setup )
 debug debugger_main;  // from Debug class the main use is to Serial print complexe Phrases
-Shoot shooter; // from Shoot Class used to shhot the ball 
+Shoot shoot_main; // from Shoot Class used to shhot the ball 
 
 // Here is the value for the Interrupts Counter for
 // the PhotoSensor and The Hall Sensor
@@ -66,7 +66,7 @@ uint32_t acceleration_timer_0=0;
 uint32_t start_excu_time=0,end_excu_time=0;
 //****************
 uint32_t fill_start_timer=0;
-uint16_t time_correction_value;
+//uint16_t time_correction_value;
 
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
@@ -91,6 +91,8 @@ void getAcceleration(float new_speed);
 void applyMode();
 void readMode();
 void calculateTime(float accelaration_2, float winkelgeschwindigkeit_3, float inittheta_2, char control_1);
+//***
+void shootMain();
 // end function prototypes
 
 //****************** the setup *****************************
@@ -100,7 +102,7 @@ void setup()
   demo.pinSetup();
   attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);
   attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
-  shooter.motorIntil();
+  shoot_main.motorIntil();
   Serial.begin(57600);
   hall_start = millis();
   photo_start = millis();
@@ -126,9 +128,11 @@ void loop()
   cli();
   hold_delta_photo_sensor = time_delta_photo;
   sei();
+
  applyMode();
  readMode();
  fillSpeed();
+
  //every 500ms get new value to speed and acceleration 
 if (millis()-acceleration_timer_1>100)
 {
@@ -137,11 +141,6 @@ if (millis()-acceleration_timer_1>100)
     fill_start_timer=millis();
     acceleration_timer_1=millis();
 }
-// debugger_main.sPrint("filled_speed ",filled_speed,"rad/s");
-// debugger_main.sPrint("acceleration_timer_0 ",acceleration_timer_0,"ms");
-// debugger_main.sPrint("acceleration_timer_1 ",acceleration_timer_1,"ms");
-// debugger_main.sPrint("the angular acceleration",angular_acceleration,"rad/s2");
-delay(500);
 
   //************************************************ the main part ******************************************************************
 
@@ -161,30 +160,43 @@ delay(500);
       time_total_hall = speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
       time_window_hall = (hold_delta_hall_sensor/ 6) - 20;
       //time_target=time_fall+time_window_hall;
-      shooter.fireBall(hold_delta_hall_sensor, time_rest_to_null, pos, time_total_hall, time_window_hall, time_fall);
+      shoot_main.fireBall(hold_delta_hall_sensor, time_rest_to_null, pos, time_total_hall, time_window_hall, time_fall);
       break;
       /** nur PHOTO sensor benutzen **/
 
-
     case 2:
       // the data that will be used in the shoot function
+      start_excu_time=millis();
       cli();
-      hold_delta_photo_sensor = time_delta_photo;
-      pos = photo_section;
+      hold_delta_photo_sensor=time_delta_photo;
+      hold_position=photo_section;
+      angular_speed=angular_speed_zero+(angular_acceleration*(hold_delta_photo_sensor/1000));
+      calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
+      time_total_photo=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+      time_rest_to_null=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
       sei();
       end_excu_time=millis();
-      Serial.println(" after the cli sei 0   ");
-      Serial.println(end_excu_time-start_excu_time);
-      time_rest_to_null = speed_main.photoRst(pos,hold_delta_photo_sensor,angular_acceleration);
-      time_total_photo = speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
-      time_window_photo = hold_delta_photo_sensor;
-      shooter.fireBall(hold_delta_photo_sensor, time_rest_to_null, pos, time_total_photo, time_window_photo, time_target);
+      
+    //    if (angular_speed!=0)
+    // {         
+    //   // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
+    //   if (photo_section!=hold_position && hold_position !=11 )
+    //   {
+    //     time_correction_value=1000*(abs(photo_section-hold_position)*((PI/6)/angular_speed));
+    //   }
+    //   else if (photo_section!=hold_position && hold_position ==11)
+    //   {
+    //     time_correction_value=1000*(((photo_section+1)*(PI/6)/angular_speed));
+    //   }
+      // shoot the ball using the calculated values 
+
+      shoot_main.fireBall(hold_delta_photo_sensor, time_rest_to_null, pos, time_total_photo, time_window_photo, time_fall);
       /* code */
       break;
 
       // here we are using the angel to calculate the values 
       case 3:
-      start_excu_time=millis();
+    start_excu_time=millis(); // strat timing for excute 
     cli();
     hold_delta_photo_sensor=time_delta_photo;
     hold_position=photo_section;
@@ -193,114 +205,40 @@ delay(500);
     time_total_photo=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
     time_rest_to_null=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
     sei();
-    end_excu_time=millis();
+    end_excu_time=millis(); // end timing for excute 
     debugger_main.sPrint("Calculation time ",(end_excu_time-start_excu_time),"ms");
 
-
-    debugger_main.sPrint("angular_speed_zero ",angular_speed_zero,"rad/s");
-    debugger_main.sPrint("angular_speed ",angular_speed,"rad/s");
-    if (time_total_photo > time_fall && angular_speed!=0)
+    if (angular_speed!=0)
     {         
-              // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
-              if (photo_section!=hold_position && hold_position !=11 )
-              {
-                time_correction_value=1000*(abs(photo_section-hold_position)*((PI/6)/angular_speed));
-                cli();
-                debugger_main.sPrint("photo section ",photo_section,"");
-                debugger_main.sPrint("hold_position",hold_position,"");
-                sei();
-              }
-              else if (photo_section!=hold_position && hold_position ==11)
-              {
-                time_correction_value=1000*(((photo_section+1)*(PI/6)/angular_speed));
-                cli();
-                debugger_main.sPrint("photo section ",photo_section,"");
-                debugger_main.sPrint("hold_position",hold_position,"");
-                sei();
-              }
-              
-              
-              
-              debugger_main.sPrint("Shooted from slow if  ",0,"");
-              
-              
-              shooter.fireBall(hold_delta_photo_sensor, time_rest_to_null-time_correction_value, photo_section, time_total_photo-time_correction_value, (hold_delta_photo_sensor), time_fall);
-              debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
-              debugger_main.sPrint("time_rest_to_null ",time_rest_to_null-time_correction_value,"ms");
-              debugger_main.sPrint("time_total_photo ",time_total_photo-time_correction_value,"ms");
-    }
-    else if(time_total_photo < time_fall)
-    {
-      if (time_soluation[0]>time_target && time_soluation[0] !=500000  /*  && 1000 *time_soluation[0]<time_target+time_window_photo */)
-        {     
-              // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
-              if (photo_section!=hold_position && hold_position !=11 )
-              {
-                time_correction_value=1000*(abs(photo_section-hold_position)*((PI/6)/angular_speed));
-                cli();
-                debugger_main.sPrint("photo section ",photo_section,"");
-                debugger_main.sPrint("hold_position",hold_position,"");
-                sei();
-              }
-              else if (photo_section!=hold_position && hold_position ==11)
-              {
-                time_correction_value=1000*(((photo_section+1)*(PI/6)/angular_speed));
-                cli();
-                debugger_main.sPrint("photo section ",photo_section,"");
-                debugger_main.sPrint("hold_position",hold_position,"");
-                sei();
-              }
-              time_correction_value=1000*((photo_section-hold_position)*((PI/6)/angular_speed));
-              delay_time=abs((time_soluation[0])-time_target-time_correction_value);
-              delay(delay_time);
-              shooter.shootManuel(20);
-              debugger_main.sPrint("Shooted from Deta if   ",0,"");
-              debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debugger_main.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
-              debugger_main.sPrint("time_total_photo ",time_total_photo,"ms");
-        }
-         else if (time_soluation[1]> time_target && time_soluation[1] !=500000  /* && 1000 *time_soluation[1]<time_target+time_window_photo*/ )
-        {     
-
-              // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
-              if (photo_section!=hold_position && hold_position !=11 )
-              {
-                time_correction_value=1000*(abs(photo_section-hold_position)*((PI/6)/angular_speed));
-                cli();
-                debugger_main.sPrint("photo section ",photo_section,"");
-                debugger_main.sPrint("hold_position",hold_position,"");
-                sei();
-              }
-              else if (photo_section!=hold_position && hold_position ==11)
-              {
-                time_correction_value=1000*(((photo_section+1)*(PI/6)/angular_speed));
-                cli();
-                debugger_main.sPrint("photo section ",photo_section,"");
-                debugger_main.sPrint("hold_position",hold_position,"");
-                sei();
-              }
-              delay_time=abs((time_soluation[1])-time_target-time_correction_value);
-              delay(delay_time);
-              shooter.shootManuel(20);
-              debugger_main.sPrint("2 if ",delay_time,"s");
-              debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-              debugger_main.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-              debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
-              debugger_main.sPrint("time_total_photo ",time_total_photo,"ms");
-
-        }
+      // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
+      if (photo_section!=hold_position && hold_position !=11 )
+      {
+        time_correction_value=1000*(abs(photo_section-hold_position)*((PI/6)/angular_speed));
+      }
+      else if (photo_section!=hold_position && hold_position ==11)
+      {
+        time_correction_value=1000*(((photo_section+1)*(PI/6)/angular_speed));
+      }
+      // shoot the ball using the calculated values 
+      shoot_main.fireBall(hold_delta_photo_sensor, time_rest_to_null-time_correction_value, photo_section, time_total_photo-time_correction_value, (hold_delta_photo_sensor), time_fall);
       
+      // debugging data 
+      debugger_main.sPrint("Shooted from slow if  ",0,"");
+      debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
+      debugger_main.sPrint("angular_speed ",angular_speed,"rad/s");
+      debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
+      debugger_main.sPrint("time_rest_to_null ",time_rest_to_null-time_correction_value,"ms");
+      debugger_main.sPrint("time_total_photo ",time_total_photo-time_correction_value,"ms");
+      debugger_main.sPrint("photo section ",photo_section,"");
+      debugger_main.sPrint("hold_position",hold_position,"");
     }
         
       /** Manuel just let the ball go... **/
     case 4:
-      //shooter.shootManuel();
+      //shoot_main.shootManuel();
       /* code */
       break;
     }
-
     press_delay_trigger = millis();
   }
 }
@@ -552,4 +490,21 @@ void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float i
    }
    
   }
+}
+void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder)
+{
+    uint16_t time_correction_value;
+    if (ang_speed!=0)
+    {         
+      // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
+      if (current_section!=pos_holder && pos_holder !=11 )
+      {
+        time_correction_value=1000*(abs(current_section-pos_holder)*((PI/6)/ang_speed));
+      }
+      else if (current_section!=pos_holder && pos_holder ==11)
+      {
+        time_correction_value=1000*(((current_section+1)*(PI/6)/ang_speed));
+      }
+      // shoot the ball using the calculated values 
+      shoot_main.fireBall(delta_hoder, rest_time-time_correction_value, pos_holder, total_time-time_correction_value, delta_hoder, time_fall);
 }

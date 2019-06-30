@@ -31,7 +31,7 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
           delay(motor_delay);
           shhot_motor.write(end_angel);
           debshoot.sPrint("NORMAL_IF  if work time is ", time_resto, "ms");
-          debshoot.sPrint("NORMAL_IF  ", section, "ms");
+          debshoot.sPrint("NORMAL_IF  SHOOT SECTION ", section, "");
         //   debshoot.sPrint("NORMAL_IF photo_speed is ", spedo.photoSpeed(time_delta_photo), "rad/s");
         }
         else if (time_resto > target_time)

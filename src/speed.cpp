@@ -3,7 +3,7 @@
 #include "Servo.h"
 #include "debug.h"
  #include "math.h"
-debug debtest;
+debug debugger_speed;
 #define PI 3.1415926535897932384626433832795
 uint16_t NEW_DELAY_SPEED;
 float back_array[2];
@@ -102,9 +102,9 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
    float a= a1/2, b=b1;
    float  x1, x2, discriminant,real_part,imaginary_part;
    discriminant = (b*b)- (4*a*c);
-   debtest.sPrint("a from time function ",a,"");
-   debtest.sPrint("b from time function ",b,"");
-   debtest.sPrint("c from time function ",c,"");
+   debugger_speed.sPrint("a from time function ",a,"");
+   debugger_speed.sPrint("b from time function ",b,"");
+   debugger_speed.sPrint("c from time function ",c,"");
    if (a!=0){
     if (discriminant > 0 && a !=0) {
         x1 = (-b + sqrt(discriminant)) / (2*a);
@@ -114,22 +114,18 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
             {
                 if (x1 >x2 && x2 <15 && x2 >0)
                 {
-                    Serial.print("the smallest time soluation is x2   ");
-                    Serial.println(x2);
+                    debugger_speed.sPrint("the smallest time soluation is x2  ",x2,"sec");
                     return 1000*x2;
                 }
                 else if (x2 > x1 && x1<15)
                 {
-                    Serial.print("the smallest time soluation is x1   ");
-                    Serial.println(x1);
+                    debugger_speed.sPrint("the smallest time soluation is x1  ",x1,"sec");
                     return 1000*x1;
                 }
 
                 else if (x2 >0 && x2 < 15)
                 {
-                
-                    Serial.print("the smallest time soluation is x2   ");
-                    Serial.println(x2);
+                     debugger_speed.sPrint("the smallest time soluation is x2  ",x2,"sec");
                     return 1000*x2;
                 }
                 else
@@ -140,27 +136,19 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
                     Serial.print(" the time soluation x2  ");
                     Serial.println(x2);
                 }
-                
-                
             }
-            
-        
-        
     }
     
     else if (discriminant == 0 && a !=0) {
         x1 = (-b + sqrt(discriminant)) / (2*a);
-        Serial.print("the time soluation is doupple 3 ");
-        Serial.println(x1);
+        debugger_speed.sPrint("there is only one soluation  ",x1,"sec");
         return 1000*x1;
     }
-
     else {
         real_part=-b/(2*a);
         imaginary_part=sqrt(-discriminant)/(2*a);
         x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
-        Serial.print("the time soluation is complex  4  ");
-        Serial.println(x1);
+        debugger_speed.sPrint("the soluation is complex and abs value for the real and imaginary parts are  ",x1,"sec");
         return 1000*x1; 
     }
 
@@ -168,10 +156,8 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
    else
    {
         x1 = -c/b;
-        Serial.print("the time soluation is a==0  5 ");
-        Serial.println(x1);
+        debugger_speed.sPrint("the acceleration is 0 and there is only one soluation x1  ",x1,"sec");
         return 1000*x1;
         
    }
-   
 }

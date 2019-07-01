@@ -24,7 +24,7 @@ return(PI*1000/delta_hal);
 float speed::photoRst(int photo_seco,int delta_pho_rst,float accelo_1)
 {
     float photo_speed_intern=photoSpeed(delta_pho_rst);
-    float help_val_theta=((1+photo_seco)*(PI/6));
+    float help_val_theta=((photo_seco)*(PI/6));
     float result=solveTimeEquation(accelo_1,photo_speed_intern,help_val_theta);
     return result;
 }

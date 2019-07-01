@@ -38,12 +38,12 @@ float speed::hallRst(int hall_seco,int delta_hall_rst,float accelo_2)
 float speed::totalHallTime(int delto_hall,float accelo_3)
 {
     float hallSpeedo=hallSpeed(delto_hall);
-    return(solveTimeEquation(accelo_3,hallSpeedo,0));
+    return(solveTimeEquation(accelo_3,hallSpeedo,2*PI));
 }
 float speed::totalPhotoTime(int delto_photo,float accelo_4)
 {
     float photoSpeedo=photoSpeed(delto_photo);
-    float result=(solveTimeEquation(accelo_4,photoSpeedo,0));
+    float result=(solveTimeEquation(accelo_4,photoSpeedo,2*PI));
     return result;
 }
 boolean speed::secureMotion(int val1, int val2,boolean start_FLAG)
@@ -98,13 +98,14 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
 // Calculate the time values
  float speed::solveTimeEquation(float a1, float b1,float c1)
  {
-   float c=-(6*PI-(c1));
+   float c=-(2*PI-(c1+2*PI));
    float a= a1/2, b=b1;
    float  x1, x2, discriminant,real_part,imaginary_part;
    discriminant = (b*b)- (4*a*c);
    debugger_speed.sPrint("a from time function ",a,"");
    debugger_speed.sPrint("b from time function ",b,"");
    debugger_speed.sPrint("c from time function ",c,"");
+   debugger_speed.sPrint("discriminant from time function ",discriminant,"");
    if (a!=0){
     if (discriminant > 0 && a !=0) {
         x1 = (-b + sqrt(discriminant)) / (2*a);
@@ -128,6 +129,11 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
                      debugger_speed.sPrint("the smallest time soluation is x2  ",x2,"sec");
                     return 1000*x2;
                 }
+                else if (x1 >x2 && x1 < 15)
+                {
+                     debugger_speed.sPrint("the smallest time soluation is x1  ",x1,"sec");
+                    return 1000*x1;
+                }
                 else
                 {
                     Serial.print(" the values are not right or so big ");
@@ -137,6 +143,23 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
                     Serial.println(x2);
                 }
             }
+            else
+            {
+                if (x2 >0 && x2 <15)
+                {
+                    debugger_speed.sPrint("the smallest time soluation is x2  ",x2,"sec");
+                    return 1000*x2;
+                }
+                else
+                {
+                    Serial.print(" the values are not right or so big ");
+                    Serial.print(" the time soluation x1  ");
+                    Serial.println(x1);
+                    Serial.print(" the time soluation x2  ");
+                    Serial.println(x2);
+                }
+            }
+            
     }
     
     else if (discriminant == 0 && a !=0) {

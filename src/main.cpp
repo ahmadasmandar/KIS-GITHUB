@@ -462,7 +462,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
         time_correction_value=0;
       }
       
-      shoot_main.fireBall(delta_hoder,rest_time,pos_holder,total_time,delta_hoder,time_fall+time_delta_photo);
+      shoot_main.fireBall(delta_hoder,rest_time,pos_holder,total_time,delta_hoder,time_fall-time_delta_photo);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("Shooted from slow if  ",0,"");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
@@ -470,7 +470,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
       debugger_main.sPrint("time_rest_to_null ",rest_time-time_correction_value,"ms");
       debugger_main.sPrint("time_total_photo ",total_time-time_correction_value,"ms");
-      debugger_main.sPrint("time_fall+time_delta_photo ",time_fall+time_delta_photo,"ms");
+      debugger_main.sPrint("time_fall+time_delta_photo ",time_fall-time_delta_photo,"ms");
       debugger_main.sPrint("photo section ",current_section,"");
       debugger_main.sPrint("hold_position",pos_holder,"");
 }

@@ -26,23 +26,39 @@ void Shoot::fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, floa
         if (time_resto > target_time)
         {
           delay_time_shoot = time_resto - target_time;
-          delay(delay_time_shoot);
+          if (delay_time_shoot<15000 )
+          {
+            delay(delay_time_shoot);
           shhot_motor.write(angel);
           delay(motor_delay);
           shhot_motor.write(end_angel);
           debugger_shoot.sPrint("target_time", target_time, "ms");
           debugger_shoot.sPrint("rest -if delay time is ", delay_time_shoot, "ms");
+          }
+          else
+          {
+            debugger_shoot.sPrint("time delay s big ", target_time, "ms");
+          }
+          
         }
         else if (time_resto < target_time)
         {
           if (total_time > target_time)
          {
             delay_time_shoot=total_time-(target_time -time_resto);
+            if (delay_time_shoot<15000 )
+          {
             delay(delay_time_shoot);
-            shhot_motor.write(angel);
-            delay(motor_delay);
-            shhot_motor.write(end_angel);
-            debugger_shoot.sPrint(" total if delay time is ", delay_time_shoot, "ms");
+          shhot_motor.write(angel);
+          delay(motor_delay);
+          shhot_motor.write(end_angel);
+          debugger_shoot.sPrint("target_time", target_time, "ms");
+          debugger_shoot.sPrint(" total if delay time is ", delay_time_shoot, "ms");
+          }
+          else
+          {
+            debugger_shoot.sPrint("time delay s big ", target_time, "ms");
+          }
          }
         }
         else

@@ -59,6 +59,7 @@ float theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0.0000000
 
 // new speed var
 float filled_speed=0,speed_1,speed_2;
+boolean fire_flag=true;
 
 //** the main timers to calculate the acceleration 
 uint32_t acceleration_timer_1=0;
@@ -71,7 +72,7 @@ uint32_t fill_start_timer=0;
 
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
-boolean choose_mode_flag=true,shot_flag_holder=false;
+volatile boolean choose_mode_flag=true,shot_flag_holder=false;
 
 //*******************Functions prototypes
 
@@ -142,16 +143,25 @@ delay(500);
     {
       /** nur Hall sensor benutzen **/
     case 1:
+    while (hall_section!=1)
+    {
+      Serial.println(" wait to change ");
+      delay(100);
+    }
+    start_excu_time=millis();
     getAcceleration();
      cli();
       hold_delta_hall_sensor=time_delta_hall;
       hold_position=hall_section;
-      angular_speed=angular_speed_zero+(angular_acceleration*(hold_delta_hall_sensor/1000));
-      // calculateTime(angular_acceleration,angular_speed,(hall_section*(PI)),'t');
+      sei();
       time_total_hall=speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
       time_rest_to_null=speed_main.hallRst(hold_position,hold_delta_hall_sensor,angular_acceleration);
-      sei();
-      shootMain(angular_speed,hold_position,hall_section,time_total_hall,time_rest_to_null,hold_delta_hall_sensor);
+      angular_speed=speed_main.hallSpeed(time_delta_hall)+(angular_acceleration*(hold_delta_hall_sensor/1000));
+      int time_used_to_calc=-start_excu_time+millis();
+      shootMain(angular_speed,hold_position,hall_section,time_total_hall-(time_used_to_calc),time_rest_to_null-(time_used_to_calc),hold_delta_hall_sensor);
+      debugger_main.sPrint("time_used_to_calc",time_used_to_calc,"ms");
+      debugger_main.sPrint("time_rest_to_null-1",time_rest_to_null,"ms");
+      debugger_main.sPrint("time_total_hall-1",time_total_hall,"ms");
       break;
       /** nur PHOTO sensor benutzen **/
 
@@ -338,12 +348,16 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 void getAcceleration()
 {
  
-    speed_1=speed_main.photoSpeed(time_delta_photo);
-    // debugger_main.sPrint("time_delta_photo 1",time_delta_photo,"ms");
-    delay(time_delta_photo);
-    speed_2=speed_main.photoSpeed(time_delta_photo);
+    speed_1=speed_main.hallSpeed(time_delta_hall);
+    // speed_1=speed_main.photoSpeed(time_delta_photo);
+    // debugger_main.sPrint("time_delta_hall 1",time_delta_hall,"ms");
+    // delay(time_delta_photo);
+    delay(time_delta_hall);
+    speed_2=speed_main.hallSpeed(time_delta_hall);
+    // speed_2=speed_main.photoSpeed(time_delta_photo);
     // debugger_main.sPrint("time_delta_photo 2",time_delta_photo,"ms");
-    angular_acceleration=-abs(1000*(speed_2-speed_1)/time_delta_photo);
+    angular_acceleration=-abs(1000*(speed_2-speed_1)/time_delta_hall);
+    // angular_acceleration=-abs(1000*(speed_2-speed_1)/time_delta_photo);
     // debugger_main.sPrint("the angular acceleration",angular_acceleration,"rad/s2");  
     // debugger_main.sPrint("speed_1 ",speed_1,"rad/s");  
     // debugger_main.sPrint("speed_2 ",speed_2,"rad/s");  
@@ -390,64 +404,7 @@ void readMode()
     butt1_press_delay_read_mod = millis();
   }
 }
-// void  calculateTime(float accelaration_1, float winkelgeschwindigkeit_1, float inittheta_1, char control)
-// {
-//   float c=-(6*PI-(inittheta_1));
-//   float a= accelaration_1/2, b=winkelgeschwindigkeit_1;
-//     float  x1, x2, discriminant,real_part,imaginary_part;
-//     discriminant = (b*b)- (4*a*c);
-//   if (control== 't')
-//   {
-//    if (a!=0){
-//      debugger_main.sPrint("a",a,"");
-//      debugger_main.sPrint("b",b,"");
-//      debugger_main.sPrint("c",c,"");
-//      debugger_main.sPrint("discriminant",discriminant,"");
-//     if (discriminant > 0 && a !=0) {
-//         x1 = (-b + sqrt(discriminant)) / (2*a);
-//         x2 = (-b - sqrt(discriminant)) / (2*a);
-//         debugger_main.sPrint( "Roots are real and different." ,0,"");
-//         debugger_main.sPrint("t1 = ", x1 ,"") ;
-//         debugger_main.sPrint("t2 = ", x2 ,"") ;
-//         time_soluation[0]=1000*x1;
-//         time_soluation[1]=1000*x2;
-        
-//     }
-//     else if (discriminant == 0&& a !=0) {
-//         debugger_main.sPrint( "Roots are real and same." ,0,"");
-//         x1 = (-b + sqrt(discriminant)) / (2*a);
-//         debugger_main.sPrint("t1 = t2 =", x1 ,"");
-//         time_soluation[0]=1000*x1;
-//         time_soluation[1]=500000;    
-//     }
-//     else {
-//         debugger_main.sPrint("Roots are complex and different."  ,0,"");
-//         real_part=-b/(2*a);
-//         imaginary_part=sqrt(-discriminant)/(2*a);
-//         x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
-//         debugger_main.sPrint("real_part ", real_part ,"");
-//         debugger_main.sPrint("imaginary_part", imaginary_part ,"");
-//         debugger_main.sPrint("x1", x1 ,"");
-//         time_soluation[0]=1000*x1;
-//         time_soluation[1]=500000;
-        
-//     }
 
-//    }
-//    else
-//    {
-//     debugger_main.sPrint( "a == 0 " ,0,"");
-//       debugger_main.sPrint("a",a,"");
-//      debugger_main.sPrint("b",b,"");
-//      debugger_main.sPrint("c",c,"");
-//         x1 = -c/b;
-//         debugger_main.sPrint("t1 = t2 =", x1 ,"");
-//         time_soluation[0]=1000*x1;
-//         time_soluation[1]=500000;
-//    }
-   
-//   }
-// }
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder)
 {
     uint16_t time_correction_value;       
@@ -465,7 +422,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
         time_correction_value=0;
       }
       
-      shoot_main.fireBall(delta_hoder,rest_time,pos_holder,total_time,delta_hoder,time_fall-(time_delta_hall/6)+100);
+      shoot_main.fireBall(delta_hoder,rest_time,pos_holder,total_time,delta_hoder,time_fall+(time_delta_hall/6)-20);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("Shooted from slow if  ",0,"");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
@@ -473,7 +430,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
       debugger_main.sPrint("time_rest_to_null ",rest_time-time_correction_value,"ms");
       debugger_main.sPrint("time_total_photo ",total_time-time_correction_value,"ms");
-      debugger_main.sPrint("time_fall-(time_delta_hall/6) ",time_fall+100,"ms");
+      debugger_main.sPrint("time_fall ",time_fall,"ms");
       debugger_main.sPrint("photo section ",current_section,"");
       debugger_main.sPrint("hold_position",pos_holder,"");
 }

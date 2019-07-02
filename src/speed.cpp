@@ -99,15 +99,15 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
  float speed::solveTimeEquation(float a1, float b1,float c1)
  {
      float c;
-     if (b1 >15)
-     {
-         c=-(2*PI-(c1+2*PI));
-     }
-     else
-     {
-         c=-(2*PI-(c1));
-     }
-     
+    //  if (b1 >15)
+    //  {
+    //      c=-(2*PI-(c1+2*PI));
+    //  }
+    //  else
+    //  {
+    //      c=-(2*PI-(c1));
+    //  }
+      c=-(4*PI-(c1));
    
    float a= a1/2, b=b1;
    float  x1, x2, discriminant,real_part,imaginary_part;
@@ -178,11 +178,16 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
         return 1000*x1;
     }
     else {
+        
         real_part=-b/(2*a);
         imaginary_part=sqrt(-discriminant)/(2*a);
         x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
         debugger_speed.sPrint("the soluation is complex and abs value for the real and imaginary parts are  ",x1,"sec");
-        return 1000*x1; 
+        x2=(2*PI-c1)/b;
+        debugger_speed.sPrint("the alternative soluation -c/b  ",x2,"sec");
+        debugger_speed.sPrint("c1  ",c1,"rad");
+        debugger_speed.sPrint("b  ",b,"rad/s");
+        return 1000*x2; 
     }
 
    }

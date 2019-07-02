@@ -53,7 +53,6 @@ uint8_t hold_position; // for the delta time
 uint16_t hold_delta_photo_sensor,hold_delta_hall_sensor,time_target;
 //**************************
 uint16_t delay_time;
-
 //************ New Calculations using Theata 
 float theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0.000000000000;
 
@@ -69,6 +68,7 @@ uint32_t start_excu_time=0,end_excu_time=0;
 //****************
 uint32_t fill_start_timer=0;
 //uint16_t time_correction_value;
+int time_used_to_calc;
 
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
@@ -135,21 +135,23 @@ delay(500);
 
   //************************************************ the main part ******************************************************************
 
-  if (digitalRead(demo.trigger) == HIGH &&  millis() - press_delay_trigger > 2000 && hall_section==0)
+  if (digitalRead(demo.trigger) == HIGH &&  millis() - press_delay_trigger > 3000)
   {
     //********************
     Serial.println(" trigger pressed 1 ");
+    
     switch (program_mode)
     {
       /** nur Hall sensor benutzen **/
     case 1:
-    while (hall_section!=1)
-    {
-      Serial.println(" wait to change ");
-      delay(100);
-    }
-    start_excu_time=millis();
+    // while (hall_section!=1)
+    // {
+    //   Serial.println(" wait to change ");
+    //   delay(100);
+    // }
+    
     getAcceleration();
+    start_excu_time=millis();
      cli();
       hold_delta_hall_sensor=time_delta_hall;
       hold_position=hall_section;
@@ -157,7 +159,7 @@ delay(500);
       time_total_hall=speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
       time_rest_to_null=speed_main.hallRst(hold_position,hold_delta_hall_sensor,angular_acceleration);
       angular_speed=speed_main.hallSpeed(time_delta_hall)+(angular_acceleration*(hold_delta_hall_sensor/1000));
-      int time_used_to_calc=-start_excu_time+millis();
+      time_used_to_calc=-start_excu_time+millis();
       shootMain(angular_speed,hold_position,hall_section,time_total_hall-(time_used_to_calc),time_rest_to_null-(time_used_to_calc),hold_delta_hall_sensor);
       debugger_main.sPrint("time_used_to_calc",time_used_to_calc,"ms");
       debugger_main.sPrint("time_rest_to_null-1",time_rest_to_null,"ms");
@@ -168,6 +170,7 @@ delay(500);
     case 2:
     getAcceleration();
       // the data that will be used in the shoot function
+      start_excu_time=millis();
       cli();
       hold_delta_photo_sensor=time_delta_photo;
       hold_position=photo_section;
@@ -176,32 +179,44 @@ delay(500);
       //calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
       time_total_photo=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
       time_rest_to_null=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
-      shootMain(angular_speed,hold_position,photo_section,time_total_photo,time_rest_to_null,hold_delta_photo_sensor);
+      time_used_to_calc=-start_excu_time+millis();
+      shootMain(angular_speed,hold_position,photo_section,time_total_photo-time_used_to_calc,time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
       /* code */
+      
       break;
 
       // here we are using the angel to calculate the values 
       case 3:
       getAcceleration();
+      Serial.println("we are in ");
     //start_excu_time=millis(); // strat timing for excute 
+    start_excu_time=millis();
     cli();
     hold_delta_photo_sensor=time_delta_photo;
     hold_position=photo_section;
-    //calculateTime(angular_acceleration,angular_speed,(photo_section*(PI/6)),'t');
-    time_total_photo=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
-    time_rest_to_null=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
-    debugger_main.sPrint("time_rest_to_null",time_rest_to_null,"ms");
-    debugger_main.sPrint("time_total_photo",time_total_photo,"ms");
     sei();
-    if (time_total_photo>0 && time_rest_to_null>0)
-    {   angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-        shootMain(angular_speed,hold_position,photo_section,time_total_photo,time_rest_to_null,hold_delta_photo_sensor);
+    int time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+    int time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
+    angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
+    if (angular_speed<12)
+    {   
+        time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
+        time_total_photo=1000*(2*PI/angular_speed);
     }
-    
-        
+    else if (angular_speed>12)
+    {
+      time_rest_to_null=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
+      time_total_photo=1000*(4*PI/angular_speed);
+    }
+    time_used_to_calc=millis()-start_excu_time;
+    shootMain(angular_speed,hold_position,photo_section,(time_total_photo-time_used_to_calc),time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
+  	  debugger_main.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
+      debugger_main.sPrint("time_total_photo ",time_total_photo,"ms");
+      debugger_main.sPrint("time_total_photo_test ",time_total_photo_test,"ms");
+      debugger_main.sPrint("time_rest_to_null_test ",time_rest_to_null_test,"ms");
       /** Manuel just let the ball go... **/
     case 4:
-      //shoot_main.shootManuel();
+      shoot_main.shootManuel();
       /* code */
       break;
     }
@@ -286,8 +301,13 @@ void photo_sens_interrupt()
 {
   time_delta_photo = millis() - photo_start;
   photo_start = millis();
-  photo_section = checkCounter(photo_section, 12);
-  //debugger_main.sPrint("photo section ",photo_section,"");
+  // photo_section = checkCounter(photo_section, 12);
+   photo_section+=1;
+  if (photo_section==12)
+  {
+    photo_section=0;
+  }
+  debugger_main.sPrint("time_delta_photo ",time_delta_photo,"");
 }
 
 //************** HALL SENS INTERRUPT *********
@@ -295,16 +315,14 @@ void hall_sens_interrupt()
 {
   time_delta_hall = millis() - hall_start;
   hall_start = millis();
-  hall_section = checkCounter(hall_section, 2);
-  if (hall_section==1)
+  // hall_section = checkCounter(hall_section, 2);
+
+  hall_section+=1;
+  if (hall_section==2)
   {
-    photo_section=6;
+    hall_section=0;
   }
-  else if (hall_section==0)
-  {
-    photo_section=0;
-  }
-  debugger_main.sPrint("hall_section ",hall_section,"");
+  debugger_main.sPrint("time_delta_hall ",time_delta_hall,"");
 }
 
 /********************/
@@ -348,16 +366,16 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 void getAcceleration()
 {
  
-    speed_1=speed_main.hallSpeed(time_delta_hall);
-    // speed_1=speed_main.photoSpeed(time_delta_photo);
+    // speed_1=speed_main.hallSpeed(time_delta_hall);
+    speed_1=speed_main.photoSpeed(time_delta_photo);
     // debugger_main.sPrint("time_delta_hall 1",time_delta_hall,"ms");
-    // delay(time_delta_photo);
-    delay(time_delta_hall);
-    speed_2=speed_main.hallSpeed(time_delta_hall);
-    // speed_2=speed_main.photoSpeed(time_delta_photo);
+    delay(time_delta_photo);
+    // delay(time_delta_hall);
+    // speed_2=speed_main.hallSpeed(time_delta_hall);
+    speed_2=speed_main.photoSpeed(time_delta_photo);
     // debugger_main.sPrint("time_delta_photo 2",time_delta_photo,"ms");
-    angular_acceleration=-abs(1000*(speed_2-speed_1)/time_delta_hall);
-    // angular_acceleration=-abs(1000*(speed_2-speed_1)/time_delta_photo);
+    // angular_acceleration=-abs(1000*(speed_2-speed_1)/time_delta_hall);
+    angular_acceleration=-abs(1000*(speed_2-speed_1)/time_delta_photo);
     // debugger_main.sPrint("the angular acceleration",angular_acceleration,"rad/s2");  
     // debugger_main.sPrint("speed_1 ",speed_1,"rad/s");  
     // debugger_main.sPrint("speed_2 ",speed_2,"rad/s");  
@@ -407,30 +425,30 @@ void readMode()
 
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder)
 {
-    uint16_t time_correction_value;       
+    // uint16_t time_correction_value;       
       // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
-      if (current_section!=pos_holder && pos_holder !=11 )
-      {
-        time_correction_value=1000*(abs(current_section-pos_holder)*((PI/6)/ang_speed));
-      }
-      else if (current_section!=pos_holder && pos_holder ==11)
-      {
-        time_correction_value=1000*(((current_section+1)*(PI/6)/ang_speed));
-      }
-      else
-      {
-        time_correction_value=0;
-      }
+      // if (current_section!=pos_holder && pos_holder !=11 )
+      // {
+      //   time_correction_value=1000*(abs(current_section-pos_holder)*((PI/6)/ang_speed));
+      // }
+      // else if (current_section!=pos_holder && pos_holder ==11)
+      // {
+      //   time_correction_value=1000*(((current_section+1)*(PI/6)/ang_speed));
+      // }
+      // else
+      // {
+      //   time_correction_value=0;
+      // }
       
-      shoot_main.fireBall(delta_hoder,rest_time,pos_holder,total_time,delta_hoder,time_fall+(time_delta_hall/6)-20);
+      shoot_main.fireBall(delta_hoder,total_time,pos_holder,rest_time,delta_hoder,time_fall+time_delta_photo);
       // shoot the ball using the calculated values 
-      debugger_main.sPrint("Shooted from slow if  ",0,"");
+      debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
       debugger_main.sPrint("angular_speed ",ang_speed,"rad/s");
-      debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
-      debugger_main.sPrint("time_rest_to_null ",rest_time-time_correction_value,"ms");
-      debugger_main.sPrint("time_total_photo ",total_time-time_correction_value,"ms");
-      debugger_main.sPrint("time_fall ",time_fall,"ms");
+      debugger_main.sPrint("time_correction_value ",time_used_to_calc,"ms");
+      // debugger_main.sPrint("time_rest_to_null ",rest_time+time_used_to_calc,"ms");
+      // debugger_main.sPrint("time_total_photo ",total_time+time_used_to_calc,"ms");
+      debugger_main.sPrint("time_fall ",time_fall +time_delta_photo,"ms");
       debugger_main.sPrint("photo section ",current_section,"");
       debugger_main.sPrint("hold_position",pos_holder,"");
 }

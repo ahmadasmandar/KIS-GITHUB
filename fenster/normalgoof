@@ -1,0 +1,329 @@
+we are in the mode   3.00   
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+ trigger pressed 1 
+3
+we are in 
+4
+5
+6
+7
+8
+9
+10
+11
+
+target_time  391.00  ms
+
+rest -if delay time is   1309.00  ms
+
+rest -if window   189.00  ms
+
+time_delta_photo   189.00  ms
+
+angular_acceleration   -0.91  rad/s2
+
+angular_speed   2.77  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null   1700.00  ms
+
+time_total_photo   2268.00  ms
+
+time_fall+100   391.03  ms
+
+photo section   3.00
+
+hold_position  3.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+ trigger pressed 1 
+7
+we are in 
+8
+9
+10
+11
+
+target_time  391.00  ms
+
+rest -if delay time is   588.00  ms
+
+rest -if window   196.00  ms
+
+time_delta_photo   196.00  ms
+
+angular_acceleration   -1.21  rad/s2
+
+angular_speed   2.67  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null   979.00  ms
+
+time_total_photo   2352.00  ms
+
+time_fall+100   391.03  ms
+
+photo section   7.00
+
+hold_position  7.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+ trigger pressed 1 
+6
+we are in 
+7
+8
+9
+10
+
+target_time  391.00  ms
+
+rest -if delay time is   737.00  ms
+
+rest -if window   188.00  ms
+
+time_delta_photo   188.00  ms
+
+angular_acceleration   -1.09  rad/s2
+
+angular_speed   2.79  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null   1128.00  ms
+
+time_total_photo   2256.00  ms
+
+time_fall+100   391.03  ms
+
+photo section   6.00
+
+hold_position  6.00  
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+ trigger pressed 1 
+5
+we are in 
+6
+7
+8
+9
+10
+
+target_time  391.00  ms
+
+rest -if delay time is   1079.00  ms
+
+rest -if window   210.00  ms
+
+time_delta_photo1  194.00  ms
+
+angular_acceleration   -0.91  rad/s2
+
+angular_speed   2.49  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null   1470.00  ms
+
+time_total_photo   2520.00  ms
+
+time_fall+100   391.03  ms
+
+photo section   5.00
+
+hold_position  5.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+ trigger pressed 1 
+5
+we are in 
+6
+7
+8
+9
+10
+11
+
+target_time  391.00  ms
+
+rest -if delay time is   1127.00  ms
+
+rest -if window   217.00  ms
+
+time_delta_photo   219.00  ms
+
+angular_acceleration   -0.71  rad/s2
+
+angular_speed   2.41  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null   1518.00  ms
+
+time_total_photo   2603.00  ms
+
+time_fall+100   391.03  ms
+
+photo section   5.00
+
+hold_position  5.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+ trigger pressed 1 
+4
+we are in 
+5
+6
+7
+8
+9
+10
+11
+
+target_time  391.00  ms
+
+rest -if delay time is   1297.00  ms
+
+rest -if window   211.00  ms
+
+time_delta_photo   227.00  ms
+
+angular_acceleration   -0.83  rad/s2
+
+angular_speed   2.48  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null   1688.00  ms
+
+time_total_photo   2532.00  ms
+
+time_fall+100   391.03  ms
+
+photo section   4.00
+
+hold_position  4.00
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11

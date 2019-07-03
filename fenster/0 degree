@@ -1,0 +1,779 @@
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+ trigger pressed 1 
+2
+we are in 
+
+a from time function   -6.84
+
+b from time function   9.35
+
+c from time function   0.00  
+
+discriminant from time function   87.42
+
+the smallest time soluation is x2    1.37  sec
+
+a from time function   -6.84  
+
+b from time function   9.35
+
+c fr3m time function   1.05  
+
+discriminant from time function   116.09
+
+the smallest time soluation is x2    1.47  sec
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+target_time  451.00  ms
+
+rest -if delay time is   962.00  ms
+
+time_delta_photo   61.00  ms
+
+angular_acceleration   -13.6910
+  rad/s2
+
+angular_speed   9.35  rad/s
+
+time_correction_value   57.00  ms
+
+time_rest_to_null   1470.00  ms
+
+time_total_photo   1366.00  ms
+
+time_fall+time_delta_photo   446.03  ms
+
+photo section   3.00
+
+hold_position  2.00
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1 
+0
+we are in 
+
+a from time function   -3.30  
+
+b from time function   8.58
+
+c from time function   0.00
+
+discriminant from time function   73.68
+
+the smallest time soluation is x2    2.60  sec
+
+a fro1 time function   -3.30
+
+b from time function   8.58
+
+c from time function   0.00
+
+discriminant from time function   73.68
+
+the smallest time soluation is x2    2.60  sec
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+
+target_time  456.00  ms
+
+rest -if delay time is   2089.00  ms
+
+time_delta_photo   61.00  ms
+
+angular_acceleration   -6.60  rad/s2
+
+angular_speed   8.58  rad/s
+
+time_correction_value   57.00  ms
+
+time_rest_to_null   2602.00  ms
+
+time_total_photo   2602.00  ms
+
+time_fal1+time_delta_photo   452.03  ms
+
+photo section   1.00
+
+hold_position  0.00
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+ trigger pressed 1 
+7
+we are in 
+
+a from time function   -4.93
+
+b from time function   7.93  
+
+c from time function   0.00
+
+discriminant from time function   62.94
+
+the smallest time soluation is x2    1.61  sec
+
+a from time function   -4.93
+
+b from time function   7.93 8
+
+c from time function   3.67
+
+discriminant from time function   135.16
+
+the smallest time soluation is x2    1.99  sec
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+target_time  453.00  ms
+
+rest -if delay time is   1473.00  ms
+
+time_delta_photo   62.00  ms
+
+angular_acceleration   -9.85  rad/s2
+
+angula9_speed   7.93  rad/s
+
+time_correction_value   59.00  ms
+
+time_rest_to_null   1985.00  ms
+
+time_total_photo   1610.00  ms
+
+time_fall+time_delta_photo   458.03  ms
+
+photo section   8.00
+
+hold_position  7.00
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+ trigger pressed 1 
+2
+we are in 
+
+a from time function   -3.76
+
+b from time function   8.18  
+
+c from time function   0.00  
+
+discriminant from time function   66.93  
+
+the smal3est time soluation is x2    2.18  sec
+
+a from time function   -3.76
+
+b from time function   8.18
+
+c from time function   1.05  
+
+discriminant from time function   82.68
+
+the smallest time soluation is x2    2.30  sec
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+
+target_time  459.00  ms
+
+rest -if delay time is   1781.00  ms
+
+time_delta_photo   65.00  ms
+
+angular_acceleration   -7.52  rad/s2
+
+angular_speed   8.18  rad/s
+
+time_correction_value   57.00  ms
+
+time_rest_to_null   2297.00  ms
+
+time_total_photo   2176.00  ms
+
+time_fall+time_delta_photo   456.03  ms
+
+photo section   3.00
+
+hold_position  2.00
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6

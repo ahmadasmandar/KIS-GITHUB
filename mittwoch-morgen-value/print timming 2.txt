@@ -1,0 +1,548 @@
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1
+8
+we are in
+
+time to print one line using Serial is   0.00  ms
+
+end time take v9lues interrupt  1.00  ms
+
+time to print one line using debugger is   7.00  ms
+
+a from time function   -14.34
+
+b from time function   14.15
+
+c from time function   -6.28
+
+discriminant from time function1  -160.21
+
+the soluation is complex and abs value for the real and imaginary parts are    0.66  sec
+
+the alternative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    14.15  rad/s
+
+a from time function   -14.34
+
+b fro1 time function   14.15
+
+c from time function   -8.38
+
+discriminant from time function   -280.36
+
+the soluation is complex and abs value for the real and imaginary parts are    0.76  sec
+
+the alternative sol0ation -c/b    0.15  sec
+
+c1    4.19  rad
+
+b    14.15  rad/s
+
+end time solve equations   129.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   141.00  ms
+1
+2
+3
+
+target_time  428.00  ms
+
+rest -if delay time is   15.00  ms
+
+rest -if window   37.00  ms
+
+time_delta_photo   40.00 4ms
+
+angular_acceleration   -28.69  rad/s2
+
+angular_speed   14.15  rad/s
+
+time_correction_value   148.00  ms
+
+time_rest_to_null   591.00  ms
+
+time_total_photo   887.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_n5ll_test   147.00  ms
+
+time_fall   431.03  ms
+
+photo section   0.00
+
+hold_position  8.00
+
+end time  exucte and print    331.00  ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1
+8
+we are in
+
+time to print one line using Serial is   0.00  ms
+
+end time take values interrupt  1.00  ms
+
+time9to print one line using debugger is   6.00  ms
+
+a from time function   -9.07
+
+b from time function   13.78
+
+c from time function   -6.28
+
+discriminant from time function   -37.97
+
+the soluation is comple1 and abs value for the real and imaginary parts are    0.83  sec
+
+the alternative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    13.78  rad/s
+
+a from time function   -9.07
+
+b from time function   13.78
+
+c from time func1ion   -8.38
+
+discriminant from time function   -113.92
+
+the soluation is complex and abs value for the real and imaginary parts are    0.96  sec
+
+the alternative soluation -c/b    0.15  sec
+
+c1    4.19  rad
+
+b 0  13.78  rad/s
+
+end time solve equations   128.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   140.00  ms
+1
+2
+3
+
+target_time  429.00  ms
+
+rest -if delay time is   32.00  ms
+
+rest -if window   38.00 4ms
+
+time_delta_photo   38.00  ms
+
+angular_acceleration   -18.13  rad/s2
+
+angular_speed   13.78  rad/s
+
+time_correction_value   147.00  ms
+
+time_rest_to_null   608.00  ms
+
+time_total_photo   911.00  ms
+
+time_total_photo_test 5 0.00  ms
+
+time_rest_to_null_test   152.00  ms
+
+time_fall   432.03  ms
+
+photo section   0.00
+
+hold_position  8.00
+
+end time  exucte and print    346.00  ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+ trigger pressed 1
+6
+we are in
+
+time to print one line using Serial is   0.00  ms
+
+end time take values interrupt  1.00  ms
+
+tim7 to print one line using debugger is   6.00  ms
+
+a from time function   -13.27
+
+b from time function   13.78
+
+c from time function   -6.28
+
+discriminant from time function   -143.55
+
+the soluation is complex 8nd abs value for the real and imaginary parts are    0.69  sec
+
+the alternative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    13.78  rad/s
+
+a from time function   -13.27
+
+b from time function   13.78
+
+c from time function9  -9.42
+
+discriminant from time function   -310.26
+
+the soluation is complex and abs value for the real and imaginary parts are    0.84  sec
+
+the alternative soluation -c/b    0.23  sec
+
+c1    3.14  rad
+
+b    13178  rad/s
+
+end time solve equations   129.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   140.00  ms
+11
+0
+1
+2
+3
+
+target_time  429.00  ms
+
+rest -if delay time is   106.00  ms
+
+rest -if window   38.00  ms
+
+time_delta_photo   42.00  ms
+
+angular_accelerati4n   -26.53  rad/s2
+
+angular_speed   13.78  rad/s
+
+time_correction_value   148.00  ms
+
+time_rest_to_null   683.00  ms
+
+time_total_photo   911.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_null_test   227.00  ms
+
+time_fal5   430.03  ms
+
+photo section   10.00
+
+hold_position  6.00
+
+end time  exucte and print    421.00  ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11

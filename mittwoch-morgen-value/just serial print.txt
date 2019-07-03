@@ -1,0 +1,434 @@
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+ trigger pressed 1
+9
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt  0.00  ms
+time to print one line using debugger is
+13
+
+ a-7.18
+b
+9.70
+
+c
+-6.28
+
+ the alternative soluation -c/b   0.00
+
+ a-7.18
+b
+9.70
+
+c
+-7.85
+
+ the alternative soluation -c/b   0.16
+
+end time solve equations   39.00  ms
+speed is und1r 12 rad/s
+
+end time check if exucte   50.00  ms
+11
+0
+1
+2
+3
+4
+
+target_time  441.00  ms
+
+ total if delay time is   256.00  ms
+
+rest -if window   54500  ms
+
+time_delta_photo   55.00  ms
+
+angular_acceleration   -14.36  rad/s2
+
+angular_speed   9.70  rad/s
+
+time_correction_value   56.00  ms
+
+time_rest_to_null   162.00  ms
+
+time_total_photo   647.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_null_test   162.00  ms
+
+time6fall   446.03  ms
+
+photo section   10.00
+
+hold_position  9.00
+
+end time  exucte and print    480.00  ms
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+ trigger pressed 1
+10
+we are in
+time to print one line using Serial is
+1
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is
+12
+
+ a-7.32
+b
+10.27
+
+c
+-6.28
+
+ the alternative soluation -c/b   0.00
+
+ a-7.32
+b
+10.27
+
+c
+-7.33
+
+ the alternative soluation -c/b   0.10
+
+end time solve equations   40.00  ms
+speed is u1der 12 rad/s
+
+end time check if exucte   50.00  ms
+0
+1
+2
+3
+
+target_time  446.00  ms
+
+ total if delay time is   154.00  ms
+
+rest -i4 window   51.00  ms
+
+time_delta_photo   52.00  ms
+
+angular_acceleration   -14.64  rad/s2
+
+angular_speed   10.27  rad/s
+
+time_correction_value   57.00  ms
+
+time_rest_to_null   102.00  ms
+
+time_total_photo   612.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_null_test   102.00  ms
+
+time_fall   443.035 ms
+
+photo section   11.00
+
+hold_position  10.00
+
+end time  exucte and print    379.00  ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+ trigger pressed 1
+9
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt1 0.00  ms
+time to print one line using debugger is
+13
+
+ a-4.99
+b
+9.52
+
+c
+-6.28
+
+ the alternative soluation -c/b   0.00
+
+ a-4.99
+b
+9.52
+
+c
+-7.85
+
+ the alternative soluation -c/b   0.17
+
+end time solve equations   39.00  ms
+speed is under 12 rad/s
+
+end time check if exucte   50.00  ms
+11
+0
+1
+2
+3
+4
+5
+
+target_time  445.00  ms
+
+ total if delay time is   267.00  ms
+
+rest -if window   55.00  ms
+
+time_delta_photo   58.00  ms
+
+angular_acceleration   -6
+9.99  rad/s2
+
+angular_speed   9.52  rad/s
+
+time_correction_value   56.00  ms
+
+time_rest_to_null   165.00  ms
+
+time_total_photo   659.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_null_test   165.00  ms
+
+time_fall   443.03  ms
+
+photo section   10.00
+
+hold_position  9.00
+
+end time  exucte and p7int    491.00  ms
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1

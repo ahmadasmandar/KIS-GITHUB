@@ -7,7 +7,7 @@ class debug
 private:
     /* data */
 public:
-    debug(/* args */);
+    //debug(/* args */);
     void sPrint(String to_pr, float val, String einheit);    
 };
 

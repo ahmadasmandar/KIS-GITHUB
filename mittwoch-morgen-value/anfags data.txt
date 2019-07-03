@@ -1,0 +1,474 @@
+> Executing task: C:\Users\Administrator\.platformio\penv\Scripts\platformio.exe device monitor <
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1
+8
+we are in
+
+a from time function   -18.18
+
+b from time function   21.82
+
+c from time function   -6.28 9
+
+discriminant from time function   19.04
+
+the smallest time soluation is x1    0.48  sec
+
+a from time function   -18.18
+
+b fr1m time function   21.82
+
+c from time function   -8.38
+
+discriminant from time function   -133.27
+
+the soluation is complex and abs value 1or the real and imaginary parts are    0.68  sec
+
+the alternative soluation -c/b    0.10  sec
+
+c1    4.19  rad
+
+b    21.82  rad/s
+spe0d is bigeer than 12 rad/s
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+
+target_time  416.00  ms
+
+ total if delay time is   373.00  ms
+
+rest -if window   24.00  ms
+
+time_delta_photo   26.00  ms
+
+angular_acceleration   -36836  rad/s2
+
+angular_speed   21.82  rad/s
+
+time_correction_value   85.00  ms
+
+time_fall   414.03  ms
+
+photo section   0.00
+
+hold_position 98.00
+
+time_rest_to_null   384.00  ms
+
+time_total_photo   576.00  ms
+
+time_total_photo_test   480.00  ms
+
+time_rest_to_null_test 1 95.00  ms
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+ trigger pressed 14
+
+we are in
+
+a from time function   0.00
+
+b from time function   21.825
+
+c from time function   -6.28
+
+discriminant from time function   475.96
+
+the acceleration is 0 and there is only one soluation x1 6  0.29  sec
+
+a from time function   0.00
+
+b from time function   21.82
+
+c from time function   -10.47
+
+discriminant from time function   7
+475.96
+
+the acceleration is 0 and there is only one soluation x1    0.48  sec
+speed is bigeer than 12 rad/s
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+
+target_time  416.00  ms
+
+ total if delay time is   495.00  ms
+
+rest -if window   24.00  ms
+
+time_delta_photo   26.00  ms
+
+angular_acceleration   0.00  ra8/s2
+
+angular_speed   21.82  rad/s
+
+time_correction_value   72.00  ms
+
+time_fall   415.03  ms
+
+photo section   7.00
+
+hold_position  4.00
+
+9ime_rest_to_null   480.00  ms
+
+time_total_photo   576.00  ms
+
+time_total_photo_test   288.00  ms
+
+time_rest_to_null_test   479.00  ms
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7

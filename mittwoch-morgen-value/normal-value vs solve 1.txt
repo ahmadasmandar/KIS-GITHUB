@@ -1,0 +1,930 @@
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+ trigger pressed 1
+1
+we are in
+
+a from time function   -5.31
+
+b from time function   14.15
+
+c from time function   -6.28
+
+discriminant from time funct2on   66.75
+
+the smallest time soluation is x1    0.56  sec
+
+a from time function   -5.31
+
+b from time function   14.15
+
+c from time function   -12.04
+
+discriminant from time function   -55.63
+
+the s3luation is complex and abs value for the real and imaginary parts are    1.51  sec
+
+the alternative soluation -c/b    0.41  sec
+
+c1    0.52  rad
+
+b    14.15  rad/s
+speed is under 12 rad/s
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+
+target_time  429.00  ms
+
+rest -if delay time is   4
+337.00  ms
+
+rest -if window   37.00  ms
+
+time_delta_photo   35.00  ms
+
+angular_acceleration   -10.62  rad/s2
+
+angular_speed   14.15  rad/s
+
+time_correction_value   84.00  ms
+
+time_fall   426.03  ms
+
+photo section   3.005
+
+hold_position  1.00
+
+time_rest_to_null   851.00  ms
+
+time_total_photo   888.00  ms
+
+time_total_photo_test   562.00  ms
+
+time_rest_to_null_test   406.00  ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+ trigger pressed 1
+1
+we are in
+
+a from time function   -14.34
+
+b from time function   13.43
+
+c from time function   -6.28
+
+discriminant from time function   -180.25
+
+the soluation is complex and abs value for the real and i2aginary parts are    0.66  sec
+
+the alternative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    13.43  rad/s
+
+a from time function   -14.34
+
+b from time function   13.43
+
+c from time function   -12.04
+3discriminant from time function   -510.70
+
+the soluation is complex and abs value for the real and imaginary parts are    0.92  sec
+
+the alternative soluation -c/b    0.43  sec
+
+c1    0.52  rad
+
+b    14.43  rad/s
+speed is under 12 rad/s
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+
+target_time  426.00  ms
+
+rest -if delay time is   362.00  ms
+
+rest -if window   39.00  ms
+
+time_delta_photo   36.00  ms
+
+angular_accelerat5on   -28.69  rad/s2
+
+angular_speed   13.43  rad/s
+
+time_correction_value   108.00  ms
+
+time_fall   430.03  ms
+
+photo section   4.00
+
+hold_position  1.00
+
+time_rest_to_null   897.00  ms
+
+time_6otal_photo   936.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_null_test   429.00  ms
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1
+0
+we are in
+
+a from time function   -15.54
+
+b from time function   14.54
+
+c from time function   -6.28
+
+discriminant from time function   -179.00
+
+the soluation is complex and abs value for the real and imaginary parts1are    0.64  sec
+
+the alternative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    14.54  rad/s
+
+a from time function   -15.54
+
+b from time function   14.54
+
+c from time function   -12.57
+
+discri2inant from time function   -569.53
+
+the soluation is complex and abs value for the real and imaginary parts are    0.90  sec
+
+the alternative soluation -c/b    0.43  sec
+
+c1    0.00  rad
+
+b    14.54  rad/s
+speed is un3er 12 rad/s
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+
+target_time  430.00  ms
+
+rest -if delay time is   326.00  ms
+
+rest -if window   36.00  ms
+
+time_delta_photo   37.00  ms
+
+angular_acceleration   -31.08  rad/s2
+
+angular_speed   14.54  rad/s
+
+time_c3rrection_value   107.00  ms
+
+time_fall   430.03  ms
+
+photo section   3.00
+
+hold_position  0.00
+
+time_rest_to_null   864.00  ms
+
+time_total_photo   864.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_4est_to_null_test   431.00  ms
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1
+8
+we are in
+
+a from time function   -5.03
+
+b from time function   14.15
+
+c from time function   -6.28
+
+discriminant from time function   73.78
+
+the smallest time soluation is9x1    0.55  sec
+
+a from time function   -5.03
+
+b from time function   14.15
+
+c from time function   -8.38
+
+discriminant from time function   31.62
+
+the smallest time soluation is x1    0.85  sec
+spe1d is under 12 rad/s
+11
+0
+1
+2
+3
+
+target_time  428.00  ms
+
+rest -if delay time is   101.00  ms
+
+rest -if window   37.00  ms
+
+time_delta_photo   40.00  ms
+
+angular_acceleration   -10.06  rad/s2
+
+angular_speed   14.15  rad/s
+
+time_correction_val4e   62.00  ms
+
+time_fall   428.03  ms
+
+photo section   10.00
+
+hold_position  8.00
+
+time_rest_to_null   592.00  ms
+
+time_total_photo   888.00  ms
+
+time_total_photo_test   552.00  ms
+
+time_rest_to_null_test   847.005 ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1
+8
+we are in
+
+a from time function   -9.07
+
+b from time function   13.78
+
+c from time function   -6.28
+
+discriminant from time function   -37.97
+
+the soluation is complex and abs value for the real and imaginary parts are    0.83  sec
+
+the alter9ative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    13.78  rad/s
+
+a from time function   -9.07
+
+b from time function   13.78
+
+c from time function   -8.38
+
+discriminant from time function   -113.921
+
+the soluation is complex and abs value for the real and imaginary parts are    0.96  sec
+
+the alternative soluation -c/b    0.15  sec
+
+c1    4.19  rad
+
+b    13.78  rad/s
+speed is under 12 rad/s
+11
+0
+1
+2
+3
+
+target_time  428.00  ms
+
+rest -if delay time is   74.00  ms
+
+rest -if window   38.00  ms
+
+time_delta_photo   40.00  ms
+
+angular_acceleration   -18.13  rad/s2
+
+angular_speed   13.78  rad/s
+
+time_correction_va4ue   106.00  ms
+
+time_fall   430.03  ms
+
+photo section   10.00
+
+hold_position  8.00
+
+time_rest_to_null   608.00  ms
+
+time_total_photo   912.00  ms
+
+time_total_photo_test   0.00  ms
+
+56me_rest_to_null_test   152.00  ms
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+ trigger pressed 1
+6
+we are in
+
+a from time function   -8.40
+
+b from time function   13.43
+
+c from time function   -6.28
+
+discriminant from time function   -30.77
+
+the soluation is complex and abs value for the real and imaginary parts are    0.87  sec
+
+the al7ernative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    13.43  rad/s
+
+a from time function   -8.40
+
+b from time function   13.43
+
+c from time function   -9.42
+
+discriminant from time function   -136.28
+8
+
+the soluation is complex and abs value for the real and imaginary parts are    1.06  sec
+
+the alternative soluation -c/b    0.23  sec
+
+c1    3.14  rad
+
+b    13.43  rad/s
+speed is under 12 rad/s
+9
+10
+11
+0
+1
+2
+3
+
+target_time  430.00  ms
+
+rest -if delay time is   164.00  ms
+
+rest -if window   39.00  ms
+
+time_delta_photo   41.00  ms
+
+angular_acceleration   -16.79  rad/s2
+
+angular_speed   13.44
+3  rad/s
+
+time_correction_value   107.00  ms
+
+time_fall   430.03  ms
+
+photo section   8.00
+
+hold_position  6.00
+
+time_rest_to_null   702.00  ms
+
+time_total_photo   936.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest5to_null_test   234.00  ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4

@@ -1,0 +1,446 @@
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+ trigger pressed 1
+8
+we are in
+
+end time take values interrupt  0.00  ms
+
+a from time function   -5.88
+
+b from time function   11.90
+
+c from time function   -6.28
+
+discriminant from time function   -6.16
+
+the soluation is complex9and abs value for the real and imaginary parts are    1.03  sec
+
+the alternative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    11.90  rad/s
+
+a from time function   -5.88
+
+b from time function   11.90
+
+c from time function   -8.38
+1discriminant from time function   -55.41
+
+the soluation is complex and abs value for the real and imaginary parts are    1.19  sec
+
+the alternative soluation -c/b    0.18  sec
+
+c1    4.19  rad
+
+b    11.90  rad/s
+speed is under 12 rad/s
+
+there is error we couldn'1 shoot  0.00
+
+time_delta_photo   46.00  ms
+
+angular_acceleration   -11.76  rad/s2
+
+angular_speed   11.90  rad/s
+
+time_correction_value   113.00  ms
+
+time_fall   437.03  ms
+
+photo section   10.00
+
+hold_position  8.00
+
+time_rest_to_null   0
+176.00  ms
+
+time_total_photo   528.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_null_test   176.00  ms
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+ trigger pressed 1
+0
+we are in
+
+end time take values interrupt  0.00  ms
+
+a from time function   -8.08
+
+b from time function   11.64
+
+c from time function   -6.28
+
+discriminant from time function   -67.69
+
+the soluation is complex and abs value for the real and imaginary parts are    0.18  sec
+
+the alternative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    11.64  rad/s
+
+a from time function   -8.08
+
+b from time function   11.64
+
+c from time function   -12.57
+
+discriminant from time function   -270.77
+
+the soluation is c2mplex and abs value for the real and imaginary parts are    1.25  sec
+
+the alternative soluation -c/b    0.54  sec
+
+c1    0.00  rad
+
+b    11.64  rad/s
+speed is under 12 rad/s
+
+there is error we couldn't shoot  0.00
+
+time_delta_photo   45.00  ms
+
+angular_acceleration3  -16.16  rad/s2
+
+angular_speed   11.64  rad/s
+
+time_correction_value   114.00  ms
+
+time_fall   439.03  ms
+
+photo section   2.00
+
+hold_position  0.00
+
+time_rest_to_null   540.00  ms
+
+time_total_photo   540.00  ms
+
+time_total_photo_test   0.00 4ms
+
+time_rest_to_null_test   539.00  ms
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+ trigger pressed 1
+5
+we are in
+
+end time take values interrupt  0.00  ms
+
+a from time function   -7.11
+
+b from time function   10.69
+
+c from time function   -6.28
+
+discriminant from time function   -64.54
+
+the soluation is complex and abs value 6or the real and imaginary parts are    0.94  sec
+
+the alternative soluation -c/b    0.00  sec
+
+c1    6.28  rad
+
+b    10.69  rad/s
+
+a from time function   -7.11
+
+b from time function   10.69
+
+c from time function   -9.95
+
+7iscriminant from time function   -168.79
+the soluation is complex and abs value for the real and imaginary parts are    1.18  sec
+
+the alternative soluation -c/b    0.34  sec
+
+c1    2.62  rad
+
+b    10.69  rad/s
+speed is under 12 rad/s
+8
+9
+10
+11
+0
+1
+2
+3
+
+target_time  440.00  ms
+
+ total if delay time is   265.00  ms
+
+rest -if window   49.00  ms
+
+time_delta_photo   49.00  ms
+
+angular_acceleration   -14.22  rad/s2
+
+angular_speed   10.69  rad/s
+
+time_cor4ection_value   113.00  ms
+
+time_fall   437.03  ms
+
+photo section   7.00
+
+hold_position  5.00
+
+time_rest_to_null   343.00  ms
+
+time_total_photo   588.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_null_test   343.00  ms
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2

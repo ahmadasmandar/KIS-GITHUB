@@ -1,0 +1,437 @@
+> Executing task: C:\Users\Administrator\.platformio\penv\Scripts\platformio.exe device monitor <
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+1
+2
+3
+
+ we are in the mode   3.00
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+ trigger pressed 1
+9
+we are in
+
+time to print one line using Serial is   0.00  ms
+
+end time take values interrupt  1.00  ms1
+
+time to print one line using debugger is   8.00  ms
+
+end time solve equations   18.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   29.00  ms
+11
+0
+1
+2
+3
+4
+
+target_time  428.00  ms
+
+rest -if delay time is   135.00  ms
+
+rest -if window   40.00  ms
+
+time_delt5_photo   37.00  ms
+
+angular_acceleration   -26.53  rad/s2
+
+angular_speed   13.09  rad/s
+
+time_correction_value   36.00  ms
+
+time_rest_to_null   599.00  ms
+
+time_total_photo   959.00  ms
+
+time_total_photo_6est   0.00  ms
+
+time_rest_to_null_test   120.00  ms
+
+time_fall   428.03  ms
+
+photo section   10.00
+
+hold_position  9.00
+
+end time  exucte and print    338.00  ms
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+ trigger pressed 1
+6
+we are in
+
+time to print one line using Serial is   0.00  ms
+
+end time take values inter7upt  1.00  ms
+
+time to print one line using debugger is   6.00  ms
+
+end time solve equations   17.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   29.00  ms
+8
+9
+10
+11
+0
+1
+2
+3
+
+target_time  431.00  ms
+
+rest -if delay time is   216.00  ms
+
+rest -if window 4 38.00  ms
+
+time_delta_photo   38.00  ms
+
+angular_acceleration   -18.13  rad/s2
+
+angular_speed   13.78  rad/s
+
+time_correction_value   36.00  ms
+
+time_rest_to_null   683.00  ms
+
+time_total_photo   911.00  ms
+
+time_total_ph5to_test   0.00  ms
+
+time_rest_to_null_test   227.00  ms
+
+time_fall   431.03  ms
+
+photo section   7.00
+
+hold_position  6.00
+
+end time  exucte and print    419.00  ms
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+ trigger pressed 1
+7
+we are in
+
+time to print one line using Serial is   0.00  ms
+
+end time take values interrupt  1.00  ms
+
+time to print one line using debugger is   6.00  ms
+
+end time solve eq8ations   17.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   29.00  ms
+9
+10
+11
+0
+1
+2
+3
+4
+
+target_time  430.00  ms
+
+rest -if delay time is   230.00  ms
+
+rest -if window   41.00  ms
+
+time_delta_photo   38.00  ms
+
+angular_accel5ration   -33.67  rad/s2
+
+angular_speed   12.77  rad/s
+
+time_correction_value   36.00  ms
+
+time_rest_to_null   696.00  ms
+
+time_total_photo   983.00  ms
+
+time_total_photo_test   0.00  ms
+
+time_rest_to_null_test   6
+204.00  ms
+
+time_fall   430.03  ms
+
+photo section   8.00
+
+hold_position  7.00
+
+end time  exucte and print    433.00  ms
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+1
+2
+3
+4
+5

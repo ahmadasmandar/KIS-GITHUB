@@ -64,7 +64,9 @@ boolean fire_flag=true;
 uint32_t acceleration_timer_1=0;
 uint32_t acceleration_timer_0=0;
 //**** these timer wil be used the time to excute a part from the code 
-uint32_t start_excu_time=0,end_excu_time=0;
+uint32_t start_excu_time=0,end_excu_time=0,print_timer_start=0;
+//this tow variables are used to test the solve vs normal ohne acceleration
+ int time_total_photo_test, time_rest_to_null_test;
 //****************
 uint32_t fill_start_timer=0;
 //uint16_t time_correction_value;
@@ -188,35 +190,44 @@ delay(500);
       // here we are using the angel to calculate the values 
       case 3:
       getAcceleration();
-      Serial.println("we are in ");
-    //start_excu_time=millis(); // strat timing for excute 
     start_excu_time=millis();
+    Serial.println("we are in ");
+    Serial.println("time to print one line using Serial is ");
+    Serial.println(millis()-start_excu_time);
     cli();
     hold_delta_photo_sensor=time_delta_photo;
     hold_position=photo_section;
     sei();
-    int time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
-    int time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
+    print_timer_start=millis();
+    debugger_main.sPrint("end time take values interrupt",millis()-start_excu_time,"ms");
+     Serial.println("time to print one line using debugger is ");
+    Serial.println(millis()-print_timer_start);
+    time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+    time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
     angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
+    debugger_main.sPrint("end time solve equations ",millis()-start_excu_time,"ms");
     if (angular_speed<12)
     {   
         time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
         time_total_photo=1000*(2*PI/angular_speed);
+        Serial.println("speed is under 12 rad/s");
     }
     else if (angular_speed>12)
     {
       time_rest_to_null=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
       time_total_photo=1000*(4*PI/angular_speed);
+      Serial.println("speed is bigeer than 12 rad/s");
     }
+
+    debugger_main.sPrint("end time check if exucte ",millis()-start_excu_time,"ms");
     time_used_to_calc=millis()-start_excu_time;
     shootMain(angular_speed,hold_position,photo_section,(time_total_photo-time_used_to_calc),time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
-  	  debugger_main.sPrint("time_rest_to_null ",time_rest_to_null,"ms");
-      debugger_main.sPrint("time_total_photo ",time_total_photo,"ms");
-      debugger_main.sPrint("time_total_photo_test ",time_total_photo_test,"ms");
-      debugger_main.sPrint("time_rest_to_null_test ",time_rest_to_null_test,"ms");
+    debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
+
       /** Manuel just let the ball go... **/
+      break;
     case 4:
-      shoot_main.shootManuel();
+      shoot_main.shootManuel_dropall();
       /* code */
       break;
     }
@@ -307,7 +318,8 @@ void photo_sens_interrupt()
   {
     photo_section=0;
   }
-  debugger_main.sPrint("time_delta_photo ",time_delta_photo,"");
+  // debugger_main.sPrint("time_delta_photo ",time_delta_photo,"");
+  Serial.println(photo_section);
 }
 
 //************** HALL SENS INTERRUPT *********
@@ -315,14 +327,11 @@ void hall_sens_interrupt()
 {
   time_delta_hall = millis() - hall_start;
   hall_start = millis();
-  // hall_section = checkCounter(hall_section, 2);
-
   hall_section+=1;
   if (hall_section==2)
   {
     hall_section=0;
   }
-  debugger_main.sPrint("time_delta_hall ",time_delta_hall,"");
 }
 
 /********************/
@@ -425,6 +434,7 @@ void readMode()
 
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder)
 {
+    // this funktion was commited becuase we calcualte the lost time in the case funktions
     // uint16_t time_correction_value;       
       // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
       // if (current_section!=pos_holder && pos_holder !=11 )
@@ -440,15 +450,17 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       //   time_correction_value=0;
       // }
       
-      shoot_main.fireBall(delta_hoder,total_time,pos_holder,rest_time,delta_hoder,time_fall+time_delta_photo);
+      shoot_main.fireBall(delta_hoder,total_time,pos_holder,rest_time,delta_hoder,time_fall+time_delta_photo/2);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
       debugger_main.sPrint("angular_speed ",ang_speed,"rad/s");
       debugger_main.sPrint("time_correction_value ",time_used_to_calc,"ms");
-      // debugger_main.sPrint("time_rest_to_null ",rest_time+time_used_to_calc,"ms");
-      // debugger_main.sPrint("time_total_photo ",total_time+time_used_to_calc,"ms");
-      debugger_main.sPrint("time_fall ",time_fall +time_delta_photo,"ms");
+      debugger_main.sPrint("time_rest_to_null ",rest_time+time_used_to_calc,"ms");
+      debugger_main.sPrint("time_total_photo ",total_time+time_used_to_calc,"ms");
+      debugger_main.sPrint("time_total_photo_test ",time_total_photo_test,"ms");
+      debugger_main.sPrint("time_rest_to_null_test ",time_rest_to_null_test,"ms");
+      debugger_main.sPrint("time_fall +time_delta_photo/2",time_fall +time_delta_photo/2,"ms");
       debugger_main.sPrint("photo section ",current_section,"");
       debugger_main.sPrint("hold_position",pos_holder,"");
 }

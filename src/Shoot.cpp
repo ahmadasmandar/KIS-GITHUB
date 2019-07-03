@@ -84,11 +84,13 @@ void Shoot::fireBall(uint16_t delta_hoder,float total_time,uint8_t section, floa
           }
           else
           {
+            debugger_shoot.sPrint("target_time", target_time, "ms");
             debugger_shoot.sPrint("total time delay s big ", delay_time_shoot, "ms");
           }
          }
         else
         {
+          debugger_shoot.sPrint("target_time", target_time, "ms");
           debugger_shoot.sPrint("there is error we couldn't shoot",0,"");
         }
         

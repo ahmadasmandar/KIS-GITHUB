@@ -123,10 +123,8 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
    //debugger_speed.sPrint("b from time function ",b,"");
    //debugger_speed.sPrint("c from time function ",c,"");
   // debugger_speed.sPrint("discriminant from time function ",discriminant,"");
-                    Serial.println();
-                    Serial.print(" a  ");
-                    Serial.print(a);
-                    Serial.println();
+                    Serial.print("a  ");
+                    Serial.println(a);
                     Serial.print("b  ");
                     Serial.println(b);
                     Serial.print("c  ");
@@ -156,14 +154,14 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
                 else if (x2 >0 && x2 < 15)
                 {
                      //debugger_speed.sPrint("the smallest time soluation is x2  ",x2,"sec");
-                     Serial.print(" the time soluation x2  ");
+                    Serial.print(" the time soluation x2  ");
                     Serial.println(x2);
                     return 1000*x2;
                 }
                 else if (x1 >x2 && x1 < 15)
                 {
                      //debugger_speed.sPrint("the smallest time soluation is x1  ",x1,"sec");
-                     Serial.print(" the time soluation x1  ");
+                    Serial.print(" the time soluation x1  ");
                     Serial.println(x1);
                     return 1000*x1;
                 }
@@ -197,11 +195,12 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
             
     }
     
-    else if (discriminant == 0 && a !=0) {
+    else if (discriminant == 0 && a !=0)
+    {
         x1 = (-b + sqrt(discriminant)) / (2*a);
        // debugger_speed.sPrint("there is only one soluation  ",x1,"sec");
-       Serial.print(" the time soluation x1 doupple  ");
-                    Serial.println(x1);
+        Serial.print(" the time soluation x1 doupple  ");
+        Serial.println(x1);
         return 1000*x1;
     }
     else {
@@ -210,22 +209,22 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
         imaginary_part=sqrt(-discriminant)/(2*a);
         x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
         //debugger_speed.sPrint("the soluation is complex and abs value for the real and imaginary parts are  ",x1,"sec");
-           if (b1 >12 && b1<25)
+    if (b1 >12 && b1<25)
      {
-         c=4*PI-c1;
-         Serial.print(" 4*PI-c1  cx  ");
+       c=4*PI-c1;
+       Serial.print(" 4*PI-c1  cx  ");
        Serial.println(c1);
      }
      else if (b1<12)
      {
-         c=2*PI-c1;
-         Serial.print(" c=2*PI-c1 cx  ");
+       c=2*PI-c1;
+       Serial.print(" c=2*PI-c1 cx  ");
        Serial.println(c1);
      }
      else if (b1 >25)
      {
-         c=6*PI-c1;
-         Serial.print(" c=6*PI-c1  cx  ");
+       c=6*PI-c1;
+       Serial.print(" c=6*PI-c1  cx  ");
        Serial.println(c1);
      }
         x2  = c/b;
@@ -233,7 +232,7 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
        // debugger_speed.sPrint("c1  ",c1,"rad");
        // debugger_speed.sPrint("b  ",b,"rad/s");
        Serial.print(" the alternative soluation c/b   ");
-        Serial.println(x2);
+       Serial.println(x2);
        Serial.print(" c  ");
        Serial.println(c);
        Serial.print(" b  ");
@@ -244,24 +243,26 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
    }
    else
    {
-        if (b1 >12 && b1<25)
-     {
-         c=4*PI-c1;
-         Serial.print(" 4*PI-c1  ");
-       Serial.println(c1);
-     }
-     else if (b1<12)
-     {
-         c=2*PI-c1;
-         Serial.print(" c=2*PI-c1 ");
-       Serial.println(c1);
-     }
-     else if (b1 >25)
-     {
-         c=6*PI-c1;
-         Serial.print(" c=6*PI-c1  ");
-       Serial.println(c1);
-     }
+
+            //check speed and choose the best theta value to avoid smal time and complex soluations 
+            if (b1 >12 && b1<25)
+            {
+                c=4*PI-c1;
+                Serial.print(" 4*PI-c1  ");
+                Serial.println(c1);
+            }
+            else if (b1<12)
+            {
+                c=2*PI-c1;
+                Serial.print(" c=2*PI-c1 ");
+                Serial.println(c1);
+            }
+            else if (b1 >25)
+            {
+                c=6*PI-c1;
+                Serial.print(" c=6*PI-c1  ");
+                Serial.println(c1);
+            }
         x1 = c/b;
        // debugger_speed.sPrint("the acceleration is 0 and there is only one soluation x1  ",x1,"sec");
        Serial.print(" the time soluation c/b  ");
@@ -271,6 +272,5 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
        Serial.print(" b  ");
        Serial.println(b);
        return 1000*x1;
-        
    }
 }

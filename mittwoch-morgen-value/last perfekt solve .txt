@@ -1,0 +1,298 @@
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+
+ we are in the mode   3.00   
+1
+
+ we are in the mode   4.00   
+ trigger pressed 1 
+we are in 
+time to print one line using Serial is 
+1
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is 
+13
+
+ a-32.32
+b
+18.70
+
+c
+-6.28
+
+ the alternative soluation -c/b   0.34
+
+ a-32.32
+b
+18.70
+
+c
+-8.90
+
+ the alternative soluation -c/b   0.20
+
+end time solve equations   40.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   53.00  ms
+
+there is error we couldn't shoot  0.00  
+
+time_delta_photo   29.00  ms
+
+angular_acceleration   -64.63  rad/s2
+
+angular_speed   18.70  rad/s
+
+time_correction_value   59.00  ms
+
+time_rest_to_null   196.00  ms
+
+time_total_photo   336.00  ms
+
+time_total_photo_test   336.00  ms
+
+time_rest_to_null_test   196.00  ms
+
+time_fall  391.03  ms
+
+photo section   8.00  
+
+hold_position  6.00  
+
+end time  exucte and print    128.00  ms
+we are in 
+time to print one line using Serial is 
+1
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is 
+13
+
+ a-9.38
+b
+17.45
+
+c
+-6.28
+
+ the time soluation x1  0.49
+
+ a-9.38
+b
+17.45
+
+c
+-7.85
+
+ the time soluation x1  0.76
+
+end time solve equations   37.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   49.00  ms
+
+target_time  440.00  ms
+
+rest -if delay time is   266.00  ms
+
+rest -if window   30.00  ms
+
+time_delta_photo   30.00  ms
+
+angular_acceleration   -18.77  rad/s2
+
+angular_speed   17.45  rad/s
+
+time_correction_value   56.00  ms
+
+time_rest_to_null   762.00  ms
+
+time_total_photo   488.00  ms
+
+time_total_photo_test   488.00  ms
+
+time_rest_to_null_test   762.00  ms
+
+time_fall  391.03  ms
+
+photo section   10.00  
+
+hold_position  8.00  
+
+end time  exucte and print    489.00  ms
+we are in 
+time to print one line using Serial is 
+0
+
+end time take values interrupt  0.00  ms
+time to print one line using debugger is 
+13
+
+ a-8.51
+b
+16.89
+
+c
+-6.28
+
+ the time soluation x1  0.50
+
+ a-8.51
+b
+16.89
+
+c
+-8.90
+
+ the alternative soluation -c/b   0.22
+
+end time solve equations   38.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   49.00  ms
+
+there is error we couldn't shoot  0.00  
+
+time_delta_photo   29.00  ms
+
+angular_acceleration   -17.03  rad/s2
+
+angular_speed   16.89  rad/s
+
+time_correction_value   56.00  ms
+
+time_rest_to_null   217.00  ms
+
+time_total_photo   495.00  ms
+
+time_total_photo_test   495.00  ms
+
+time_rest_to_null_test   217.00  ms
+
+time_fall  391.03  ms
+
+photo section   7.00  
+
+hold_position  6.00  
+
+end time  exucte and print    126.00  ms
+we are in 
+time to print one line using Serial is 
+0
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is 
+12
+
+ a-15.51
+b
+15.87
+
+c
+-6.28
+
+ the alternative soluation -c/b   0.40
+
+ a-15.51
+b
+15.87
+
+c
+-6.28
+
+ the alternative soluation -c/b   0.40
+
+end time solve equations   40.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   52.00  ms
+
+there is error we couldn't shoot  0.00  
+
+time_delta_photo   34.00  ms
+
+angular_acceleration   -31.02  rad/s2
+
+angular_speed   15.87  rad/s
+
+time_correction_value   58.00  ms
+
+time_rest_to_null   396.00  ms
+
+time_total_photo   396.00  ms
+
+time_total_photo_test   396.00  ms
+
+time_rest_to_null_test   396.00  ms
+
+time_fall  391.03  ms
+
+photo section   1.00  
+
+hold_position  11.00  
+
+end time  exucte and print    128.00  ms
+we are in 
+time to print one line using Serial is 
+1
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is 
+12
+
+ a0.00
+b
+15.87
+
+c
+-6.28
+
+ the time soluation -c/b  0.40
+
+ a0.00
+b
+15.87
+
+c
+-11.00
+
+ the time soluation -c/b  0.69
+
+end time solve equations   37.00  ms
+speed is bigeer than 12 rad/s
+
+end time check if exucte   49.00  ms
+
+target_time  440.00  ms
+
+rest -if delay time is   197.00  ms
+
+rest -if window   33.00  ms
+
+time_delta_photo   33.00  ms
+
+angular_acceleration   0.00  rad/s2
+
+angular_speed   15.87  rad/s
+
+time_correction_value   56.00  ms
+
+time_rest_to_null   693.00  ms
+
+time_total_photo   396.00  ms
+
+time_total_photo_test   396.00  ms
+
+time_rest_to_null_test   693.00  ms
+
+time_fall  391.03  ms
+
+photo section   3.00  
+
+hold_position  2.00  
+
+end time  exucte and print    420.00  ms

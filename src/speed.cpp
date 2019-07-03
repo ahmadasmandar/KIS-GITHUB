@@ -24,14 +24,14 @@ return(PI*1000/delta_hal);
 float speed::photoRst(int photo_seco,int delta_pho_rst,float accelo_1)
 {
     float photo_speed_intern=photoSpeed(delta_pho_rst);
-    float help_val_theta=((photo_seco)*(PI/6));
+    float help_val_theta=((1+photo_seco)*(PI/6));
     float result=solveTimeEquation(accelo_1,photo_speed_intern,help_val_theta);
     return result;
 }
 float speed::hallRst(int hall_seco,int delta_hall_rst,float accelo_2)
 {
     float hall_speed_intern=hallSpeed(delta_hall_rst);
-    float help_val_theta=hall_seco*PI;
+    float help_val_theta=hall_seco+1*PI;
     float result=solveTimeEquation(accelo_2,hall_speed_intern,help_val_theta);
     return result;
 }
@@ -116,16 +116,16 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
    //debugger_speed.sPrint("b from time function ",b,"");
    //debugger_speed.sPrint("c from time function ",c,"");
   // debugger_speed.sPrint("discriminant from time function ",discriminant,"");
-                    // Serial.println();
-                    // Serial.print(" a");
-                    // Serial.print(a);
-                    // Serial.println();
-                    // Serial.println("b");
-                    // Serial.println(b);
-                    // Serial.println();
-                    // Serial.println("c");
-                    // Serial.println(c);
-                    // Serial.println();
+                    Serial.println();
+                    Serial.print(" a");
+                    Serial.print(a);
+                    Serial.println();
+                    Serial.println("b");
+                    Serial.println(b);
+                    Serial.println();
+                    Serial.println("c");
+                    Serial.println(c);
+                    Serial.println();
    if (a!=0){
     if (discriminant > 0 && a !=0) {
         x1 = (-b + sqrt(discriminant)) / (2*a);
@@ -136,39 +136,39 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
                 if (x1 >x2 && x2 <15 && x2 >0)
                 {
                     //debugger_speed.sPrint("the smallest time soluation is x2  ",x2,"sec");
-                    // Serial.print(" the time soluation x2  ");
-                    // Serial.println(x2);
+                    Serial.print(" the time soluation x2  ");
+                    Serial.println(x2);
                     return 1000*x2;
                 }
                 else if (x2 > x1 && x1<15)
                 {
                     //debugger_speed.sPrint("the smallest time soluation is x1  ",x1,"sec");
-                    // Serial.print(" the time soluation x1  ");
-                    // Serial.println(x1);
+                    Serial.print(" the time soluation x1  ");
+                    Serial.println(x1);
                     return 1000*x1;
                 }
 
                 else if (x2 >0 && x2 < 15)
                 {
                      //debugger_speed.sPrint("the smallest time soluation is x2  ",x2,"sec");
-                    //  Serial.print(" the time soluation x2  ");
-                    // Serial.println(x2);
+                     Serial.print(" the time soluation x2  ");
+                    Serial.println(x2);
                     return 1000*x2;
                 }
                 else if (x1 >x2 && x1 < 15)
                 {
                      //debugger_speed.sPrint("the smallest time soluation is x1  ",x1,"sec");
-                    //  Serial.print(" the time soluation x1  ");
-                    // Serial.println(x1);
+                     Serial.print(" the time soluation x1  ");
+                    Serial.println(x1);
                     return 1000*x1;
                 }
                 else
                 {
-                    // Serial.print(" the values are not right or so big ");
-                    // Serial.print(" the time soluation x1  ");
-                    // Serial.println(x1);
-                    // Serial.print(" the time soluation x2  ");
-                    // Serial.println(x2);
+                    Serial.print(" the values are not right or so big ");
+                    Serial.print(" the time soluation x1  ");
+                    Serial.println(x1);
+                    Serial.print(" the time soluation x2  ");
+                    Serial.println(x2);
                 }
             }
             else
@@ -176,17 +176,17 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
                 if (x2 >0 && x2 <15)
                 {
                     //debugger_speed.sPrint("the smallest time soluation is x2  ",x2,"sec");
-                    // Serial.print(" the time soluation x2  ");
-                    // Serial.println(x2);
+                    Serial.print(" the time soluation x2  ");
+                    Serial.println(x2);
                     return 1000*x2;
                 }
                 else
                 {
-                    // Serial.print(" the values are not right or so big ");
-                    // Serial.print(" the time soluation x1  ");
-                    // Serial.println(x1);
-                    // Serial.print(" the time soluation x2  ");
-                    // Serial.println(x2);
+                    Serial.print(" the values are not right or so big ");
+                    Serial.print(" the time soluation x1  ");
+                    Serial.println(x1);
+                    Serial.print(" the time soluation x2  ");
+                    Serial.println(x2);
                 }
             }
             
@@ -205,12 +205,12 @@ float speed::getThetavalues(int time_interval, int time_target_val, float angula
         imaginary_part=sqrt(-discriminant)/(2*a);
         x1=sqrt((real_part*real_part)+(imaginary_part*imaginary_part));
         //debugger_speed.sPrint("the soluation is complex and abs value for the real and imaginary parts are  ",x1,"sec");
-        x2=(2*PI-c1)/b;
+        x2=(c1)/b;
         //debugger_speed.sPrint("the alternative soluation -c/b  ",x2,"sec");
        // debugger_speed.sPrint("c1  ",c1,"rad");
        // debugger_speed.sPrint("b  ",b,"rad/s");
        Serial.print(" the alternative soluation -c/b   ");
-                    Serial.println(x2);
+        Serial.println(x2);
         return 1000*x2; 
     }
 

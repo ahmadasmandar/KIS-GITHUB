@@ -1,0 +1,462 @@
+--- Miniterm on COM4  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+1
+
+ we are in the mode   4.00
+ trigger pressed 1
+we are in
+time to print one line using Serial is
+1
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is
+12
+speed is bigger than 12 rad/s
+a  -36.42
+b  20.94
+c  12.57
+ the time soluation x2  0.94
+speed is bigger than 12 rad/s
+a  -36.42
+b  20.94
+c  7.33
+ the time soluation x2  0.82
+
+end time solve equations   45.00  ms
+speed is bigeer than 12 rad/s
+
+target_time  396.00  ms
+
+rest -if delay time is   49.00  ms
+
+rest -if window   25.00  ms
+
+time_delta_photo   24.00  ms
+
+angular_acceleration   -72.85  rad/s2
+
+angular_speed   20.94  rad/s
+
+time_correction_value   57.00  ms
+
+time_rest_to_null_test   502.00  ms
+
+time_total_photo_test   599.00  ms
+
+photo section   4.00
+
+hold_position  2.00
+
+hold_position_test  1.00
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is
+12
+speed is bigger than 12 rad/s
+a  -44.88
+b  20.94
+c  12.57
+ the time soluation x2  0.81
+speed is bigger than 12 rad/s
+a  -44.88
+b  20.94
+c  8.90
+ the time soluation x2  0.74
+
+end time solve equations   45.00  ms
+speed is bigeer than 12 rad/s
+
+target_time  396.00  ms
+
+ total if delay time is   516.00  ms
+
+rest -if window   25.00  ms
+
+time_delta_photo   26.00  ms
+
+angular_acceleration   -89.76  rad/s2
+
+angular_speed   20.94  rad/s
+
+time_correction_value   57.00  ms
+
+time_rest_to_null_test   427.00  ms
+
+time_total_photo_test   599.00  ms
+
+photo section   7.00
+
+hold_position  5.00
+
+hold_position_test  1.00
+we are in
+time to print one line using Serial is
+1
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is
+12
+speed is bigger than 12 rad/s
+a  -46.34
+b  19.39
+c  12.57
+ the time soluation x2  0.77
+speed is bigger than 12 rad/s
+a  -46.34
+b  19.39
+c  9.95
+ the time soluation x2  0.72
+
+end time solve equations   45.00  ms
+speed is bigeer than 12 rad/s
+
+target_time  398.00  ms
+
+ total if delay time is   542.00  ms
+
+rest -if window   27.00  ms
+
+time_delta_photo   28.00  ms
+
+angular_acceleration   -92.68  rad/s2
+
+angular_speed   19.39  rad/s
+
+time_correction_value   57.00  ms
+
+time_rest_to_null_test   407.00  ms
+
+time_total_photo_test   647.00  ms
+
+photo section   9.00
+
+hold_position  7.00
+
+hold_position_test  0.00
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt  0.00  ms
+time to print one line using debugger is
+13
+speed is bigger than 12 rad/s
+a  -24.04
+b  16.89
+c  12.57
+ the time soluation x2  1.16
+speed is bigger than 12 rad/s
+a  -24.04
+b  16.89
+c  7.85
+ the time soluation x2  1.02
+
+end time solve equations   45.00  ms
+speed is bigeer than 12 rad/s
+
+target_time  402.00  ms
+
+rest -if delay time is   133.00  ms
+
+rest -if window   31.00  ms
+
+time_delta_photo   34.00  ms
+
+angular_acceleration   -48.07  rad/s2
+
+angular_speed   16.89  rad/s
+
+time_correction_value   56.00  ms
+
+time_rest_to_null_test   591.00  ms
+
+time_total_photo_test   744.00  ms
+
+photo section   5.00
+
+hold_position  3.00
+
+hold_position_test  1.00
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt  0.00  ms
+time to print one line using debugger is
+13
+speed is bigger than 12 rad/s
+a  -21.33
+b  13.78
+c  12.57
+ the time soluation x2  1.16
+speed is bigger than 12 rad/s
+a  -21.33
+b  13.78
+c  9.42
+ the time soluation x2  1.06
+
+end time solve equations   45.00  ms
+speed is bigeer than 12 rad/s
+
+target_time  409.00  ms
+
+rest -if delay time is   146.00  ms
+
+rest -if window   38.00  ms
+
+time_delta_photo   37.00  ms
+
+angular_acceleration   -42.66  rad/s2
+
+angular_speed   13.78  rad/s
+
+time_correction_value   56.00  ms
+
+time_rest_to_null_test   611.00  ms
+
+time_total_photo_test   911.00  ms
+
+photo section   7.00
+
+hold_position  6.00
+
+hold_position_test  1.00
+ trigger pressed 1
+we are in
+time to print one line using Serial is
+1
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is
+12
+speed is under 12 rad/s
+a  -11.78
+b  11.38
+c  0.00
+ the time soluation x2  0.97
+speed is under 12 rad/s
+a  -11.78
+b  11.38
+c  -4.19
+ c=2*PI-c1 cx  2.09
+ the alternative soluation c/b   0.37
+ c  4.19
+ b  11.38
+
+end time solve equations   52.00  ms
+speed is under 12 rad/s
+
+target_time  417.00  ms
+
+ total if delay time is   291.00  ms
+
+rest -if window   46.00  ms
+
+time_delta_photo   43.00  ms
+
+angular_acceleration   -23.57  rad/s2
+
+angular_speed   11.38  rad/s
+
+time_correction_value   62.00  ms
+
+time_rest_to_null_test   280.00  ms
+
+time_total_photo_test   552.00  ms
+
+photo section   6.00
+
+hold_position  4.00
+
+hold_position_test  1.00
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt  0.00  ms
+time to print one line using debugger is
+14
+speed is under 12 rad/s
+a  -6.68
+b  10.91
+c  0.00
+ the time soluation x2  1.63
+speed is under 12 rad/s
+a  -6.68
+b  10.91
+c  -4.71
+ c=2*PI-c1 cx  1.57
+ the alternative soluation c/b   0.43
+ c  4.71
+ b  10.91
+
+end time solve equations   52.00  ms
+speed is under 12 rad/s
+
+target_time  419.00  ms
+
+ total if delay time is   371.00  ms
+
+rest -if window   48.00  ms
+
+time_delta_photo   52.00  ms
+
+angular_acceleration   -13.37  rad/s2
+
+angular_speed   10.91  rad/s
+
+time_correction_value   63.00  ms
+
+time_rest_to_null_test   340.00  ms
+
+time_total_photo_test   576.00  ms
+
+photo section   5.00
+
+hold_position  3.00
+
+hold_position_test  1.00
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt  0.00  ms
+time to print one line using debugger is
+13
+speed is under 12 rad/s
+a  -4.73
+b  9.70
+c  0.00
+ the time soluation x2  2.05
+speed is under 12 rad/s
+a  -4.73
+b  9.70
+c  -4.71
+ the time soluation x1  0.79
+
+end time solve equations   42.00  ms
+speed is under 12 rad/s
+
+target_time  425.00  ms
+
+ total if delay time is   498.00  ms
+
+rest -if window   54.00  ms
+
+time_delta_photo   59.00  ms
+
+angular_acceleration   -9.45  rad/s2
+
+angular_speed   9.70  rad/s
+
+time_correction_value   53.00  ms
+
+time_rest_to_null_test   382.00  ms
+
+time_total_photo_test   647.00  ms
+
+photo section   4.00
+
+hold_position  3.00
+
+hold_position_test  1.00
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt  0.00  ms
+time to print one line using debugger is
+13
+speed is under 12 rad/s
+a  -5.48
+b  7.70
+c  0.00
+ the time soluation x2  1.41
+speed is under 12 rad/s
+a  -5.48
+b  7.70
+c  -5.24
+ c=2*PI-c1 cx  1.05
+ the alternative soluation c/b   0.68
+ c  5.24
+ b  7.70
+
+end time solve equations   50.00  ms
+speed is under 12 rad/s
+
+target_time  439.00  ms
+
+rest -if delay time is   50.00  ms
+
+rest -if window   68.00  ms
+
+time_delta_photo   68.00  ms
+
+angular_acceleration   -10.96  rad/s2
+
+angular_speed   7.70  rad/s
+
+time_correction_value   61.00  ms
+
+time_rest_to_null_test   550.00  ms
+
+time_total_photo_test   815.00  ms
+
+photo section   3.00
+
+hold_position  2.00
+
+hold_position_test  1.00
+we are in
+time to print one line using Serial is
+0
+
+end time take values interrupt  0.00  ms
+time to print one line using debugger is
+14
+speed is under 12 rad/s
+a  -4.66
+b  7.37
+c  0.00
+ the time soluation x2  1.58
+speed is under 12 rad/s
+a  -4.66
+b  7.37
+c  -2.62
+ the time soluation x1  0.54
+
+end time solve equations   42.00  ms
+speed is under 12 rad/s
+
+target_time  442.00  ms
+
+ total if delay time is   522.00  ms
+
+rest -if window   71.00  ms
+
+time_delta_photo   79.00  ms
+
+angular_acceleration   -9.32  rad/s2
+
+angular_speed   7.37  rad/s
+
+time_correction_value   53.00  ms
+
+time_rest_to_null_test   219.00  ms
+
+time_total_photo_test   851.00  ms
+
+photo section   8.00
+
+hold_position  7.00
+
+hold_position_test  0.00

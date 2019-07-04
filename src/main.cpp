@@ -105,7 +105,7 @@ void setup()
 {
   demo.pinSetup();
   attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
+  //attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
   shoot_main.motorIntil();
   Serial.begin(57600);
   hall_start = millis();
@@ -241,10 +241,13 @@ delay(500);
     Serial.println("we are in ");
     Serial.println("time to print one line using Serial is ");
     Serial.println(millis()-start_excu_time);
-    cli();
+    //cli();
     hold_delta_photo_sensor=time_delta_photo;
     hold_position=photo_section;
-    sei();
+    hold_test_position=hall_section;
+
+    debugger_main.sPrint("hold_test_position",hold_test_position,"");
+    //sei();
     print_timer_start=millis();
     debugger_main.sPrint("end time take values interrupt",millis()-start_excu_time,"ms");
      Serial.println("time to print one line using debugger is ");
@@ -265,11 +268,9 @@ delay(500);
       time_total_photo=1000*(4*PI/angular_speed);
       Serial.println("speed is bigeer than 12 rad/s");
     }
-
-    debugger_main.sPrint("end time check if exucte ",millis()-start_excu_time,"ms");
-    time_used_to_calc=millis()-start_excu_time;
+    //time_used_to_calc=millis()-start_excu_time;
+    time_used_to_calc=0;
     shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
-    debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
     delay(5000);
       }
      
@@ -362,6 +363,15 @@ void photo_sens_interrupt()
   {
     photo_section=0;
   }
+  if (photo_section==0)
+  {
+    hall_section=0;
+  }
+  else if (photo_section==6)
+  {
+    hall_section=1;
+  }
+  
   // debugger_main.sPrint("time_delta_photo ",time_delta_photo,"");
 }
 
@@ -480,27 +490,27 @@ void readMode()
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder)
 {
     // this funktion was commited becuase we calcualte the lost time in the case funktions
-    // uint16_t time_correction_value;       
+     uint16_t time_correction_value;       
       // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
-      // if (current_section!=pos_holder && pos_holder !=11 )
-      // {
-      //   time_correction_value=1000*(abs(current_section-pos_holder)*((PI/6)/ang_speed));
-      // }
-      // else if (current_section!=pos_holder && pos_holder ==11)
-      // {
-      //   time_correction_value=1000*(((current_section+1)*(PI/6)/ang_speed));
-      // }
-      // else
-      // {
-      //   time_correction_value=0;
-      // }
+      if (current_section!=pos_holder && pos_holder !=11 )
+      {
+        time_correction_value=1000*(abs(current_section-pos_holder)*((PI/6)/ang_speed));
+      }
+      else if (current_section!=pos_holder && pos_holder ==11)
+      {
+        time_correction_value=1000*(((current_section+1)*(PI/6)/ang_speed));
+      }
+      else
+      {
+        time_correction_value=0;
+      }
       
-      shoot_main.fireBall(delta_hoder,total_time,pos_holder,rest_time,delta_hoder,440);
+      shoot_main.fireBall(delta_hoder,total_time,pos_holder,rest_time,delta_hoder,time_fall+time_delta_photo);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
       debugger_main.sPrint("angular_speed ",ang_speed,"rad/s");
-      debugger_main.sPrint("time_correction_value ",time_used_to_calc,"ms");
+      debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
       debugger_main.sPrint("time_rest_to_null_test ",rest_time+time_used_to_calc,"ms");
       debugger_main.sPrint("time_total_photo_test ",total_time+time_used_to_calc,"ms");
       // debugger_main.sPrint("time_total_photo_test normal ",time_total_photo,"ms");

@@ -1,0 +1,52 @@
+end time  exucte and print    1222.00  ms
+we are in
+time to print one line using Serial is
+1
+
+end time take values interrupt  1.00  ms
+time to print one line using debugger is
+12
+speed is under 12 rad/s
+a  -3.73
+b  6.80
+c  0.00
+ the time soluation x2  1.82
+speed is under 12 rad/s
+a  -3.73
+b  6.80
+c  -4.19
+ c=2*PI-c1 cx  2.09
+ the alternative soluation c/b   0.62
+ c  4.19
+ b  6.80
+
+end time solve equations   51.00  ms
+speed is under 12 rad/s
+
+end time check if exucte   62.00  ms
+
+target_time  453.00  ms
+
+rest -if delay time is   95.00  ms
+
+rest -if window   77.00  ms
+
+time_delta_photo   71.00  ms
+
+angular_acceleration   -7.46  rad/s2
+
+angular_speed   6.80  rad/s
+
+time_correction_value   68.00  ms
+
+time_rest_to_null_test   616.00  ms
+
+time_total_photo_test   1822.00  ms
+
+photo section   5.00
+
+hold_position  4.00
+
+hold_position_test  0.00
+
+end time  exucte and print    320.00  ms

@@ -1,0 +1,250 @@
+--- Miniterm on COM4  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+ trigger pressed 1
+speed is under 12 rad/s
+a  -3.77
+b  7.27
+c  0.00
+ the time soluation x2  1.93
+speed is under 12 rad/s
+a  -3.77
+b  7.27
+c  -6.28
+ c=2*PI-c1 cx  0.00
+ the alternative soluation c/b   0.86
+ c  6.28
+ b  7.27
+
+time_total_photo normal   864.00  ms
+
+time_rest_to_null normal   864.00  ms
+
+target_time  430.00  ms
+
+rest -if delay time is   393.00  ms
+
+rest -if window   72.00  ms
+
+time_delta_photo   74.00  ms
+
+angular_acceleration   -7.54  rad/s2
+
+angular_speed   7.27  rad/s
+
+time_correction_value   40.00  ms
+
+time_rest_to_null_test   863.00  ms
+
+time_total_photo_test   1929.00  ms
+
+photo section   1.00
+
+hold_position  0.00
+
+hold_position_test  0.00
+ trigger pressed 1
+speed is under 12 rad/s
+a  -3.77
+b  6.46
+c  0.00
+ the time soluation x2  1.71
+speed is under 12 rad/s
+a  -3.77
+b  6.46
+c  -3.14
+ c=2*PI-c1 cx  3.14
+ the alternative soluation c/b   0.49
+ c  3.14
+ b  6.46
+
+time_total_photo normal   972.00  ms
+
+time_rest_to_null normal   486.00  ms
+
+target_time  430.00  ms
+
+rest -if delay time is   15.00  ms
+
+rest -if window   81.00  ms
+
+time_delta_photo   82.00  ms
+
+angular_acceleration   -7.55  rad/s2
+
+angular_speed   6.46  rad/s
+
+time_correction_value   40.00  ms
+
+time_rest_to_null_test   485.00  ms
+
+time_total_photo_test   1712.00  ms
+
+photo section   7.00
+
+hold_position  6.00
+
+hold_position_test  1.00
+ trigger pressed 1
+speed is under 12 rad/s
+a  -1.90
+b  5.82
+c  0.00
+ the time soluation x2  3.06
+speed is under 12 rad/s
+a  -1.90
+b  5.82
+c  -4.19
+ the time soluation x1  1.16
+
+time_total_photo normal   1080.00  ms
+
+time_rest_to_null normal   720.00  ms
+
+target_time  430.00  ms
+
+rest -if delay time is   697.00  ms
+
+rest -if window   90.00  ms
+
+time_delta_photo   86.00  ms
+
+angular_acceleration   -3.80  rad/s2
+
+angular_speed   5.82  rad/s
+
+time_correction_value   31.00  ms
+
+time_rest_to_null_test   1158.00  ms
+
+time_total_photo_test   3060.00  ms
+
+photo section   4.00
+
+hold_position  4.00
+
+hold_position_test  0.00
+ trigger pressed 1
+speed is under 12 rad/s
+a  -0.36
+b  2.53
+c  0.00
+ the time soluation x2  7.01
+speed is under 12 rad/s
+a  -0.36
+b  2.53
+c  -4.71
+ c=2*PI-c1 cx  1.57
+ the alternative soluation c/b   1.86
+ c  4.71
+ b  2.53
+
+time_total_photo normal   2484.00  ms
+
+time_rest_to_null normal   1863.00  ms
+
+target_time  430.00  ms
+
+rest -if delay time is   1392.00  ms
+
+rest -if window   207.00  ms
+
+time_delta_photo   234.00  ms
+
+angular_acceleration   -0.72  rad/s2
+
+angular_speed   2.53  rad/s
+
+time_correction_value   40.00  ms
+
+time_rest_to_null_test   1862.00  ms
+
+time_total_photo_test   7006.00  ms
+
+photo section   4.00
+
+hold_position  3.00
+
+hold_position_test  0.00
+ trigger pressed 1
+speed is under 12 rad/s
+a  -0.23
+b  1.67
+c  0.00
+ the time soluation x2  7.38
+speed is under 12 rad/s
+a  -0.23
+b  1.67
+c  -2.62
+ the time soluation x1  2.25
+
+time_total_photo normal   3756.00  ms
+
+time_rest_to_null normal   1565.00  ms
+
+target_time  430.00  ms
+
+rest -if delay time is   1789.00  ms
+
+rest -if window   313.00  ms
+
+time_delta_photo   417.00  ms
+
+angular_acceleration   -0.45  rad/s2
+
+angular_speed   1.67  rad/s
+
+time_correction_value   32.00  ms
+
+time_rest_to_null_test   2251.00  ms
+
+time_total_photo_test   7382.00  ms
+
+photo section   7.00
+
+hold_position  7.00
+
+hold_position_test  1.00
+ trigger pressed 1
+speed is under 12 rad/s
+a  -0.01
+b  0.98
+c  0.00
+ the values are not right or so big  the time soluation x1  0.00
+ the time soluation x2  82.23
+speed is under 12 rad/s
+a  -0.01
+b  0.98
+c  -1.57
+ the time soluation x1  1.63
+
+time_total_photo normal   6396.00  ms
+
+time_rest_to_null normal   1599.00  ms
+
+target_time  430.00  ms
+
+rest -if delay time is   1158.00  ms
+
+rest -if window   533.00  ms
+
+time_delta_photo   743.00  ms
+
+angular_acceleration   -0.02  rad/s2
+
+angular_speed   0.98  rad/s
+
+time_correction_value   43.00  ms
+
+time_rest_to_null_test   1631.00  ms
+
+time_total_photo_test   0.00  ms
+
+photo section   9.00
+
+hold_position  9.00
+
+hold_position_test  1.00

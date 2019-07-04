@@ -48,7 +48,7 @@ uint32_t butt1_press_delay_choose_mod = 0;
 uint32_t butt1_press_delay_read_mod = 0;
 //****************************************** these Variables will be used to get the Photo section and the Hall section to determine the position
 uint8_t hall_pos,pos,photo_pos;
-uint8_t hold_position; // for the delta time 
+uint8_t hold_position,hold_test_position; //TODO use the hold position from hall to ensure the position from photo sensor for the delta time 
 //********** Recive the Time delta from Interrupt 
 uint16_t hold_delta_photo_sensor,hold_delta_hall_sensor,time_target;
 //**************************
@@ -157,6 +157,7 @@ delay(500);
      cli();
       hold_delta_hall_sensor=time_delta_hall;
       hold_position=hall_section;
+      hold_test_position=photo_section;
       sei();
       time_total_hall=speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
       time_rest_to_null=speed_main.hallRst(hold_position,hold_delta_hall_sensor,angular_acceleration);
@@ -197,6 +198,7 @@ delay(500);
     cli();
     hold_delta_photo_sensor=time_delta_photo;
     hold_position=photo_section;
+    hold_test_position=hall_section;
     sei();
     print_timer_start=millis();
     // debugger_main.sPrint("end time take values interrupt",millis()-start_excu_time,"ms");
@@ -506,4 +508,5 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       // debugger_main.sPrint("time_fall",time_fall,"ms");
       debugger_main.sPrint("photo section ",current_section,"");
       debugger_main.sPrint("hold_position",pos_holder,"");
+      debugger_main.sPrint("hold_position_test",hold_test_position,"");
 }

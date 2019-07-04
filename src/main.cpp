@@ -71,7 +71,10 @@ uint32_t start_excu_time=0,end_excu_time=0,print_timer_start=0;
 uint32_t fill_start_timer=0;
 //uint16_t time_correction_value;
 int time_used_to_calc;
-
+//try to add the angel from interrupt 
+volatile uint32_t theta_photo=15,theta_hall=15;
+volatile uint32_t photo_cycle=1,hall_cycle=1;
+uint32_t hold_theta_photo,hold_theta_hall;
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
 volatile boolean choose_mode_flag=true,shot_flag_holder=false;
@@ -200,19 +203,20 @@ delay(500);
     hold_delta_photo_sensor=time_delta_photo;
     hold_position=photo_section;
     hold_test_position=hall_section;
-    Serial.print("hall section from shhot  : ");
-    Serial.println(hold_test_position);
+    hold_theta_photo=theta_photo;
+    Serial.print("target theta from shhot  : ");
+    Serial.println((photo_cycle)*2*PI);
     Serial.print("photo_section from shhot  : ");
     Serial.println(hold_position);
+    Serial.print("hold_theta_photo from shhot  : ");
+    Serial.println(hold_theta_photo);
     //sei();
     print_timer_start=millis();
-    // debugger_main.sPrint("end time take values interrupt",millis()-start_excu_time,"ms");
-    //  Serial.println("time to print one line using debugger is ");
-    // Serial.println(millis()-print_timer_start);
     time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
     time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
+    // new way to calculate the time using the angel in degree 
+    //time_rest_to_null_test=speed_main.photoRst(hold_theta_photo,hold_delta_photo_sensor,angular_acceleration);
     angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-    // debugger_main.sPrint("end time solve equations ",millis()-start_excu_time,"ms");
     if (angular_speed<12)
     {   
         time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
@@ -228,12 +232,10 @@ delay(500);
       time_rest_to_null=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
       time_total_photo=1000*(6*PI/angular_speed);
     }
-    debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
-    debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
-    // debugger_main.sPrint("end time check if exucte ",millis()-start_excu_time,"ms");
-    // time_used_to_calc=millis()-start_excu_time;
     time_used_to_calc=0;
     shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
+    debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
+    debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
     // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
 
       /** Manuel just let the ball go... **/
@@ -368,14 +370,16 @@ void photo_sens_interrupt()
 {
   time_delta_photo = millis() - photo_start;
   photo_start = millis();
+  theta_photo+=30;
   // photo_section = checkCounter(photo_section, 12);
-  
    photo_section+=1;
   if (photo_section==12)
   {
     photo_section=0;
+    photo_cycle+=1;
+    debugger_main.sPrint("theta_photo ",theta_photo," degree");
+    debugger_main.sPrint("photo_cycle ",photo_cycle," cycle");
   }
-
 }
 
 //************** HALL SENS INTERRUPT *********
@@ -384,9 +388,13 @@ void hall_sens_interrupt()
   time_delta_hall = millis() - hall_start;
   hall_start = millis();
   hall_section+=1;
+  theta_hall+=180;
   if (hall_section==2)
   {
     hall_section=0;
+    hall_cycle+=1;
+    debugger_main.sPrint("theta_hall ",theta_hall," degree");
+    debugger_main.sPrint("hall_cycle ",hall_cycle," cycle");
   }
 }
 

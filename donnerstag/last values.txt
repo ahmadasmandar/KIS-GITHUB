@@ -1,0 +1,141 @@
+> Executing task: C:\Users\Administrator\.platformio\penv\Scripts\platformio.exe device monitor <
+
+--- Miniterm on COM4  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+ trigger pressed 1
+hall section from shhot  : 0
+photo_section from shhot  : 0
+speed is under 12 rad/s
+a  -8.74
+b  10.91
+c  0.00
+ the time soluation x2  1.25
+speed is under 12 rad/s
+a  -8.74
+b  10.91
+c  -6.28
+ c=2*PI-c1 cx  0.00
+ the alternative soluation c/b   0.58
+ c  6.28
+ b  10.91
+
+time_total_photo normal   576.00  ms
+
+time_rest_to_null normal   576.00  ms
+
+target_time  391.00  ms
+
+rest -if delay time is   138.00  ms
+
+rest -if window   48.00  ms
+
+time_delta_photo   48.00  ms
+
+angular_acceleration   -17.48  rad/s2
+
+angular_speed   10.91  rad/s
+
+time_correction_value   47.00  ms
+
+time_rest_to_null_test   576.00  ms
+
+time_total_photo_test   1247.00  ms
+
+photo section   1.00
+
+hold_position  0.00
+
+hold_position_test  0.00
+ trigger pressed 1
+hall section from shhot  : 0
+photo_section from shhot  : 5
+speed is under 12 rad/s
+a  -5.47
+b  8.87
+c  0.00
+ the time soluation x2  1.62
+speed is under 12 rad/s
+a  -5.47
+b  8.87
+c  -3.67
+ c=2*PI-c1 cx  2.62
+ the alternative soluation c/b   0.41
+ c  3.67
+ b  8.87
+
+time_total_photo normal   708.00  ms
+
+time_rest_to_null normal   413.00  ms
+
+target_time  391.00  ms
+
+ total if delay time is   1528.00  ms
+
+rest -if window   59.00  ms
+
+time_delta_photo   57.00  ms
+
+angular_acceleration   -10.94  rad/s2
+
+angular_speed   8.87  rad/s
+
+time_correction_value   58.00  ms
+
+time_rest_to_null_test   413.00  ms
+
+time_total_photo_test   1622.00  ms
+
+photo section   6.00
+
+hold_position  5.00
+
+hold_position_test  0.00
+ trigger pressed 1
+hall section from shhot  : 1
+photo_section from shhot  : 6
+speed is under 12 rad/s
+a  -5.02
+b  9.03
+c  0.00
+ the time soluation x2  1.80
+speed is under 12 rad/s
+a  -5.02
+b  9.03
+c  -3.14
+ the time soluation x1  0.47
+
+time_total_photo normal   696.00  ms
+
+time_rest_to_null normal   348.00  ms
+
+target_time  391.00  ms
+
+rest -if delay time is   23.00  ms
+
+rest -if window   58.00  ms
+
+time_delta_photo   64.00  ms
+
+angular_acceleration   -10.04  rad/s2
+
+angular_speed   9.03  rad/s
+
+time_correction_value   57.00  ms
+
+time_rest_to_null_test   471.00  ms
+
+time_total_photo_test   1797.00  ms
+
+photo section   7.00
+
+hold_position  6.00
+
+hold_position_test  1.00

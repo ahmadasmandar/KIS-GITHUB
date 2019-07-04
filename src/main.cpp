@@ -16,7 +16,7 @@ const uint16_t test_time_hall=400;
 //************** Objects from the main Classes  ******************//
 
 speed speed_main; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
-kisg6 demo;  // from Class KISG6 that contain the experement Conditions (pins Setup )
+kisg6 hartz;  // from Class KISG6 that contain the experement Conditions (pins Setup )
 debug debugger_main;  // from Debug class the main use is to Serial print complexe Phrases
 Shoot shoot_main; // from Shoot Class used to shhot the ball 
 
@@ -103,9 +103,9 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
 
 void setup()
 {
-  demo.pinSetup();
-  attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
+  hartz.pinSetup();
+  attachInterrupt(digitalPinToInterrupt(hartz.photosens), photo_sens_interrupt, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(hartz.hallsens), hall_sens_interrupt, CHANGE);
   shoot_main.motorIntil();
   Serial.begin(57600);
   hall_start = millis();
@@ -116,6 +116,7 @@ void setup()
 void loop()
 {
   
+  
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -124,7 +125,7 @@ void loop()
      for that brief period.
       using the cli() sei() functions;
    * ***/
-//.TODO update the speed and acceleration function delete the array and work without it  
+//TODO update the speed and acceleration function delete the array and work without it  
  applyMode();
  readMode();
  //debugger_main.sPrint("first millis ",millis(),"ms");
@@ -137,7 +138,7 @@ delay(500);
 
   //************************************************ the main part ******************************************************************
 
-  if (digitalRead(demo.trigger) == HIGH &&  millis() - press_delay_trigger > 300)
+  if (digitalRead(hartz.trigger) == HIGH &&  millis() - press_delay_trigger > 300)
   {
     //********************
     Serial.println(" trigger pressed 1 ");
@@ -319,17 +320,18 @@ delay(500);
 /****Choose Mode function****/
 uint8_t chooseMode()
 {
-  switch_input = digitalRead(demo.switch_input);
-  if (digitalRead(demo.butt1) == HIGH && millis() - butt1_press_delay_choose_mod > 500)
+  switch_input = digitalRead(hartz.switch_input);
+  if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_choose_mod > 500)
   {
     button1_vlaue = !button1_vlaue;
     butt1_press_delay_choose_mod = millis();
     Serial.println(button1_vlaue);
-    digitalWrite(demo.led1, button1_vlaue);
+    digitalWrite(hartz.led1, button1_vlaue);
   }
 
   if (switch_input == LOW)
   {
+    digitalWrite(hartz.bboxled,LOW);
     switch (button1_vlaue)
     {
     case LOW:
@@ -342,6 +344,7 @@ uint8_t chooseMode()
   }
   else if (switch_input == HIGH)
   {
+    digitalWrite(hartz.bboxled, HIGH);
     switch (button1_vlaue)
     {
     case LOW:
@@ -356,28 +359,23 @@ uint8_t chooseMode()
   {
     return (1);
   }
+  return 0;
 }
+
+
 //************** PHOTO SENS INTERRUPT *********
 void photo_sens_interrupt()
 {
   time_delta_photo = millis() - photo_start;
   photo_start = millis();
   // photo_section = checkCounter(photo_section, 12);
+  
    photo_section+=1;
   if (photo_section==12)
   {
     photo_section=0;
   }
-  // if (photo_section==0)
-  // {
-  //   hall_section=0;
-  // }
-  // else if (photo_section==6)
-  // {
-  //   hall_section=1;
-  // }
-  
-  // debugger_main.sPrint("time_delta_photo ",time_delta_photo,"");
+
 }
 
 //************** HALL SENS INTERRUPT *********
@@ -419,15 +417,15 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 {
   if (hall_Seco != 0)
   {
-    digitalWrite(demo.led2, HIGH);
+    digitalWrite(hartz.led2, HIGH);
     delay(150);
-    digitalWrite(demo.led2, LOW);
+    digitalWrite(hartz.led2, LOW);
   }
   else if (photo_sco != 0)
   {
-    digitalWrite(demo.led2, HIGH);
+    digitalWrite(hartz.led2, HIGH);
     delay(150);
-    digitalWrite(demo.led2, LOW);
+    digitalWrite(hartz.led2, LOW);
   }
 }
 void getAcceleration()
@@ -484,7 +482,7 @@ void applyMode()
 }
 void readMode()
 {
-      if (digitalRead(demo.butt1) == HIGH && millis() - butt1_press_delay_read_mod > 1000)
+      if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_read_mod > 1000)
   {
     program_mode = chooseMode();
     debugger_main.sPrint(" we are in the mode ", program_mode, " ");

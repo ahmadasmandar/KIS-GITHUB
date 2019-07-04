@@ -105,7 +105,7 @@ void setup()
 {
   demo.pinSetup();
   attachInterrupt(digitalPinToInterrupt(demo.photosens), photo_sens_interrupt, CHANGE);
-  //attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(demo.hallsens), hall_sens_interrupt, CHANGE);
   shoot_main.motorIntil();
   Serial.begin(57600);
   hall_start = millis();
@@ -137,7 +137,7 @@ delay(500);
 
   //************************************************ the main part ******************************************************************
 
-  if (digitalRead(demo.trigger) == HIGH &&  millis() - press_delay_trigger > 3000)
+  if (digitalRead(demo.trigger) == HIGH &&  millis() - press_delay_trigger > 300)
   {
     //********************
     Serial.println(" trigger pressed 1 ");
@@ -195,11 +195,15 @@ delay(500);
     // Serial.println("we are in ");
     // Serial.println("time to print one line using Serial is ");
     // Serial.println(millis()-start_excu_time);
-    cli();
+    //cli();
     hold_delta_photo_sensor=time_delta_photo;
     hold_position=photo_section;
     hold_test_position=hall_section;
-    sei();
+    Serial.print("hall section from shhot  : ");
+    Serial.println(hold_test_position);
+    Serial.print("photo_section from shhot  : ");
+    Serial.println(hold_position);
+    //sei();
     print_timer_start=millis();
     // debugger_main.sPrint("end time take values interrupt",millis()-start_excu_time,"ms");
     //  Serial.println("time to print one line using debugger is ");
@@ -226,7 +230,8 @@ delay(500);
     debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
     debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
     // debugger_main.sPrint("end time check if exucte ",millis()-start_excu_time,"ms");
-    time_used_to_calc=millis()-start_excu_time;
+    // time_used_to_calc=millis()-start_excu_time;
+    time_used_to_calc=0;
     shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
     // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
 
@@ -363,14 +368,14 @@ void photo_sens_interrupt()
   {
     photo_section=0;
   }
-  if (photo_section==0)
-  {
-    hall_section=0;
-  }
-  else if (photo_section==6)
-  {
-    hall_section=1;
-  }
+  // if (photo_section==0)
+  // {
+  //   hall_section=0;
+  // }
+  // else if (photo_section==6)
+  // {
+  //   hall_section=1;
+  // }
   
   // debugger_main.sPrint("time_delta_photo ",time_delta_photo,"");
 }
@@ -505,7 +510,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
         time_correction_value=0;
       }
       
-      shoot_main.fireBall(delta_hoder,total_time,pos_holder,rest_time,delta_hoder,time_fall+time_delta_photo);
+      shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,rest_time-time_correction_value,delta_hoder,time_fall);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");

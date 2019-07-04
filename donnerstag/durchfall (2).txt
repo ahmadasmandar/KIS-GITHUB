@@ -1,0 +1,129 @@
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+ trigger pressed 1
+hall section from shhot  :
+1
+speed is under 12 rad/s
+a  -3.89
+b  6.89
+c  0.00
+ the time soluation x2  1.77
+speed is under 12 rad/s
+a  -3.89
+b  6.89
+c  -2.09
+ the time soluation x1  0.39
+
+time_total_photo normal   912.00  ms
+
+time_rest_to_null normal   304.00  ms
+
+target_time  467.00  ms
+
+ total if delay time is   1695.00  ms
+
+rest -if window   76.00  ms
+
+time_delta_photo   79.00  ms
+
+angular_acceleration   -7.77  rad/s2
+
+angular_speed   6.89  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null_test   389.00  ms
+
+time_total_photo_test   1773.00  ms
+
+photo section   8.00
+
+hold_position  8.00
+
+hold_position_test  1.00
+ trigger pressed 1
+hall section from shhot  :
+0
+speed is under 12 rad/s
+a  -1.97
+b  5.88
+c  0.00
+ the time soluation x2  2.99
+speed is under 12 rad/s
+a  -1.97
+b  5.88
+c  -6.28
+ c=2*PI-c1 cx  0.00
+ the alternative soluation c/b   1.07
+ c  6.28
+ b  5.88
+
+time_total_photo normal   1068.00  ms
+
+time_rest_to_null normal   1068.00  ms
+
+target_time  480.00  ms
+
+rest -if delay time is   588.00  ms
+
+rest -if window   89.00  ms
+
+time_delta_photo   94.00  ms
+
+angular_acceleration   -3.93  rad/s2
+
+angular_speed   5.88  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null_test   1068.00  ms
+
+time_total_photo_test   2990.00  ms
+
+photo section   0.00
+
+hold_position  0.00
+
+hold_position_test  0.00
+ trigger pressed 1
+hall section from shhot  :
+1
+speed is under 12 rad/s
+a  -0.35
+b  2.17
+c  0.00
+ the time soluation x2  6.29
+speed is under 12 rad/s
+a  -0.35
+b  2.17
+c  -2.62
+ the time soluation x1  1.62
+
+time_total_photo normal   2892.00  ms
+
+time_rest_to_null normal   1205.00  ms
+
+target_time  632.00  ms
+
+rest -if delay time is   992.00  ms
+
+rest -if window   241.00  ms
+
+time_delta_photo   264.00  ms
+
+angular_acceleration   -0.69  rad/s2
+
+angular_speed   2.17  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null_test   1624.00  ms
+
+time_total_photo_test   6290.00  ms
+
+photo section   7.00
+
+hold_position  7.00
+
+hold_position_test  1.00

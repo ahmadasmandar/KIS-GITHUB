@@ -1,0 +1,41 @@
+ trigger pressed 1
+hall section from shhot  : 1
+photo_section from shhot  : 11
+speed is under 12 rad/s
+a  -1.93
+b  5.45
+c  0.00
+ the time soluation x2  2.83
+speed is under 12 rad/s
+a  -1.93
+b  5.45
+c  -0.52
+ the time soluation x1  0.10
+
+time_total_photo normal   1152.00  ms
+
+time_rest_to_null normal   96.00  ms
+
+target_time  460.00  ms
+
+ total if delay time is   2464.00  ms
+
+rest -if window   96.00  ms
+
+time_delta_photo   112.00  ms
+
+angular_acceleration   -3.86  rad/s2
+
+angular_speed   5.45  rad/s
+
+time_correction_value   95.00  ms
+
+time_rest_to_null_test   99.00  ms
+
+time_total_photo_test   2825.00  ms
+
+photo section   0.00
+
+hold_position  11.00
+
+hold_position_test  1.00

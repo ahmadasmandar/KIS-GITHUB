@@ -1,0 +1,224 @@
+
+--- Miniterm on COM4  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+ we are in the mode   3.00
+
+ we are in the mode   3.00
+ trigger pressed 1
+hall section from shhot  : 0
+photo_section from shhot  : 3
+speed is under 12 rad/s
+a  -2.56
+b  6.31
+c  0.00
+ the time soluation x2  2.46
+speed is under 12 rad/s
+a  -2.56
+b  6.31
+c  -4.71
+ c=2*PI-c1 cx  1.57
+ the alternative soluation c/b   0.75
+ c  4.71
+ b  6.31
+
+time_total_photo normal   996.00  ms
+
+time_rest_to_null normal   747.00  ms
+
+target_time  391.00  ms
+
+rest -if delay time is   273.00  ms
+
+rest -if window   83.00  ms
+
+time_delta_photo   90.00  ms
+
+angular_acceleration   -5.12  rad/s2
+
+angular_speed   6.31  rad/s
+
+time_correction_value   82.00  ms
+
+time_rest_to_null_test   746.00  ms
+
+time_total_photo_test   2462.00  ms
+
+photo section   4.00
+
+hold_position  3.00
+
+hold_position_test  0.00
+ trigger pressed 1
+hall section from shhot  : 0
+photo_section from shhot  : 0
+speed is under 12 rad/s
+a  -1.38
+b  5.24
+c  0.00
+ the time soluation x2  3.80
+speed is under 12 rad/s
+a  -1.38
+b  5.24
+c  -6.28
+ c=2*PI-c1 cx  0.00
+ the alternative soluation c/b   1.20
+ c  6.28
+ b  5.24
+
+time_total_photo normal   1200.00  ms
+
+time_rest_to_null normal   1200.00  ms
+
+target_time  391.00  ms
+
+rest -if delay time is   808.00  ms
+
+rest -if window   100.00  ms
+
+time_delta_photo   106.00  ms
+
+angular_acceleration   -2.76  rad/s2
+
+angular_speed   5.24  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null_test   1199.00  ms
+
+time_total_photo_test   3799.00  ms
+
+photo section   0.00
+
+hold_position  0.00
+
+hold_position_test  0.00
+ trigger pressed 1
+hall section from shhot  : 0
+photo_section from shhot  : 3
+speed is under 12 rad/s
+a  -1.51
+b  4.80
+c  0.00
+ the time soluation x2  3.19
+speed is under 12 rad/s
+a  -1.51
+b  4.80
+c  -4.71
+ c=2*PI-c1 cx  1.57
+ the alternative soluation c/b   0.98
+ c  4.71
+ b  4.80
+
+time_total_photo normal   1308.00  ms
+
+time_rest_to_null normal   981.00  ms
+
+target_time  391.00  ms
+
+rest -if delay time is   481.00  ms
+
+rest -if window   109.00  ms
+
+time_delta_photo   111.00  ms
+
+angular_acceleration   -3.01  rad/s2
+
+angular_speed   4.80  rad/s
+
+time_correction_value   108.00  ms
+
+time_rest_to_null_test   980.00  ms
+
+time_total_photo_test   3188.00  ms
+
+photo section   4.00
+
+hold_position  3.00
+
+hold_position_test  0.00
+ trigger pressed 1
+hall section from shhot  : 0
+photo_section from shhot  : 0
+speed is under 12 rad/s
+a  -0.93
+b  3.91
+c  0.00
+ the time soluation x2  4.22
+speed is under 12 rad/s
+a  -0.93
+b  3.91
+c  -6.28
+ c=2*PI-c1 cx  0.00
+ the alternative soluation c/b   1.61
+ c  6.28
+ b  3.91
+
+time_total_photo normal   1608.00  ms
+
+time_rest_to_null normal   1608.00  ms
+
+target_time  391.00  ms
+
+rest -if delay time is   1216.00  ms
+
+rest -if window   134.00  ms
+
+time_delta_photo   142.00  ms
+
+angular_acceleration   -1.85  rad/s2
+
+angular_speed   3.91  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null_test   1607.00  ms
+
+time_total_photo_test   4220.00  ms
+
+photo section   0.00
+
+hold_position  0.00
+
+hold_position_test  0.00
+ trigger pressed 1
+hall section from shhot  : 1
+photo_section from shhot  : 9
+speed is under 12 rad/s
+a  -0.85
+b  3.47
+c  0.00
+ the time soluation x2  4.10
+speed is under 12 rad/s
+a  -0.85
+b  3.47
+c  -1.57
+ the time soluation x1  0.52
+
+time_total_photo normal   1812.00  ms
+
+time_rest_to_null normal   453.00  ms
+
+target_time  391.00  ms
+
+rest -if delay time is   127.00  ms
+
+rest -if window   151.00  ms
+
+time_delta_photo   156.00  ms
+
+angular_acceleration   -1.69  rad/s2
+
+angular_speed   3.47  rad/s
+
+time_correction_value   0.00  ms
+
+time_rest_to_null_test   518.00  ms
+
+time_total_photo_test   4102.00  ms
+
+photo section   9.00
+
+hold_position  9.00
+
+hold_position_test  1.00

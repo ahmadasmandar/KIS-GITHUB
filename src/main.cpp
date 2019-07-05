@@ -246,8 +246,8 @@ void loop()
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(new_accel*(hold_delta_photo_sensor/1000));
           if (angular_speed<12)
           {   
-              time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
-              time_total_photo=1000*(2*PI/angular_speed);
+              time_rest_to_null=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
+              time_total_photo=1000*(4*PI/angular_speed);
           }
           else if (angular_speed>12 && angular_speed<25)
           {
@@ -546,7 +546,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       }
       int angel_15_correction=1000*(15*PI/180)/ang_speed;
       shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,
-      rest_time-time_correction_value,delta_hoder,time_fall +time_delta_photo);
+      rest_time-time_correction_value,delta_hoder,time_fall +time_delta_photo/* +angel_15_correction*/);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");

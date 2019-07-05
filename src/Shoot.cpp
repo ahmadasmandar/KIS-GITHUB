@@ -35,19 +35,7 @@ void Shoot::shootManuel()
 
 void Shoot::fireBall(uint16_t delta_hoder, float total_time, uint8_t section, float time_resto, uint16_t window, uint16_t target_time)
 {
-  //  if (time_resto < target_time+delta_hoder && time_resto >target_time)
-  // {
-  //   delay_time_shoot = time_resto - target_time-10;
-  //   if (delay_time_shoot<15000 )
-  //   {
-  //   delay(delay_time_shoot);
-  //   shhot_motor.write(angel);
-  //   delay(motor_delay);
-  //   shhot_motor.write(end_angel);
-  //   debugger_shoot.sPrint("target_time", target_time, "ms");
-  //   debugger_shoot.sPrint("normal -if delay time is ", delay_time_shoot, "ms");
-  //   }
-  // }
+
   if (time_resto > target_time && time_resto < 15000)
   {
     delay_time_shoot = time_resto - target_time;

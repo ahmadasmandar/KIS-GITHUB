@@ -19,7 +19,7 @@ speed speed_main; // from The Class Speed that will help in calculate every impo
 kisg6 hartz;  // from Class KISG6 that contain the experement Conditions (pins Setup )
 debug debugger_main;  // from Debug class the main use is to Serial print complexe Phrases
 Shoot shoot_main; // from Shoot Class used to shhot the ball 
-
+Servo main_motor;
 // Here is the value for the Interrupts Counter for
 // the PhotoSensor and The Hall Sensor
 /*********  **********************/
@@ -82,7 +82,8 @@ volatile boolean choose_mode_flag=true,shot_flag_holder=false;
 // try to use accerleration array
 float accel_array[5],speed_array[5];
   int accel_counter,speed_counter;
-
+float new_accel=0;
+int divide_number=0;
 //*******************Functions prototypes
 
 void photo_sens_interrupt();
@@ -114,6 +115,8 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(hartz.photosens), photo_sens_interrupt, CHANGE);
   attachInterrupt(digitalPinToInterrupt(hartz.hallsens), hall_sens_interrupt, CHANGE);
   shoot_main.motorIntil();
+  // main_motor.attach(9);
+  // main_motor.write(0);
   Serial.begin(57600);
   hall_start = millis();
   photo_start = millis();
@@ -220,8 +223,6 @@ void loop()
           Serial.println(hold_position);
           Serial.print("hold_theta_photo from shhot  : ");
           Serial.println(hold_theta_photo);
-          float new_accel=0;
-          int divide_number=0;
           for (int i=0;i<5;i++)
           {
             if(accel_array[i]!=0)
@@ -246,8 +247,8 @@ void loop()
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(new_accel*(hold_delta_photo_sensor/1000));
           if (angular_speed<12)
           {   
-              time_rest_to_null=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
-              time_total_photo=1000*(4*PI/angular_speed);
+              time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
+              time_total_photo=1000*(2*PI/angular_speed);
           }
           else if (angular_speed>12 && angular_speed<25)
           {
@@ -260,13 +261,17 @@ void loop()
             time_total_photo=1000*(6*PI/angular_speed);
           }
           time_used_to_calc=0;
+
+          //*******************************
+
+          //********************************
           shootMain(angular_speed,hold_position,photo_section,(time_total_photo-time_used_to_calc),time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
           debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
           debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
           // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
-            break;
+          break;
     case 4:
-//TODO degree time caculate function using the theta angel
+          //TODO degree time caculate function using the theta angel
       for (int k=0;k<5;k++)
       {
           getAcceleration();
@@ -278,9 +283,23 @@ void loop()
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
-          time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
-          time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
-          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
+          new_accel=0;
+          divide_number=0;
+          for (int i=0;i<5;i++)
+          {
+            if(accel_array[i]!=0)
+            {
+              new_accel+=accel_array[i];
+              debugger_main.sPrint("accel_array[i]",accel_array[i],"sss");
+              divide_number+=1;
+              debugger_main.sPrint("new accel from loop",new_accel,"sss");
+              debugger_main.sPrint("divide_number",divide_number,"sss");
+            }
+          }
+          new_accel=new_accel/divide_number;
+          time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,new_accel);
+          time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,new_accel);
+          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(new_accel*(hold_delta_photo_sensor/1000));
           if (angular_speed<12)
           {   
               time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
@@ -298,7 +317,7 @@ void loop()
           }
           //time_used_to_calc=millis()-start_excu_time;
           time_used_to_calc=0;
-          shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
+          shootMain(angular_speed,hold_position,photo_section,(time_total_photo-time_used_to_calc),time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
           delay(5000);
             }
           
@@ -530,6 +549,7 @@ void readMode()
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder)
 {
     // this funktion was commited becuase we calcualte the lost time in the case funktions
+    
      uint16_t time_correction_value;       
       // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
       if (current_section!=pos_holder && pos_holder !=11 )
@@ -545,9 +565,26 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
         time_correction_value=0;
       }
       int angel_15_correction=1000*(15*PI/180)/ang_speed;
+      int shoot_timer=millis();
       shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,
-      rest_time-time_correction_value,delta_hoder,time_fall +time_delta_photo/* +angel_15_correction*/);
+      rest_time-time_correction_value,delta_hoder,time_fall+angel_15_correction);
+      Serial.print(" motor timer  ");
+      Serial.println(millis()-shoot_timer);
+
       // shoot the ball using the calculated values 
+  //   if (rest_time > time_fall+angel_15_correction)
+  // {
+  //   int delay_time_shoot = rest_time-time_fall-time_correction_value;
+  //   if (delay_time_shoot < 15000)
+  //   {
+  //     Serial.print(" motor timer  ");
+  //     Serial.println(millis()-shoot_timer);
+  //     delay(delay_time_shoot);
+  //     main_motor.write(20);
+  //     delay(100);
+  //     main_motor.write(0);
+  //   }
+  // }
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
       debugger_main.sPrint("angular_speed ",ang_speed,"rad/s");
@@ -555,9 +592,6 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       debugger_main.sPrint("angel_15_correction ",angel_15_correction,"ms");
       debugger_main.sPrint("time_rest_to_null_test ",rest_time+time_used_to_calc,"ms");
       debugger_main.sPrint("time_total_photo_test ",total_time+time_used_to_calc,"ms");
-      // debugger_main.sPrint("time_total_photo_test normal ",time_total_photo,"ms");
-      // debugger_main.sPrint("time_rest_to_null_test normal ",time_rest_to_null,"ms");
-      // debugger_main.sPrint("time_fall",time_fall,"ms");
       debugger_main.sPrint("photo section ",current_section,"");
       debugger_main.sPrint("hold_position",pos_holder,"");
       debugger_main.sPrint("hold_position_test",hold_test_position,"");

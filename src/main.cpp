@@ -204,6 +204,12 @@ void loop()
           // Serial.println("time to print one line using Serial is ");
           // Serial.println(millis()-start_excu_time);
           //cli();
+          while (hall_section!=0)
+          {
+            delay(1);
+            Serial.println("goooooooooooooo");
+          }
+          
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
@@ -254,7 +260,7 @@ void loop()
             time_total_photo=1000*(6*PI/angular_speed);
           }
           time_used_to_calc=0;
-          shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
+          shootMain(angular_speed,hold_position,photo_section,(time_total_photo-time_used_to_calc),time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
           debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
           debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
           // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
@@ -540,7 +546,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       }
       int angel_15_correction=1000*(15*PI/180)/ang_speed;
       shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,
-      rest_time-time_correction_value,delta_hoder,time_fall +time_delta_photo/*-angel_15_correction*/);
+      rest_time-time_correction_value,delta_hoder,time_fall +time_delta_photo);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");

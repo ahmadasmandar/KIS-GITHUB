@@ -1,0 +1,43 @@
+ trigger pressed 1
+7
+target theta from shhot  : 175.93
+photo_section from shhot  : 8
+hold_theta_photo from shhot  : 9975
+accel_array[i]  -4.78  sss
+new accel from loop  -4.78  sss
+divide_number  1.00  sss
+accel_array[i]  -5.12  sss
+new accel from loop  -9.90  sss
+divide_number  2.00  sss
+accel_array[i]  -5.64  sss
+new accel from loop  -15.55  sss
+divide_number  3.00  sss
+accel_array[i]  -6.12  sss
+new accel from loop  -21.67  sss
+divide_number  4.00  sss
+new_accel from shhot  : -5.42
+speed is under 12 rad/s
+a  -2.71
+b  6.39
+c  0.00
+ the time soluation x2  2.36
+speed is under 12 rad/s
+a  -2.71
+b  6.39
+c  -2.09
+ the time soluation x1  0.39
+target_time  350.00  ms
+ total if delay time is   797.00  ms
+rest -if window   82.00  ms
+time_delta_photo   83.00  ms
+angular_acceleration   -6.12  rad/s2
+angular_speed   6.39  rad/s
+time_correction_value   82.00  ms
+angel_15_correction   41.00  ms
+time_rest_to_null_test   328.00  ms
+time_total_photo_test   983.00  ms
+photo section   9.00
+hold_position  8.00
+hold_position_test  1.00
+time_total_photo normal   984.00  ms
+time_rest_to_null normal   328.00  ms

@@ -79,6 +79,10 @@ uint32_t hold_theta_photo,hold_theta_hall;
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
 volatile boolean choose_mode_flag=true,shot_flag_holder=false;
 
+// try to use accerleration array
+float accel_array[5],speed_array[5];
+  int accel_counter,speed_counter;
+
 //*******************Functions prototypes
 
 void photo_sens_interrupt();
@@ -210,13 +214,30 @@ void loop()
           Serial.println(hold_position);
           Serial.print("hold_theta_photo from shhot  : ");
           Serial.println(hold_theta_photo);
+          float new_accel=0;
+          int divide_number=0;
+          for (int i=0;i<5;i++)
+          {
+            if(accel_array[i]!=0)
+            {
+              new_accel+=accel_array[i];
+              debugger_main.sPrint("accel_array[i]",accel_array[i],"sss");
+              divide_number+=1;
+              debugger_main.sPrint("new accel from loop",new_accel,"sss");
+              debugger_main.sPrint("divide_number",divide_number,"sss");
+            }
+          }
+          new_accel=new_accel/divide_number;
+          
+          Serial.print("new_accel from shhot  : ");
+          Serial.println(new_accel);
           //sei();
           print_timer_start=millis();
-          time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
-          time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
+          time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,new_accel);
+          time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,new_accel);
           // new way to calculate the time using the angel in degree 
-          //time_rest_to_null_test=speed_main.photoRst(hold_theta_photo,hold_delta_photo_sensor,angular_acceleration);
-          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
+          //time_rest_to_null_test=speed_main.photoRst(hold_theta_photo,hold_delta_photo_sensor,new_accel);
+          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(new_accel*(hold_delta_photo_sensor/1000));
           if (angular_speed<12)
           {   
               time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
@@ -436,6 +457,7 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 }
 void getAcceleration()
 {
+
  
     // speed_1=speed_main.hallSpeed(time_delta_hall);
     speed_1=speed_main.photoSpeed(time_delta_photo);
@@ -448,6 +470,8 @@ void getAcceleration()
     // debugger_main.sPrint("time_delta_photo 2",time_delta_photo,"ms");
     // angular_acceleration=-abs(1000*(speed_2-speed_1)/time_delta_hall);
     angular_acceleration=-abs(1000*(speed_2-speed_1))/time_delta_photo;
+    accel_array[accel_counter]=angular_acceleration;
+    accel_counter=checkCounter(accel_counter,5);
     // debugger_main.sPrint("the angular acceleration",angular_acceleration,"rad/s2");  
     // debugger_main.sPrint("speed_1 ",speed_1,"rad/s");  
     // debugger_main.sPrint("speed_2 ",speed_2,"rad/s");  
@@ -515,7 +539,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       }
       int angel_15_correction=1000*(15*PI/180)/ang_speed;
       shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,
-      rest_time-time_correction_value,delta_hoder,time_fall);
+      rest_time-time_correction_value,delta_hoder,time_fall-angel_15_correction);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");

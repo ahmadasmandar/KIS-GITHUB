@@ -12,31 +12,17 @@ c  -5.24
  the alternative soluation c/b   0.77
  c  5.24
  b  6.80
-
 time_total_photo normal   924.00  ms
-
 time_rest_to_null normal   770.00  ms
-
 target_time  468.00  ms
-
 rest -if delay time is   261.00  ms
-
 rest -if window   77.00  ms
-
 time_delta_photo   72.00  ms
-
 angular_acceleration   -7.46  rad/s2
-
 angular_speed   6.80  rad/s
-
 time_correction_value   0.00  ms
-
 time_rest_to_null_test   769.00  ms
-
 time_total_photo_test   1822.00  ms
-
 photo section   2.00
-
 hold_position  2.00
-
 hold_position_test  0.00

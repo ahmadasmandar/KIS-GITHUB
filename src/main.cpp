@@ -191,97 +191,94 @@ delay(500);
       /* code */
       
       break;
-
       // here we are using the angel to calculate the values 
       case 3:
-      getAcceleration();
-    start_excu_time=millis();
-    // Serial.println("we are in ");
-    // Serial.println("time to print one line using Serial is ");
-    // Serial.println(millis()-start_excu_time);
-    //cli();
-    hold_delta_photo_sensor=time_delta_photo;
-    hold_position=photo_section;
-    hold_test_position=hall_section;
-    hold_theta_photo=theta_photo;
-    Serial.print("target theta from shhot  : ");
-    Serial.println((photo_cycle)*2*PI);
-    Serial.print("photo_section from shhot  : ");
-    Serial.println(hold_position);
-    Serial.print("hold_theta_photo from shhot  : ");
-    Serial.println(hold_theta_photo);
-    //sei();
-    print_timer_start=millis();
-    time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
-    time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
-    // new way to calculate the time using the angel in degree 
-    //time_rest_to_null_test=speed_main.photoRst(hold_theta_photo,hold_delta_photo_sensor,angular_acceleration);
-    angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-    if (angular_speed<12)
-    {   
-        time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
-        time_total_photo=1000*(2*PI/angular_speed);
-    }
-    else if (angular_speed>12 && angular_speed<25)
-    {
-      time_rest_to_null=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
-      time_total_photo=1000*(4*PI/angular_speed);
-    }
-    else if (angular_speed>25)
-    {
-      time_rest_to_null=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
-      time_total_photo=1000*(6*PI/angular_speed);
-    }
-    time_used_to_calc=0;
-    shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
-    debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
-    debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
-    // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
-
-      /** Manuel just let the ball go... **/
-      break;
+          getAcceleration();
+          start_excu_time=millis();
+          // Serial.println("we are in ");
+          // Serial.println("time to print one line using Serial is ");
+          // Serial.println(millis()-start_excu_time);
+          //cli();
+          hold_delta_photo_sensor=time_delta_photo;
+          hold_position=photo_section;
+          hold_test_position=hall_section;
+          hold_theta_photo=theta_photo;
+          Serial.print("target theta from shhot  : ");
+          Serial.println((photo_cycle)*2*PI);
+          Serial.print("photo_section from shhot  : ");
+          Serial.println(hold_position);
+          Serial.print("hold_theta_photo from shhot  : ");
+          Serial.println(hold_theta_photo);
+          //sei();
+          print_timer_start=millis();
+          time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+          time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
+          // new way to calculate the time using the angel in degree 
+          //time_rest_to_null_test=speed_main.photoRst(hold_theta_photo,hold_delta_photo_sensor,angular_acceleration);
+          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
+          if (angular_speed<12)
+          {   
+              time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
+              time_total_photo=1000*(2*PI/angular_speed);
+          }
+          else if (angular_speed>12 && angular_speed<25)
+          {
+            time_rest_to_null=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
+            time_total_photo=1000*(4*PI/angular_speed);
+          }
+          else if (angular_speed>25)
+          {
+            time_rest_to_null=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
+            time_total_photo=1000*(6*PI/angular_speed);
+          }
+          time_used_to_calc=0;
+          shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
+          debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
+          debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
+          // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
+            break;
     case 4:
-
+//TODO degree time caculate function using the theta angel
       for (int k=0;k<5;k++)
       {
           getAcceleration();
-    start_excu_time=millis();
-    Serial.println("we are in ");
-    Serial.println("time to print one line using Serial is ");
-    Serial.println(millis()-start_excu_time);
-    //cli();
-    hold_delta_photo_sensor=time_delta_photo;
-    hold_position=photo_section;
-    hold_test_position=hall_section;
+          start_excu_time=millis();
+          Serial.println("we are in ");
+          Serial.println("time to print one line using Serial is ");
+          Serial.println(millis()-start_excu_time);
+          //cli();
+          hold_delta_photo_sensor=time_delta_photo;
+          hold_position=photo_section;
+          hold_test_position=hall_section;
 
-    debugger_main.sPrint("hold_test_position",hold_test_position,"");
-    //sei();
-    print_timer_start=millis();
-    debugger_main.sPrint("end time take values interrupt",millis()-start_excu_time,"ms");
-     Serial.println("time to print one line using debugger is ");
-    Serial.println(millis()-print_timer_start);
-    time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
-    time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
-    angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-    debugger_main.sPrint("end time solve equations ",millis()-start_excu_time,"ms");
-    if (angular_speed<12)
-    {   
-        time_rest_to_null=1000*((2*PI-(1+hold_position*(PI/6)))/angular_speed);
-        time_total_photo=1000*(2*PI/angular_speed);
-        Serial.println("speed is under 12 rad/s");
-    }
-    else if (angular_speed>12)
-    {
-      time_rest_to_null=1000*((4*PI-(1+hold_position*(PI/6)))/angular_speed);
-      time_total_photo=1000*(4*PI/angular_speed);
-      Serial.println("speed is bigeer than 12 rad/s");
-    }
-    //time_used_to_calc=millis()-start_excu_time;
-    time_used_to_calc=0;
-    shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
-    delay(5000);
-      }
-     
+          debugger_main.sPrint("hold_test_position",hold_test_position,"");
+          //sei();
+          print_timer_start=millis();
+          debugger_main.sPrint("end time take values interrupt",millis()-start_excu_time,"ms");
+          Serial.println("time to print one line using debugger is ");
+          Serial.println(millis()-print_timer_start);
+          time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+          time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
+          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
+          debugger_main.sPrint("end time solve equations ",millis()-start_excu_time,"ms");
+          if (angular_speed<12)
+          {   
+              time_rest_to_null=1000*((2*PI-(1+hold_position*(PI/6)))/angular_speed);
+              time_total_photo=1000*(2*PI/angular_speed);
+              Serial.println("speed is under 12 rad/s");
+          }
+          else if (angular_speed>12)
+          {
+            time_rest_to_null=1000*((4*PI-(1+hold_position*(PI/6)))/angular_speed);
+            time_total_photo=1000*(4*PI/angular_speed);
+            Serial.println("speed is bigeer than 12 rad/s");
+          }
+          //time_used_to_calc=millis()-start_excu_time;
+          time_used_to_calc=0;
+          shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
+          delay(5000);
+            }
+          
       break;
     }
     press_delay_trigger = millis();

@@ -540,7 +540,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       }
       int angel_15_correction=1000*(15*PI/180)/ang_speed;
       shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,
-      rest_time-time_correction_value,delta_hoder,time_fall+time_delta_photo-angel_15_correction);
+      rest_time-time_correction_value,delta_hoder,time_fall +time_delta_photo/*-angel_15_correction*/);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");

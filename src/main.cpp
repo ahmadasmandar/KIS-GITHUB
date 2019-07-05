@@ -254,7 +254,7 @@ void loop()
             time_total_photo=1000*(6*PI/angular_speed);
           }
           time_used_to_calc=0;
-          shootMain(angular_speed,hold_position,photo_section,(time_total_photo-time_used_to_calc),time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
+          shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
           debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
           debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
           // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
@@ -472,6 +472,7 @@ void getAcceleration()
     angular_acceleration=-abs(1000*(speed_2-speed_1))/time_delta_photo;
     accel_array[accel_counter]=angular_acceleration;
     accel_counter=checkCounter(accel_counter,5);
+    //TODO make time delta array and test 
     // debugger_main.sPrint("the angular acceleration",angular_acceleration,"rad/s2");  
     // debugger_main.sPrint("speed_1 ",speed_1,"rad/s");  
     // debugger_main.sPrint("speed_2 ",speed_2,"rad/s");  
@@ -539,7 +540,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       }
       int angel_15_correction=1000*(15*PI/180)/ang_speed;
       shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,
-      rest_time-time_correction_value,delta_hoder,time_fall-angel_15_correction);
+      rest_time-time_correction_value,delta_hoder,time_fall+time_delta_photo-angel_15_correction);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");

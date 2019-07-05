@@ -1,0 +1,622 @@
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+ we are in the mode   3.00
+ we are in the mode   3.00
+photo_section   1.00
+theta_photo   45.00   degree
+photo_cycle   1.00   cycle
+photo_section   2.00
+theta_photo   75.00   degree
+photo_cycle   1.00   cycle
+photo_section   3.00
+theta_photo   105.00   degree
+photo_cycle   1.00   cycle
+photo_section   4.00
+theta_photo   135.00   degree
+photo_cycle   1.00   cycle
+photo_section   5.00
+theta_photo   165.00   degree
+photo_cycle   1.00   cycle
+photo_section   6.00
+theta_photo   195.00   degree
+photo_cycle   1.00   cycle
+hall_section   1.00
+theta_hall   195.00   degree
+hall_cycle   1.00   cycle
+photo_section   7.00
+theta_photo   225.00   degree
+photo_cycle   1.00   cycle
+photo_section   8.00
+theta_photo   255.00   degree
+photo_cycle   1.00   cycle
+photo_section   9.00
+theta_photo   285.00   degree
+photo_cycle   1.00   cycle
+photo_section   10.00
+theta_photo   315.00   degree
+photo_cycle   1.00   cycle
+photo_section   11.00
+theta_photo   345.00   degree
+photo_cycle   1.00   cycle
+photo_section   12.00
+theta_photo   375.00   degree
+photo_cycle   1.00   cycle
+hall_section   2.00
+theta_hall   375.00   degree
+hall_cycle   1.00   cycle
+photo_section   1.00
+theta_photo   405.00   degree
+photo_cycle   2.00   cycle
+photo_section   2.00
+theta_photo   435.00   degree
+photo_cycle   2.00   cycle
+photo_section   3.00
+theta_photo   465.00   degree
+photo_cycle   2.00   cycle
+photo_section   4.00
+theta_photo   495.00   degree
+photo_cycle   2.00   cycle
+photo_section   5.00
+theta_photo   525.00   degree
+photo_cycle   2.00   cycle
+photo_section   6.00
+theta_photo   555.00   degree
+photo_cycle   2.00   cycle
+hall_section   1.00
+theta_hall   555.00   degree
+hall_cycle   2.00   cycle
+photo_section   7.00
+theta_photo   585.00   degree
+photo_cycle   2.00   cycle
+photo_section   8.00
+theta_photo   615.00   degree
+photo_cycle   2.00   cycle
+photo_section   9.00
+theta_photo   645.00   degree
+photo_cycle   2.00   cycle
+photo_section   10.00
+theta_photo   675.00   degree
+photo_cycle   2.00   cycle
+photo_section   11.00
+theta_photo   705.00   degree
+photo_cycle   2.00   cycle
+photo_section   12.00
+theta_photo   735.00   degree
+photo_cycle   2.00   cycle
+hall_section   2.00
+theta_hall   735.00   degree
+hall_cycle   2.00   cycle
+photo_section   1.00
+theta_photo   765.00   degree
+photo_cycle   3.00   cycle
+photo_section   2.00
+theta_photo   795.00   degree
+photo_cycle   3.00   cycle
+photo_section   3.00
+theta_photo   825.00   degree
+photo_cycle   3.00   cycle
+photo_section   4.00
+theta_photo   855.00   degree
+photo_cycle   3.00   cycle
+photo_section   5.00
+theta_photo   885.00   degree
+photo_cycle   3.00   cycle
+photo_section   6.00
+theta_photo   915.00   degree
+photo_cycle   3.00   cycle
+hall_section   1.00
+theta_hall   915.00   degree
+hall_cycle   3.00   cycle
+photo_section   7.00
+theta_photo   945.00   degree
+photo_cycle   3.00   cycle
+photo_section   8.00
+theta_photo   975.00   degree
+photo_cycle   3.00   cycle
+photo_section   9.00
+theta_photo   1005.00   degree
+photo_cycle   3.00   cycle
+photo_section   10.00
+theta_photo   1035.00   degree
+photo_cycle   3.00   cycle
+photo_section   11.00
+theta_photo   1065.00   degree
+photo_cycle   3.00   cycle
+photo_section   12.00
+theta_photo   1095.00   degree
+photo_cycle   3.00   cycle
+hall_section   2.00
+theta_hall   1095.00   degree
+hall_cycle   3.00   cycle
+photo_section   1.00
+theta_photo   1125.00   degree
+photo_cycle   4.00   cycle
+photo_section   2.00
+theta_photo   1155.00   degree
+photo_cycle   4.00   cycle
+photo_section   3.00
+theta_photo   1185.00   degree
+photo_cycle   4.00   cycle
+photo_section   4.00
+theta_photo   1215.00   degree
+photo_cycle   4.00   cycle
+photo_section   5.00
+theta_photo   1245.00   degree
+photo_cycle   4.00   cycle
+photo_section   6.00
+theta_photo   1275.00   degree
+photo_cycle   4.00   cycle
+hall_section   1.00
+theta_hall   1275.00   degree
+hall_cycle   4.00   cycle
+photo_section   7.00
+theta_photo   1305.00   degree
+photo_cycle   4.00   cycle
+photo_section   8.00
+theta_photo   1335.00   degree
+photo_cycle   4.00   cycle
+photo_section   9.00
+theta_photo   1365.00   degree
+photo_cycle   4.00   cycle
+photo_section   10.00
+theta_photo   1395.00   degree
+photo_cycle   4.00   cycle
+photo_section   11.00
+theta_photo   1425.00   degree
+photo_cycle   4.00   cycle
+photo_section   12.00
+theta_photo   1455.00   degree
+photo_cycle   4.00   cycle
+hall_section   2.00
+theta_hall   1455.00   degree
+hall_cycle   4.00   cycle
+photo_section   1.00
+theta_photo   1485.00   degree
+photo_cycle   5.00   cycle
+photo_section   2.00
+theta_photo   1515.00   degree
+photo_cycle   5.00   cycle
+photo_section   3.00
+theta_photo   1545.00   degree
+photo_cycle   5.00   cycle
+photo_section   4.00
+theta_photo   1575.00   degree
+photo_cycle   5.00   cycle
+photo_section   5.00
+theta_photo   1605.00   degree
+photo_cycle   5.00   cycle
+photo_section   6.00
+theta_photo   1635.00   degree
+photo_cycle   5.00   cycle
+hall_section   1.00
+theta_hall   1635.00   degree
+hall_cycle   5.00   cycle
+photo_section   7.00
+theta_photo   1665.00   degree
+photo_cycle   5.00   cycle
+photo_section   8.00
+theta_photo   1695.00   degree
+photo_cycle   5.00   cycle
+photo_section   9.00
+theta_photo   1725.00   degree
+photo_cycle   5.00   cycle
+photo_section   10.00
+theta_photo   1755.00   degree
+photo_cycle   5.00   cycle
+photo_section   11.00
+theta_photo   1785.00   degree
+photo_cycle   5.00   cycle
+photo_section   12.00
+theta_photo   1815.00   degree
+photo_cycle   5.00   cycle
+hall_section   2.00
+theta_hall   1815.00   degree
+hall_cycle   5.00   cycle
+photo_section   1.00
+theta_photo   1845.00   degree
+photo_cycle   6.00   cycle
+photo_section   2.00
+theta_photo   1875.00   degree
+photo_cycle   6.00   cycle
+photo_section   3.00
+theta_photo   1905.00   degree
+photo_cycle   6.00   cycle
+photo_section   4.00
+theta_photo   1935.00   degree
+photo_cycle   6.00   cycle
+photo_section   5.00
+theta_photo   1965.00   degree
+photo_cycle   6.00   cycle
+photo_section   6.00
+theta_photo   1995.00   degree
+photo_cycle   6.00   cycle
+hall_section   1.00
+theta_hall   1995.00   degree
+hall_cycle   6.00   cycle
+photo_section   7.00
+theta_photo   2025.00   degree
+photo_cycle   6.00   cycle
+photo_section   8.00
+theta_photo   2055.00   degree
+photo_cycle   6.00   cycle
+photo_section   9.00
+theta_photo   2085.00   degree
+photo_cycle   6.00   cycle
+photo_section   10.00
+theta_photo   2115.00   degree
+photo_cycle   6.00   cycle
+photo_section   11.00
+theta_photo   2145.00   degree
+photo_cycle   6.00   cycle
+photo_section   12.00
+theta_photo   2175.00   degree
+photo_cycle   6.00   cycle
+hall_section   2.00
+theta_hall   2175.00   degree
+hall_cycle   6.00   cycle
+photo_section   1.00
+theta_photo   2205.00   degree
+photo_cycle   7.00   cycle
+photo_section   2.00
+theta_photo   2235.00   degree
+photo_cycle   7.00   cycle
+photo_section   3.00
+theta_photo   2265.00   degree
+photo_cycle   7.00   cycle
+photo_section   4.00
+theta_photo   2295.00   degree
+photo_cycle   7.00   cycle
+photo_section   5.00
+theta_photo   2325.00   degree
+photo_cycle   7.00   cycle
+photo_section   6.00
+theta_photo   2355.00   degree
+photo_cycle   7.00   cycle
+hall_section   1.00
+theta_hall   2355.00   degree
+hall_cycle   7.00   cycle
+photo_section   7.00
+theta_photo   2385.00   degree
+photo_cycle   7.00   cycle
+photo_section   8.00
+theta_photo   2415.00   degree
+photo_cycle   7.00   cycle
+photo_section   9.00
+theta_photo   2445.00   degree
+photo_cycle   7.00   cycle
+photo_section   10.00
+theta_photo   2475.00   degree
+photo_cycle   7.00   cycle
+photo_section   11.00
+theta_photo   2505.00   degree
+photo_cycle   7.00   cycle
+photo_section   12.00
+theta_photo   2535.00   degree
+photo_cycle   7.00   cycle
+hall_section   2.00
+theta_hall   2535.00   degree
+hall_cycle   7.00   cycle
+photo_section   1.00
+theta_photo   2565.00   degree
+photo_cycle   8.00   cycle
+photo_section   2.00
+theta_photo   2595.00   degree
+photo_cycle   8.00   cycle
+photo_section   3.00
+theta_photo   2625.00   degree
+photo_cycle   8.00   cycle
+photo_section   4.00
+theta_photo   2655.00   degree
+photo_cycle   8.00   cycle
+photo_section   5.00
+theta_photo   2685.00   degree
+photo_cycle   8.00   cycle
+photo_section   6.00
+theta_photo   2715.00   degree
+photo_cycle   8.00   cycle
+hall_section   1.00
+theta_hall   2715.00   degree
+hall_cycle   8.00   cycle
+photo_section   7.00
+theta_photo   2745.00   degree
+photo_cycle   8.00   cycle
+photo_section   8.00
+theta_photo   2775.00   degree
+photo_cycle   8.00   cycle
+photo_section   9.00
+theta_photo   2805.00   degree
+photo_cycle   8.00   cycle
+photo_section   10.00
+theta_photo   2835.00   degree
+photo_cycle   8.00   cycle
+photo_section   11.00
+theta_photo   2865.00   degree
+photo_cycle   8.00   cycle
+photo_section   12.00
+theta_photo   2895.00   degree
+photo_cycle   8.00   cycle
+hall_section   2.00
+theta_hall   2895.00   degree
+hall_cycle   8.00   cycle
+photo_section   1.00
+theta_photo   2925.00   degree
+photo_cycle   9.00   cycle
+photo_section   2.00
+theta_photo   2955.00   degree
+photo_cycle   9.00   cycle
+photo_section   3.00
+theta_photo   2985.00   degree
+photo_cycle   9.00   cycle
+photo_section   4.00
+theta_photo   3015.00   degree
+photo_cycle   9.00   cycle
+photo_section   5.00
+theta_photo   3045.00   degree
+photo_cycle   9.00   cycle
+photo_section   6.00
+theta_photo   3075.00   degree
+photo_cycle   9.00   cycle
+hall_section   1.00
+theta_hall   3075.00   degree
+hall_cycle   9.00   cycle
+photo_section   7.00
+theta_photo   3105.00   degree
+photo_cycle   9.00   cycle
+photo_section   8.00
+theta_photo   3135.00   degree
+photo_cycle   9.00   cycle
+photo_section   9.00
+theta_photo   3165.00   degree
+photo_cycle   9.00   cycle
+photo_section   10.00
+theta_photo   3195.00   degree
+photo_cycle   9.00   cycle
+photo_section   11.00
+theta_photo   3225.00   degree
+photo_cycle   9.00   cycle
+photo_section   12.00
+theta_photo   3255.00   degree
+photo_cycle   9.00   cycle
+hall_section   2.00
+theta_hall   3255.00   degree
+hall_cycle   9.00   cycle
+photo_section   1.00
+theta_photo   3285.00   degree
+photo_cycle   10.00   cycle
+photo_section   2.00
+theta_photo   3315.00   degree
+photo_cycle   10.00   cycle
+photo_section   3.00
+theta_photo   3345.00   degree
+photo_cycle   10.00   cycle
+photo_section   4.00
+theta_photo   3375.00   degree
+photo_cycle   10.00   cycle
+photo_section   5.00
+theta_photo   3405.00   degree
+photo_cycle   10.00   cycle
+photo_section   6.00
+theta_photo   3435.00   degree
+photo_cycle   10.00   cycle
+hall_section   1.00
+theta_hall   3435.00   degree
+hall_cycle   10.00   cycle
+photo_section   7.00
+theta_photo   3465.00   degree
+photo_cycle   10.00   cycle
+photo_section   8.00
+theta_photo   3495.00   degree
+photo_cycle   10.00   cycle
+photo_section   9.00
+theta_photo   3525.00   degree
+photo_cycle   10.00   cycle
+photo_section   10.00
+theta_photo   3555.00   degree
+photo_cycle   10.00   cycle
+photo_section   11.00
+theta_photo   3585.00   degree
+photo_cycle   10.00   cycle
+photo_section   12.00
+theta_photo   3615.00   degree
+photo_cycle   10.00   cycle
+hall_section   2.00
+theta_hall   3615.00   degree
+hall_cycle   10.00   cycle
+photo_section   1.00
+theta_photo   3645.00   degree
+photo_cycle   11.00   cycle
+photo_section   2.00
+theta_photo   3675.00   degree
+photo_cycle   11.00   cycle
+photo_section   3.00
+theta_photo   3705.00   degree
+photo_cycle   11.00   cycle
+photo_section   4.00
+theta_photo   3735.00   degree
+photo_cycle   11.00   cycle
+photo_section   5.00
+theta_photo   3765.00   degree
+photo_cycle   11.00   cycle
+photo_section   6.00
+theta_photo   3795.00   degree
+photo_cycle   11.00   cycle
+hall_section   1.00
+theta_hall   3795.00   degree
+hall_cycle   11.00   cycle
+photo_section   7.00
+theta_photo   3825.00   degree
+photo_cycle   11.00   cycle
+photo_section   8.00
+theta_photo   3855.00   degree
+photo_cycle   11.00   cycle
+photo_section   9.00
+theta_photo   3885.00   degree
+photo_cycle   11.00   cycle
+photo_section   10.00
+theta_photo   3915.00   degree
+photo_cycle   11.00   cycle
+photo_section   11.00
+theta_photo   3945.00   degree
+photo_cycle   11.00   cycle
+photo_section   12.00
+theta_photo   3975.00   degree
+photo_cycle   11.00   cycle
+hall_section   2.00
+theta_hall   3975.00   degree
+hall_cycle   11.00   cycle
+photo_section   1.00
+theta_photo   4005.00   degree
+photo_cycle   12.00   cycle
+photo_section   2.00
+theta_photo   4035.00   degree
+photo_cycle   12.00   cycle
+photo_section   3.00
+theta_photo   4065.00   degree
+photo_cycle   12.00   cycle
+photo_section   4.00
+theta_photo   4095.00   degree
+photo_cycle   12.00   cycle
+photo_section   5.00
+theta_photo   4125.00   degree
+photo_cycle   12.00   cycle
+photo_section   6.00
+theta_photo   4155.00   degree
+photo_cycle   12.00   cycle
+hall_section   1.00
+theta_hall   4155.00   degree
+hall_cycle   12.00   cycle
+photo_section   7.00
+theta_photo   4185.00   degree
+photo_cycle   12.00   cycle
+photo_section   8.00
+theta_photo   4215.00   degree
+photo_cycle   12.00   cycle
+photo_section   9.00
+theta_photo   4245.00   degree
+photo_cycle   12.00   cycle
+photo_section   10.00
+theta_photo   4275.00   degree
+photo_cycle   12.00   cycle
+photo_section   11.00
+theta_photo   4305.00   degree
+photo_cycle   12.00   cycle
+photo_section   12.00
+theta_photo   4335.00   degree
+photo_cycle   12.00   cycle
+hall_section   2.00
+theta_hall   4335.00   degree
+hall_cycle   12.00   cycle
+photo_section   1.00
+theta_photo   4365.00   degree
+photo_cycle   13.00   cycle
+photo_section   2.00
+theta_photo   4395.00   degree
+photo_cycle   13.00   cycle
+photo_section   3.00
+theta_photo   4425.00   degree
+photo_cycle   13.00   cycle
+photo_section   4.00
+theta_photo   4455.00   degree
+photo_cycle   13.00   cycle
+photo_section   5.00
+theta_photo   4485.00   degree
+photo_cycle   13.00   cycle
+photo_section   6.00
+theta_photo   4515.00   degree
+photo_cycle   13.00   cycle
+hall_section   1.00
+theta_hall   4515.00   degree
+hall_cycle   13.00   cycle
+photo_section   7.00
+theta_photo   4545.00   degree
+photo_cycle   13.00   cycle
+photo_section   8.00
+theta_photo   4575.00   degree
+photo_cycle   13.00   cycle
+photo_section   9.00
+theta_photo   4605.00   degree
+photo_cycle   13.00   cycle
+photo_section   10.00
+theta_photo   4635.00   degree
+photo_cycle   13.00   cycle
+photo_section   11.00
+theta_photo   4665.00   degree
+photo_cycle   13.00   cycle
+photo_section   12.00
+theta_photo   4695.00   degree
+photo_cycle   13.00   cycle
+hall_section   2.00
+theta_hall   4695.00   degree
+hall_cycle   13.00   cycle
+photo_section   1.00
+theta_photo   4725.00   degree
+photo_cycle   14.00   cycle
+photo_section   2.00
+theta_photo   4755.00   degree
+photo_cycle   14.00   cycle
+photo_section   3.00
+theta_photo   4785.00   degree
+photo_cycle   14.00   cycle
+photo_section   4.00
+theta_photo   4815.00   degree
+photo_cycle   14.00   cycle
+photo_section   5.00
+theta_photo   4845.00   degree
+photo_cycle   14.00   cycle
+photo_section   6.00
+theta_photo   4875.00   degree
+photo_cycle   14.00   cycle
+hall_section   1.00
+theta_hall   4875.00   degree
+hall_cycle   14.00   cycle
+photo_section   7.00
+theta_photo   4905.00   degree
+photo_cycle   14.00   cycle
+photo_section   8.00
+theta_photo   4935.00   degree
+photo_cycle   14.00   cycle
+photo_section   9.00
+theta_photo   4965.00   degree
+photo_cycle   14.00   cycle
+photo_section   10.00
+theta_photo   4995.00   degree
+photo_cycle   14.00   cycle
+photo_section   11.00
+theta_photo   5025.00   degree
+photo_cycle   14.00   cycle
+photo_section   12.00
+theta_photo   5055.00   degree
+photo_cycle   14.00   cycle
+hall_section   2.00
+theta_hall   5055.00   degree
+hall_cycle   14.00   cycle
+photo_section   1.00
+theta_photo   5085.00   degree
+photo_cycle   15.00   cycle
+photo_section   2.00
+theta_photo   5115.00   degree
+photo_cycle   15.00   cycle
+photo_section   3.00
+theta_photo   5145.00   degree
+photo_cycle   15.00   cycle
+photo_section   4.00
+theta_photo   5175.00   degree
+photo_cycle   15.00   cycle
+photo_section   5.00
+theta_photo   5205.00   degree
+photo_cycle   15.00   cycle
+photo_section   6.00
+theta_photo   5235.00   degree
+photo_cycle   15.00   cycle
+hall_section   1.00
+theta_hall   5235.00   degree
+hall_cycle   15.00   cycle
+photo_section   7.00
+theta_photo   5265.00   degree
+photo_cycle   15.00   cycle
+photo_section   8.00
+theta_photo   5295.00   degree
+photo_cycle   15.00   cycle
+photo_section   9.00
+theta_photo   5325.00   degree
+photo_cycle   15.00   cycle

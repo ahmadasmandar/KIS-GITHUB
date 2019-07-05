@@ -1,0 +1,1010 @@
+time_delta_photo   109.00  ms
+angular_acceleration   -2.71  rad/s2
+angular_speed   4.63  rad/s
+time_correction_value   0.00  ms
+angel_15_cphoto_section   5.00
+theta_photo   4485.00   degree
+photo_cycrrection   56.00  ms
+time_rest_to_null_test   381.00  ms
+time_total_photo_test   3422.00  ms
+photo section   9.00
+hold_position  9.00
+hold_position_test  1.00
+time_total_photo normal   1356.00  ms
+time_rest_to_null normal   339.00  ms
+photo_section   6.00
+theta_photo   4515.00   degree
+photo_cycle   13.00   cycle
+hall_section   1.00
+theta_hall   4515.00   degree
+hall_cycle   13.00   cycle
+photo_section   7.00
+theta_photo   4545.00   degree
+photo_cycle   13.00   cycle
+photo_section   8.00
+theta_photo   4575.00   degree
+photo_cycle   13.00   cycle
+photo_section   9.00
+theta_photo   4605.00   degree
+photo_cycle   13.00   cycle
+photo_section   10.00
+theta_photo   4635.00   degree
+photo_cycle   13.00   cycle
+photo_section   11.00
+theta_photo   4665.00   degree
+photo_cycle   13.00   cycle
+photo_section   12.00
+theta_photo   4695.00   degree
+photo_cycle   13.00   cycle
+hall_section   2.00
+theta_hall   4695.00   degree
+hall_cycle   13.00   cycle
+photo_section   1.00
+theta_photo   4725.00   degree
+photo_cycle   14.00   cycle
+photo_section   2.00
+theta_photo   4755.00   degree
+photo_cycle   14.00   cycle
+photo_section   3.00
+theta_photo   4785.00   degree
+photo_cycle   14.00   cycle
+photo_section   4.00
+theta_photo   4815.00   degree
+photo_cycle   14.00   cycle
+photo_section   5.00
+theta_photo   4845.00   degree
+photo_cycle   14.00   cycle
+photo_section   6.00
+theta_photo   4875.00   degree
+photo_cycle   14.00   cycle
+hall_section   1.00
+theta_hall   4875.00   degree
+hall_cycle   14.00   cycle
+photo_section   7.00
+theta_photo   4905.00   degree
+photo_cycle   14.00   cycle
+photo_section   8.00
+theta_photo   4935.00   degree
+photo_cycle   14.00   cycle
+photo_section   9.00
+theta_photo   4965.00   degree
+photo_cycle   14.00   cycle
+ trigger pressed 1
+photo_section   10.00
+theta_photo   4995.00   degree
+photo_cycle   14.00   cycle
+target theta from shhot  : 87.96
+photo_section from shhot  : 10
+hold_theta_photo from shhot  : 4995
+speed is under 12 rad/s
+a  -1.64
+b  4.76
+c  0.00
+ the time soluation x2  2.91
+speed is under 12 rad/s
+a  -1.64
+b  4.76
+c  -1.05
+ the time soluation x1  0.24photo_section   11.00
+theta_photo   5025.00   degree
+photo_cycle   14.00   cycle
+
+photo_section   12.00
+theta_photo   5055.00   degree
+photo_cycle   14.00   cycle
+hall_section   2.00
+theta_hall   5055.00   degree
+hall_cycle   14.00   cycle
+photo_section   1.00
+theta_photo   5085.00   degree
+photo_cycle   15.00   cycle
+photo_section   2.00
+theta_photo   5115.00   degree
+photo_cycle   15.00   cycle
+photo_section   3.00
+theta_photo   5145.00   degree
+photo_cycle   15.00   cycle
+photo_section   4.00
+theta_photo   5175.00   degree
+photo_cycle   15.00   cycle
+photo_section   5.00
+theta_photo   5205.00   degree
+photo_cycle   15.00   cycle
+photo_section   6.00
+theta_photo   5235.00   degree
+photo_cycle   15.00   cycle
+hall_section   1.00
+theta_hall   5235.00   degree
+hall_cycle   15.00   cycle
+photo_section   7.00
+theta_photo   5265.00   degree
+photo_cycle   15.00   cycle
+photo_section   8.00
+theta_photo   5295.00   degree
+photo_cycle   15.00   cycle
+photo_section   9.00
+theta_photo   5325.00   degree
+photo_cycle   15.00   cycle
+photo_section   10.00
+theta_photo   5355.00   degree
+photo_cycle   15.00   cycle
+photo_section   11.00
+theta_photo   5385.00   degree
+photo_cycle   15.00   cycle
+photo_section   12.00
+theta_photo   5415.00   degree
+photo_cycle   15.00   cycle
+hall_section   2.00
+theta_hall   5415.00   degree
+hall_cycle   15.00   cycle
+photo_section   1.00
+theta_photo   5445.00   degree
+photo_cycle   16.00   cycle
+photo_section   2.00
+theta_photo   5475.00   degree
+photo_cycle   16.00   cycle
+photo_section   3.00
+theta_photo   5505.00   degree
+photo_cycle   16.00   cycle
+photo_section   4.00
+theta_photo   5535.00   degree
+photo_cycle   16.00   cycle
+photo_section   5.00
+theta_photo   5565.00   degree
+photo_cycle   16.00   cycle
+photo_section   6.00
+theta_photo   5595.00   degree
+photo_cycle   16.00   cycle
+hall_section   1.00
+theta_hall   5595.00   degree
+hall_cycle   16.00   cycle
+photo_section   7.00
+theta_photo   5625.00   degree
+photo_cycle   16.00   cycle
+photo_section   8.00
+theta_photo   5655.00   degree
+photo_cycle   16.00   cycle
+photo_section   9.00
+theta_photo   5685.00   degree
+photo_cycle   16.00   cycle
+target_time  446.00  ms
+ total if delay time is   2483.00  ms
+rest -if window   110.00  ms
+time_delta_photo   120.00  ms
+angular_acceleration   -3.27  rad/s2
+angular_speed   4.76  rad/s
+time_correction_value   109.00  ms
+angel_15_correction   55.00  ms
+time_rest_to_null_test   239.00  ms
+time_total_photo_tesphoto_section   10.00
+theta_photo   5715.00   degree
+photo_cy   2908.00  ms
+photo section   11.00
+hold_position  10.00
+hold_position_test  1.00
+time_total_photo normal   1320.00  ms
+time_rest_to_null normal   220.00  ms
+photo_section   11.00
+theta_photo   5745.00   degree
+photo_cycle   16.00   cycle
+photo_section   12.00
+theta_photo   5775.00   degree
+photo_cycle   16.00   cycle
+hall_section   2.00
+theta_hall   5775.00   degree
+hall_cycle   16.00   cycle
+photo_section   1.00
+theta_photo   5805.00   degree
+photo_cycle   17.00   cycle
+photo_section   2.00
+theta_photo   5835.00   degree
+photo_cycle   17.00   cycle
+photo_section   3.00
+theta_photo   5865.00   degree
+photo_cycle   17.00   cycle
+photo_section   4.00
+theta_photo   5895.00   degree
+photo_cycle   17.00   cycle
+photo_section   5.00
+theta_photo   5925.00   degree
+photo_cycle   17.00   cycle
+photo_section   6.00
+theta_photo   5955.00   degree
+photo_cycle   17.00   cycle
+hall_section   1.00
+theta_hall   5955.00   degree
+hall_cycle   17.00   cycle
+photo_section   7.00
+theta_photo   5985.00   degree
+photo_cycle   17.00   cycle
+photo_section   8.00
+theta_photo   6015.00   degree
+photo_cycle   17.00   cycle
+photo_section   9.00
+theta_photo   6045.00   degree
+photo_cycle   17.00   cycle
+photo_section   10.00
+theta_photo   6075.00   degree
+photo_cycle   17.00   cycle
+photo_section   11.00
+theta_photo   6105.00   degree
+photo_cycle   17.00   cycle
+photo_section   12.00
+theta_photo   6135.00   degree
+photo_cycle   17.00   cycle
+hall_section   2.00
+theta_hall   6135.00   degree
+hall_cycle   17.00   cycle
+photo_section   1.00
+theta_photo   6165.00   degree
+photo_cycle   18.00   cycle
+photo_section   2.00
+theta_photo   6195.00   degree
+photo_cycle   18.00   cycle
+photo_section   3.00
+theta_photo   6225.00   degree
+photo_cycle   18.00   cycle
+photo_section   4.00
+theta_photo   6255.00   degree
+photo_cycle   18.00   cycle
+photo_section   5.00
+theta_photo   6285.00   degree
+photo_cycle   18.00   cycle
+photo_section   6.00
+theta_photo   6315.00   degree
+photo_cycle   18.00   cycle
+hall_section   1.00
+theta_hall   6315.00   degree
+hall_cycle   18.00   cycle
+photo_section   7.00
+theta_photo   6345.00   degree
+photo_cycle   18.00   cycle
+photo_section   8.00
+theta_photo   6375.00   degree
+photo_cycle   18.00   cycle
+photo_section   9.00
+theta_photo   6405.00   degree
+photo_cycle   18.00   cycle
+photo_section   10.00
+theta_photo   6435.00   degree
+photo_cycle   18.00   cycle
+photo_section   11.00
+theta_photo   6465.00   degree
+photo_cycle   18.00   cycle
+photo_section   12.00
+theta_photo   6495.00   degree
+photo_cycle   18.00   cycle
+ trigger pressed 1 hall_section   2.00
+theta_hall   6495.00   degree
+hall_cycle   18.00   cycle
+
+photo_section   1.00
+theta_photo   6525.00   degree
+photo_cycle   19.00   cycle
+target theta from shhot  : 119.38
+photo_section from shhot  : 1
+hold_theta_photo from shhot  : 6525
+speed is under 12 rad/s
+a  -0.81
+b  4.40
+c  0.00
+ the time soluation x2  5.43
+speed is under 12 rad/s
+a  -0.81
+b  4.40
+c  -5.76
+ the time soluation x1  2.20
+photo_section   2.00
+theta_photo   6555.00   degree
+photo_cycle   19.00   cycle
+photo_section   3.00
+theta_photo   6585.00   degree
+photo_cycle   19.00   cycle
+photo_section   4.00
+theta_photo   6615.00   degree
+photo_cycle   19.00   cycle
+photo_section   5.00
+theta_photo   6645.00   degree
+photo_cycle   19.00   cycle
+photo_section   6.00
+theta_photo   6675.00   degree
+photo_cycle   19.00   cycle
+hall_section   1.00
+theta_hall   6675.00   degree
+hall_cycle   19.00   cycle
+photo_section   7.00
+theta_photo   6705.00   degree
+photo_cycle   19.00   cycle
+photo_section   8.00
+theta_photo   6735.00   degree
+photo_cycle   19.00   cycle
+photo_section   9.00
+theta_photo   6765.00   degree
+photo_cycle   19.00   cycle
+photo_section   10.00
+theta_photo   6795.00   degree
+photo_cycle   19.00   cycle
+photo_section   11.00
+theta_photo   6825.00   degree
+photo_cycle   19.00   cycle
+photo_section   12.00
+theta_photo   6855.00   degree
+photo_cycle   19.00   cycle
+hall_section   2.00
+theta_hall   6855.00   degree
+hall_cycle   19.00   cycle
+photo_section   1.00
+theta_photo   6885.00   degree
+photo_cycle   20.00   cycle
+photo_section   2.00
+theta_photo   6915.00   degree
+photo_cycle   20.00   cycle
+photo_section   3.00
+theta_photo   6945.00   degree
+photo_cycle   20.00   cycle
+photo_section   4.00
+theta_photo   6975.00   degree
+photo_cycle   20.00   cycle
+photo_section   5.00
+theta_photo   7005.00   degree
+photo_cycle   20.00   cycle
+target_time  450.00  ms
+rest -if delay time is   1754.00  ms
+rest -if window   119.00  ms
+time_delta_photo   125.00  ms
+angular_acceleration   -1.62  rad/s2
+angular_speed   4.40  rad/s
+time_correction_value   0.00  ms
+angel_15_correction   59.00  ms
+time_rest_to_null_test   2204.00  ms
+time_total_photo_test   5426.00  ms
+photo section   1.00
+hold_position  1.00
+hold_position_test  0.00
+time_total_photo normal   1428.00  ms
+time_rest_to_null normal   1309.00  ms
+photo_section   6.00
+theta_photo   7035.00   degree
+photo_cycle   20.00   cycle
+hall_section   1.00
+theta_hall   7035.00   degree
+hall_cycle   20.00   cycle
+photo_section   7.00
+theta_photo   7065.00   degree
+photo_cycle   20.00   cycle
+photo_section   8.00
+theta_photo   7095.00   degree
+photo_cycle   20.00   cycle
+photo_section   9.00
+theta_photo   7125.00   degree
+photo_cycle   20.00   cycle
+photo_section   10.00
+theta_photo   7155.00   degree
+photo_cycle   20.00   cycle
+photo_section   11.00
+theta_photo   7185.00   degree
+photo_cycle   20.00   cycle
+photo_section   12.00
+theta_photo   7215.00   degree
+photo_cycle   20.00   cycle
+hall_section   2.00
+theta_hall   7215.00   degree
+hall_cycle   20.00   cycle
+photo_section   1.00
+theta_photo   7245.00   degree
+photo_cycle   21.00   cycle
+photo_section   2.00
+theta_photo   7275.00   degree
+photo_cycle   21.00   cycle
+photo_section   3.00
+theta_photo   7305.00   degree
+photo_cycle   21.00   cycle
+photo_section   4.00
+theta_photo   7335.00   degree
+photo_cycle   21.00   cycle
+photo_section   5.00
+theta_photo   7365.00   degree
+photo_cycle   21.00   cycle
+photo_section   6.00
+theta_photo   7395.00   degree
+photo_cycle   21.00   cycle
+hall_section   1.00
+theta_hall   7395.00   degree
+hall_cycle   21.00   cycle
+photo_section   7.00
+theta_photo   7425.00   degree
+photo_cycle   21.00   cycle
+photo_section   8.00
+theta_photo   7455.00   degree
+photo_cycle   21.00   cycle
+photo_section   9.00
+theta_photo   7485.00   degree
+photo_cycle   21.00   cycle
+photo_section   10.00
+theta_photo   7515.00   degree
+photo_cycle   21.00   cycle
+photo_section   11.00
+theta_photo   7545.00   degree
+photo_cycle   21.00   cycle
+photo_section   12.00
+theta_photo   7575.00   degree
+photo_cycle   21.00   cycle
+hall_section   2.00
+theta_hall   7575.00   degree
+hall_cycle   21.00   cycle
+photo_section   1.00
+theta_photo   7605.00   degree
+photo_cycle   22.00   cycle
+photo_section   2.00
+theta_photo   7635.00   degree
+photo_cycle   22.00   cycle
+photo_section   3.00
+theta_photo   7665.00   degree
+photo_cycle   22.00   cycle
+photo_section   4.00
+theta_photo   7695.00   degree
+photo_cycle   22.00   cycle
+photo_section   5.00
+theta_photo   7725.00   degree
+photo_cycle   22.00   cycle
+photo_section   6.00
+theta_photo   7755.00   degree
+photo_cycle   22.00   cycle
+hall_section   1.00
+theta_hall   7755.00   degree
+hall_cycle   22.00   cycle
+photo_section   7.00
+theta_photo   7785.00   degree
+photo_cycle   22.00   cycle
+photo_section   8.00
+theta_photo   7815.00   degree
+photo_cycle   22.00   cycle
+photo_section   9.00
+theta_photo   7845.00   degree
+photo_cycle   22.00   cycle
+photo_section   10.00
+theta_photo   7875.00   degree
+photo_cycle   22.00   cycle
+photo_section   11.00
+theta_photo   7905.00   degree
+photo_cycle   22.00   cycle
+photo_section   12.00
+theta_photo   7935.00   degree
+photo_cycle   22.00   cycle
+hall_section   2.00
+theta_hall   7935.00   degree
+hall_cycle   22.00   cycle
+ trigger pressed 1
+photo_section   1.00
+theta_photo   7965.00   degree
+photo_cycle   23.00   cycle
+target theta from shhot  : 144.51
+photo_section from shhot  : 1
+hold_theta_photo from shhot  : 7965
+speed is under 12 rad/s
+a  -0.97
+b  4.16
+c  0.00
+ the time soluation x2  4.28
+speed is under 12 rad/s
+a  -0.97
+b  4.16
+c  -5.76
+ c=2*PI-c1 cx  0.52
+ the alternative soluphoto_section   2.00
+theta_photo   7995.00   degree
+photo_cyction c/b   1.39
+ c  5.76
+ b  4.16
+photo_section   3.00
+theta_photo   8025.00   degree
+photo_cycle   23.00   cycle
+photo_section   4.00
+theta_photo   8055.00   degree
+photo_cycle   23.00   cycle
+photo_section   5.00
+theta_photo   8085.00   degree
+photo_cycle   23.00   cycle
+photo_section   6.00
+theta_photo   8115.00   degree
+photo_cycle   23.00   cycle
+hall_section   1.00
+theta_hall   8115.00   degree
+hall_cycle   23.00   cycle
+photo_section   7.00
+theta_photo   8145.00   degree
+photo_cycle   23.00   cycle
+photo_section   8.00
+theta_photo   8175.00   degree
+photo_cycle   23.00   cycle
+photo_section   9.00
+theta_photo   8205.00   degree
+photo_cycle   23.00   cycle
+target_time  454.00  ms
+rest -if delay time is   806.00  ms
+rest -if window   126.00  ms
+time_delta_photo   129.00  ms
+angular_acceleration   -1.94  rad/s2
+angular_speed   4.16  rad/s
+time_correction_value   125.00  ms
+angel_15_correction   63.00  ms
+time_rest_to_null_test   1385.00  ms
+time_total_photo_test   4284.00  ms
+photo section   2.00
+hold_position  1.00
+hold_position_test  0.00
+time_total_photo normal   1512.00  ms
+timephoto_section   10.00
+theta_photo   8235.00   degree
+photo_cyrest_to_null normal   1386.00  ms
+photo_section   11.00
+theta_photo   8265.00   degree
+photo_cycle   23.00   cycle
+photo_section   12.00
+theta_photo   8295.00   degree
+photo_cycle   23.00   cycle
+hall_section   2.00
+theta_hall   8295.00   degree
+hall_cycle   23.00   cycle
+photo_section   1.00
+theta_photo   8325.00   degree
+photo_cycle   24.00   cycle
+photo_section   2.00
+theta_photo   8355.00   degree
+photo_cycle   24.00   cycle
+photo_section   3.00
+theta_photo   8385.00   degree
+photo_cycle   24.00   cycle
+photo_section   4.00
+theta_photo   8415.00   degree
+photo_cycle   24.00   cycle
+photo_section   5.00
+theta_photo   8445.00   degree
+photo_cycle   24.00   cycle
+photo_section   6.00
+theta_photo   8475.00   degree
+photo_cycle   24.00   cycle
+hall_section   1.00
+theta_hall   8475.00   degree
+hall_cycle   24.00   cycle
+photo_section   7.00
+theta_photo   8505.00   degree
+photo_cycle   24.00   cycle
+photo_section   8.00
+theta_photo   8535.00   degree
+photo_cycle   24.00   cycle
+photo_section   9.00
+theta_photo   8565.00   degree
+photo_cycle   24.00   cycle
+photo_section   10.00
+theta_photo   8595.00   degree
+photo_cycle   24.00   cycle
+photo_section   11.00
+theta_photo   8625.00   degree
+photo_cycle   24.00   cycle
+photo_section   12.00
+theta_photo   8655.00   degree
+photo_cycle   24.00   cycle
+hall_section   2.00
+theta_hall   8655.00   degree
+hall_cycle   24.00   cycle
+photo_section   1.00
+theta_photo   8685.00   degree
+photo_cycle   25.00   cycle
+photo_section   2.00
+theta_photo   8715.00   degree
+photo_cycle   25.00   cycle
+photo_section   3.00
+theta_photo   8745.00   degree
+photo_cycle   25.00   cycle
+photo_section   4.00
+theta_photo   8775.00   degree
+photo_cycle   25.00   cycle
+photo_section   5.00
+theta_photo   8805.00   degree
+photo_cycle   25.00   cycle
+photo_section   6.00
+theta_photo   8835.00   degree
+photo_cycle   25.00   cycle
+hall_section   1.00
+theta_hall   8835.00   degree
+hall_cycle   25.00   cycle
+photo_section   7.00
+theta_photo   8865.00   degree
+photo_cycle   25.00   cycle
+photo_section   8.00
+theta_photo   8895.00   degree
+photo_cycle   25.00   cycle
+photo_section   9.00
+theta_photo   8925.00   degree
+photo_cycle   25.00   cycle
+photo_section   10.00
+theta_photo   8955.00   degree
+photo_cycle   25.00   cycle
+ trigger pressed 1
+photo_section   11.00
+theta_photo   8985.00   degree
+photo_cycle   25.00   cycle
+target theta from shhot  : 157.08
+photo_section from shhot  : 11
+hold_theta_photo from shhot  : 8985
+speed is under 12 rad/s
+a  -1.37photo_section   12.00
+theta_photo   9015.00   degree
+photo_cycle   25.00   cycle
+
+b  3.97
+c  0.00
+ the time soluation x2  2.90
+speed is under 12 rad/s
+a  -1.37
+b  3.97
+c  -0.52
+ the time soluation x1  0.14
+hall_section   2.00
+theta_hall   9015.00   degree
+hall_cycle   25.00   cycle
+photo_section   1.00
+theta_photo   9045.00   degree
+photo_cycle   26.00   cycle
+photo_section   2.00
+theta_photo   9075.00   degree
+photo_cycle   26.00   cycle
+photo_section   3.00
+theta_photo   9105.00   degree
+photo_cycle   26.00   cycle
+photo_section   4.00
+theta_photo   9135.00   degree
+photo_cycle   26.00   cycle
+photo_section   5.00
+theta_photo   9165.00   degree
+photo_cycle   26.00   cycle
+photo_section   6.00
+theta_photo   9195.00   degree
+photo_cycle   26.00   cycle
+hall_section   1.00
+theta_hall   9195.00   degree
+hall_cycle   26.00   cycle
+photo_section   7.00
+theta_photo   9225.00   degree
+photo_cycle   26.00   cycle
+photo_section   8.00
+theta_photo   9255.00   degree
+photo_cycle   26.00   cycle
+photo_section   9.00
+theta_photo   9285.00   degree
+photo_cycle   26.00   cycle
+photo_section   10.00
+theta_photo   9315.00   degree
+photo_cycle   26.00   cycle
+photo_section   11.00
+theta_photo   9345.00   degree
+photo_cycle   26.00   cycle
+photo_section   12.00
+theta_photo   9375.00   degree
+photo_cycle   26.00   cycle
+hall_section   2.00
+theta_hall   9375.00   degree
+hall_cycle   26.00   cycle
+photo_section   1.00
+theta_photo   9405.00   degree
+photo_cycle   27.00   cycle
+photo_section   2.00
+theta_photo   9435.00   degree
+photo_cycle   27.00   cycle
+photo_section   3.00
+theta_photo   9465.00   degree
+photo_cycle   27.00   cycle
+photo_section   4.00
+theta_photo   9495.00   degree
+photo_cycle   27.00   cycle
+photo_section   5.00
+theta_photo   9525.00   degree
+photo_cycle   27.00   cycle
+photo_section   6.00
+theta_photo   9555.00   degree
+photo_cycle   27.00   cycle
+hall_section   1.00
+theta_hall   9555.00   degree
+hall_cycle   27.00   cycle
+photo_section   7.00
+theta_photo   9585.00   degree
+photo_cycle   27.00   cycle
+target_time  457.00  ms
+ total if delay time is   2321.00  ms
+rest -if window   132.00  ms
+time_delta_photo   131.00  ms
+angular_acceleration   -2.73  rad/s2
+angular_speed   3.97  rad/s
+time_correction_value   132.00  ms
+angel_15_correction   66.00  ms
+time_rest_to_null_test   138.00  ms
+time_total_photo_test   2904.00  ms
+photo section   0.00
+hold_position  11.00
+hold_position_test  1.00
+time_total_photo normal   1584.00  ms
+time_rest_to_null normal   132.00  ms
+photo_section   8.00
+theta_photo   9615.00   degree
+photo_cycle   27.00   cycle
+photo_section   9.00
+theta_photo   9645.00   degree
+photo_cycle   27.00   cycle
+photo_section   10.00
+theta_photo   9675.00   degree
+photo_cycle   27.00   cycle
+photo_section   11.00
+theta_photo   9705.00   degree
+photo_cycle   27.00   cycle
+photo_section   12.00
+theta_photo   9735.00   degree
+photo_cycle   27.00   cycle
+hall_section   2.00
+theta_hall   9735.00   degree
+hall_cycle   27.00   cycle
+photo_section   1.00
+theta_photo   9765.00   degree
+photo_cycle   28.00   cycle
+photo_section   2.00
+theta_photo   9795.00   degree
+photo_cycle   28.00   cycle
+photo_section   3.00
+theta_photo   9825.00   degree
+photo_cycle   28.00   cycle
+photo_section   4.00
+theta_photo   9855.00   degree
+photo_cycle   28.00   cycle
+photo_section   5.00
+theta_photo   9885.00   degree
+photo_cycle   28.00   cycle
+photo_section   6.00
+theta_photo   9915.00   degree
+photo_cycle   28.00   cycle
+hall_section   1.00
+theta_hall   9915.00   degree
+hall_cycle   28.00   cycle
+photo_section   7.00
+theta_photo   9945.00   degree
+photo_cycle   28.00   cycle
+photo_section   8.00
+theta_photo   9975.00   degree
+photo_cycle   28.00   cycle
+photo_section   9.00
+theta_photo   10005.00   degree
+photo_cycle   28.00   cycle
+photo_section   10.00
+theta_photo   10035.00   degree
+photo_cycle   28.00   cycle
+photo_section   11.00
+theta_photo   10065.00   degree
+photo_cycle   28.00   cycle
+photo_section   12.00
+theta_photo   10095.00   degree
+photo_cycle   28.00   cycle
+hall_section   2.00
+theta_hall   10095.00   degree
+hall_cycle   28.00   cycle
+photo_section   1.00
+theta_photo   10125.00   degree
+photo_cycle   29.00   cycle
+photo_section   2.00
+theta_photo   10155.00   degree
+photo_cycle   29.00   cycle
+photo_section   3.00
+theta_photo   10185.00   degree
+photo_cycle   29.00   cycle
+photo_section   4.00
+theta_photo   10215.00   degree
+photo_cycle   29.00   cycle
+photo_section   5.00
+theta_photo   10245.00   degree
+photo_cycle   29.00   cycle
+photo_section   6.00
+theta_photo   10275.00   degree
+photo_cycle   29.00   cycle
+hall_section   1.00
+theta_hall   10275.00   degree
+hall_cycle   29.00   cycle
+photo_section   7.00
+theta_photo   10305.00   degree
+photo_cycle   29.00   cycle
+photo_section   8.00
+theta_photo   10335.00   degree
+photo_cycle   29.00   cycle
+photo_section   9.00
+theta_photo   10365.00   degree
+photo_cycle   29.00   cycle
+photo_section   10.00
+theta_photo   10395.00   degree
+photo_cycle   29.00   cycle
+photo_section   11.00
+theta_photo   10425.00   degree
+photo_cycle   29.00   cycle
+photo_section   12.00
+theta_photo   10455.00   degree
+photo_cycle   29.00   cycle
+ trigger pressed 1
+hall_section   2.00
+theta_hall   10455.00   degree
+hall_cycle   29.00   cycle
+photo_section   1.00
+theta_photo   10485.00   degree
+photo_cycle   30.00   cycle
+target theta from shhot  : 188.50
+photo_section from shhot  : 1
+hold_theta_photo from shhot  : 10485
+speed is under 12 rad/s
+a  -0.87
+b  3.82
+c  0.00
+ the time soluation x2  4.42
+speed is under 12 rad/s
+a  -0.87
+b  3.82
+c  -5.76
+ c=2*PI-c1 cx  0.52
+ the alternative soluation c/b   1.51
+ c  5.76
+ b  3.82
+photo_section   2.00
+theta_photo   10515.00   degree
+photo_cycle   30.00   cycle
+photo_section   3.00
+theta_photo   10545.00   degree
+photo_cycle   30.00   cycle
+photo_section   4.00
+theta_photo   10575.00   degree
+photo_cycle   30.00   cycle
+photo_section   5.00
+theta_photo   10605.00   degree
+photo_cycle   30.00   cycle
+photo_section   6.00
+theta_photo   10635.00   degree
+photo_cycle   30.00   cycle
+hall_section   1.00
+theta_hall   10635.00   degree
+hall_cycle   30.00   cycle
+photo_section   7.00
+theta_photo   10665.00   degree
+photo_cycle   30.00   cycle
+photo_section   8.00
+theta_photo   10695.00   degree
+photo_cycle   30.00   cycle
+photo_section   9.00
+theta_photo   10725.00   degree
+photo_cycle   30.00   cycle
+photo_section   10.00
+theta_photo   10755.00   degree
+photo_cycle   30.00   cycle
+target_time  459.00  ms
+rest -if delay time is   1048.00  ms
+rest -if window   137.00  ms
+time_delta_photo   129.00  ms
+angular_acceleration   -1.73  rad/s2
+angular_speed   3.82  rad/s
+time_correction_value   0.00  ms
+angel_15_correction   68.00  ms
+time_rest_to_null_test   1507.00  ms
+time_total_photo_test   4418.00  ms
+photo section   1.00
+hold_position  1.00
+hold_position_test  0.00
+time_total_photo normal   1644.00  ms
+time_rest_to_null normal   1507.00  ms
+photo_section   11.00
+theta_photo   10785.00   degree
+photo_cycle   30.00   cycle
+photo_section   12.00
+theta_photo   10815.00   degree
+photo_cycle   30.00   cycle
+hall_section   2.00
+theta_hall   10815.00   degree
+hall_cycle   30.00   cycle
+photo_section   1.00
+theta_photo   10845.00   degree
+photo_cycle   31.00   cycle
+photo_section   2.00
+theta_photo   10875.00   degree
+photo_cycle   31.00   cycle
+photo_section   3.00
+theta_photo   10905.00   degree
+photo_cycle   31.00   cycle
+photo_section   4.00
+theta_photo   10935.00   degree
+photo_cycle   31.00   cycle
+photo_section   5.00
+theta_photo   10965.00   degree
+photo_cycle   31.00   cycle
+photo_section   6.00
+theta_photo   10995.00   degree
+photo_cycle   31.00   cycle
+hall_section   1.00
+theta_hall   10995.00   degree
+hall_cycle   31.00   cycle
+photo_section   7.00
+theta_photo   11025.00   degree
+photo_cycle   31.00   cycle
+photo_section   8.00
+theta_photo   11055.00   degree
+photo_cycle   31.00   cycle
+photo_section   9.00
+theta_photo   11085.00   degree
+photo_cycle   31.00   cycle
+photo_section   10.00
+theta_photo   11115.00   degree
+photo_cycle   31.00   cycle
+photo_section   11.00
+theta_photo   11145.00   degree
+photo_cycle   31.00   cycle
+photo_section   12.00
+theta_photo   11175.00   degree
+photo_cycle   31.00   cycle
+hall_section   2.00
+theta_hall   11175.00   degree
+hall_cycle   31.00   cycle
+photo_section   1.00
+theta_photo   11205.00   degree
+photo_cycle   32.00   cycle
+photo_section   2.00
+theta_photo   11235.00   degree
+photo_cycle   32.00   cycle
+photo_section   3.00
+theta_photo   11265.00   degree
+photo_cycle   32.00   cycle
+photo_section   4.00
+theta_photo   11295.00   degree
+photo_cycle   32.00   cycle
+photo_section   5.00
+theta_photo   11325.00   degree
+photo_cycle   32.00   cycle
+photo_section   6.00
+theta_photo   11355.00   degree
+photo_cycle   32.00   cycle
+hall_section   1.00
+theta_hall   11355.00   degree
+hall_cycle   32.00   cycle
+photo_section   7.00
+theta_photo   11385.00   degree
+photo_cycle   32.00   cycle
+photo_section   8.00
+theta_photo   11415.00   degree
+photo_cycle   32.00   cycle
+photo_section   9.00
+theta_photo   11445.00   degree
+photo_cycle   32.00   cycle
+photo_section   10.00
+theta_photo   11475.00   degree
+photo_cycle   32.00   cycle
+photo_section   11.00
+theta_photo   11505.00   degree
+photo_cycle   32.00   cycle
+photo_section   12.00
+theta_photo   11535.00   degree
+photo_cycle   32.00   cycle
+hall_section   2.00
+theta_hall   11535.00   degree
+hall_cycle   32.00   cycle
+photo_section   1.00
+theta_photo   11565.00   degree
+photo_cycle   33.00   cycle
+photo_section   2.00
+theta_photo   11595.00   degree
+photo_cycle   33.00   cycle
+photo_section   3.00
+theta_photo   11625.00   degree
+photo_cycle   33.00   cycle
+photo_section   4.00
+theta_photo   11655.00   degree
+photo_cycle   33.00   cycle
+photo_section   5.00
+theta_photo   11685.00   degree
+photo_cycle   33.00   cycle
+photo_section   6.00
+theta_photo   11715.00   degree
+photo_cycle   33.00   cycle
+photo_section   7.00
+theta_photo   11745.00   degree
+photo_cycle   33.00   cycle
+photo_section   8.00
+theta_photo   11775.00   degree

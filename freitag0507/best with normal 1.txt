@@ -1,0 +1,135 @@
+> Executing task: C:\Users\Administrator\.platformio\penv\Scripts\platformio.exe device monitor <
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+ we are in the mode   3.00
+ we are in the mode   3.00
+ we are in the mode   3.00
+ we are in the mode   3.00
+ we are in the mode   3.00
+ we are in the mode   3.00
+1
+ we are in the mode   4.00
+ trigger pressed 1
+11
+speed is under 12 rad/s
+a  -4.23
+b  7.93
+c  0.00
+ the time soluation x2  1.87
+speed is under 12 rad/s
+a  -4.23
+b  7.93
+c  -6.28
+ c=2*PI-c1 cx  0.00
+ the alternative soluation c/b   0.79
+ c  6.28
+ b  7.93
+target_time  358.00  ms
+rest -if delay time is   434.00  ms
+rest -if window   66.00  ms
+time_delta_photo   66.00  ms
+angular_acceleration   -8.46  rad/s2
+angular_speed   7.93  rad/s
+time_correction_value   0.00  ms
+angel_15_correction   33.00  ms
+time_rest_to_null_test   792.00  ms
+time_total_photo_test   792.00  ms
+photo section   0.00
+hold_position  0.00
+hold_position_test  1.00
+speed is under 12 rad/s
+a  -4.79
+b  7.81
+c  0.00
+ the time soluation x2  1.63
+speed is under 12 rad/s
+a  -4.79
+b  7.81
+c  -1.05
+ the time soluation x1  0.15
+target_time  358.00  ms
+ total if delay time is   579.00  ms
+rest -if window   67.00  ms
+time_delta_photo   67.00  ms
+angular_acceleration   -9.59  rad/s2
+angular_speed   7.81  rad/s
+time_correction_value   0.00  ms
+angel_15_correction   33.00  ms
+time_rest_to_null_test   134.00  ms
+time_total_photo_test   803.00  ms
+photo section   10.00
+hold_position  10.00
+hold_position_test  1.00
+speed is under 12 rad/s
+a  -2.73
+b  7.08
+c  0.00
+ the time soluation x2  2.59
+speed is under 12 rad/s
+a  -2.73
+b  7.08
+c  -2.62
+ the time soluation x1  0.45
+target_time  354.00  ms
+ total if delay time is   756.00  ms
+rest -if window   74.00  ms
+time_delta_photo   75.00  ms
+angular_acceleration   -5.46  rad/s2
+angular_speed   7.08  rad/s
+time_correction_value   73.00  ms
+angel_15_correction   37.00  ms
+time_rest_to_null_test   369.00  ms
+time_total_photo_test   887.00  ms
+photo section   8.00
+hold_position  7.00
+hold_position_test  1.00
+speed is under 12 rad/s
+a  -3.07
+b  6.80
+c  0.00
+ the time soluation x2  2.22
+speed is under 12 rad/s
+a  -3.07
+b  6.80
+c  -3.67
+ the time soluation x1  0.92
+target_time  353.00  ms
+rest -if delay time is   186.00  ms
+rest -if window   77.00  ms
+time_delta_photo   78.00  ms
+angular_acceleration   -6.13  rad/s2
+angular_speed   6.80  rad/s
+time_correction_value   0.00  ms
+angel_15_correction   38.00  ms
+time_rest_to_null_test   539.00  ms
+time_total_photo_test   923.00  ms
+photo section   5.00
+hold_position  5.00
+hold_position_test  0.00
+speed is under 12 rad/s
+a  -3.59
+b  7.08
+c  0.00
+ the time soluation x2  1.97
+speed is under 12 rad/s
+a  -3.59
+b  7.08
+c  -4.19
+ c=2*PI-c1 cx  2.09
+ the alternative soluation c/b   0.59
+ c  4.19
+ b  7.08
+target_time  354.00  ms
+rest -if delay time is   164.00  ms
+rest -if window   74.00  ms
+time_delta_photo   74.00  ms
+angular_acceleration   -7.17  rad/s2
+angular_speed   7.08  rad/s
+time_correction_value   73.00  ms
+angel_15_correction   37.00  ms
+time_rest_to_null_test   591.00  ms
+time_total_photo_test   887.00  ms
+photo section   5.00
+hold_position  4.00
+hold_position_test  0.00

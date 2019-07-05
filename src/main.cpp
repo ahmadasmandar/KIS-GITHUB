@@ -119,7 +119,7 @@ void setup()
 void loop()
 {
   
-  
+  checkStartCondtions(hall_section,photo_section);
   /**What is probably happening is that the variables are being changed by 
    * the interrupt routines mid-way through the calculations.My 'fix' reduces 
    * the time spent doing the calculation with the volatile
@@ -129,6 +129,9 @@ void loop()
       using the cli() sei() functions;
    * ***/
 //TODO update the speed and acceleration function delete the array and work without it  
+//  Serial.print(theta_photo);
+//  Serial.print(" ");
+//  Serial.println(time_delta_photo);
  applyMode();
  readMode();
  //debugger_main.sPrint("first millis ",millis(),"ms");
@@ -136,15 +139,13 @@ void loop()
  {
     getAcceleration();
  }
-delay(500);
-
-
   //************************************************ the main part ******************************************************************
 
   if (digitalRead(hartz.trigger) == HIGH &&  millis() - press_delay_trigger > 300)
   {
     //********************
     Serial.println(" trigger pressed 1 ");
+    Serial.println(photo_section);
     
     switch (program_mode)
     {
@@ -232,7 +233,7 @@ delay(500);
             time_total_photo=1000*(6*PI/angular_speed);
           }
           time_used_to_calc=0;
-          shootMain(angular_speed,hold_position,photo_section,(time_total_photo_test-time_used_to_calc),time_rest_to_null_test-time_used_to_calc,hold_delta_photo_sensor);
+          shootMain(angular_speed,hold_position,photo_section,(time_total_photo-time_used_to_calc),time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
           debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
           debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
           // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
@@ -242,36 +243,31 @@ delay(500);
       for (int k=0;k<5;k++)
       {
           getAcceleration();
-          start_excu_time=millis();
-          Serial.println("we are in ");
-          Serial.println("time to print one line using Serial is ");
-          Serial.println(millis()-start_excu_time);
+          // start_excu_time=millis();
+          // Serial.println("we are in ");
+          // Serial.println("time to print one line using Serial is ");
+          // Serial.println(millis()-start_excu_time);
           //cli();
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
-
-          debugger_main.sPrint("hold_test_position",hold_test_position,"");
-          //sei();
-          print_timer_start=millis();
-          debugger_main.sPrint("end time take values interrupt",millis()-start_excu_time,"ms");
-          Serial.println("time to print one line using debugger is ");
-          Serial.println(millis()-print_timer_start);
           time_total_photo_test=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_test=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-          debugger_main.sPrint("end time solve equations ",millis()-start_excu_time,"ms");
           if (angular_speed<12)
           {   
-              time_rest_to_null=1000*((2*PI-(1+hold_position*(PI/6)))/angular_speed);
+              time_rest_to_null=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
               time_total_photo=1000*(2*PI/angular_speed);
-              Serial.println("speed is under 12 rad/s");
           }
-          else if (angular_speed>12)
+          else if (angular_speed>12 && angular_speed<25)
           {
-            time_rest_to_null=1000*((4*PI-(1+hold_position*(PI/6)))/angular_speed);
+            time_rest_to_null=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
             time_total_photo=1000*(4*PI/angular_speed);
-            Serial.println("speed is bigeer than 12 rad/s");
+          }
+          else if (angular_speed>25)
+          {
+            time_rest_to_null=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
+            time_total_photo=1000*(6*PI/angular_speed);
           }
           //time_used_to_calc=millis()-start_excu_time;
           time_used_to_calc=0;
@@ -370,12 +366,16 @@ void photo_sens_interrupt()
   theta_photo+=30;
   // photo_section = checkCounter(photo_section, 12);
    photo_section+=1;
+  //  Serial.print(theta_photo);
+  //  Serial.print("   ");
+  //  Serial.println(theta_photo);
+  //  debugger_main.sPrint("photo_section ",photo_section,"");
+  //   debugger_main.sPrint("theta_photo ",theta_photo," degree");
+  //   debugger_main.sPrint("photo_cycle ",photo_cycle," cycle");
   if (photo_section==12)
   {
     photo_section=0;
     photo_cycle+=1;
-    debugger_main.sPrint("theta_photo ",theta_photo," degree");
-    debugger_main.sPrint("photo_cycle ",photo_cycle," cycle");
   }
 }
 
@@ -386,12 +386,13 @@ void hall_sens_interrupt()
   hall_start = millis();
   hall_section+=1;
   theta_hall+=180;
+  // debugger_main.sPrint("hall_section ",hall_section,"");
+  // debugger_main.sPrint("theta_hall ",theta_hall," degree");
+  // debugger_main.sPrint("hall_cycle ",hall_cycle," cycle");
   if (hall_section==2)
   {
     hall_section=0;
     hall_cycle+=1;
-    debugger_main.sPrint("theta_hall ",theta_hall," degree");
-    debugger_main.sPrint("hall_cycle ",hall_cycle," cycle");
   }
 }
 
@@ -512,13 +513,15 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       {
         time_correction_value=0;
       }
-      
-      shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,rest_time-time_correction_value,delta_hoder,time_fall);
+      int angel_15_correction=1000*(15*PI/180)/ang_speed;
+      shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,
+      rest_time-time_correction_value,delta_hoder,time_fall);
       // shoot the ball using the calculated values 
       debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
       debugger_main.sPrint("angular_speed ",ang_speed,"rad/s");
       debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
+      debugger_main.sPrint("angel_15_correction ",angel_15_correction,"ms");
       debugger_main.sPrint("time_rest_to_null_test ",rest_time+time_used_to_calc,"ms");
       debugger_main.sPrint("time_total_photo_test ",total_time+time_used_to_calc,"ms");
       // debugger_main.sPrint("time_total_photo_test normal ",time_total_photo,"ms");

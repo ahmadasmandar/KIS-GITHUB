@@ -6,7 +6,7 @@ class Shoot
 private:
     /* data */
 public:
-    void fireBall(uint16_t delta_hoder,float time_resto,uint8_t section, float total_time , uint16_t window,uint16_t target_time);
+    void fireBall(float time_resto,uint8_t section, float total_time , uint16_t window,uint16_t target_time);
     void motorIntil();
     void shootManuel();
     void shootManuel_dropall();

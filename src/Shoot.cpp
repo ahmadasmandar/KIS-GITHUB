@@ -33,9 +33,9 @@ void Shoot::shootManuel()
   delay(500);
 }
 
-void Shoot::fireBall(uint16_t delta_hoder, float total_time, uint8_t section, float time_resto, uint16_t window, uint16_t target_time)
+void Shoot::fireBall( float total_time, uint8_t section, float time_resto, uint16_t window, uint16_t target_time)
 {
-
+  delay_time_shoot=0;
   if (time_resto > target_time && time_resto < 15000)
   {
     delay_time_shoot = time_resto - target_time;
@@ -47,11 +47,16 @@ void Shoot::fireBall(uint16_t delta_hoder, float total_time, uint8_t section, fl
       shhot_motor.write(end_angel);
       debugger_shoot.sPrint("target_time", target_time, "ms");
       debugger_shoot.sPrint("rest -if delay time is ", delay_time_shoot, "ms");
+      debugger_shoot.sPrint("rest -if time ", total_time, "ms");
+      debugger_shoot.sPrint("rest -if rest ", time_resto, "ms");
       debugger_shoot.sPrint("rest -if window ", window, "ms");
     }
     else
     {
       debugger_shoot.sPrint("rest time delay s big ", delay_time_shoot, "ms");
+      debugger_shoot.sPrint("rest -if time ", total_time, "ms");
+      debugger_shoot.sPrint("rest -if rest ", time_resto, "ms");
+      debugger_shoot.sPrint("rest -if window ", window, "ms");
     }
   }
   else if (total_time > target_time)
@@ -63,19 +68,32 @@ void Shoot::fireBall(uint16_t delta_hoder, float total_time, uint8_t section, fl
       shhot_motor.write(angel);
       delay(motor_delay);
       shhot_motor.write(end_angel);
+      int print_timer1=millis();
+      Serial.println("*****************totalr*******************");
       debugger_shoot.sPrint("target_time", target_time, "ms");
-      debugger_shoot.sPrint(" total if delay time is ", delay_time_shoot, "ms");
-      debugger_shoot.sPrint("rest -if window ", window, "ms");
+      debugger_shoot.sPrint("total if delay time is ", delay_time_shoot, "ms");
+      debugger_shoot.sPrint("total -if time ", total_time, "ms");
+      debugger_shoot.sPrint("total -if rest ", time_resto, "ms");
+      debugger_shoot.sPrint("total -if window ", window, "ms");
+      Serial.print("print timer 1 ");
+      Serial.println(millis()-print_timer1);
+      Serial.println("********************************************");
     }
     else
     {
       debugger_shoot.sPrint("target_time", target_time, "ms");
       debugger_shoot.sPrint("total time delay s big ", delay_time_shoot, "ms");
+      debugger_shoot.sPrint("total -if time ", total_time, "ms");
+      debugger_shoot.sPrint("total -if rest ", time_resto, "ms");
+      debugger_shoot.sPrint("total -if window ", window, "ms");
     }
   }
   else
   {
     debugger_shoot.sPrint("target_time", target_time, "ms");
     debugger_shoot.sPrint("there is error we couldn't shoot", 0, "");
+    debugger_shoot.sPrint("total -if time ", total_time, "ms");
+    debugger_shoot.sPrint("total -if rest ", time_resto, "ms");
+    debugger_shoot.sPrint("total -if window ", window, "ms");
   }
 }

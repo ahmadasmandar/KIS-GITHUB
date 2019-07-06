@@ -261,11 +261,9 @@ void loop()
             time_total_photo=1000*(6*PI/angular_speed);
           }
           time_used_to_calc=0;
-
           //*******************************
-
           //********************************
-          shootMain(angular_speed,hold_position,photo_section,(time_total_photo-time_used_to_calc),time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
+          shootMain(angular_speed,hold_position,photo_section,time_total_photo,time_rest_to_null-time_used_to_calc,hold_delta_photo_sensor);
           debugger_main.sPrint("time_total_photo normal ",time_total_photo,"ms");
           debugger_main.sPrint("time_rest_to_null normal ",time_rest_to_null,"ms");
           // debugger_main.sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
@@ -357,51 +355,6 @@ void loop()
 
 
 
-
-/****Choose Mode function****/
-uint8_t chooseMode()
-{
-  switch_input = digitalRead(hartz.switch_input);
-  if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_choose_mod > 500)
-  {
-    button1_vlaue = !button1_vlaue;
-    butt1_press_delay_choose_mod = millis();
-    Serial.println(button1_vlaue);
-    digitalWrite(hartz.led1, button1_vlaue);
-  }
-
-  if (switch_input == LOW)
-  {
-    digitalWrite(hartz.bboxled,LOW);
-    switch (button1_vlaue)
-    {
-    case LOW:
-      return (1);
-      break;
-    case HIGH:
-      return (2);
-      break;
-    }
-  }
-  else if (switch_input == HIGH)
-  {
-    digitalWrite(hartz.bboxled, HIGH);
-    switch (button1_vlaue)
-    {
-    case LOW:
-      return (3);
-      break;
-    case HIGH:
-      return (4);
-      break;
-    }
-  }
-  else
-  {
-    return (1);
-  }
-  return 0;
-}
 
 
 //************** PHOTO SENS INTERRUPT *********
@@ -565,34 +518,71 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
         time_correction_value=0;
       }
       int angel_15_correction=1000*(15*PI/180)/ang_speed;
-      int shoot_timer=millis();
-      shoot_main.fireBall(delta_hoder,total_time-time_correction_value,pos_holder,
-      rest_time-time_correction_value,delta_hoder,time_fall+angel_15_correction);
-      Serial.print(" motor timer  ");
-      Serial.println(millis()-shoot_timer);
+      int new_rest_time=rest_time+time_correction_value;
+      int new_timetarget=time_fall;
+      shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,new_timetarget);
 
-      // shoot the ball using the calculated values 
-  //   if (rest_time > time_fall+angel_15_correction)
-  // {
-  //   int delay_time_shoot = rest_time-time_fall-time_correction_value;
-  //   if (delay_time_shoot < 15000)
-  //   {
-  //     Serial.print(" motor timer  ");
-  //     Serial.println(millis()-shoot_timer);
-  //     delay(delay_time_shoot);
-  //     main_motor.write(20);
-  //     delay(100);
-  //     main_motor.write(0);
-  //   }
-  // }
-      debugger_main.sPrint("time_delta_photo ",time_delta_photo,"ms");
+      debugger_main.sPrint("*********** after shoot values ",1," ***********");
+      debugger_main.sPrint("time_delta_photo ",delta_hoder,"ms");
       debugger_main.sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
       debugger_main.sPrint("angular_speed ",ang_speed,"rad/s");
       debugger_main.sPrint("time_correction_value ",time_correction_value,"ms");
       debugger_main.sPrint("angel_15_correction ",angel_15_correction,"ms");
-      debugger_main.sPrint("time_rest_to_null_test ",rest_time+time_used_to_calc,"ms");
-      debugger_main.sPrint("time_total_photo_test ",total_time+time_used_to_calc,"ms");
-      debugger_main.sPrint("photo section ",current_section,"");
+      debugger_main.sPrint("*********** after shoot values ",2," ***********");
+      debugger_main.sPrint("time_rest_to_null_test ",rest_time,"ms");
+      debugger_main.sPrint("time_total_photo_test ",total_time,"ms");
       debugger_main.sPrint("hold_position",pos_holder,"");
-      debugger_main.sPrint("hold_position_test",hold_test_position,"");
+      debugger_main.sPrint("photo section ",current_section,"");
+      debugger_main.sPrint("check the other sensr value ",hold_test_position,"");
+      debugger_main.sPrint("*********** after shoot Ende ",0," ***********");
+}
+
+
+
+
+
+
+/****Choose Mode function****/
+uint8_t chooseMode()
+{
+  switch_input = digitalRead(hartz.switch_input);
+  if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_choose_mod > 500)
+  {
+    button1_vlaue = !button1_vlaue;
+    butt1_press_delay_choose_mod = millis();
+    Serial.println(button1_vlaue);
+    digitalWrite(hartz.led1, button1_vlaue);
+  }
+
+  if (switch_input == LOW)
+  {
+    digitalWrite(hartz.bboxled,LOW);
+    switch (button1_vlaue)
+    {
+    case LOW:
+      return (1);
+      break;
+    case HIGH:
+      return (2);
+      break;
+    }
+  }
+  else if (switch_input == HIGH)
+  {
+    digitalWrite(hartz.bboxled, HIGH);
+    switch (button1_vlaue)
+    {
+    case LOW:
+      return (3);
+      break;
+    case HIGH:
+      return (4);
+      break;
+    }
+  }
+  else
+  {
+    return (1);
+  }
+  return 0;
 }

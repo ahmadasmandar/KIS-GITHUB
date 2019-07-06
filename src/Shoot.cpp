@@ -1,8 +1,6 @@
 #include "Arduino.h"
 #include "Servo.h"
-#include "debug.h"
 #include "Shoot.h"
-debug debugger_shoot;
 Servo shhot_motor;
 float delay_time_shoot;
 int angel = 22;
@@ -45,18 +43,25 @@ void Shoot::fireBall( float total_time, uint8_t section, float time_resto, uint1
       shhot_motor.write(angel);
       delay(motor_delay);
       shhot_motor.write(end_angel);
-      debugger_shoot.sPrint("target_time", target_time, "ms");
-      debugger_shoot.sPrint("rest -if delay time is ", delay_time_shoot, "ms");
-      debugger_shoot.sPrint("rest -if time ", total_time, "ms");
-      debugger_shoot.sPrint("rest -if rest ", time_resto, "ms");
-      debugger_shoot.sPrint("rest -if window ", window, "ms");
+      int print_timer1=millis();
+      Serial.println("------- printer from shoot rest -----");
+      sPrint("target_time", target_time, "ms");
+      sPrint("rest -if delay time is ", delay_time_shoot, "ms");
+      sPrint("rest -if total ", total_time, "ms");
+      sPrint("rest -if rest ", time_resto, "ms");
+      sPrint("rest -if window ", window, "ms");
+      Serial.print("print timer 1 ");
+      Serial.println(millis()-print_timer1);
+      Serial.println("--------------------------");
     }
     else
     {
-      debugger_shoot.sPrint("rest time delay s big ", delay_time_shoot, "ms");
-      debugger_shoot.sPrint("rest -if time ", total_time, "ms");
-      debugger_shoot.sPrint("rest -if rest ", time_resto, "ms");
-      debugger_shoot.sPrint("rest -if window ", window, "ms");
+      Serial.println("------ Error from shoot ------");
+      sPrint("rest time delay s big ", delay_time_shoot, "ms");
+      sPrint("rest -if total", total_time, "ms");
+      sPrint("rest -if rest ", time_resto, "ms");
+      sPrint("rest -if window ", window, "ms");
+      Serial.println("--------------------------");
     }
   }
   else if (total_time > target_time)
@@ -69,31 +74,45 @@ void Shoot::fireBall( float total_time, uint8_t section, float time_resto, uint1
       delay(motor_delay);
       shhot_motor.write(end_angel);
       int print_timer1=millis();
-      Serial.println("*****************totalr*******************");
-      debugger_shoot.sPrint("target_time", target_time, "ms");
-      debugger_shoot.sPrint("total if delay time is ", delay_time_shoot, "ms");
-      debugger_shoot.sPrint("total -if time ", total_time, "ms");
-      debugger_shoot.sPrint("total -if rest ", time_resto, "ms");
-      debugger_shoot.sPrint("total -if window ", window, "ms");
-      Serial.print("print timer 1 ");
+      Serial.println("------ printer from shoot total ------");
+      sPrint("target_time", target_time, "ms");
+      sPrint("total if delay time is ", delay_time_shoot, "ms");
+      sPrint("total -if total ", total_time, "ms");
+      sPrint("total -if rest ", time_resto, "ms");
+      sPrint("total -if window ", window, "ms");
+      Serial.print("print timer 1  ");
       Serial.println(millis()-print_timer1);
-      Serial.println("********************************************");
+      Serial.println("---------------------------");
     }
     else
     {
-      debugger_shoot.sPrint("target_time", target_time, "ms");
-      debugger_shoot.sPrint("total time delay s big ", delay_time_shoot, "ms");
-      debugger_shoot.sPrint("total -if time ", total_time, "ms");
-      debugger_shoot.sPrint("total -if rest ", time_resto, "ms");
-      debugger_shoot.sPrint("total -if window ", window, "ms");
+      Serial.println("-------- Error from shoot -------");
+      sPrint("target_time", target_time, "ms");
+      sPrint("total time delay s big ", delay_time_shoot, "ms");
+      sPrint("total -if total ", total_time, "ms");
+      sPrint("total -if rest ", time_resto, "ms");
+      sPrint("total -if window ", window, "ms");
+      Serial.println("--------------------------");
     }
   }
   else
   {
-    debugger_shoot.sPrint("target_time", target_time, "ms");
-    debugger_shoot.sPrint("there is error we couldn't shoot", 0, "");
-    debugger_shoot.sPrint("total -if time ", total_time, "ms");
-    debugger_shoot.sPrint("total -if rest ", time_resto, "ms");
-    debugger_shoot.sPrint("total -if window ", window, "ms");
+    Serial.println("------- Error from shoot -------");
+    sPrint("target_time", target_time, "ms");
+    sPrint("there is error we couldn't shoot", 0, "");
+    sPrint("total -if time ", total_time, "ms");
+    sPrint("total -if rest ", time_resto, "ms");
+    sPrint("total -if window ", window, "ms");
+    Serial.println("-------------------------");
   }
 }
+
+void Shoot::sPrint(String to_pr_c, float valo, String einheit)
+{
+    Serial.print(to_pr_c);
+    Serial.print("  ");
+    Serial.print(valo);
+    Serial.print("  ");
+    Serial.println(einheit);
+}
+

@@ -15,7 +15,7 @@ public:
     float totalHallTime(int delta_hal_time,float accelo4);
     boolean secureMotion(int val11 , int val21, boolean STrto);
     void checkStop(int val31, int val41);
-    float getThetavalues(int val51, int val_time, float angul_accel, char val_char);
+    // float getThetavalues(int val51, int val_time, float angul_accel, char val_char);
     float solveTimeEquation(float a, float b,float c);
 };
 

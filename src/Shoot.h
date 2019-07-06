@@ -10,6 +10,7 @@ public:
     void motorIntil();
     void shootManuel();
     void shootManuel_dropall();
+    void sPrint(String to_pr_c, float valo, String einheit);
   
 };
 #endif

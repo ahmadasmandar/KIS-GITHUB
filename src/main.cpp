@@ -89,7 +89,7 @@ void photo_sens_interrupt();
 void hall_sens_interrupt();
 /*****/
 uint16_t checkCounter(uint16_t counter1, uint8_t maxV);
-void sPrint(String to_pr_c, float valo, String einheit);
+void sPrint(String to_pr_c, float valo);
 void stopSerial(uint8_t checkSerial);
 void checkStartCondtions(uint8_t hall_seco, uint8_t hoto_cso);
 uint8_t chooseMode();
@@ -161,9 +161,9 @@ void loop()
       angular_speed=speed_main.hallSpeed(time_delta_hall)+(angular_acceleration*(hold_delta_hall_sensor/1000));
       time_used_to_calc=-start_excu_time+millis();
       shootMain(angular_speed,hold_position,hall_section,time_total_hall,time_rest_to_null_speed-(time_used_to_calc),hold_delta_hall_sensor);
-      sPrint("time_used_to_calc",time_used_to_calc,"ms");
-      sPrint("time_rest_to_null_speed-1",time_rest_to_null_speed,"ms");
-      sPrint("time_total_hall-1",time_total_hall,"ms");
+      sPrint("time_used_to_calc",time_used_to_calc);
+      sPrint("time_rest_to_null_speed-1",time_rest_to_null_speed);
+      sPrint("time_total_hall-1",time_total_hall);
       break;
       /** nur PHOTO sensor benutzen **/
 
@@ -253,10 +253,10 @@ void loop()
             if(accel_array[i]!=0)
             {
               new_accel+=accel_array[i];
-              sPrint("accel_array[i]",accel_array[i],"sss");
+              sPrint("accel_array[i]",accel_array[i]);
               divide_number+=1;
-              sPrint("new accel from loop",new_accel,"sss");
-              sPrint("divide_number",divide_number,"sss");
+              sPrint("new accel from loop",new_accel);
+              sPrint("divide_number",divide_number);
             }
           }
           new_accel=new_accel/divide_number;
@@ -436,7 +436,7 @@ void getAcceleration(char x_sens_1)
 uint8_t getTargetSection(float theta_target_1)
 {
   uint8_t section_help=6*theta_target_1/PI;
-  sPrint("section_help",section_help,"");
+  sPrint("section_help",section_help);
   if (section_help > 11)
   {
     return section_help-12;
@@ -452,7 +452,7 @@ void applyMode()
   if (choose_mode_flag== true)
   {
     program_mode=chooseMode();
-    sPrint(" we are in the mode ", program_mode, " ");
+    sPrint(" we are in the mode ", program_mode);
     choose_mode_flag= false;
   }
 }
@@ -461,7 +461,7 @@ void readMode()
       if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_read_mod > 1000)
   {
     program_mode = chooseMode();
-    sPrint(" we are in the mode ", program_mode, " ");
+    sPrint(" we are in the mode ", program_mode);
     butt1_press_delay_read_mod = millis();
   }
 }
@@ -469,7 +469,6 @@ void readMode()
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder)
 {
     // this funktion was commited becuase we calcualte the lost time in the case funktions
-    int fire_timer=millis();
      uint16_t time_correction_value;       
       // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
       if (current_section!=pos_holder && pos_holder !=11 )
@@ -487,32 +486,27 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
       uint16_t angel_15_correction=1000*(15*PI/180)/ang_speed;
       uint32_t new_rest_time=rest_time+time_correction_value;
       uint16_t new_timetarget=time_fall;
-      fire_timer=millis()-fire_timer;
-      shoot_main.fireBall(total_time,pos_holder,new_rest_time-fire_timer,delta_hoder,new_timetarget);
-
+      shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,new_timetarget);
       // Debugging using the serial print
       uint32_t printer_timer2=millis();
-      sPrint("***** after shoot values ",1," *****");
-      sPrint("fire_timer ",fire_timer,"ms");
-      sPrint("time_delta_photo ",delta_hoder,"ms");
-      sPrint("angular_acceleration ",angular_acceleration,"rad/s2");
-      sPrint("aerage acceleration  ",new_accel,"rad/s2");
-      sPrint("divide number the items in accel array  ",divide_number,"item");
-      sPrint("angular_speed ",ang_speed,"rad/s");
-      sPrint("time_correction_value ",time_correction_value,"ms");
-      sPrint("angel_15_correction ",angel_15_correction,"ms");
-      sPrint("***** after shoot values ",2," *****");
-      sPrint("time_rest used here ",rest_time,"ms");
-      sPrint("time_total_used here ",total_time,"ms");
-      // sPrint("time_rest_to_null_equation ",time_rest_to_null_equation,"ms");
-      // sPrint("time_total_photo_equation ",time_total_photo_equation,"ms");
-      sPrint("time_rest_to_null_speed ",time_rest_to_null_speed,"ms");
-      sPrint("time_total_photo_speed ",time_total_photo_speed,"ms");
-      sPrint("hold_position",pos_holder,"");
-      sPrint("photo section ",current_section,"");
-      sPrint("check the other sensr value ",hold_test_position,"");
-      sPrint("***** End shoot print tme ",(millis()-printer_timer2)," ms *****");
-
+      sPrint("***** after shoot values ",1);
+      sPrint("accel",angular_acceleration);
+      sPrint("avg_accel  ",new_accel);
+      sPrint("accel_array_member  ",divide_number);
+      sPrint("w rad/s ",ang_speed);
+      sPrint("time_correction_value ",time_correction_value);
+      sPrint("angel_15_csorrection ",angel_15_correction);
+      sPrint("***** after shoot values ",2);
+      sPrint("time_rest used here ",rest_time);
+      sPrint("time_total_used here ",total_time);
+      sPrint("rest_equation ",time_rest_to_null_equation);
+      sPrint("total_equation ",time_total_photo_equation);
+      sPrint("rest_speed ",time_rest_to_null_speed);
+      sPrint("total_speed ",time_total_photo_speed);
+      sPrint("hold_position",pos_holder);
+      sPrint("photo section ",current_section);
+      sPrint("check the other sensr value ",hold_test_position);
+      sPrint("***** End shoot print tme ",(millis()-printer_timer2));
 }
 
 /****Choose Mode function****/
@@ -559,11 +553,10 @@ uint8_t chooseMode()
   }
   return 0;
 }
-void sPrint(String to_pr_c, float valo, String einheit)
+void sPrint(String to_pr_c, float valo)
 {
     Serial.print(to_pr_c);
     Serial.print("  ");
     Serial.print(valo);
-    Serial.print("  ");
-    Serial.println(einheit);
+    Serial.println();
 }

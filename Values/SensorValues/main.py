@@ -1,3 +1,4 @@
+#Written by Ahmad Asmandar 2019
 import numpy as np
 from matplotlib import pyplot as plt
 p = open('photovalues-clean.txt', 'r+')
@@ -16,6 +17,7 @@ plt.plot(time_1,x)
 plt.ylim(0,400)
 plt.xlim(0,5000)
 plt.grid(True)
+plt.title("photo_sens_values")
 plt.xlabel('theta')
 plt.ylabel('time delta ühoto')
 plt.show()

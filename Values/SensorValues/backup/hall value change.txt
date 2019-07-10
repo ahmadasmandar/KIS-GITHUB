@@ -1,0 +1,96 @@
+> Executing task in folder sensors values: C:\Users\Ahmad Asmandar\.platformio\penv\Scripts\platformio.exe device monitor <
+// first 0 when the hole throw 1 and then change when the magnete to 0
+
+--- Miniterm on COM5  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     1
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+the init value from hall_sens     0
+
+--- exit ---
+
+Terminal will be reused by tasks, press any key to close it.

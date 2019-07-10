@@ -13,9 +13,9 @@ time_1=np.arange(30,y,30)
 print(len(x))
 print(len(time_1))
 plt.plot(time_1,x)
-plt.ylim(0,750)
+plt.ylim(0,400)
 plt.xlim(0,5000)
 plt.grid(True)
+plt.xlabel('theta')
+plt.ylabel('time delta ühoto')
 plt.show()
-
-

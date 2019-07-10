@@ -330,7 +330,7 @@ void photo_sens_interrupt()
   theta_photo+=30;
   // photo_section = checkCounter(photo_section, 12);
    photo_section+=1;
-  //  Serial.print(theta_photo);
+  //  Serial.println(time_delta_photo);
   //  Serial.print("   ");
   //  Serial.println(theta_photo);
   //  sPrint("photo_section ",photo_section,"");

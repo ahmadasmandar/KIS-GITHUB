@@ -768,14 +768,3 @@ time delta_hall     238
 time delta_photo     119
 time delta_hall     238
 time delta_photo     119
-time delta_hall     238
-time delta_photo     2638
-time delta_hall     238
-time delta_photo     2638
-time delta_hall     238
-time delta_photo     2638
-time delta_hall     238
-time delta_photo     2638
-time delta_hall     238
-time delta_photo     2638
-time delta_hall     238

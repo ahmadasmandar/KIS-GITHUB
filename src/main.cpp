@@ -95,7 +95,6 @@ void checkStartCondtions(uint8_t hall_seco, uint8_t hoto_cso);
 uint8_t chooseMode();
 uint8_t getTargetSection(float theta_target_1);
 //**********
-void fillSpeed();
 void getAcceleration(char x_sens);
 //*******
 void applyMode();
@@ -330,7 +329,7 @@ void photo_sens_interrupt()
   theta_photo+=30;
   // photo_section = checkCounter(photo_section, 12);
    photo_section+=1;
-  //  Serial.println(time_delta_photo);
+  //  Serial.print(theta_photo);
   //  Serial.print("   ");
   //  Serial.println(theta_photo);
   //  sPrint("photo_section ",photo_section,"");
@@ -401,17 +400,7 @@ void checkStartCondtions(uint8_t hall_Seco, uint8_t photo_sco)
 
 // calculate the acceleration using the one of the tow sensors 
 void getAcceleration(char x_sens_1)
-{
-    
-    
-    // speed_1=speed_main.photoSpeed(time_delta_photo);
-    // delay(time_delta_photo);
-    // speed_2=speed_main.photoSpeed(time_delta_photo);
-    // angular_acceleration=-abs(1000*(speed_2-speed_1))/time_delta_photo;
-    // accel_array[accel_counter]=angular_acceleration;
-    // accel_counter=checkCounter(accel_counter,5);
-    
-    
+{  
     switch (x_sens_1)
     {
     case 'p':
@@ -484,7 +473,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint
         time_correction_value=0;
       }
       uint16_t angel_15_correction=1000*(15*PI/180)/ang_speed;
-      uint32_t new_rest_time=rest_time+time_correction_value;
+      uint32_t new_rest_time=rest_time-time_correction_value;
       uint16_t new_timetarget=time_fall;
       shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,new_timetarget);
       // Debugging using the serial print

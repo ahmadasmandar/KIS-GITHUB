@@ -138,15 +138,27 @@ void loop()
  //sPrint("first millis ",millis(),"ms");
  if (millis()>2000)
  {
-   if(time_delta_hall!=0)
+   switch (program_mode)
+   {
+   case 1:
+    if(time_delta_hall!=0)
    {
      getAcceleration('h');
    }
     
+     break;
+   
+   default:
+   if(time_delta_photo!=0)
+   {
+     getAcceleration('p');
+   }
+     break;
+   }
  }
   //************************************************ the main part ******************************************************************
 
-  if (digitalRead(hartz.trigger) == HIGH &&  millis() - press_delay_trigger > 300)
+  if (digitalRead(hartz.trigger) == HIGH &&  millis() - press_delay_trigger > 2000)
   {
     //********************
      Serial.println("********trigger pressed****************");
@@ -263,7 +275,6 @@ void loop()
       // here we are using the angel to calculate the values 
       case 3:
           getAcceleration('p');
-          start_excu_time=millis();
           while (photo_section!=0)
           {
             delay(1);
@@ -276,6 +287,7 @@ void loop()
           cycle_hoder=photo_cycle;
           divide_number=0;
           // get the average accel value 
+          start_excu_time=millis();
           for (int i=0;i<5;i++)
           {
             if(accel_array[i]!=0)
@@ -284,9 +296,7 @@ void loop()
               divide_number+=1;
             }
           }
-          new_accel=new_accel/divide_number;
-          
-          
+          new_accel=new_accel/divide_number;  
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,new_accel);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,new_accel);
           // new way to calculate the time using the angel in degree 
@@ -306,7 +316,7 @@ void loop()
             time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
             time_total_photo_speed=1000*(6*PI/angular_speed);
           }
-          time_used_to_calc=0;
+          
           //*******************************
           //********************************
            if (time_total_photo_equation ==0)
@@ -314,7 +324,10 @@ void loop()
             time_total_photo_equation=time_total_photo_speed;
             Serial.println("the total eqaution ==0 >> using total speed");
           }
+          time_used_to_calc=millis()-start_excu_time;
           shootMain(angular_speed,hold_position,photo_section,time_total_photo_equation,time_rest_to_null_equation-time_used_to_calc,hold_delta_photo_sensor);
+           Serial.print("time_used_to_caculate");
+          Serial.println(time_used_to_calc);
           // sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
           break;
     case 4:
@@ -322,7 +335,7 @@ void loop()
       for (int k=0;k<5;k++)
       {
           getAcceleration('p');
-          // start_excu_time=millis();
+          start_excu_time=millis();
           // Serial.println("we are in ");
           // Serial.println("time to print one line using Serial is ");
           // Serial.println(millis()-start_excu_time);
@@ -362,8 +375,8 @@ void loop()
             time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
             time_total_photo_speed=1000*(6*PI/angular_speed);
           }
-          //time_used_to_calc=millis()-start_excu_time;
-          time_used_to_calc=0;
+          time_used_to_calc=millis()-start_excu_time;
+          // time_used_to_calc=0;
           shootMain(angular_speed,hold_position,photo_section,(time_total_photo_speed-time_used_to_calc),time_rest_to_null_speed-time_used_to_calc,hold_delta_photo_sensor);
           delay(5000);
             }
@@ -533,7 +546,7 @@ void applyMode()
 }
 void readMode()
 {
-      if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_read_mod > 5000)
+      if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_read_mod > 30)
   {
     program_mode = chooseMode();
     sPrint(" we are in the mode ", program_mode);
@@ -569,7 +582,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         new_rest_time=rest_time-time_photo_cor;
         if(ang_speed >12)
         {
-            new_timetarget=time_fall+100-angel_15_correction;
+            new_timetarget=time_fall+100+angel_15_correction;
         }
         else
         {
@@ -580,6 +593,14 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       else
       {
         new_rest_time=rest_time-time_correction_value;
+         if(ang_speed >12)
+        {
+            new_timetarget=time_fall+100-angel_15_correction;
+        }
+        else
+        {
+          new_timetarget=time_fall+100-angel_15_correction;
+        }
       }
       
       shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,new_timetarget);

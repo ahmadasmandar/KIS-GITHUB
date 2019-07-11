@@ -1,0 +1,339 @@
+
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+ we are in the mode   1.00
+ we are in the mode   1.00
+ we are in the mode   1.00
+-9.69
+-0.03
+-0.03
+0.00
+********trigger pressed****************
+-0.28
+speed is under 12 rad/s
+a  -0.14
+b  6.23
+c  0.00
+ the values are not right or so big 
+0.00
+44.64
+speed is under 12 rad/s
+a  -0.14
+b  6.23
+c  -6.28
+ the time soluation x1  1.03
+time_total_hall is 0 but updated
+------- printer from shoot rest -----
+target_time  433.00  ms
+rest -if delay time is   578.00  ms
+rest -if total   1008.00  ms
+rest -if rest   1011.00  ms
+rest -if window   84.00  ms
+print timer 1 24
+--------------------------
+***** after shoot values   1.00
+accel  -0.28
+avg_accel    0.00
+accel_array_member    0.00
+w rad/s   6.23
+time_correction_value   0.00
+time_photo_cor   0.00
+angel_15_csorrection   42.00
+***** after shoot values   2.00
+time_rest used here   1011.00
+time_total_used here   1008.00
+rest_equation   1031.00
+total_equation   1008.00
+rest_speed   1008.00
+total_speed_photo   0.00
+total_speed_hall   1008.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   0.00
+***** End shoot print tme   85.00
+time_used_to_caculate20
+-0.05
+-0.06
+-0.22
+********trigger pressed****************
+-0.08
+speed is under 12 rad/s
+a  -0.04
+b  5.75
+c  0.00
+ the values are not right or so big 
+0.00
+147.97
+speed is under 12 rad/s
+a  -0.04
+b  5.75
+c  -6.28
+ the time soluation x1  1.10
+time_total_hall is 0 but updated
+------- printer from shoot rest -----
+target_time  436.00  ms
+rest -if delay time is   368.00  ms
+rest -if total   1092.00  ms
+rest -if rest   804.00  ms
+rest -if window   91.00  ms
+print timer 1 24
+--------------------------
+***** after shoot values   1.00
+accel  -0.08
+avg_accel    0.00
+accel_array_member    0.00
+w rad/s   5.75
+time_correction_value   0.00
+time_photo_cor   273.00
+angel_15_csorrection   45.00
+***** after shoot values   2.00
+time_rest used here   1077.00
+time_total_used here   1092.00
+rest_equation   1100.00
+total_equation   1092.00
+rest_speed   1092.00
+total_speed_photo   0.00
+total_speed_hall   1092.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   3.00
+***** End shoot print tme   85.00
+time_used_to_caculate23
+-0.05
+0.00
+********trigger pressed****************
+-0.07
+speed is under 12 rad/s
+a  -0.03
+b  5.43
+c  0.00
+ the values are not right or so big 
+0.00
+166.46
+speed is under 12 rad/s
+a  -0.03
+b  5.43
+c  -6.28
+ the time soluation x1  1.17
+time_total_hall is 0 but updated
+------- printer from shoot rest -----
+target_time  440.00  ms
+rest -if delay time is   110.00  ms
+rest -if total   1188.00  ms
+rest -if rest   550.00  ms
+rest -if window   96.00  ms
+print timer 1 23
+--------------------------
+***** after shoot values   1.00
+accel  -0.07
+avg_accel    0.00
+accel_array_member    0.00
+w rad/s   5.29
+time_correction_value   99.00
+time_photo_cor   594.00
+angel_15_csorrection   49.00
+***** after shoot values   2.00
+time_rest used here   1144.00
+time_total_used here   1188.00
+rest_equation   1166.00
+total_equation   1188.00
+rest_speed   1188.00
+total_speed_photo   0.00
+total_speed_hall   1188.00
+hold_position  0.00
+current position   1.00
+check the other sensr value   6.00
+***** End shoot print tme   85.00
+time_used_to_caculate22
+-0.06
+********trigger pressed****************
+-0.21
+speed is under 12 rad/s
+a  -0.10
+b  5.09
+c  0.00
+ the values are not right or so big 
+0.00
+48.56
+speed is under 12 rad/s
+a  -0.10
+b  5.09
+c  -6.28
+ the time soluation x1  1.27
+time_total_hall is 0 but updated
+------- printer from shoot rest -----
+target_time  442.00  ms
+rest -if delay time is   803.00  ms
+rest -if total   1234.00  ms
+rest -if rest   1245.00  ms
+rest -if window   102.00  ms
+print timer 1 25
+--------------------------
+***** after shoot values   1.00
+accel  -0.21
+avg_accel    0.00
+accel_array_member    0.00
+w rad/s   5.09
+time_correction_value   0.00
+time_photo_cor   0.00
+angel_15_csorrection   51.00
+***** after shoot values   2.00
+time_rest used here   1245.00
+time_total_used here   1234.00
+rest_equation   1267.00
+total_equation   1234.00
+rest_speed   1234.00
+total_speed_photo   0.00
+total_speed_hall   1234.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   0.00
+***** End shoot print tme   85.00
+time_used_to_caculate22
+-0.06
+-0.04
+********trigger pressed****************
+-0.21
+speed is under 12 rad/s
+a  -0.11
+b  4.53
+c  0.00
+ the values are not right or so big
+0.00
+42.95
+speed is under 12 rad/s
+a  -0.11
+b  4.53
+c  -6.28
+ the time soluation x1  1.44
+time_total_hall is 0 but updated
+------- printer from shoot rest -----
+target_time  448.00  ms
+rest -if delay time is   968.00  ms
+rest -if total   1388.00  ms
+rest -if rest   1416.00  ms
+rest -if window   115.00  ms
+print timer 1 24
+--------------------------
+***** after shoot values   1.00
+accel  -0.21
+avg_accel    0.00
+accel_array_member    0.00
+w rad/s   4.53
+time_correction_value   0.00
+time_photo_cor   0.00
+angel_15_csorrection   57.00
+***** after shoot values   2.00
+time_rest used here   1416.00
+time_total_used here   1388.00
+rest_equation   1436.00
+total_equation   1388.00
+rest_speed   1388.00
+total_speed_photo   0.00
+total_speed_hall   1388.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   0.00
+***** End shoot print tme   85.00
+time_used_to_caculate20
+-0.07
+-0.06
+********trigger pressed****************
+-0.19
+speed is under 12 rad/s
+a  -0.10
+b  3.93
+c  0.00
+ the values are not right or so big 
+0.00
+40.68
+speed is under 12 rad/s
+a  -0.10
+b  3.93
+c  -6.28
+ the time soluation x1  1.67
+time_total_hall is 0 but updated
+------- printer from shoot rest -----
+target_time  457.00  ms
+rest -if delay time is   1188.00  ms
+rest -if total   1598.00  ms
+rest -if rest   1645.00  ms
+rest -if window   133.00  ms
+print timer 1 23
+--------------------------
+***** after shoot values   1.00
+accel  -0.19
+avg_accel    0.00
+accel_array_member    0.00
+w rad/s   3.93
+time_correction_value   0.00
+time_photo_cor   0.00
+angel_15_csorrection   66.00
+***** after shoot values   2.00
+time_rest used here   1645.00
+time_total_used here   1598.00
+rest_equation   1666.00
+total_equation   1598.00
+rest_speed   1598.00
+total_speed_photo   0.00
+total_speed_hall   1598.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   0.00
+***** End shoot print tme   85.00
+time_used_to_caculate21
+-0.07
+0.00
+-0.18
+-0.07
+-0.17
+-0.07
+********trigger pressed****************
+-0.17
+speed is under 12 rad/s
+a  -0.08
+b  2.72
+c  0.00
+ the values are not right or so big
+0.00
+32.57
+speed is under 12 rad/s
+a  -0.08
+b  2.72
+c  -6.28
+ the time soluation x1  2.51
+time_total_hall is 0 but updated
+------- printer from shoot rest -----
+target_time  493.00  ms
+rest -if delay time is   1991.00  ms
+rest -if total   2465.00  ms
+rest -if rest   2484.00  ms
+rest -if window   192.00  ms
+print timer 1 65559
+--------------------------
+***** after shoot values   1.00
+accel  -0.17
+avg_accel    0.00
+accel_array_member    0.00
+w rad/s   2.55
+time_correction_value   0.00
+time_photo_cor   0.00
+angel_15_csorrection   102.00
+***** after shoot values   2.00
+time_rest used here   2484.00
+time_total_used here   2465.00
+rest_equation   2506.00
+total_equation   2465.00
+rest_speed   2465.41
+total_speed_photo   0.00
+total_speed_hall   2465.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   0.00
+***** End shoot print tme   85.00
+time_used_to_caculate22
+-0.07
+-0.14
+-0.07
+0.00

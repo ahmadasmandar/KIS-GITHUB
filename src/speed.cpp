@@ -97,15 +97,15 @@ float speed::solveTimeEquation(float a1, float b1, float c1)
 {
     float c;
     // check the speed and get the pefect theta to calculation so we can work with very fast speed
-     if (b1 < 12)
+     if (b1 < 17)
     {
         c = -(2 * PI - (c1));
-        Serial.println("speed is under 12 rad/s");
+        Serial.println("speed is under 17 rad/s");
     }
-    else if (b1 > 12 && b1 < 25)
+    else if (b1 > 17 && b1 < 25)
     {
         c = -(2 * PI - (c1 + 4 * PI));
-        Serial.println("speed is bigger than 12 rad/s");
+        Serial.println("speed is bigger than 17 rad/s");
     }
    
     else if (b1 > 25)

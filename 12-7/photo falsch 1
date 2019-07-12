@@ -1,0 +1,42 @@
+
+********trigger pressed****************
+Goooooooooo
+speed is under 17 rad/s
+a  -20.04
+b  16.36
+c  0.00
+ the time soluation x2  0.82
+speed is under 17 rad/s
+a  -20.04
+b  16.36
+c  -6.28
+ 4*PI-c1  cx  0.00
+ the alternative soluation c/b   ------- printer from shoot rest -----
+target_time  507.00  ms
+rest -if delay time is   235.00  ms
+rest -if total   816.00  ms
+rest -if rest   742.00  ms
+rest -if window   32.00  ms
+print timer 1 23
+--------------------------
+***** after shoot values   1.00
+accel  -40.07
+avg_accel    nan
+accel_array_member    0.00
+w rad/s   16.36
+time_correction_value   0.00
+time_photo_cor   0.00
+angel_15_csorrection   16.00
+***** after shoot values   2.00
+time_rest used here   742.00
+time_total_used here   816.00
+rest_equation   767.00
+total_equation   0.00
+rest_speed   384.00
+total_speed_photo   384.00
+total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   0.00
+***** End shoot print tme   84.00
+time_used_to_caculate25

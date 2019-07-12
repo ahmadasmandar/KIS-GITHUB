@@ -229,21 +229,21 @@ void loop()
           cycle_hoder=photo_cycle;
           divide_number=0;
           // get the average accel value 
-          for (int i=0;i<5;i++)
-          {
-            if(accel_array[i]!=0)
-            {
-              new_accel+=accel_array[i];
-              divide_number+=1;
-            }
-          }
-          new_accel=new_accel/divide_number;
+          // for (int i=0;i<5;i++)
+          // {
+          //   if(accel_array[i]!=0)
+          //   {
+          //     new_accel+=accel_array[i];
+          //     divide_number+=1;
+          //   }
+          // }
+          // new_accel=new_accel/divide_number;
           
           
-          time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,new_accel);
-          time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,new_accel);
+          time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+          time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
-          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(new_accel*(hold_delta_photo_sensor/1000));
+          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
           if (angular_speed<12)
           {   
               time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
@@ -279,6 +279,7 @@ void loop()
           {
             delay(1);
           }
+          start_excu_time=millis();
           Serial.println("Goooooooooo");
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
@@ -287,26 +288,25 @@ void loop()
           cycle_hoder=photo_cycle;
           divide_number=0;
           // get the average accel value 
-          start_excu_time=millis();
-          for (int i=0;i<5;i++)
-          {
-            if(accel_array[i]!=0)
-            {
-              new_accel+=accel_array[i];
-              divide_number+=1;
-            }
-          }
+          // for (int i=0;i<5;i++)
+          // {
+          //   if(accel_array[i]!=0)
+          //   {
+          //     new_accel+=accel_array[i];
+          //     divide_number+=1;
+          //   }
+          // }
           new_accel=new_accel/divide_number;  
-          time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,new_accel);
-          time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,new_accel);
+          time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+          time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
-          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(new_accel*(hold_delta_photo_sensor/1000));
-          if (angular_speed<12)
+          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
+          if (angular_speed<17)
           {   
               time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
               time_total_photo_speed=1000*(2*PI/angular_speed);
           }
-          else if (angular_speed>12 && angular_speed<25)
+          else if (angular_speed>17 && angular_speed<25)
           {
             time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
             time_total_photo_speed=1000*(4*PI/angular_speed);
@@ -332,55 +332,55 @@ void loop()
           break;
     case 4:
           //TODO degree time caculate function using the theta angel
-      for (int k=0;k<5;k++)
-      {
-          getAcceleration('p');
-          start_excu_time=millis();
-          // Serial.println("we are in ");
-          // Serial.println("time to print one line using Serial is ");
-          // Serial.println(millis()-start_excu_time);
-          //cli();
-          hold_delta_photo_sensor=time_delta_photo;
-          hold_position=photo_section;
-          hold_test_position=hall_section;
-          new_accel=0;
-          divide_number=0;
-          for (int i=0;i<5;i++)
-          {
-            if(accel_array[i]!=0)
-            {
-              new_accel+=accel_array[i];
-              sPrint("accel_array[i]",accel_array[i]);
-              divide_number+=1;
-              sPrint("new accel from loop",new_accel);
-              sPrint("divide_number",divide_number);
-            }
-          }
-          new_accel=new_accel/divide_number;
-          time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,new_accel);
-          time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,new_accel);
-          angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(new_accel*(hold_delta_photo_sensor/1000));
-          if (angular_speed<12)
-          {   
-              time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
-              time_total_photo_speed=1000*(2*PI/angular_speed);
-          }
-          else if (angular_speed>12 && angular_speed<25)
-          {
-            time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
-            time_total_photo_speed=1000*(4*PI/angular_speed);
-          }
-          else if (angular_speed>25)
-          {
-            time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
-            time_total_photo_speed=1000*(6*PI/angular_speed);
-          }
-          time_used_to_calc=millis()-start_excu_time;
-          // time_used_to_calc=0;
-          shootMain(angular_speed,hold_position,photo_section,(time_total_photo_speed-time_used_to_calc),time_rest_to_null_speed-time_used_to_calc,hold_delta_photo_sensor);
-          delay(5000);
-            }
-          
+      // for (int k=0;k<5;k++)
+      // {
+      //     getAcceleration('p');
+      //     start_excu_time=millis();
+      //     // Serial.println("we are in ");
+      //     // Serial.println("time to print one line using Serial is ");
+      //     // Serial.println(millis()-start_excu_time);
+      //     //cli();
+      //     hold_delta_photo_sensor=time_delta_photo;
+      //     hold_position=photo_section;
+      //     hold_test_position=hall_section;
+      //     new_accel=0;
+      //     divide_number=0;
+      //     for (int i=0;i<5;i++)
+      //     {
+      //       if(accel_array[i]!=0)
+      //       {
+      //         new_accel+=accel_array[i];
+      //         sPrint("accel_array[i]",accel_array[i]);
+      //         divide_number+=1;
+      //         sPrint("new accel from loop",new_accel);
+      //         sPrint("divide_number",divide_number);
+      //       }
+      //     }
+      //     new_accel=new_accel/divide_number;
+      //     time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,new_accel);
+      //     time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,new_accel);
+      //     angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(new_accel*(hold_delta_photo_sensor/1000));
+      //     if (angular_speed<12)
+      //     {   
+      //         time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
+      //         time_total_photo_speed=1000*(2*PI/angular_speed);
+      //     }
+      //     else if (angular_speed>12 && angular_speed<25)
+      //     {
+      //       time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
+      //       time_total_photo_speed=1000*(4*PI/angular_speed);
+      //     }
+      //     else if (angular_speed>25)
+      //     {
+      //       time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
+      //       time_total_photo_speed=1000*(6*PI/angular_speed);
+      //     }
+      //     time_used_to_calc=millis()-start_excu_time;
+      //     // time_used_to_calc=0;
+      //     shootMain(angular_speed,hold_position,photo_section,(time_total_photo_speed-time_used_to_calc),time_rest_to_null_speed-time_used_to_calc,hold_delta_photo_sensor);
+      //     delay(5000);
+      //       }
+      shoot_main.shootManuel();         
       break;
     }
     press_delay_trigger = millis();
@@ -586,7 +586,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         }
         else
         {
-          new_timetarget=time_fall+100;
+          new_timetarget=time_fall+100+angel_15_correction;
         }
         
       }
@@ -595,12 +595,13 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         new_rest_time=rest_time-time_correction_value;
          if(ang_speed >12)
         {
-            new_timetarget=time_fall+100-angel_15_correction;
+            new_timetarget=time_fall+100+angel_15_correction;
         }
         else
         {
-          new_timetarget=time_fall+100-angel_15_correction;
+          new_timetarget=time_fall+100-delta_hoder+angel_15_correction/2;
         }
+        
       }
       
       shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,new_timetarget);

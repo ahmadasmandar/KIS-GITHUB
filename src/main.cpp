@@ -517,23 +517,23 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         new_timetarget=-1.76*(ang_speed)+143;
         Serial.print("matlab");
         Serial.println(new_timetarget);
-
-        
       }
       else
       {
         new_rest_time=rest_time-time_correction_value;
-         if(ang_speed >12)
-        {
-            new_timetarget=time_fall+100+angel_15_correction;
-        }
-        else
-        {
-          new_timetarget=time_fall+100-delta_hoder+angel_15_correction/2;
-        }
+        new_timetarget= - 17.71*ang_speed+ 546.6;
+        Serial.print("matlab");
+        Serial.println(new_timetarget);
+        //  if(ang_speed >12)
+        // {
+        //     new_timetarget=time_fall+100+angel_15_correction;
+        // }
+        // else
+        // {
+        //   new_timetarget=time_fall+100-delta_hoder+angel_15_correction/2;
+        // }
         
       }
-      //TODO insert the new time correction equation
       shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,new_timetarget+time_fall);
       // Debugging using the serial print
       uint32_t printer_timer2=millis();

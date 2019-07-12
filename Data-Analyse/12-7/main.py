@@ -1,11 +1,11 @@
 
 from matplotlib import pyplot as plt
-f = open('hall 100% 1.txt', 'r+')
+f = open('new collected photo.txt', 'r+')
 content=f.readlines()
 target_time=[]
 angular_speed=[]
 deference=[]
-with open('data/target_time_addition_value_hall_1.txt','w') as outfile2:
+with open('data/target_time_addition_value_photo_1.txt','w') as outfile2:
     for x in content:
         # outfile2.write(x)
         if "target_time"in x:
@@ -15,6 +15,8 @@ with open('data/target_time_addition_value_hall_1.txt','w') as outfile2:
         if "w rad/s" in x:
             # outfile2.write(x)
             angular_speed.append(float(x.replace("w rad/s","").lstrip().rstrip("\n")))
+        if "angular_speed" in x:
+            angular_speed.append(float(x.replace("angular_speed ", "").replace("rad/s","").lstrip().rstrip("\n")))
 
 print(target_time)
 print(angular_speed)

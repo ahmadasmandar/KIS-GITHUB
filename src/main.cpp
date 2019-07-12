@@ -603,6 +603,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         }
         
       }
+      //TODO insert the new time correction equation
       
       shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,new_timetarget);
       // Debugging using the serial print

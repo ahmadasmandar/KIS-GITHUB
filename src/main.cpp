@@ -227,41 +227,41 @@ if (Hall_help==true && photo_section>3)
       /** nur PHOTO sensor benutzen **/
 
     case 2:
-         getAcceleration('p');
-          start_excu_time=millis();
+           getAcceleration('p');
           while (photo_section!=2)
           {
             delay(1);
           }
           Serial.println("Goooooooooo");
+          start_excu_time=millis();
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
           hold_theta_photo=theta_photo;
           cycle_hoder=photo_cycle;
           divide_number=0;
+          new_accel=new_accel/divide_number;  
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-          time_rest_to_null_speed=adujstAngelwithSpeed(angular_speed,hold_position,'r');
-          time_total_photo_speed=adujstAngelwithSpeed(angular_acceleration,hold_position,'t');
-          // if (angular_speed<12)
-          // {   
-          //     time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
-          //     time_total_photo_speed=1000*(2*PI/angular_speed);
-          // }
-          // else if (angular_speed>12 && angular_speed<25)
-          // {
-          //   time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
-          //   time_total_photo_speed=1000*(4*PI/angular_speed);
-          // }
-          // else if (angular_speed>25)
-          // {
-          //   time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
-          //   time_total_photo_speed=1000*(6*PI/angular_speed);
-          // }
-          time_used_to_calc=millis()-start_excu_time;
+
+          if (angular_speed<17)
+          {   
+              time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
+              time_total_photo_speed=1000*(2*PI/angular_speed);
+          }
+          else if (angular_speed>17 && angular_speed<25)
+          {
+            time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
+            time_total_photo_speed=1000*(4*PI/angular_speed);
+          }
+          else if (angular_speed>25)
+          {
+            time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
+            time_total_photo_speed=1000*(6*PI/angular_speed);
+          }
+          
           //*******************************
           //********************************
            if (time_total_photo_equation ==0)
@@ -269,7 +269,10 @@ if (Hall_help==true && photo_section>3)
             time_total_photo_equation=time_total_photo_speed;
             Serial.println("the total eqaution ==0 >> using total speed");
           }
+          time_used_to_calc=millis()-start_excu_time;
           shootMain(angular_speed,hold_position,photo_section,time_total_photo_equation,time_rest_to_null_equation-time_used_to_calc,hold_delta_photo_sensor);
+           Serial.print("time_used_to_caculate");
+          Serial.println(time_used_to_calc);
           // sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
           break;
       
@@ -277,7 +280,7 @@ if (Hall_help==true && photo_section>3)
       // here we are using the angel to calculate the values 
       case 3:
           getAcceleration('p');
-          while (photo_section!=2)
+          while (hall_section!=0)
           {
             delay(1);
           }
@@ -289,22 +292,11 @@ if (Hall_help==true && photo_section>3)
           hold_theta_photo=theta_photo;
           cycle_hoder=photo_cycle;
           divide_number=0;
-          // get the average accel value 
-          // for (int i=0;i<5;i++)
-          // {
-          //   if(accel_array[i]!=0)
-          //   {
-          //     new_accel+=accel_array[i];
-          //     divide_number+=1;
-          //   }
-          // }
           new_accel=new_accel/divide_number;  
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-          // time_total_photo_speed=adujstAngelwithSpeed(angular_speed,hold_position,'t');
-          // time_rest_to_null_speed=adujstAngelwithSpeed(angular_speed,hold_position,'r');
 
           if (angular_speed<17)
           {   
@@ -522,86 +514,45 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       {
         time_correction_value=0;
       }
-      uint16_t time_photo_cor=1000*(hold_test_position*PI/6)/speed_main.photoSpeed(time_delta_photo);
-      uint16_t angel_15_correction=1000*(15*PI/180)/speed_main.photoSpeed(time_delta_photo);
+      float angular_speed_shoot=speed_main.photoSpeed(time_delta_photo)+angular_acceleration*(time_delta_photo/1000);
+      uint16_t time_photo_cor=1000*(hold_test_position*PI/6)/angular_speed_shoot;
+      uint16_t angel_15_correction=1000*(15*PI/180)/angular_speed_shoot;
 
       uint32_t new_rest_time;
       int new_timetarget;
       if (program_mode==1)
       {
         new_rest_time=rest_time-time_photo_cor;
-        //Matlab correction
-        // y = 6.63*x - 1.19
-        
-        Serial.print("matlab  ");
-        Serial.println(new_timetarget);
+
           if(ang_speed >12)
         {
-          int x=speed_main.photoSpeed(time_delta_photo);
-          // y = 0.048*x^{3} - 2*x^{2} + 26*x - 18
-          // y = - 0.027*x^{4} + 1.7*x^{3} - 37*x^{2} + 3.5e+02*x - 1.1e+03
-            // new_timetarget=100+angel_15_correction-(time_delta_hall/6);
-            // new_timetarget=0.048*(x*x*x) - 2*(x*x)+ (26*x) - 18;
-            new_timetarget = - 0.4945*x + 94.54;
-            // cubic 3 last y = - 0.076*x^{3} + 2.9*x^{2} - 38*x + 2.5e+02
-             new_timetarget=- 0.076*x*x*x + 2.9*x*x - 38*x +2.5e+02;
+            new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
+             new_timetarget=- 0.076*angular_speed_shoot*angular_speed_shoot*angular_speed_shoot + 2.9*angular_speed_shoot*angular_speed_shoot - 38*angular_speed_shoot +2.5e+02;
              new_timetarget+=angel_15_correction/2.5;
-            Serial.print("matlab  ");
-            Serial.println(new_timetarget);
         }
         else
         {
-         int x=speed_main.photoSpeed(time_delta_photo);
-          new_timetarget = - 0.4945*x + 94.54;
-          // new_timetarget-=angel_15_correction;
-
-          // new_timetarget=6.6286*(speed_main.photoSpeed(time_delta_photo))-1.19+angel_15_correction;
-          // y = 1.465*x^{2} - 21.23*x + 157.1
-          // new_timetarget=1.465*(speed_main.photoSpeed(time_delta_photo)*speed_main.photoSpeed(time_delta_photo))- 21.23*speed_main.photoSpeed(time_delta_photo) + 157.1;
-          // y = - 0.2698*x^{3} + 7.0946*x^{2} - 57.666*x + 228.95
-          new_timetarget = - 0.2698*(x*x*x) + 7.0946*(x*x) - 57.666*x + 228.95;
+          new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
+          new_timetarget = - 0.2698*(angular_speed_shoot*angular_speed_shoot*angular_speed_shoot) + 7.0946*(angular_speed_shoot*angular_speed_shoot) - 57.666*angular_speed_shoot + 228.95;
           new_timetarget+=angel_15_correction/2;
-          Serial.print("matlab  ");
-          Serial.println(new_timetarget);
         }
       }
       else
       {
-        int x=speed_main.photoSpeed(time_delta_photo);
-        // y = 0.0404*x^{3} - 1.68*x^{2} + 24.1*x - 37.8
         new_rest_time=rest_time-time_correction_value;
-        // new_timetarget+=-angel_15_correction;
-        // new_timetarget= 0.0404*x*x*x - 1.68*x*x + 24.1*x - 37.8;
-        //linear
-        // y = 3.452*x + 31.92
-        // new_timetarget=  3.452*x + 31.92;
-        // cubic
-        // y = - 0.1268*x^{3} + 3.861*x^{2} - 34.51*x + 163.6
-        
         if (ang_speed>12)
         {
-          // new_timetarget= - 0.1268*x*x*x +3.861*x*x - 34.51*x + 163.6;
-          // new_timetarget= - 7.092*x + 122.3;
-          // y = 1.364*x^{2} - 26.68*x + 192.7
-          // y = 1.12*x^{2} - 22.75*x + 174.8
-          // y = 7.647*x - 20.25
-          new_timetarget= 1.12*x*x - 22.75*x + 174.8;
-          // new_timetarget= 7.647*x - 20.25;
+          new_timetarget= 1.12*angular_speed_shoot*angular_speed_shoot - 22.75*angular_speed_shoot + 174.8;
           new_timetarget-=angel_15_correction/5;
         }
         else
         {
-          // y = - 7.333*x + 120.2
-          //y = - 7.092*x + 122.3
-          new_timetarget= - 7.092*x + 122.3;
-          // new_timetarget-=angel_15_correction;
+          new_timetarget= - 7.092*angular_speed_shoot + 122.3;
         }
         
-        Serial.print("matlab");
-        Serial.println(new_timetarget);
-  
       }
-      // sPrint("shoot timer main : ",millis()-shoot_timer_main);
+       Serial.print("matlab");
+        Serial.println(new_timetarget);
       shoot_main.fireBall(total_time,pos_holder-2,new_rest_time-2,delta_hoder,time_fall+new_timetarget);
       // Debugging using the serial print
       uint32_t printer_timer2=millis();
@@ -609,7 +560,8 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       sPrint("accel",angular_acceleration);
       sPrint("avg_accel  ",new_accel);
       sPrint("accel_array_member  ",divide_number);
-      sPrint("w rad/s ",ang_speed);
+      sPrint("w rad/s ",ang_speed); 
+      sPrint("w_new_from shoot main rad/s ",angular_speed_shoot); 
       sPrint("time_correction_value ",time_correction_value);
       sPrint("time_photo_cor ",time_photo_cor);
       sPrint("angel_15_csorrection ",angel_15_correction);

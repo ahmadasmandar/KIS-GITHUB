@@ -1,0 +1,55 @@
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+ we are in the mode   1.00
+0
+ we are in the mode   1.00
+ we are in the mode   1.00
+0
+********trigger pressed****************
+speed is bigger than 17 rad/s
+a  -0.45
+b  20.67
+c  12.57
+ the values are not right or so big 
+-0.60
+46.50
+speed is bigger than 17 rad/s
+a  -0.45
+b  20.67
+c  6.28
+ the values are not right or so big
+-0.30
+46.21
+time_total_hall is 0 but updated 608
+time_rest_to_null_equation is 0 but updated  608.00
+matlab  0
+matlab  83
+------- printer from shoot rest -----
+target_time  481.00  ms
+rest -if delay time is   85.00  ms
+rest -if total   608.00  ms
+rest -if rest   566.00  ms
+rest -if window   25.00  ms
+print timer 1 23
+--------------------------
+***** after shoot values   1.00
+accel  -0.90
+avg_accel    0.00
+accel_array_member    0.00
+w rad/s   20.67
+time_correction_value   0.00
+time_photo_cor   0.00
+angel_15_csorrection   13.00
+***** after shoot values   2.00
+time_rest used here   566.00
+time_total_used here   608.00
+rest_equation   608.00
+total_equation   608.00
+rest_speed   608.00
+total_speed_photo   0.00
+total_speed_hall   608.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   0.00
+***** End shoot print tme   84.00
+time_used_to_caculate42

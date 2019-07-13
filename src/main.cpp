@@ -83,6 +83,7 @@ uint8_t accel_counter,speed_counter;
 float new_accel=0;
 int divide_number=0;
 int cycle_hoder;
+boolean start_hall=false, Hall_help=true;
 //*******************Functions prototypes
 
 void photo_sens_interrupt();
@@ -132,7 +133,14 @@ void loop()
      for that brief period.
       using the cli() sei() functions;
    * ***/
-//TODO update the speed and acceleration function delete the array and work without it  
+//TODO update the speed and acceleration function delete the array and work without it 
+if (Hall_help==true && photo_section>3)
+{
+  Hall_help=false;
+  start_hall=true;
+  Serial.println(hall_section);
+
+}
  applyMode();
  readMode();
  checkStartCondtions(hall_section,photo_section);
@@ -180,6 +188,9 @@ void loop()
       time_total_hall=speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
       time_rest_to_null_equation=speed_main.hallRst(hold_position,hold_delta_hall_sensor,angular_acceleration);
       angular_speed=speed_main.hallSpeed(time_delta_hall)+(angular_acceleration*(hold_delta_hall_sensor/1000));
+      // time_total_hall_speed=adujstAngelwithSpeed(angular_speed,hall_section,'t');
+      // time_rest_to_null_speed=adujstAngelwithSpeed(angular_speed,hall_section,'r');
+
       if (angular_speed<12)
           {   
               time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
@@ -233,22 +244,24 @@ void loop()
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-          if (angular_speed<12)
-          {   
-              time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
-              time_total_photo_speed=1000*(2*PI/angular_speed);
-          }
-          else if (angular_speed>12 && angular_speed<25)
-          {
-            time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
-            time_total_photo_speed=1000*(4*PI/angular_speed);
-          }
-          else if (angular_speed>25)
-          {
-            time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
-            time_total_photo_speed=1000*(6*PI/angular_speed);
-          }
-          time_used_to_calc=0;
+          time_rest_to_null_speed=adujstAngelwithSpeed(angular_speed,hold_position,'r');
+          time_total_photo_speed=adujstAngelwithSpeed(angular_acceleration,hold_position,'t');
+          // if (angular_speed<12)
+          // {   
+          //     time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
+          //     time_total_photo_speed=1000*(2*PI/angular_speed);
+          // }
+          // else if (angular_speed>12 && angular_speed<25)
+          // {
+          //   time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
+          //   time_total_photo_speed=1000*(4*PI/angular_speed);
+          // }
+          // else if (angular_speed>25)
+          // {
+          //   time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
+          //   time_total_photo_speed=1000*(6*PI/angular_speed);
+          // }
+          time_used_to_calc=millis()-start_excu_time;
           //*******************************
           //********************************
            if (time_total_photo_equation ==0)
@@ -382,7 +395,11 @@ void hall_sens_interrupt()
 {
   time_delta_hall = millis() - hall_start;
   hall_start = millis();
-  hall_section+=1;
+  if(start_hall)
+  {
+       hall_section+=1;
+  }
+ 
   theta_hall+=180;
   if (hall_section==2)
   {
@@ -506,17 +523,37 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         time_correction_value=0;
       }
       uint16_t time_photo_cor=1000*(hold_test_position*PI/6)/ang_speed;
-      uint16_t angel_15_correction=1000*(15*PI/180)/ang_speed;
+      uint16_t angel_15_correction=1000*(15*PI/180)/speed_main.photoSpeed(time_delta_photo);
 
       uint32_t new_rest_time;
-      uint16_t new_timetarget;
+      int new_timetarget;
       if (program_mode==1)
       {
         new_rest_time=rest_time-time_photo_cor;
         //Matlab correction
-        new_timetarget=-1.76*(ang_speed)+143;
-        Serial.print("matlab");
+        // y = 6.63*x - 1.19
+        
+        Serial.print("matlab  ");
         Serial.println(new_timetarget);
+          if(ang_speed >12)
+        {
+            // new_timetarget=100+angel_15_correction-(time_delta_hall/6);
+            new_timetarget=6.6286*(speed_main.photoSpeed(time_delta_photo))-0.73675;
+            Serial.print("matlab  ");
+            Serial.println(new_timetarget);
+        }
+        else
+        {
+          // new_timetarget=100-angel_15_correction;
+          // new_timetarget=6.6286*(speed_main.photoSpeed(time_delta_photo))-1.19+angel_15_correction;
+          // y = 1.465*x^{2} - 21.23*x + 157.1
+         int x=speed_main.photoSpeed(time_delta_photo);
+          // new_timetarget=1.465*(speed_main.photoSpeed(time_delta_photo)*speed_main.photoSpeed(time_delta_photo))- 21.23*speed_main.photoSpeed(time_delta_photo) + 157.1;
+          // y = - 0.2698*x^{3} + 7.0946*x^{2} - 57.666*x + 228.95
+          new_timetarget = - 0.2698*(x*x*x) + 7.0946*(x*x) - 57.666*x + 228.95;
+          Serial.print("matlab  ");
+          Serial.println(new_timetarget);
+        }
       }
       else
       {
@@ -534,7 +571,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         // }
         
       }
-      shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,new_timetarget+time_fall);
+      shoot_main.fireBall(total_time,pos_holder,new_rest_time,delta_hoder,time_fall+new_timetarget);
       // Debugging using the serial print
       uint32_t printer_timer2=millis();
       sPrint("***** after shoot values ",1);
@@ -612,7 +649,7 @@ void sPrint(String to_pr_c, float valo)
 }
 float adujstAngelwithSpeed(float speed_in,uint8_t section_number,char t_r)
 {
-    if (speed_in<17)
+    if (speed_in<12)
     {   
       if(t_r=='t')
       {
@@ -624,7 +661,7 @@ float adujstAngelwithSpeed(float speed_in,uint8_t section_number,char t_r)
       }
       
     }
-    else if (speed_in>17 && speed_in<25)
+    else if (speed_in>12 && speed_in<25)
     {
         if(t_r=='t')
       {
@@ -646,5 +683,4 @@ float adujstAngelwithSpeed(float speed_in,uint8_t section_number,char t_r)
         return 1000*((6*PI-(section_number*(PI/6)))/speed_in);
       } 
     }
-    return 0;
 }

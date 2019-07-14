@@ -33,36 +33,31 @@ volatile boolean shoot_flag=false;
 //********
 uint16_t time_window_hall, time_window_photo; // the time betwenn change in the value
 // these just for help
-float time_soluation[2];       // this array will hold the soluation values that will be used to shoot the ball using Calculatetime Function
+// float time_soluation[2];       // this array will hold the soluation values that will be used to shoot the ball using Calculatetime Function
 //******************************* speed parameter  S=73cm  **********************///
-float photo_speed = 0, hall_speed = 0, new_speed = 0; // Speed from the tow sensor with new_speed to use it later
+// float photo_speed = 0, hall_speed = 0, new_speed = 0; // Speed from the tow sensor with new_speed to use it later
 // float photo_acceleration;
 float time_total_photo_speed, time_total_hall; // this values will be used to get the best shoot moment
-float time_rest_photo, time_rest_hall;     // it will be generated using Speed Class
-float best_speed, best_total_time, best_rest, time_rest_to_null_speed;
+// float time_rest_photo, time_rest_hall;     // it will be generated using Speed Class
+float  time_rest_to_null_speed;
 /// ******* the Variable will be used in pet the Debounces of the Buttons
 uint32_t press_delay_trigger = 0;
 uint32_t butt1_press_delay_choose_mod = 0;
 uint32_t butt1_press_delay_read_mod = 0;
 //****************************************** these Variables will be used to get the Photo section and the Hall section to determine the position
-uint8_t hall_pos,pos,photo_pos;
+uint8_t hall_pos,photo_pos;
 uint8_t hold_position,hold_test_position; //TODO use the hold position from hall to ensure the position from photo sensor for the delta time 
 //********** Recive the Time delta from Interrupt 
 uint16_t hold_delta_photo_sensor,hold_delta_hall_sensor,time_target;
 //**************************
-uint16_t delay_time;
 //************ New Calculations using Theata 
-float theta_zero,angular_speed,angular_speed_zero,angular_acceleration=0.000000000000;
+float angular_speed,angular_acceleration;
 
 // new speed var
-float filled_speed=0,speed_1,speed_2;
-boolean fire_flag=true;
-
+float speed_1,speed_2;
 //** the main timers to calculate the acceleration 
-uint32_t acceleration_timer_1=0;
-uint32_t acceleration_timer_0=0;
 //**** these timer wil be used the time to excute a part from the code 
-uint32_t start_excu_time=0,end_excu_time=0,print_timer_start=0;
+uint32_t start_excu_time=0;
 //this tow variables are used to test the solve vs normal ohne acceleration
  int time_total_photo_equation, time_rest_to_null_equation;
  int time_total_hall_speed;
@@ -71,18 +66,17 @@ uint32_t start_excu_time=0,end_excu_time=0,print_timer_start=0;
 //uint16_t time_correction_value;
 int time_used_to_calc;
 //try to add the angel from interrupt 
-volatile uint32_t theta_photo=15,theta_hall=15;
+// volatile uint32_t theta_photo=15,theta_hall=15;
 volatile uint32_t photo_cycle=1,hall_cycle=1;
-uint32_t hold_theta_photo,hold_theta_hall;
+// uint32_t hold_theta_photo,hold_theta_hall;
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
-volatile boolean choose_mode_flag=true;
+boolean choose_mode_flag=true;
 // try to use accerleration array
-float accel_array[5];
-uint8_t accel_counter,speed_counter;
-int cycle_hoder;
+// float accel_array[5];
+// uint8_t accel_counter,speed_counter;
+// int cycle_hoder;
 boolean start_hall=false, Hall_help=true,secure_it=false;
-
 //secure motion and check stop arrays
 float sec_arr[2];
 float stop_arr[10];
@@ -96,7 +90,7 @@ void hall_sens_interrupt();
 /*****/
 uint16_t checkCounter(uint16_t counter1, uint8_t maxV);
 void sPrint(String to_pr_c, float valo);
-void stopSerial(uint8_t checkSerial);
+// void stopSerial(uint8_t checkSerial);
 void checkStartCondtions(uint8_t hall_seco, uint8_t hoto_cso);
 uint8_t chooseMode();
 // uint8_t getTargetSection(float theta_target_1);
@@ -254,8 +248,8 @@ if (Hall_help==true && photo_section>3)
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
-          hold_theta_photo=theta_photo;
-          cycle_hoder=photo_cycle;
+          // hold_theta_photo=theta_photo;
+          // cycle_hoder=photo_cycle;
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
@@ -304,8 +298,8 @@ if (Hall_help==true && photo_section>3)
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
-          hold_theta_photo=theta_photo;
-          cycle_hoder=photo_cycle;
+          // // hold_theta_photo=theta_photo;
+          // cycle_hoder=photo_cycle;
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
@@ -386,7 +380,7 @@ void photo_sens_interrupt()
 {
   time_delta_photo = millis() - photo_start;
   photo_start = millis();
-  theta_photo+=30;
+  // theta_photo+=30;
    photo_section+=1;
   if (photo_section==12)
   {
@@ -405,7 +399,7 @@ void hall_sens_interrupt()
        hall_section+=1;
   }
  
-  theta_hall+=180;
+  // theta_hall+=180;
   if (hall_section==2)
   {
     hall_section=0;
@@ -426,13 +420,13 @@ uint16_t checkCounter(uint16_t counter1, uint8_t maxV)
 }
 
 /********end serial *********/
-void stopSerial(uint8_t checkSerial)
-{
-  if (checkSerial == HIGH)
-  {
-    Serial.end();
-  }
-}
+// void stopSerial(uint8_t checkSerial)
+// {
+//   if (checkSerial == HIGH)
+//   {
+//     Serial.end();
+//   }
+// }
 
 /******* check start positions **********/
 

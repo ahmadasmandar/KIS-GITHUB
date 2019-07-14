@@ -34,10 +34,10 @@ void Shoot::shootManuel()
 void Shoot::fireBall( float total_time, uint8_t section, float time_resto, uint16_t window, uint16_t target_time)
 {
   delay_time_shoot=0;
-  if (time_resto > target_time && time_resto < 15000)
+  if (time_resto > target_time && time_resto < 5000)
   {
     delay_time_shoot = time_resto - target_time;
-    if (delay_time_shoot < 15000)
+    if (delay_time_shoot < 5000)
     {
       delay(delay_time_shoot);
       shhot_motor.write(angel);
@@ -67,7 +67,7 @@ void Shoot::fireBall( float total_time, uint8_t section, float time_resto, uint1
   else if (total_time > target_time)
   {
     delay_time_shoot = total_time - (target_time - time_resto);
-    if (delay_time_shoot < 15000)
+    if (delay_time_shoot < 5000)
     {
       delay(delay_time_shoot);
       shhot_motor.write(angel);

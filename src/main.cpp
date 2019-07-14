@@ -78,12 +78,16 @@ uint32_t hold_theta_photo,hold_theta_hall;
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
 volatile boolean choose_mode_flag=true;
 // try to use accerleration array
-float accel_array[5],speed_array[5];
+float accel_array[5];
 uint8_t accel_counter,speed_counter;
-float new_accel=0;
-int divide_number=0;
 int cycle_hoder;
-boolean start_hall=false, Hall_help=true;
+boolean start_hall=false, Hall_help=true,secure_it=false;
+
+//secure motion and check stop arrays
+float sec_arr[2];
+float stop_arr[5];
+uint8_t sec_counter,stop_counter;
+
 //*******************Functions prototypes
 
 void photo_sens_interrupt();
@@ -133,17 +137,27 @@ void loop()
      for that brief period.
       using the cli() sei() functions;
    * ***/
-//TODO update the speed and acceleration function delete the array and work without it 
+//TODO update the speed and acceleration function delete the array and work without it
+sec_arr[sec_counter]=time_delta_photo;
+stop_arr[stop_counter]=time_delta_photo;
+sec_counter=checkCounter(sec_counter,2);
+stop_counter=checkCounter(stop_counter,5);
 if (Hall_help==true && photo_section>3)
 {
   Hall_help=false;
   start_hall=true;
+  secure_it=true;
   Serial.println(hall_section);
-
 }
  applyMode();
  readMode();
  checkStartCondtions(hall_section,photo_section);
+ secure_it=speed_main.secureMotion(sec_arr[0],sec_arr[1],secure_it);
+ if (stop_arr[5]!=0)
+ {
+   speed_main.checkStop(stop_arr);
+ }
+
  //sPrint("first millis ",millis(),"ms");
  if (millis()>2000)
  {
@@ -239,8 +253,6 @@ if (Hall_help==true && photo_section>3)
           hold_test_position=hall_section;
           hold_theta_photo=theta_photo;
           cycle_hoder=photo_cycle;
-          divide_number=0;
-          new_accel=new_accel/divide_number;  
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
@@ -291,8 +303,6 @@ if (Hall_help==true && photo_section>3)
           hold_test_position=hall_section;
           hold_theta_photo=theta_photo;
           cycle_hoder=photo_cycle;
-          divide_number=0;
-          new_accel=new_accel/divide_number;  
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           // new way to calculate the time using the angel in degree 
@@ -523,7 +533,6 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       if (program_mode==1)
       {
         new_rest_time=rest_time-time_photo_cor;
-
           if(ang_speed >12)
         {
             new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
@@ -552,14 +561,11 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         
       }
        Serial.print("matlab");
-        Serial.println(new_timetarget);
-      shoot_main.fireBall(total_time,pos_holder-2,new_rest_time-2,delta_hoder,time_fall+new_timetarget);
+       Serial.println(new_timetarget);
+      shoot_main.fireBall(total_time-2,pos_holder,new_rest_time-2,delta_hoder,time_fall+new_timetarget);
       // Debugging using the serial print
-      uint32_t printer_timer2=millis();
       sPrint("***** after shoot values ",1);
       sPrint("accel",angular_acceleration);
-      sPrint("avg_accel  ",new_accel);
-      sPrint("accel_array_member  ",divide_number);
       sPrint("w rad/s ",ang_speed); 
       sPrint("w_new_from shoot main rad/s ",angular_speed_shoot); 
       sPrint("time_correction_value ",time_correction_value);
@@ -568,15 +574,14 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       sPrint("***** after shoot values ",2);
       sPrint("time_rest used here ",rest_time);
       sPrint("time_total_used here ",total_time);
-      sPrint("rest_equation ",time_rest_to_null_equation);
-      sPrint("total_equation ",time_total_hall);
-      sPrint("rest_speed ",time_rest_to_null_speed);
-      sPrint("total_speed_photo ",time_total_photo_speed);
-      sPrint("total_speed_hall ",time_total_hall_speed);
+      sPrint("time_rest_equation ",time_rest_to_null_equation);
+      sPrint("time_total_equation ",time_total_hall);
+      sPrint("time_rest_speed ",time_rest_to_null_speed);
+      sPrint("time_total_speed_photo ",time_total_photo_speed);
+      sPrint("time_total_speed_hall ",time_total_hall_speed);
       sPrint("hold_position",pos_holder);
       sPrint("current position ",current_section);
       sPrint("check the other sensr value ",hold_test_position);
-      sPrint("***** End shoot print tme ",(millis()-printer_timer2));
 }
 
 /****Choose Mode function****/

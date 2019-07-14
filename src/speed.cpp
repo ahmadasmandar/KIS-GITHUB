@@ -69,13 +69,18 @@ boolean speed::secureMotion(int val1, int val2, boolean start_FLAG)
 }
 
 //*******
-void speed::checkStop(int time1, int time2)
+void speed::checkStop(float stop_array[5])
 {
-    if (time1 == time2)
+    int sum=0;
+    for (int g=0;g<5;g++)
+    {
+        sum+=stop_array[g];
+    }
+    if (sum/5 == stop_array[3])
     {
         Serial.print(" Errror Error Errror   the check position error   ");
-        Serial.println(time1);
-        Serial.println(time2);
+        Serial.println(sum/5);
+        Serial.println(stop_array[3]);
     }
 }
 // float speed::getThetavalues(int time_interval, int time_target_val, float angular_acceleartion_val, char xval)

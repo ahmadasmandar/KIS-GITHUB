@@ -99,7 +99,6 @@ void getAcceleration(char x_sens);
 //*******
 void applyMode();
 void readMode();
-// void calculateTime(float accelaration_2, float winkelgeschwindigkeit_3, float inittheta_2, char control_1);
 //***
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder);
 // end function prototypes
@@ -165,9 +164,7 @@ if (Hall_help==true && photo_section>3)
    {
      getAcceleration('h');
    }
-    
      break;
-   
    default:
    if(time_delta_photo!=0)
    {

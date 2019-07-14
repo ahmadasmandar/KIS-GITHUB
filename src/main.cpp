@@ -85,7 +85,7 @@ boolean start_hall=false, Hall_help=true,secure_it=false;
 
 //secure motion and check stop arrays
 float sec_arr[2];
-float stop_arr[5];
+float stop_arr[10];
 uint8_t sec_counter,stop_counter;
 
 //*******************Functions prototypes
@@ -99,7 +99,7 @@ void sPrint(String to_pr_c, float valo);
 void stopSerial(uint8_t checkSerial);
 void checkStartCondtions(uint8_t hall_seco, uint8_t hoto_cso);
 uint8_t chooseMode();
-uint8_t getTargetSection(float theta_target_1);
+// uint8_t getTargetSection(float theta_target_1);
 //**********
 void getAcceleration(char x_sens);
 //*******
@@ -109,7 +109,7 @@ void readMode();
 //***
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder);
 // end function prototypes
-float adujstAngelwithSpeed(float speed_in,uint8_t section_number,char t_r);
+// float adujstAngelwithSpeed(float speed_in,uint8_t section_number,char t_r);
 
 //****************** the setup *****************************
 
@@ -141,7 +141,7 @@ void loop()
 sec_arr[sec_counter]=time_delta_photo;
 stop_arr[stop_counter]=time_delta_photo;
 sec_counter=checkCounter(sec_counter,2);
-stop_counter=checkCounter(stop_counter,5);
+stop_counter=checkCounter(stop_counter,10);
 if (Hall_help==true && photo_section>3)
 {
   Hall_help=false;
@@ -153,9 +153,12 @@ if (Hall_help==true && photo_section>3)
  readMode();
  checkStartCondtions(hall_section,photo_section);
  secure_it=speed_main.secureMotion(sec_arr[0],sec_arr[1],secure_it);
- if (stop_arr[5]!=0)
+ if (start_hall==true)
+ {
+   if (stop_arr[10]!=0 && millis()>10000)
  {
    speed_main.checkStop(stop_arr);
+ }
  }
 
  //sPrint("first millis ",millis(),"ms");
@@ -455,38 +458,38 @@ void getAcceleration(char x_sens_1)
     switch (x_sens_1)
     {
     case 'p':
-    speed_1=speed_main.photoSpeed(time_delta_photo);
+    speed_1=speed_main.photoSpeed(time_delta_photo)+angular_acceleration*(time_delta_photo/1000);
     delay(time_delta_photo);
-    speed_2=speed_main.photoSpeed(time_delta_photo);
+    speed_2=speed_main.photoSpeed(time_delta_photo)+angular_acceleration*(time_delta_photo/1000);
     angular_acceleration=-abs(1000*(speed_2-speed_1))/time_delta_photo;
-    accel_array[accel_counter]=angular_acceleration;
-    accel_counter=checkCounter(accel_counter,5);
+    // accel_array[accel_counter]=angular_acceleration;
+    // accel_counter=checkCounter(accel_counter,5);
       break;
     case 'h':
-      speed_1 = speed_main.hallSpeed(time_delta_hall);
+      speed_1 = speed_main.hallSpeed(time_delta_hall)+angular_acceleration*(time_delta_hall/1000);
       delay(time_delta_hall);
-      speed_2 = speed_main.hallSpeed(time_delta_hall);
+      speed_2 = speed_main.hallSpeed(time_delta_hall)+angular_acceleration*(time_delta_hall/1000);
       angular_acceleration = -abs(1000 * (speed_2 - speed_1) / time_delta_hall);
-      accel_array[accel_counter] = angular_acceleration;
-      accel_counter = checkCounter(accel_counter, 5);
+      // accel_array[accel_counter] = angular_acceleration;
+      // accel_counter = checkCounter(accel_counter, 5);
       break;
     } 
 }
 
-uint8_t getTargetSection(float theta_target_1)
-{
-  uint8_t section_help=6*theta_target_1/PI;
-  sPrint("section_help",section_help);
-  if (section_help > 11)
-  {
-    return section_help-12;
-  }
-  else
-  {
-    return section_help;
-  }
+// uint8_t getTargetSection(float theta_target_1)
+// {
+//   uint8_t section_help=6*theta_target_1/PI;
+//   sPrint("section_help",section_help);
+//   if (section_help > 11)
+//   {
+//     return section_help-12;
+//   }
+//   else
+//   {
+//     return section_help;
+//   }
   
-}
+// }
 void applyMode()
 {
   if (choose_mode_flag== true)
@@ -527,7 +530,6 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       float angular_speed_shoot=speed_main.photoSpeed(time_delta_photo)+angular_acceleration*(time_delta_photo/1000);
       uint16_t time_photo_cor=1000*(hold_test_position*PI/6)/angular_speed_shoot;
       uint16_t angel_15_correction=1000*(15*PI/180)/angular_speed_shoot;
-
       uint32_t new_rest_time;
       int new_timetarget;
       if (program_mode==1)
@@ -535,13 +537,13 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
         new_rest_time=rest_time-time_photo_cor;
           if(ang_speed >12)
         {
-            new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
+            // new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
              new_timetarget=- 0.076*angular_speed_shoot*angular_speed_shoot*angular_speed_shoot + 2.9*angular_speed_shoot*angular_speed_shoot - 38*angular_speed_shoot +2.5e+02;
              new_timetarget+=angel_15_correction/2.5;
         }
         else
         {
-          new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
+          // new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
           new_timetarget = - 0.2698*(angular_speed_shoot*angular_speed_shoot*angular_speed_shoot) + 7.0946*(angular_speed_shoot*angular_speed_shoot) - 57.666*angular_speed_shoot + 228.95;
           new_timetarget+=angel_15_correction/2;
         }
@@ -564,9 +566,6 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
        Serial.println(new_timetarget);
       shoot_main.fireBall(total_time-2,pos_holder,new_rest_time-2,delta_hoder,time_fall+new_timetarget);
       // Debugging using the serial print
-      sPrint("***** after shoot values ",1);
-      sPrint("accel",angular_acceleration);
-      sPrint("w rad/s ",ang_speed); 
       sPrint("w_new_from shoot main rad/s ",angular_speed_shoot); 
       sPrint("time_correction_value ",time_correction_value);
       sPrint("time_photo_cor ",time_photo_cor);
@@ -635,40 +634,40 @@ void sPrint(String to_pr_c, float valo)
     Serial.print(valo);
     Serial.println();
 }
-float adujstAngelwithSpeed(float speed_in,uint8_t section_number,char t_r)
-{
-    if (speed_in<12)
-    {   
-      if(t_r=='t')
-      {
-          return 1000*(2*PI/speed_in);
-      }
-      else
-      {
-        return 1000*((2*PI-(section_number*(PI/6)))/speed_in);
-      }
+// float adujstAngelwithSpeed(float speed_in,uint8_t section_number,char t_r)
+// {
+//     if (speed_in<12)
+//     {   
+//       if(t_r=='t')
+//       {
+//           return 1000*(2*PI/speed_in);
+//       }
+//       else
+//       {
+//         return 1000*((2*PI-(section_number*(PI/6)))/speed_in);
+//       }
       
-    }
-    else if (speed_in>12 && speed_in<25)
-    {
-        if(t_r=='t')
-      {
-          1000*(4*PI/speed_in);
-      }
-      else
-      {
-        return 1000*((4*PI-(section_number*(PI/6)))/speed_in);
-      }
-    }
-    else if (speed_in>25)
-    {
-             if(t_r=='t')
-      {
-          1000*(6*PI/speed_in);
-      }
-      else
-      {
-        return 1000*((6*PI-(section_number*(PI/6)))/speed_in);
-      } 
-    }
-}
+//     }
+//     else if (speed_in>12 && speed_in<25)
+//     {
+//         if(t_r=='t')
+//       {
+//           1000*(4*PI/speed_in);
+//       }
+//       else
+//       {
+//         return 1000*((4*PI-(section_number*(PI/6)))/speed_in);
+//       }
+//     }
+//     else if (speed_in>25)
+//     {
+//              if(t_r=='t')
+//       {
+//           1000*(6*PI/speed_in);
+//       }
+//       else
+//       {
+//         return 1000*((6*PI-(section_number*(PI/6)))/speed_in);
+//       } 
+//     }
+// }

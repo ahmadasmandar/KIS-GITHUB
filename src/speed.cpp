@@ -69,17 +69,17 @@ boolean speed::secureMotion(int val1, int val2, boolean start_FLAG)
 }
 
 //*******
-void speed::checkStop(float stop_array[5])
+void speed::checkStop(float stop_array[10])
 {
     int sum=0;
-    for (int g=0;g<5;g++)
+    for (int g=0;g<10;g++)
     {
         sum+=stop_array[g];
     }
-    if (sum/5 == stop_array[3])
+    if (sum/10 == stop_array[3])
     {
-        Serial.print(" Errror Error Errror   the check position error   ");
-        Serial.println(sum/5);
+        Serial.print(" Warrning Stop detected !!!!!  ");
+        Serial.println(sum/10);
         Serial.println(stop_array[3]);
     }
 }

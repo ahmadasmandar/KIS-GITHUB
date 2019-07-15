@@ -22,11 +22,6 @@ public:
     Servo servo;
 
     void pinSetup();
-    void serialLogger();
-    void Cservo(int deg);
-    void deatachServo();
-    void attachServo();
-    void Demo();
 };
 
 #endif

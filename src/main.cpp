@@ -9,15 +9,12 @@
  // the time aus FreienFall Gesetz mit s=0.75m und g= 9.81
 uint16_t time_fall=1000* sqrt((2*0.75)/9.81); // the result will be in 391.030 ms 
 
-const uint16_t test_time = 400; // the new value for photo sensor
-const uint16_t test_time_hall=400;
-
 //************** Objects from the main Classes  ******************//
 
 speed speed_main; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)
 kisg6 hartz;  // from Class KISG6 that contain the experement Conditions (pins Setup )  // from Debug class the main use is to Serial print complexe Phrases
 Shoot shoot_main; // from Shoot Class used to shhot the ball 
-Servo main_motor;
+// Servo main_motor;
 // Here is the value for the Interrupts Counter for
 // the PhotoSensor and The Hall Sensor
 /*********  **********************/
@@ -30,7 +27,6 @@ volatile uint16_t time_delta_hall;
 /////
 // volatile float time_interrupt_photo, time_interrupt_hall; // these will hold the time rest values from the change point..
 //********
-uint16_t time_window_hall, time_window_photo; // the time betwenn change in the value
 // these just for help
 // float time_soluation[2];       // this array will hold the soluation values that will be used to shoot the ball using Calculatetime Function
 //******************************* speed parameter  S=73cm  **********************///
@@ -45,6 +41,8 @@ uint32_t butt1_press_delay_choose_mod = 0;
 uint32_t butt1_press_delay_read_mod = 0;
 //****************************************** these Variables will be used to get the Photo section and the Hall section to determine the position
 uint8_t hall_pos,photo_pos;
+
+//hold_position ist Position wo wi trigger gedruckt, hold_test_position für andere Sensor
 uint8_t hold_position,hold_test_position; //TODO use the hold position from hall to ensure the position from photo sensor for the delta time 
 //********** Recive the Time delta from Interrupt 
 uint16_t hold_delta_photo_sensor,hold_delta_hall_sensor,time_target;
@@ -180,11 +178,12 @@ if (Hall_help==true && photo_section>3)
       hold_delta_hall_sensor=time_delta_hall;
       hold_position=hall_section;
       hold_test_position=photo_section;
+      //die Zeit Berechnung ahand der Equation
       time_total_hall=speed_main.totalHallTime(hold_delta_hall_sensor,angular_acceleration);
       time_rest_to_null_equation=speed_main.hallRst(hold_position,hold_delta_hall_sensor,angular_acceleration);
+
+      
       angular_speed=speed_main.hallSpeed(time_delta_hall)+(angular_acceleration*(hold_delta_hall_sensor/1000));
-      // time_total_hall_speed=adujstAngelwithSpeed(angular_speed,hall_section,'t');
-      // time_rest_to_null_speed=adujstAngelwithSpeed(angular_speed,hall_section,'r');
 
       if (angular_speed<12)
           {   
@@ -239,7 +238,7 @@ if (Hall_help==true && photo_section>3)
 
 
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-
+          //die Berechnung der zeit nur anhand Speed
           if (angular_speed<17)
           {   
               time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
@@ -323,9 +322,6 @@ if (Hall_help==true && photo_section>3)
     press_delay_trigger = millis();
   }
 }
-
-
-
 
 
 
@@ -573,7 +569,7 @@ uint8_t chooseMode()
   }
   else
   {
-    return (1);
+    // return (1);
   }
   return 0;
 }

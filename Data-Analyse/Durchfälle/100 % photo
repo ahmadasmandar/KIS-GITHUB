@@ -1,0 +1,671 @@
+> Executing task: C:\Users\Ahmad Asmandar\.platformio\penv\Scripts\platformio.exe device monitor <
+
+
+--- Miniterm on COM3  57600,8,N,1 ---
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+ we are in the mode   3.00
+0
+ we are in the mode   3.00
+ we are in the mode   3.00
+0
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.78
+b  16.36
+c  0.00
+ the values are not right or so big 
+0.00
+20.93
+a  -0.78
+b  16.36
+c  -6.28
+ the time soluation x1  0.39
+the total eqaution ==0 >> using total speed
+matlab54
+*** printer from shoot total ****
+target_time  445.00  ms
+total if delay time is   689.00  ms
+total -if total   765.00  ms
+total -if rest   369.00  ms
+total -if window   32.00  ms
+***
+w_new_from shoot main rad/s   16.36
+time_correction_value   0.00
+time_photo_cor   32.00
+angel_15_csorrection   16.00
+***** after shoot values   2.00
+time_rest used here   371.00
+time_total_used here   767.00
+time_rest_equation   391.00
+time_total_equation_hall   0.00
+time_rest_speed   768.00
+time_total_speed_photo   768.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  0.00
+b  16.36
+c  0.00
+ 4*PI-c1  6.28
+a  0.00
+b  16.36
+c  -6.28
+ 4*PI-c1  0.00
+matlab54
+* printer from shoot rest *
+target_time  445.00  ms
+rest -if delay time is   316.00  ms
+rest -if total   381.00  ms
+rest -if rest   761.00  ms
+rest -if window   32.00  ms
+***********
+w_new_from shoot main rad/s   16.36
+time_correction_value   0.00
+time_photo_cor   32.00
+angel_15_csorrection   16.00
+***** after shoot values   2.00
+time_rest used here   763.00
+time_total_used here   383.00
+time_rest_equation   767.00
+time_total_equation_hall   0.00
+time_rest_speed   768.00
+time_total_speed_photo   768.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate4
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.35
+b  14.54
+c  0.00
+ the values are not right or so big 
+0.00
+41.46
+a  -0.35
+b  14.54
+c  -6.28
+ the time soluation x1  0.44
+the total eqaution ==0 >> using total speed
+matlab59
+------- Error from shoot -------
+target_time  450.00  ms
+there is error we couldn't shoot  0.00
+total -if time   429.00  ms
+total -if rest   413.00  ms
+total -if window   36.00  ms
+-------------------------
+w_new_from shoot main rad/s   14.54
+time_correction_value   0.00
+time_photo_cor   36.00
+angel_15_csorrection   18.00
+***** after shoot values   2.00
+time_rest used here   415.00
+time_total_used here   431.00
+time_rest_equation   436.00
+time_total_equation_hall   0.00
+time_rest_speed   432.00
+time_total_speed_photo   432.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate21
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.46
+b  14.15
+c  0.00
+ the values are not right or so big
+0.00
+30.68
+a  -0.46
+b  14.15
+c  -6.28
+ the time soluation x1  0.45
+the total eqaution ==0 >> using total speed
+matlab60
+------- Error from shoot -------
+target_time  451.00  ms
+there is error we couldn't shoot  0.00
+total -if time   441.00  ms
+total -if rest   427.00  ms
+total -if window   37.00  ms
+-------------------------
+w_new_from shoot main rad/s   14.15
+time_correction_value   0.00
+time_photo_cor   37.00
+angel_15_csorrection   18.00
+***** after shoot values   2.00
+time_rest used here   429.00
+time_total_used here   443.00
+time_rest_equation   450.00
+time_total_equation_hall   0.00
+time_rest_speed   444.00
+time_total_speed_photo   444.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate21
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.41
+b  13.43
+c  0.00
+ the values are not right or so big 
+0.00
+32.45
+a  -0.41
+b  13.43
+c  -6.28
+ the time soluation x1  0.47
+the total eqaution ==0 >> using total speed
+matlab62
+*** printer from shoot total ****
+target_time  453.00  ms
+total if delay time is   464.00  ms
+total -if total   466.00  ms
+total -if rest   451.00  ms
+total -if window   39.00  ms
+***
+w_new_from shoot main rad/s   13.43
+time_correction_value   0.00
+time_photo_cor   39.00
+angel_15_csorrection   19.00
+***** after shoot values   2.00
+time_rest used here   453.00
+time_total_used here   468.00
+time_rest_equation   474.00
+time_total_equation_hall   0.00
+time_rest_speed   468.00
+time_total_speed_photo   468.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate21
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.23
+b  12.77
+c  0.00
+ the values are not right or so big
+0.00
+54.57
+a  -0.23
+b  12.77
+c  -6.28
+ the time soluation x1  0.50
+the total eqaution ==0 >> using total speed
+matlab64
+* printer from shoot rest *
+target_time  455.00  ms
+rest -if delay time is   19.00  ms
+rest -if total   489.00  ms
+rest -if rest   474.00  ms
+rest -if window   41.00  ms
+***********
+w_new_from shoot main rad/s   12.77
+time_correction_value   0.00
+time_photo_cor   41.00
+angel_15_csorrection   20.00
+***** after shoot values   2.00
+time_rest used here   476.00
+time_total_used here   491.00
+time_rest_equation   496.00
+time_total_equation_hall   0.00
+time_rest_speed   492.00
+time_total_speed_photo   492.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.10
+b  12.18
+c  0.00
+ the values are not right or so big 
+0.00
+120.16
+a  -0.10
+b  12.18
+c  -6.28
+ the time soluation x1  0.52
+the total eqaution ==0 >> using total speed
+matlab66
+* printer from shoot rest *
+target_time  457.00  ms
+rest -if delay time is   38.00  ms
+rest -if total   514.00  ms
+rest -if rest   495.00  ms
+rest -if window   43.00  ms
+***********
+w_new_from shoot main rad/s   12.18
+time_correction_value   0.00
+time_photo_cor   43.00
+angel_15_csorrection   21.00
+***** after shoot values   2.00
+time_rest used here   497.00
+time_total_used here   516.00
+time_rest_equation   518.00
+time_total_equation_hall   0.00
+time_rest_speed   516.00
+time_total_speed_photo   516.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate21
+********trigger pressed****************
+we are in Mode   3.00
+a  0.00
+b  10.91
+c  0.00
+ c=2*PI-c1 6.28
+a  0.00
+b  10.91
+c  -6.28
+ c=2*PI-c1 0.00
+the total eqaution ==0 >> using total speed
+matlab69
+* printer from shoot rest *
+target_time  460.00  ms
+rest -if delay time is   102.00  ms
+rest -if total   574.00  ms
+rest -if rest   562.00  ms
+rest -if window   48.00  ms
+***********
+w_new_from shoot main rad/s   10.91
+time_correction_value   0.00
+time_photo_cor   48.00
+angel_15_csorrection   24.00
+***** after shoot values   2.00
+time_rest used here   564.00
+time_total_used here   576.00
+time_rest_equation   576.00
+time_total_equation_hall   0.00
+time_rest_speed   576.00
+time_total_speed_photo   576.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate12
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.31
+b  10.27
+c  0.00
+ the values are not right or so big 
+0.00
+33.33
+a  -0.31
+b  10.27
+c  -6.28
+ the time soluation x1  0.62
+the total eqaution ==0 >> using total speed
+matlab71
+* printer from shoot rest *
+target_time  462.00  ms
+rest -if delay time is   139.00  ms
+rest -if total   610.00  ms
+rest -if rest   601.00  ms
+rest -if window   51.00  ms
+***********
+w_new_from shoot main rad/s   10.27
+time_correction_value   0.00
+time_photo_cor   51.00
+angel_15_csorrection   25.00
+***** after shoot values   2.00
+time_rest used here   603.00
+time_total_used here   612.00
+time_rest_equation   623.00
+time_total_equation_hall   0.00
+time_rest_speed   612.00
+time_total_speed_photo   612.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.05
+b  9.70
+c  0.00
+ the values are not right or so big 
+0.00
+185.08
+a  -0.05
+b  9.70
+c  -6.28
+ the time soluation x1  0.65
+the total eqaution ==0 >> using total speed
+matlab72
+* printer from shoot rest *
+target_time  463.00  ms
+rest -if delay time is   165.00  ms
+rest -if total   645.00  ms
+rest -if rest   628.00  ms
+rest -if window   54.00  ms
+***********
+w_new_from shoot main rad/s   9.70
+time_correction_value   0.00
+time_photo_cor   53.00
+angel_15_csorrection   26.00
+***** after shoot values   2.00
+time_rest used here   630.00
+time_total_used here   647.00
+time_rest_equation   650.00
+time_total_equation_hall   0.00
+time_rest_speed   648.00
+time_total_speed_photo   648.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.02
+b  7.48
+c  0.00
+ the values are not right or so big 
+0.00
+300.97
+a  -0.02
+b  7.48
+c  -6.28
+ the time soluation x1  0.84
+the total eqaution ==0 >> using total speed
+matlab79
+* printer from shoot rest *
+target_time  470.00  ms
+rest -if delay time is   350.00  ms
+rest -if total   838.00  ms
+rest -if rest   820.00  ms
+rest -if window   70.00  ms
+***********
+w_new_from shoot main rad/s   7.48
+time_correction_value   0.00
+time_photo_cor   70.00
+angel_15_csorrection   35.00
+***** after shoot values   2.00
+time_rest used here   822.00
+time_total_used here   840.00
+time_rest_equation   842.00
+time_total_equation_hall   0.00
+time_rest_speed   840.00
+time_total_speed_photo   840.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.17
+b  7.08
+c  0.00
+ the values are not right or so big 
+0.00
+40.63
+a  -0.17
+b  7.08
+c  -6.28
+ the time soluation x1  0.91
+the total eqaution ==0 >> using total speed
+matlab80
+* printer from shoot rest *
+target_time  471.00  ms
+rest -if delay time is   414.00  ms
+rest -if total   885.00  ms
+rest -if rest   885.00  ms
+rest -if window   74.00  ms
+***********
+w_new_from shoot main rad/s   7.08
+time_correction_value   0.00
+time_photo_cor   74.00
+angel_15_csorrection   37.00
+***** after shoot values   2.00
+time_rest used here   887.00
+time_total_used here   887.00
+time_rest_equation   908.00
+time_total_equation_hall   0.00
+time_rest_speed   888.00
+time_total_speed_photo   888.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate21
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.02
+b  6.46
+c  0.00
+ the values are not right or so big 
+0.00
+404.93
+a  -0.02
+b  6.46
+c  -6.28
+ the time soluation x1  0.97
+the total eqaution ==0 >> using total speed
+matlab83
+* printer from shoot rest *
+target_time  474.00  ms
+rest -if delay time is   478.00  ms
+rest -if total   969.00  ms
+rest -if rest   952.00  ms
+rest -if window   81.00  ms
+***********
+w_new_from shoot main rad/s   6.46
+time_correction_value   0.00
+time_photo_cor   81.00
+angel_15_csorrection   40.00
+***** after shoot values   2.00
+time_rest used here   954.00
+time_total_used here   971.00
+time_rest_equation   974.00
+time_total_equation_hall   0.00
+time_rest_speed   972.00
+time_total_speed_photo   972.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.14
+b  5.82
+c  0.00
+ the values are not right or so big 
+0.00
+41.90
+a  -0.14
+b  5.82
+c  -6.28
+ the time soluation x1  1.11
+the total eqaution ==0 >> using total speed
+matlab84
+* printer from shoot rest *
+target_time  475.00  ms
+rest -if delay time is   612.00  ms
+rest -if total   1077.00  ms
+rest -if rest   1087.00  ms
+rest -if window   90.00  ms
+***********
+w_new_from shoot main rad/s   5.82
+time_correction_value   0.00
+time_photo_cor   90.00
+angel_15_csorrection   45.00
+***** after shoot values   2.00
+time_rest used here   1089.00
+time_total_used here   1079.00
+time_rest_equation   1109.00
+time_total_equation_hall   0.00
+time_rest_speed   1080.00
+time_total_speed_photo   1080.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.11
+b  5.29
+c  0.00
+ the values are not right or so big
+0.00
+48.38
+a  -0.11
+b  5.29
+c  -6.28
+ the time soluation x1  1.22
+the total eqaution ==0 >> using total speed
+matlab86
+* printer from shoot rest *
+target_time  477.00  ms
+rest -if delay time is   718.00  ms
+rest -if total   1186.00  ms
+rest -if rest   1195.00  ms
+rest -if window   99.00  ms
+***********
+w_new_from shoot main rad/s   5.29
+time_correction_value   0.00
+time_photo_cor   99.00
+angel_15_csorrection   49.00
+***** after shoot values   2.00
+time_rest used here   1197.00
+time_total_used here   1188.00
+time_rest_equation   1218.00
+time_total_equation_hall   0.00
+time_rest_speed   1188.00
+time_total_speed_photo   1188.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate21
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.02
+b  4.55
+c  0.00
+ the values are not right or so big 
+0.00
+249.73
+a  -0.02
+b  4.55
+c  -6.28
+ the time soluation x1  1.39
+the total eqaution ==0 >> using total speed
+matlab89
+* printer from shoot rest *
+target_time  480.00  ms
+rest -if delay time is   885.00  ms
+rest -if total   1377.00  ms
+rest -if rest   1365.00  ms
+rest -if window   115.00  ms
+***********
+w_new_from shoot main rad/s   4.55
+time_correction_value   0.00
+time_photo_cor   114.00
+angel_15_csorrection   57.00
+***** after shoot values   2.00
+time_rest used here   1367.00
+time_total_used here   1379.00
+time_rest_equation   1387.00
+time_total_equation_hall   0.00
+time_rest_speed   1380.00
+time_total_speed_photo   1380.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.10
+b  4.03
+c  0.00
+ the values are not right or so big 
+0.00
+42.23
+a  -0.10
+b  4.03
+c  -6.28
+ the time soluation x1  1.62
+the total eqaution ==0 >> using total speed
+matlab91
+* printer from shoot rest *
+target_time  482.00  ms
+rest -if delay time is   1118.00  ms
+rest -if total   1558.00  ms
+rest -if rest   1600.00  ms
+rest -if window   130.00  ms
+***********
+w_new_from shoot main rad/s   4.03
+time_correction_value   0.00
+time_photo_cor   130.00
+angel_15_csorrection   65.00
+***** after shoot values   2.00
+time_rest used here   1602.00
+time_total_used here   1560.00
+time_rest_equation   1622.00
+time_total_equation_hall   0.00
+time_rest_speed   1560.00
+time_total_speed_photo   1560.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20
+********trigger pressed****************
+we are in Mode   3.00
+a  -0.09
+b  3.42
+c  0.00
+ the values are not right or so big
+0.00
+36.35
+a  -0.09
+b  3.42
+c  -6.28
+ the time soluation x1  1.94
+the total eqaution ==0 >> using total speed
+matlab94
+* printer from shoot rest *
+target_time  485.00  ms
+rest -if delay time is   1432.00  ms
+rest -if total   1833.00  ms
+rest -if rest   1917.00  ms
+rest -if window   153.00  ms
+***********
+w_new_from shoot main rad/s   3.42
+time_correction_value   0.00
+time_photo_cor   153.00
+angel_15_csorrection   76.00
+***** after shoot values   2.00
+time_rest used here   1919.00
+time_total_used here   1835.00
+time_rest_equation   1939.00
+time_total_equation_hall   0.00
+time_rest_speed   1836.00
+time_total_speed_photo   1836.00
+time_total_speed_hall   0.00
+hold_position  0.00
+current position   0.00
+check the other sensr value   1.00
+time_used_to_caculate20

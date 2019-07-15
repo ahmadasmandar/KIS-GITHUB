@@ -63,6 +63,7 @@ int time_used_to_calc;
 //try to add the angel from interrupt 
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
+uint8_t newMode;
 boolean choose_mode_flag=true;
 // try to use accerleration array
 boolean start_hall=false, Hall_help=true,secure_it=false;
@@ -129,8 +130,9 @@ if (Hall_help==true && photo_section>3)
 }
  applyMode();
  readMode();
+ program_mode=chooseMode();
  checkStartCondtions(hall_section,photo_section);
- secure_it=speed_main.secureMotion(sec_arr[0],sec_arr[1],secure_it);
+//  secure_it=speed_main.secureMotion(sec_arr[0],sec_arr[1],secure_it);
  if (start_hall==true)
  {
    if (stop_arr[10]!=0 && millis()>10000)
@@ -168,6 +170,7 @@ if (Hall_help==true && photo_section>3)
     {
       /** nur Hall sensor benutzen **/
     case 1:
+    sPrint("we are in Mode ",program_mode);
     time_rest_to_null_equation=0;
     getAcceleration('h');
       while (hall_section!=0)
@@ -221,6 +224,7 @@ if (Hall_help==true && photo_section>3)
       /** nur PHOTO sensor benutzen **/
 
     case 2:
+          sPrint("we are in Mode ",program_mode);
            getAcceleration('p');
           while (photo_section!=0)
           {
@@ -271,8 +275,9 @@ if (Hall_help==true && photo_section>3)
       break;
       // here we are using the tow sensors 
       case 3:
-          getAcceleration('p');
-          while (hall_section!=0)
+          sPrint("we are in Mode ",program_mode);
+          getAcceleration('h');
+          while (photo_section!=0)
           {
             delay(1);
           }
@@ -285,12 +290,12 @@ if (Hall_help==true && photo_section>3)
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
 
-          if (angular_speed<17)
+          if (angular_speed<15)
           {   
               time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
               time_total_photo_speed=1000*(2*PI/angular_speed);
           }
-          else if (angular_speed>17 && angular_speed<25)
+          else if (angular_speed>15 && angular_speed<25)
           {
             time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
             time_total_photo_speed=1000*(4*PI/angular_speed);
@@ -308,6 +313,11 @@ if (Hall_help==true && photo_section>3)
             time_total_photo_equation=time_total_photo_speed;
             Serial.println("the total eqaution ==0 >> using total speed");
           }
+          if (time_rest_to_null_equation==0)
+          {
+            time_rest_to_null_equation=time_rest_to_null_speed;
+            Serial.println("the rest eqaution ==0 >> using rest speed");
+          }
           time_used_to_calc=millis()-start_excu_time;
           shootMain(angular_speed,hold_position,photo_section,time_total_photo_equation,time_rest_to_null_equation-time_used_to_calc,hold_delta_photo_sensor);
            Serial.print("time_used_to_caculate");
@@ -316,6 +326,7 @@ if (Hall_help==true && photo_section>3)
           // sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
           break;
     case 4:
+      sPrint("we are in Mode ",program_mode);
       shoot_main.shootManuel();         
       break;
     }
@@ -438,16 +449,16 @@ void getAcceleration(char x_sens_1)
 // }
 void applyMode()
 {
+   program_mode=chooseMode();
   if (choose_mode_flag== true)
   {
-    program_mode=chooseMode();
     sPrint(" we are in the mode ", program_mode);
     choose_mode_flag= false;
   }
 }
 void readMode()
 {
-      if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_read_mod > 30)
+    if (digitalRead(hartz.butt1) == HIGH && millis() - butt1_press_delay_read_mod > 300)
   {
     program_mode = chooseMode();
     sPrint(" we are in the mode ", program_mode);
@@ -461,19 +472,19 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
     // this funktion was commited becuase we calcualte the lost time in the case funktions
      uint16_t time_correction_value;       
       // correct the time after caculation and take care if we are from 1 to 11 ....or 11 to 1
+      float angular_speed_shoot=speed_main.photoSpeed(time_delta_photo)+angular_acceleration*(time_delta_photo/1000);
       if (current_section!=pos_holder && pos_holder !=11 )
       {
-        time_correction_value=1000*(abs(current_section-pos_holder)*((PI/6)/ang_speed));
+        time_correction_value=1000*(abs(current_section-pos_holder)*((PI/6)/angular_speed_shoot));
       }
       else if (current_section!=pos_holder && pos_holder ==11)
       {
-        time_correction_value=1000*(((current_section+1)*(PI/6)/ang_speed));
+        time_correction_value=1000*(((current_section+1)*(PI/6)/angular_speed_shoot));
       }
       else
       {
         time_correction_value=0;
       }
-      float angular_speed_shoot=speed_main.photoSpeed(time_delta_photo)+angular_acceleration*(time_delta_photo/1000);
       uint16_t time_photo_cor=1000*(hold_test_position*PI/6)/angular_speed_shoot;
       uint16_t angel_15_correction=1000*(15*PI/180)/angular_speed_shoot;
       uint32_t new_rest_time;
@@ -481,30 +492,44 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       if (program_mode==1)
       {
         new_rest_time=rest_time-time_photo_cor;
-          if(ang_speed >12)
-        {
-            // new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
-             new_timetarget=- 0.076*angular_speed_shoot*angular_speed_shoot*angular_speed_shoot + 2.9*angular_speed_shoot*angular_speed_shoot - 38*angular_speed_shoot +2.5e+02;
-             new_timetarget+=angel_15_correction/2.5;
-        }
-        else
-        {
-          // new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
-          new_timetarget = - 0.2698*(angular_speed_shoot*angular_speed_shoot*angular_speed_shoot) + 7.0946*(angular_speed_shoot*angular_speed_shoot) - 57.666*angular_speed_shoot + 228.95;
-          new_timetarget+=angel_15_correction/2;
-        }
+         new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
+            //  new_timetarget=- 0.076*angular_speed_shoot*angular_speed_shoot*angular_speed_shoot + 2.9*angular_speed_shoot*angular_speed_shoot - 38*angular_speed_shoot +2.5e+02;
+         new_timetarget-=angel_15_correction/10;
+        //   if(ang_speed >15)
+        // {
+        //     new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
+        //     //  new_timetarget=- 0.076*angular_speed_shoot*angular_speed_shoot*angular_speed_shoot + 2.9*angular_speed_shoot*angular_speed_shoot - 38*angular_speed_shoot +2.5e+02;
+        //      new_timetarget-=angel_15_correction/10;
+        //     // new_timetarget=100-delta_hoder-delta_hoder;
+        // }
+        // else
+        // {
+        //   new_timetarget = - 0.4945*angular_speed_shoot + 94.54;
+        //   // new_timetarget = - 0.2698*(angular_speed_shoot*angular_speed_shoot*angular_speed_shoot) + 7.0946*(angular_speed_shoot*angular_speed_shoot) - 57.666*angular_speed_shoot + 228.95;
+        //   new_timetarget-=angel_15_correction/10;
+        //   // new_timetarget=100-delta_hoder+delta_hoder;
+        // }
       }
       else // if programm mode 2,3,4 
       {
         new_rest_time=rest_time-time_correction_value;
         if (ang_speed>12)
         {
-          new_timetarget= 1.12*angular_speed_shoot*angular_speed_shoot - 22.75*angular_speed_shoot + 174.8;
-          new_timetarget-=angel_15_correction/5;
+          // new_timetarget= 1.12*angular_speed_shoot*angular_speed_shoot - 22.75*angular_speed_shoot + 174.8;
+          // new_timetarget-=angel_15_correction/5;
+          // new_timetarget= - 2.597*angular_speed_shoot + 96.08;
+          // y = - 2.03*x + 97.05
+          new_timetarget= - 3.03*angular_speed_shoot + 102.6;
+          // new_timetarget= - 2.03*angular_speed_shoot + 97.05;
+          new_timetarget-=angel_15_correction/10;
         }
         else
         {
-          new_timetarget= - 7.092*angular_speed_shoot + 122.3;
+          // y = - 3.03*x + 102.8
+          // y = - 3.067*x + 102.6
+          // new_timetarget= - 2.597*angular_speed_shoot + 96.08;
+          new_timetarget= - 3.067*angular_speed_shoot + 102.6;
+          // new_timetarget+=angel_15_correction/10;
         }
         
       }
@@ -517,6 +542,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       sPrint("time_photo_cor ",time_photo_cor);
       sPrint("angel_15_csorrection ",angel_15_correction);
       sPrint("***** after shoot values ",2);
+      sPrint("w rad/s",angular_speed_shoot);
       sPrint("time_rest used here ",rest_time);
       sPrint("time_total_used here ",total_time);
       sPrint("time_rest_equation ",time_rest_to_null_equation);

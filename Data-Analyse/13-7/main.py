@@ -1,6 +1,6 @@
 
 from matplotlib import pyplot as plt
-f = open('photo fast 6', 'r+')
+f = open('100 % photo', 'r+')
 content=f.readlines()
 target_time=[]
 angular_speed=[]

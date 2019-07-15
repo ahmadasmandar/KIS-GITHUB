@@ -1,6 +1,6 @@
 
 from matplotlib import pyplot as plt
-f = open('durchfall1.txt', 'r+')
+f = open('100 % photo', 'r+')
 content=f.readlines()
 target_time=[]
 angular_speed=[]

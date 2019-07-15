@@ -132,7 +132,7 @@ if (Hall_help==true && photo_section>3)
  readMode();
  program_mode=chooseMode();
  checkStartCondtions(hall_section,photo_section);
-//  secure_it=speed_main.secureMotion(sec_arr[0],sec_arr[1],secure_it);
+ secure_it=speed_main.secureMotion(sec_arr[0],sec_arr[1],secure_it);
  if (start_hall==true)
  {
    if (stop_arr[10]!=0 && millis()>10000)

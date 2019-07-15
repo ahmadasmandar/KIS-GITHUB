@@ -231,9 +231,15 @@ if (Hall_help==true && photo_section>3)
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
+          
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
+          //hold_position ist die jetzige Section wovon wir mit Berechnungen angefangen haben
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
+
+
+
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
+
           if (angular_speed<17)
           {   
               time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);

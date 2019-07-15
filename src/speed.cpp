@@ -23,8 +23,6 @@ float speed::photoRst(int photo_seco, int delta_pho_rst, float accelo_1)
 {
     float photo_speed_intern = photoSpeed(delta_pho_rst);
     float help_val_theta = ((photo_seco) * (PI / 6));//TODO WE NEED TO ADD THE 15 dgree from the beginning 
-    //try to get values using the full Angel
-    // float help_val_theta = (photo_seco*PI/180);
     float result = solveTimeEquation(accelo_1, photo_speed_intern, help_val_theta);
     return result;
 }
@@ -83,40 +81,32 @@ void speed::checkStop(float stop_array[10])
         Serial.println(stop_array[0]);
     }
 }
-// float speed::getThetavalues(int time_interval, int time_target_val, float angular_acceleartion_val, char xval)
-// {
-//     switch (xval)
-//     {
-//     case 'x':
-//         return (2 * PI) + (photoSpeed(time_interval) * time_target_val / 1000) - (0.5 * angular_acceleartion_val * ((time_target_val / 1000) * (time_target_val / 1000)));
-//         break;
-//     case 't':
-//         float x_help = (2 * PI) + (photoSpeed(time_interval) * time_target_val / 1000) - (0.5 * angular_acceleartion_val * ((time_target_val / 1000) * (time_target_val / 1000)));
-//         return x_help - (photoSpeed(time_interval) * time_target_val / 1000) - (0.5 * angular_acceleartion_val * ((time_target_val / 1000) * (time_target_val / 1000)));
-//         break;
-//     }
-// }
 
 // Calculate the time values
 float speed::solveTimeEquation(float a1, float b1, float c1)
-{
+{   
+    // c1 ist Winkel 0 
+    // a1 ist die Winkelbeschleunigung
+    // b ist die Winkelgeschwindigkeit am Anfang
+    // c die VerbleibindeWinkel
     float c;
     // check the speed and get the pefect theta to calculation so we can work with very fast speed
+    // Die total time soll immer großer als die Target time deswegen addieren wir entweder 4Pi oder 6Pi
      if (b1 < 17)
     {
+        //die Geschwindigkeit ist normal die Total time soll großer als Target time sein
         c = -(2 * PI - (c1));
-        Serial.println("speed is under 17 rad/s");
     }
     else if (b1 > 17 && b1 < 25)
     {
-        c = -(2 * PI - (c1 + 4 * PI));
-        Serial.println("speed is bigger than 17 rad/s");
+        //die Geschwindigkeit ist fast die Total time ist kleiner als Target time sein
+        //deswegen vergrößeren wir den Winkel damit wir großer Zeit bekommen
+        c = -(2 * PI - (c1 + 4*PI));
     }
    
     else if (b1 > 25)
     {
-        c = -(2 * PI - (c1 + 6 * PI));
-        Serial.println("speed is bigger than 25 rad/s");
+        c = -(2 * PI - (c1 + 6*PI));
     }
     //   ******************************
 
@@ -140,14 +130,10 @@ float speed::solveTimeEquation(float a1, float b1, float c1)
             {
                 if (x1 > x2 && x2 < 15 && x2 > 0)
                 {
-                    // sPrint("the smallest time soluation is x2  ",x2,"sec");
-                    // Serial.print(" the time soluation x2  ");
-                    // Serial.println(x2);
                     return 1000 * x2;
                 }
                 else if (x2 > x1 && x1 < 15)
                 {
-                    // sPrint("the smallest time soluation is x1  ",x1,"sec");
                     Serial.print(" the time soluation x1  ");
                     Serial.println(x1);
                     return 1000 * x1;
@@ -155,14 +141,12 @@ float speed::solveTimeEquation(float a1, float b1, float c1)
 
                 else if (x2 > 0 && x2 < 15)
                 {
-                    // sPrint("the smallest time soluation is x2  ",x2,"sec");
                     Serial.print(" the time soluation x2  ");
                     Serial.println(x2);
                     return 1000 * x2;
                 }
                 else if (x1 > x2 && x1 < 15)
                 {
-                    // sPrint("the smallest time soluation is x1  ",x1,"sec");
                     Serial.print(" the time soluation x1  ");
                     Serial.println(x1);
                     return 1000 * x1;
@@ -170,9 +154,7 @@ float speed::solveTimeEquation(float a1, float b1, float c1)
                 else
                 {
                     Serial.println(" the values are not right or so big ");
-                    // Serial.print(" the time soluation x1  ");
                     Serial.println(x1);
-                    // Serial.print(" the time soluation x2  ");
                     Serial.println(x2);
                 }
             }

@@ -515,7 +515,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
           new_timetarget+=angel_15_correction/2;
         }
       }
-      else
+      else // if programm mode 2,3,4 
       {
         new_rest_time=rest_time-time_correction_value;
         if (ang_speed>12)
@@ -541,7 +541,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
       sPrint("time_rest used here ",rest_time);
       sPrint("time_total_used here ",total_time);
       sPrint("time_rest_equation ",time_rest_to_null_equation);
-      sPrint("time_total_equation ",time_total_hall);
+      sPrint("time_total_equation_hall ",time_total_hall);
       sPrint("time_rest_speed ",time_rest_to_null_speed);
       sPrint("time_total_speed_photo ",time_total_photo_speed);
       sPrint("time_total_speed_hall ",time_total_hall_speed);

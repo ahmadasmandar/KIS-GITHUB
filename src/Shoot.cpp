@@ -34,9 +34,10 @@ void Shoot::shootManuel()
 void Shoot::fireBall( float total_time, uint8_t section, float time_resto, uint16_t window, uint16_t target_time)
 {
   delay_time_shoot=0;
-  if (time_resto > target_time && time_resto < 5000)
+  if (time_resto >= target_time && time_resto < 5000)
   {
     delay_time_shoot = time_resto - target_time;
+    
     if (delay_time_shoot < 5000)
     {
       delay(delay_time_shoot);

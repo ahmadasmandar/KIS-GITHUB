@@ -198,7 +198,7 @@ float speed::solveTimeEquation(float a1, float b1, float c1)
 
         else if (discriminant == 0 && a != 0)
         {
-            x1 = (-b + sqrt(discriminant)) / (2 * a);
+            x1 = -b / (2 * a);
             // sPrint("there is only one soluation  ",x1,"sec");
             Serial.print(" the time soluation x1 doupple  ");
             Serial.println(x1);

@@ -283,7 +283,7 @@ if (Hall_help==true && photo_section>3)
           break;
       
       break;
-      // here we are using the angel to calculate the values 
+      // here we are using the tow sensors 
       case 3:
           getAcceleration('p');
           while (hall_section!=0)

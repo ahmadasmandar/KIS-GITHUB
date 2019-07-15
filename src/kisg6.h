@@ -1,5 +1,4 @@
-//******** Written by Ahmad Asmanda 03.05.2019 **************
-//
+
 #ifndef KISG6_H
 #define KISG6_H
 #include "Arduino.h"

@@ -68,9 +68,9 @@ uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
 boolean choose_mode_flag=true;
 // try to use accerleration array
 boolean start_hall=false, Hall_help=true,secure_it=false;
-//secure motion and check stop arrays
-float sec_arr[2];
-float stop_arr[10];
+//secure motion and check stop arrays and Parameter
+uint16_t sec_arr[2];
+uint16_t stop_arr[10];
 uint8_t sec_counter,stop_counter;
 
 //*******************Functions prototypes
@@ -118,7 +118,7 @@ void loop()
      for that brief period.
       using the cli() sei() functions;
    * ***/
-sec_arr[sec_counter]=time_delta_photo;
+sec_arr[sec_counter]=time_delta_photo; // die Zeit für 30° 
 stop_arr[stop_counter]=time_delta_photo;
 sec_counter=checkCounter(sec_counter,2);
 stop_counter=checkCounter(stop_counter,10);
@@ -231,7 +231,7 @@ if (Hall_help==true && photo_section>3)
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
-          
+
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           //hold_position ist die jetzige Section wovon wir mit Berechnungen angefangen haben
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
@@ -323,29 +323,6 @@ if (Hall_help==true && photo_section>3)
     press_delay_trigger = millis();
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

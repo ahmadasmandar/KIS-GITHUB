@@ -21,26 +21,26 @@ float speed::hallSpeed(int delta_hal)
 }
 float speed::photoRst(int photo_seco, int delta_pho_rst, float accelo_1)
 {
-    float photo_speed_intern = photoSpeed(delta_pho_rst);
+    float photo_speed_intern = photoSpeed(delta_pho_rst)+accelo_1*(delta_pho_rst/1000);
     float help_val_theta = ((photo_seco) * (PI / 6));//TODO WE NEED TO ADD THE 15 dgree from the beginning 
     float result = solveTimeEquation(accelo_1, photo_speed_intern, help_val_theta);
     return result;
 }
 float speed::hallRst(int hall_seco, int delta_hall_rst, float accelo_2)
 {
-    float hall_speed_intern = hallSpeed(delta_hall_rst);
+    float hall_speed_intern = hallSpeed(delta_hall_rst)+accelo_2*(delta_hall_rst/1000);
     float help_val_theta = (hall_seco)*PI;
     float result = solveTimeEquation(accelo_2, hall_speed_intern, help_val_theta);
     return result;
 }
 float speed::totalHallTime(int delto_hall, float accelo_3)
 {
-    float hallSpeedo = hallSpeed(delto_hall);
+    float hallSpeedo = hallSpeed(delto_hall)+accelo_3*(delto_hall/1000);
     return (solveTimeEquation(accelo_3, hallSpeedo, 2 * PI));
 }
 float speed::totalPhotoTime(int delto_photo, float accelo_4)
 {
-    float photoSpeedo = photoSpeed(delto_photo);
+    float photoSpeedo = photoSpeed(delto_photo)+accelo_4*(delto_photo/1000);
     float result = (solveTimeEquation(accelo_4, photoSpeedo, 2 * PI));
     return result;
 }
@@ -67,7 +67,7 @@ boolean speed::secureMotion(int val1, int val2, boolean start_FLAG)
 }
 
 //*******
-void speed::checkStop(float stop_array[10])
+void speed::checkStop(uint16_t stop_array[10])
 {
     int sum=0;
     for (int g=0;g<10;g++)

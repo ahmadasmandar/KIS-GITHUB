@@ -52,7 +52,7 @@ boolean speed::secureMotion(int val1, int val2, boolean start_FLAG)
     {
         if (start_FLAG == true)
         {
-            Serial.println("the check is started");
+            Serial.println("the SecureMotion is working");
             start_FLAG = false;
         }
         if (abs(val1 - val2) > val2 || abs(val1 - val2) > val1)
@@ -76,11 +76,11 @@ void speed::checkStop(float stop_array[10])
     {
         sum+=stop_array[g];
     }
-    if (sum/10 == stop_array[3])
+    if (sum/10 == stop_array[0] && sum/10 ==stop_array[4] && sum/10 ==stop_array[9])
     {
         Serial.print(" Warrning Stop detected !!!!!  ");
         Serial.println(sum/10);
-        Serial.println(stop_array[3]);
+        Serial.println(stop_array[0]);
     }
 }
 // float speed::getThetavalues(int time_interval, int time_target_val, float angular_acceleartion_val, char xval)

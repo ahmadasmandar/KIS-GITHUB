@@ -27,7 +27,6 @@ uint32_t photo_start, hall_start;            // these wil be used to calculate t
 // **************  here is the Variabls which will be changed in the Interrupts ********//
 volatile uint16_t time_delta_photo;
 volatile uint16_t time_delta_hall;
-volatile boolean shoot_flag=false;
 /////
 // volatile float time_interrupt_photo, time_interrupt_hall; // these will hold the time rest values from the change point..
 //********
@@ -62,20 +61,12 @@ uint32_t start_excu_time=0;
  int time_total_photo_equation, time_rest_to_null_equation;
  int time_total_hall_speed;
 //****************
-//uint32_t fill_start_timer=0;
-//uint16_t time_correction_value;
 int time_used_to_calc;
 //try to add the angel from interrupt 
-// volatile uint32_t theta_photo=15,theta_hall=15;
-volatile uint32_t photo_cycle=1,hall_cycle=1;
-// uint32_t hold_theta_photo,hold_theta_hall;
 //************
 uint8_t button1_vlaue = LOW, program_mode = 1, switch_input = LOW;
 boolean choose_mode_flag=true;
 // try to use accerleration array
-// float accel_array[5];
-// uint8_t accel_counter,speed_counter;
-// int cycle_hoder;
 boolean start_hall=false, Hall_help=true,secure_it=false;
 //secure motion and check stop arrays
 float sec_arr[2];
@@ -90,10 +81,8 @@ void hall_sens_interrupt();
 /*****/
 uint16_t checkCounter(uint16_t counter1, uint8_t maxV);
 void sPrint(String to_pr_c, float valo);
-// void stopSerial(uint8_t checkSerial);
 void checkStartCondtions(uint8_t hall_seco, uint8_t hoto_cso);
 uint8_t chooseMode();
-// uint8_t getTargetSection(float theta_target_1);
 //**********
 void getAcceleration(char x_sens);
 //*******
@@ -102,7 +91,6 @@ void readMode();
 //***
 void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section, uint16_t total_time,uint16_t rest_time,uint16_t delta_hoder);
 // end function prototypes
-// float adujstAngelwithSpeed(float speed_in,uint8_t section_number,char t_r);
 
 //****************** the setup *****************************
 
@@ -130,7 +118,6 @@ void loop()
      for that brief period.
       using the cli() sei() functions;
    * ***/
-//TODO update the speed and acceleration function delete the array and work without it
 sec_arr[sec_counter]=time_delta_photo;
 stop_arr[stop_counter]=time_delta_photo;
 sec_counter=checkCounter(sec_counter,2);
@@ -236,22 +223,17 @@ if (Hall_help==true && photo_section>3)
 
     case 2:
            getAcceleration('p');
-          while (photo_section!=2)
+          while (photo_section!=0)
           {
             delay(1);
           }
-          Serial.println("Goooooooooo");
           start_excu_time=millis();
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
-          // hold_theta_photo=theta_photo;
-          // cycle_hoder=photo_cycle;
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
-          // new way to calculate the time using the angel in degree 
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
-
           if (angular_speed<17)
           {   
               time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
@@ -279,7 +261,6 @@ if (Hall_help==true && photo_section>3)
           shootMain(angular_speed,hold_position,photo_section,time_total_photo_equation,time_rest_to_null_equation-time_used_to_calc,hold_delta_photo_sensor);
            Serial.print("time_used_to_caculate");
           Serial.println(time_used_to_calc);
-          // sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
           break;
       
       break;
@@ -290,16 +271,13 @@ if (Hall_help==true && photo_section>3)
           {
             delay(1);
           }
+          //TODO we need to take care of 15° angel because the deference between hall and 
           start_excu_time=millis();
-          Serial.println("Goooooooooo");
           hold_delta_photo_sensor=time_delta_photo;
           hold_position=photo_section;
           hold_test_position=hall_section;
-          // // hold_theta_photo=theta_photo;
-          // cycle_hoder=photo_cycle;
           time_total_photo_equation=speed_main.totalPhotoTime(hold_delta_photo_sensor,angular_acceleration);
           time_rest_to_null_equation=speed_main.photoRst(hold_position,hold_delta_photo_sensor,angular_acceleration);
-          // new way to calculate the time using the angel in degree 
           angular_speed=speed_main.photoSpeed(hold_delta_photo_sensor)+(angular_acceleration*(hold_delta_photo_sensor/1000));
 
           if (angular_speed<17)
@@ -329,10 +307,10 @@ if (Hall_help==true && photo_section>3)
           shootMain(angular_speed,hold_position,photo_section,time_total_photo_equation,time_rest_to_null_equation-time_used_to_calc,hold_delta_photo_sensor);
            Serial.print("time_used_to_caculate");
           Serial.println(time_used_to_calc);
+          //TODO try the time calc with the total time too
           // sPrint("end time  exucte and print  ",millis()-start_excu_time,"ms");
           break;
     case 4:
-          //TODO degree time caculate function using the theta angel
       shoot_main.shootManuel();         
       break;
     }
@@ -377,12 +355,11 @@ void photo_sens_interrupt()
 {
   time_delta_photo = millis() - photo_start;
   photo_start = millis();
-  // theta_photo+=30;
    photo_section+=1;
   if (photo_section==12)
   {
     photo_section=0;
-    photo_cycle+=1;
+    // photo_cycle+=1;
   }
 }
 
@@ -396,11 +373,10 @@ void hall_sens_interrupt()
        hall_section+=1;
   }
  
-  // theta_hall+=180;
   if (hall_section==2)
   {
     hall_section=0;
-    hall_cycle+=1;
+    // hall_cycle+=1;
   }
 }
 

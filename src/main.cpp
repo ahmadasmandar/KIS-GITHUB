@@ -117,10 +117,12 @@ void loop()
      for that brief period.
       using the cli() sei() functions;
    * ***/
+  // hier wird nur die beiden secure und stop array gefüllt
 sec_arr[sec_counter]=time_delta_photo; // die Zeit für 30° 
 stop_arr[stop_counter]=time_delta_photo;
 sec_counter=checkCounter(sec_counter,2);
 stop_counter=checkCounter(stop_counter,10);
+// check if richtig start
 if (Hall_help==true && photo_section>3)
 {
   Hall_help=false;
@@ -132,7 +134,11 @@ if (Hall_help==true && photo_section>3)
  readMode();
  program_mode=chooseMode();
  checkStartCondtions(hall_section,photo_section);
+ // if wir richtig angefangen aktiviert die secure motion
+ if (start_hall==true)
+ {
  secure_it=speed_main.secureMotion(sec_arr[0],sec_arr[1],secure_it);
+ }
  if (start_hall==true)
  {
    if (stop_arr[10]!=0 && millis()>10000)
@@ -190,17 +196,17 @@ if (Hall_help==true && photo_section>3)
 
       if (angular_speed<12)
           {   
-              time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
+              time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI)))/angular_speed);
               time_total_hall_speed=1000*(2*PI/angular_speed);
           }
           else if (angular_speed>12 && angular_speed<25)
           {
-            time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
+            time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI)))/angular_speed);
             time_total_hall_speed=1000*(4*PI/angular_speed);
           }
           else if (angular_speed>25)
           {
-            time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
+            time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI)))/angular_speed);
             time_total_hall_speed=1000*(6*PI/angular_speed);
           }
           

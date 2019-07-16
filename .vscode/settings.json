@@ -6,5 +6,16 @@
     "terminal.integrated.env.linux": {
         "PATH": "/home/ahmad/.platformio/penv/bin:/home/ahmad/.platformio/penv:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ahmad/.dotnet/tools",
         "PLATFORMIO_CALLER": "vscode"
-    }
+    },
+    "python.pythonPath": "C:\\Program Files (x86)\\Python37-32\\python.exe",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./Data-Analyse",
+        "-p",
+        "*_test.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": true
 }

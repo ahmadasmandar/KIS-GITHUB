@@ -134,6 +134,7 @@ if (Hall_help==true && photo_section>3)
  readMode();
  program_mode=chooseMode();
  checkStartCondtions(hall_section,photo_section);
+ // if wir richtig angefangen aktiviert die secure motion
  if (start_hall==true)
  {
  secure_it=speed_main.secureMotion(sec_arr[0],sec_arr[1],secure_it);
@@ -195,17 +196,17 @@ if (Hall_help==true && photo_section>3)
 
       if (angular_speed<12)
           {   
-              time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI/6)))/angular_speed);
+              time_rest_to_null_speed=1000*((2*PI-(hold_position*(PI)))/angular_speed);
               time_total_hall_speed=1000*(2*PI/angular_speed);
           }
           else if (angular_speed>12 && angular_speed<25)
           {
-            time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI/6)))/angular_speed);
+            time_rest_to_null_speed=1000*((4*PI-(hold_position*(PI)))/angular_speed);
             time_total_hall_speed=1000*(4*PI/angular_speed);
           }
           else if (angular_speed>25)
           {
-            time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI/6)))/angular_speed);
+            time_rest_to_null_speed=1000*((6*PI-(hold_position*(PI)))/angular_speed);
             time_total_hall_speed=1000*(6*PI/angular_speed);
           }
           

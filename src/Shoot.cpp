@@ -62,7 +62,7 @@ void Shoot::fireBall( float total_time, uint8_t section, float time_resto, uint1
       Serial.println("****");
     }
   }
-  else if (total_time >= target_time)
+  else if (total_time > target_time)
   {
     delay_time_shoot = total_time - (target_time - time_resto);
     if (delay_time_shoot < 5000)

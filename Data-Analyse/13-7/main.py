@@ -1,5 +1,6 @@
 
 #https://plot.ly/matplotlib/polynomial-fits/
+#"c:/Users/Ahmad Asmandar/Desktop/KIS-GITHUB/Data-Analyse/13-7/main.py"
 from matplotlib import pyplot as plt
 import numpy as np
 f = open('100 % photo', 'r+')

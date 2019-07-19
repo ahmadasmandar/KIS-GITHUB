@@ -357,6 +357,7 @@ void photo_sens_interrupt()
     photo_section=0;
     // photo_cycle+=1;
   }
+  Serial.println(time_delta_photo);
 }
 
 //************** HALL SENS INTERRUPT *********
@@ -527,7 +528,7 @@ void shootMain(float ang_speed, uint8_t pos_holder,uint8_t current_section,
           // y = - 2.03*x + 97.05
           new_timetarget= - 3.03*angular_speed_shoot + 102.6;
           // new_timetarget= - 2.03*angular_speed_shoot + 97.05;
-          new_timetarget-=angel_15_correction/10;
+          new_timetarget+=angel_15_correction/10;
         }
         else
         {

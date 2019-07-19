@@ -9,6 +9,11 @@
  // the time aus FreienFall Gesetz mit s=0.75m und g= 9.81
 uint16_t time_fall=1000* sqrt((2*0.75)/9.81); // the result will be in 391.030 ms 
 
+//TODO يجب اعادة اجراء عملية تحليل الاخطاء لاصطدام الكرة بجدار الالانبوب قبل السقوط 
+// TODO أخد قيم صحيحة لفؤق الوقت من الحساسات واجراء عملية تحليل للقيم مع الزمن وتصحيح 
+// TODO تجربة أخذ قيم السرعة مباشرة من المقاطعة 
+// TODO تحليل قيم الحساسين من دون أي شي فقط نقل القيم للماتلاب وتحليل القيم 
+
 //************** Objects from the main Classes  ******************//
 
 speed speed_main; // from The Class Speed that will help in calculate every important value (speed, time, time rest, time total......)

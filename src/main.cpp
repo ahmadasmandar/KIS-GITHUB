@@ -151,7 +151,6 @@ if (Hall_help==true && photo_section>3)
    speed_main.checkStop(stop_arr);
  }
  }
-
  //sPrint("first millis ",millis(),"ms");
  if (millis()>2000)
  {

@@ -170,6 +170,7 @@ if (Hall_help==true && photo_section>3)
      break;
    }
  }
+
   //************************************************ the main part ******************************************************************
 
   if (digitalRead(hartz.trigger) == HIGH &&  millis() - press_delay_trigger > 2000)
